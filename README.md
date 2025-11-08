@@ -7,7 +7,7 @@ This repository hosts my public website: **solar forecasting (GHI/PV), time-seri
 
 ## Profiles
 - Personal website: https://www.cyrilvoyant.com/  
-- Structured person page: https://person.cyrilvoyant.com/ 
+- Structured person page: https://person.cyrilvoyant.com 
 - ORCID: https://orcid.org/0000-0003-0242-7377  
 - Google Scholar: https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en  
 - GitHub: https://github.com/cyrilvoyant
