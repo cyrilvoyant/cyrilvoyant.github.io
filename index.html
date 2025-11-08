@@ -1,139 +1,117 @@
 <!doctype html>
-<html lang="fr">
+<html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cyril Voyant — Mines Paris-PSL | Prévision solaire, séries temporelles, open science</title>
+<title>Cyril Voyant — Research Director (Mines Paris–PSL) | Solar Forecasting, Time Series, Medical Physics, Open Science</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<!-- SEO de base -->
-<meta name="description" content="Cyril Voyant (Mines Paris-PSL, O.I.E.) — Recherche sur la prévision solaire (GHI/PV), séries temporelles, métriques d’évaluation (NICEk), ELM & MIMO, outils open-source.">
-<meta name="keywords" content="Cyril Voyant, Mines Paris-PSL, OIE, prévision solaire, GHI, PV, time series forecasting, ELM, MIMO, NICEk, energy forecasting, open science, data visualization">
-<meta name="author" content="Cyril Voyant">
+<!-- Core SEO -->
+<meta name="description" content="Cyril Voyant (Mines Paris–PSL) — solar forecasting (GHI/PV), time-series modelling (ELM/MIMO), evaluation metrics (NICEk), open-source tools; prior work in medical physics (radiotherapy dose equivalence, LQ/LQL).">
+<meta name="keywords" content="Cyril Voyant,Mines Paris PSL,OIE,solar forecasting,GHI,PV power,time series,ELM,MIMO,NICEk,forecast evaluation,open science,medical physics,radiotherapy,dosimetry,LQ,LQL,software">
 <link rel="canonical" href="https://cyrilvoyant.github.io/">
 
 <!-- Open Graph / Twitter -->
 <meta property="og:type" content="website">
-<meta property="og:title" content="Cyril Voyant — Mines Paris-PSL | Prévision solaire & séries temporelles">
-<meta property="og:description" content="Prévision solaire (GHI/PV), séries temporelles, métriques NICEk, outils open-source, open science.">
+<meta property="og:title" content="Cyril Voyant — Mines Paris–PSL">
+<meta property="og:description" content="Solar forecasting & time series (ELM/MIMO, NICEk), open science; prior contributions in medical physics (LQ/LQL).">
 <meta property="og:url" content="https://cyrilvoyant.github.io/">
-<meta property="og:image" content="https://www.cyrilvoyant.com/static/og-cover.png">
+<meta property="og:image" content="https://github.com/cyrilvoyant.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cyril Voyant — Mines Paris-PSL">
-<meta name="twitter:description" content="Prévision solaire, séries temporelles, open science.">
-<meta name="twitter:image" content="https://www.cyrilvoyant.com/static/og-cover.png">
+<meta name="twitter:title" content="Cyril Voyant — Research Director, Mines Paris–PSL">
+<meta name="twitter:description" content="Solar forecasting, time series, medical physics, open science.">
+<meta name="twitter:image" content="https://github.com/cyrilvoyant.png">
 
-<!-- Liens d’identité (utile SEO/IA) -->
+<!-- Identity links -->
 <link rel="me" href="https://orcid.org/0000-0003-0242-7377">
 <link rel="me" href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en">
 <link rel="me" href="https://github.com/cyrilvoyant">
+<link rel="me" href="https://www.cyrilvoyant.com/">
+<link rel="me" href="https://www.person.cyrilvoyant.com/">
 
-<!-- Styles minimalistes, propres -->
+<!-- Minimal, clean CSS -->
 <style>
-:root{--fg:#0d0d0d;--muted:#666;--link:#0a66c2;--bg:#fff;--card:#f7f7f8}
+:root{--fg:#0d0d0d;--muted:#666;--bg:#fff;--card:#f7f7f8;--link:#0a66c2}
 *{box-sizing:border-box}
-html,body{margin:0;padding:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial}
 a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
 .wrap{max-width:1100px;margin:0 auto;padding:24px}
-header{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px 24px;margin:12px 0 24px}
-header h1{font-size:1.8rem;margin:.2rem 0}
+header{display:flex;gap:20px;align-items:center;margin:10px 0 24px}
+header img{width:96px;height:96px;border-radius:50%;border:1px solid #e6e6e8}
+header h1{margin:0 0 4px;font-size:1.8rem}
 header p{margin:0;color:var(--muted)}
-.badges a{display:inline-block;margin-right:8px;padding:6px 10px;border-radius:999px;background:var(--card);border:1px solid #e6e6e8;font-size:.88rem}
+.badges a{display:inline-block;margin:6px 8px 0 0;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid #e6e6e8;font-size:.88rem}
+.section{margin:28px 0}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid #e6e6e8;border-radius:14px;padding:16px}
 .card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
 .card p{margin:.3rem 0;color:var(--muted)}
-.section{margin:28px 0}
 small.muted{color:var(--muted)}
 footer{margin:32px 0 12px;color:var(--muted)}
-.kv{display:grid;grid-template-columns:120px 1fr;gap:8px 16px}
+.kv{display:grid;grid-template-columns:130px 1fr;gap:8px 16px}
 .kv div{padding:2px 0}
 </style>
 
-<!-- JSON-LD : Person -->
+<!-- JSON-LD: Person (with medical physics + energy forecasting) -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"Person",
   "name":"Cyril Voyant",
-  "jobTitle":"Directeur de Recherche",
-  "affiliation":{
-    "@type":"Organization",
-    "name":"Mines Paris–PSL (Laboratoire Observation, Impacts, Énergie – O.I.E.)",
-    "url":"https://www.minesparis.psl.eu/"
-  },
+  "jobTitle":"Research Director",
+  "worksFor":{"@type":"Organization","name":"Mines Paris–PSL — O.I.E. Laboratory","url":"https://www.minesparis.psl.eu/"},
   "url":"https://www.cyrilvoyant.com/",
-  "image":"https://www.cyrilvoyant.com/static/portrait.jpg",
+  "image":"https://github.com/cyrilvoyant.png",
   "sameAs":[
     "https://orcid.org/0000-0003-0242-7377",
     "https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en",
     "https://github.com/cyrilvoyant",
-    "https://www.person.cyrilvoyant.com/"
+    "https://www.person.cyrilvoyant.com/",
+    "https://www.linkedin.com/in/cyril-voyant-2a7767192/"
   ],
   "knowsAbout":[
     "Solar radiation forecasting","Global Horizontal Irradiance (GHI)","Photovoltaic (PV) power",
     "Time-series forecasting","Extreme Learning Machine (ELM)","MIMO forecasting","Forecast evaluation metrics (NICEk)",
-    "Open science","Scientific visualization"
+    "Medical physics","Radiotherapy dosimetry","LQ/LQL models","renewable energy", "radiobiology", "radiotherapy", "medical physocs", "Dose equivalence"
   ]
 }
 </script>
 
-<!-- JSON-LD : WebSite + SearchAction (pour IA/moteurs) -->
+<!-- JSON-LD: WebSite + SearchAction -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"WebSite",
   "name":"Cyril Voyant — Research & Software",
   "url":"https://cyrilvoyant.github.io/",
-  "potentialAction":{
-    "@type":"SearchAction",
-    "target":"https://cyrilvoyant.github.io/?q={search_term_string}",
-    "query-input":"required name=search_term_string"
-  }
+  "potentialAction":{"@type":"SearchAction","target":"https://cyrilvoyant.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}
 }
 </script>
 
-<!-- JSON-LD : Liste des dépôts logiciels (SoftwareSourceCode) -->
+<!-- JSON-LD: Software list (ItemList) -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@type":"ItemList",
   "name":"Open-source software by Cyril Voyant",
   "itemListElement":[
-    {
-      "@type":"SoftwareSourceCode",
-      "name":"Make_Stationary",
-      "url":"https://github.com/cyrilvoyant/Make_Stationary",
-      "programmingLanguage":"MATLAB",
-      "description":"Déseasonnalisation légère par ELM et projection conditionnée en phase pour séries horaires PV/GHI."
-    },
-    {
-      "@type":"SoftwareSourceCode",
-      "name":"ARTU",
-      "url":"https://github.com/cyrilvoyant/ARTU",
-      "programmingLanguage":"MATLAB",
-      "description":"Utilitaires de séries temporelles et benchmarks pour GHI/PV (alignés Renewable Energy 2022)."
-    },
-    {
-      "@type":"SoftwareSourceCode",
-      "name":"Data_Viz_2024",
-      "url":"https://github.com/cyrilvoyant/Data_Viz_2024",
-      "programmingLanguage":"MATLAB",
-      "description":"Scripts & figures MATLAB pour visualisations scientifiques (GHI/PV, cycles, métriques)."
-    },
-    {
-      "@type":"SoftwareSourceCode",
-      "name":"DICOM-Transfer-Modify",
-      "url":"https://github.com/cyrilvoyant/DICOM-Transfer-Modify",
-      "programmingLanguage":"Batchfile",
-      "description":"Décompression JPEG/JPEG2000, normalisation Explicit VR LE, anonymisation, envoi PACS (DCMTK/GDCM)."
-    },
-    {
-      "@type":"SoftwareSourceCode",
-      "name":"LQ-Equiv",
-      "url":"https://github.com/cyrilvoyant/LQ-Equiv",
-      "programmingLanguage":"MATLAB",
-      "description":"Outil historique d’équivalences de dose (LQ/LQL) — dépôt public."
-    }
+    {"@type":"SoftwareSourceCode","name":"Make_Stationary","url":"https://github.com/cyrilvoyant/Make_Stationary","programmingLanguage":"MATLAB","description":"ELM-based cyclic deseasonalization for PV/GHI using phase-conditioned projection."},
+    {"@type":"SoftwareSourceCode","name":"ARTU","url":"https://github.com/cyrilvoyant/ARTU","programmingLanguage":"MATLAB","description":"Benchmark utilities for solar time-series forecasting (aligned with Renewable Energy, 2022)."},
+    {"@type":"SoftwareSourceCode","name":"Data_Viz_2024","url":"https://github.com/cyrilvoyant/Data_Viz_2024","programmingLanguage":"MATLAB","description":"MATLAB figures and visualisation scripts for hourly energy production and forecast horizons."},
+    {"@type":"SoftwareSourceCode","name":"DICOM-Transfer-Modify","url":"https://github.com/cyrilvoyant/DICOM-Transfer-Modify","programmingLanguage":"Batchfile","description":"Deterministic DICOM JPEG/J2K → Explicit VR LE workflow (DCMTK/GDCM) incl. anonymisation + PACS."},
+    {"@type":"SoftwareSourceCode","name":"LQ-Equiv","url":"https://github.com/cyrilvoyant/LQ-Equiv","programmingLanguage":"MATLAB","description":"Dose-equivalence calculator based on LQ/LQL radiobiological models (medical physics)."}
+  ]
+}
+</script>
+
+<!-- JSON-LD: Selected publications (energy + medical) -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ItemList",
+  "name":"Selected Publications",
+  "itemListElement":[
+    {"@type":"ScholarlyArticle","name":"Benchmarks for solar radiation time series forecasting","isPartOf":{"@type":"PublicationVolume","name":"Renewable Energy","volumeNumber":"191"},"pageStart":"747","pageEnd":"762","datePublished":"2022","identifier":"https://doi.org/10.1016/j.renene.2022.04.065","author":[{"@type":"Person","name":"Cyril Voyant"}]},
+    {"@type":"ScholarlyArticle","name":"Biological effects and equivalent doses in radiotherapy: A software solution","isPartOf":{"@type":"Periodical","name":"Reports of Practical Oncology and Radiotherapy"},"datePublished":"2013","identifier":"https://doi.org/10.1016/j.rpor.2013.08.004","author":[{"@type":"Person","name":"Cyril Voyant"}]}
   ]
 }
 </script>
@@ -141,69 +119,74 @@ footer{margin:32px 0 12px;color:var(--muted)}
 
 <body>
 <div class="wrap">
-  <header>
-    <div>
-      <h1>Cyril Voyant</h1>
-      <p>Directeur de Recherche — Mines Paris-PSL (O.I.E.)</p>
-      <div class="badges">
-        <a href="https://www.cyrilvoyant.com/" rel="noopener">Site</a>
-        <a href="https://www.person.cyrilvoyant.com/" rel="noopener">Fiche Person</a>
-        <a href="https://orcid.org/0000-0003-0242-7377" rel="noopener">ORCID</a>
-        <a href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en" rel="noopener">Google Scholar</a>
-        <a href="https://github.com/cyrilvoyant" rel="noopener">GitHub</a>
-      </div>
+
+<header>
+  <img src="https://github.com/cyrilvoyant.png" alt="Portrait of Cyril Voyant">
+  <div>
+    <h1>Cyril Voyant</h1>
+    <p>Research Director — Mines Paris–PSL (O.I.E. Laboratory)</p>
+    <div class="badges">
+      <a href="https://www.cyrilvoyant.com/">Website</a>
+      <a href="https://www.person.cyrilvoyant.com/">Person (structured)</a>
+      <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a>
+      <a href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en">Google Scholar</a>
+      <a href="https://github.com/cyrilvoyant">GitHub</a>
     </div>
-  </header>
+  </div>
+</header>
 
-  <section class="section">
-    <h2>À propos</h2>
-    <div class="kv">
-      <div><small class="muted">Thèmes</small></div>
-      <div>Prévision solaire (GHI/PV), séries temporelles, ELM/MIMO, métriques d’évaluation (NICE<sup>k</sup>), visualisation scientifique, open science.</div>
-      <div><small class="muted">Institution</small></div>
-      <div>Mines Paris–PSL (Laboratoire O.I.E.)</div>
-      <div><small class="muted">Contact</small></div>
-      <div>via <a href="https://www.cyrilvoyant.com/" rel="noopener">cyrilvoyant.com</a></div>
-    </div>
-  </section>
+<section class="section">
+  <h2>About</h2>
+  <div class="kv">
+    <div><small class="muted">Domains</small></div>
+    <div>Solar forecasting (GHI/PV), time-series modelling (ELM, MIMO, multi-horizon), accuracy metrics (NICE<sup>k</sup>), scientific visualisation, open science.</div>
+    <div><small class="muted">Prior work</small></div>
+    <div>Medical physics (radiotherapy): radiobiology models (LQ/LQL), dose-equivalence tools (LQ-Equiv), dosimetry and software validation.</div>
+    <div><small class="muted">Affiliation</small></div>
+    <div>Mines Paris–PSL (O.I.E. Laboratory)</div>
+    <div><small class="muted">Contact</small></div>
+    <div>Via <a href="https://www.cyrilvoyant.com/">cyrilvoyant.com</a> or profiles above.</div>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Logiciels / dépôts</h2>
-    <div class="grid">
-      <article class="card">
-        <h3><a href="https://github.com/cyrilvoyant/Make_Stationary">Make_Stationary</a></h3>
-        <p>Déseasonnalisation ELM + projection phase (séries PV/GHI). JSON-LD & CITATION fournis.</p>
-      </article>
-      <article class="card">
-        <h3><a href="https://github.com/cyrilvoyant/ARTU">ARTU</a></h3>
-        <p>Utilitaires de benchmarks (GHI/PV, métriques, visualisations), alignés Renewable Energy 2022.</p>
-      </article>
-      <article class="card">
-        <h3><a href="https://github.com/cyrilvoyant/Data_Viz_2024">Data_Viz_2024</a></h3>
-        <p>Figures MATLAB pour horizons de prévision, cycles diurnes/annuels, diagnostics résiduels.</p>
-      </article>
-      <article class="card">
-        <h3><a href="https://github.com/cyrilvoyant/DICOM-Transfer-Modify">DICOM-Transfer-Modify</a></h3>
-        <p>Chaîne déterministe DCMTK/GDCM (JPEG/J2K → Explicit VR LE, anonymisation, PACS).</p>
-      </article>
-      <article class="card">
-        <h3><a href="https://github.com/cyrilvoyant/LQ-Equiv">LQ-Equiv</a></h3>
-        <p>Outil historique LQ/LQL (équivalences de dose) — dépôt public.</p>
-      </article>
-    </div>
-  </section>
+<section class="section">
+  <h2>Open-source Software</h2>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/Make_Stationary">Make_Stationary</a></h3>
+      <p>ELM-based cyclic deseasonalization for PV/GHI with phase-conditioned projection. JSON-LD & CFF included.</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/ARTU">ARTU</a></h3>
+      <p>Benchmark utilities for solar forecasting (aligned with Renewable Energy, 2022).</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/Data_Viz_2024">Data_Viz_2024</a></h3>
+      <p>MATLAB figures for hourly energy production, diurnal/annual cycles, residual diagnostics.</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/DICOM-Transfer-Modify">DICOM-Transfer-Modify</a></h3>
+      <p>Deterministic JPEG/J2K → Explicit VR LE DICOM pipeline (DCMTK/GDCM) incl. anonymisation + PACS.</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/LQ-Equiv">LQ-Equiv</a></h3>
+      <p>Radiotherapy dose-equivalence calculator based on LQ/LQL models.</p>
+    </article>
+  </div>
+</section>
 
-  <section class="section">
-    <h2>Références</h2>
-    <ul>
-      <li>Voyant C., <em>Benchmarks for solar radiation time series forecasting</em>, Renewable Energy 191:747–762 (2022). DOI : <a href="https://doi.org/10.1016/j.renene.2022.04.065">10.1016/j.renene.2022.04.065</a></li>
-      <!-- Ajoute ici d'autres références si tu le souhaites -->
-    </ul>
-  </section>
+<section class="section">
+  <h2>Selected Publications</h2>
+  <ul>
+    <li>Voyant C. et al., <em>Benchmarks for solar radiation time series forecasting</em>, <strong>Renewable Energy</strong> 191:747–762 (2022). DOI: <a href="https://doi.org/10.1016/j.renene.2022.04.065">10.1016/j.renene.2022.04.065</a></li>
+    <li>Voyant C., Julian D., <em>Biological effects and equivalent doses in radiotherapy: A software solution</em>, <strong>Reports of Practical Oncology and Radiotherapy</strong> (2013). DOI: <a href="https://doi.org/10.1016/j.rpor.2013.08.004">10.1016/j.rpor.2013.08.004</a></li>
+  </ul>
+</section>
 
-  <footer>
-    <small class="muted">© Cyril Voyant — Mines Paris-PSL • Open-source • JSON-LD activé • Dernière mise à jour : 2025-11-08</small>
-  </footer>
+<footer>
+  <small class="muted">© Cyril Voyant — Mines Paris–PSL • Open science • JSON-LD enabled • Last updated: 2025-11-08</small>
+</footer>
+
 </div>
 </body>
 </html>
