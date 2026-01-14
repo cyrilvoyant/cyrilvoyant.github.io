@@ -1,4 +1,4 @@
-# Cyril Voyant — Research Director (Mines Paris–PSL)
+# Cyril Voyant — Research Director (Mines Paris–PSL) | Associate Editor, Scientific Reports (Nature Portfolio)
 
 This repository hosts my public website: **solar forecasting (GHI/PV), time-series modelling (ELM/MIMO), NICE^k metrics, open-source tools**, and **earlier contributions in medical physics** (LQ/LQL radiobiology, dose equivalence).
 
