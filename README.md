@@ -58,7 +58,7 @@ This is a bibliometric listing based on standardized Scopus-derived citation ind
 - `cv.json` — machine-readable academic CV.
 - `publications.json` — selected publications in JSON-LD format.
 - `llms.txt` — concise profile summary for AI retrieval systems.
-- `robots.txt` — crawl policy and sitemap declaration.
+- `robot.txt` — crawl policy and sitemap declaration.
 - `sitemap.xml` — sitemap for search engines.
 - `README.md` — repository-level profile and deployment information.
 
@@ -107,7 +107,7 @@ index.html
 cv.json
 publications.json
 llms.txt
-robots.txt
+robot.txt
 sitemap.xml
 README.md
 ```
