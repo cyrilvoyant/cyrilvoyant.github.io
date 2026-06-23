@@ -107,7 +107,7 @@ index.html
 cv.json
 publications.json
 llms.txt
-robot.txt
+robots.txt
 sitemap.xml
 README.md
 ```
