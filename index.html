@@ -2,124 +2,389 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Cyril Voyant — Research Director (Mines Paris–PSL) | Solar Forecasting, Time Series, Medical Physics, Open Science</title>
+<title>Cyril Voyant — Solar Irradiance Forecasting, Time-Series Modelling and AI for Energy Systems</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1">
+<meta name="google-site-verification" content="cBxccPwCPtXg-lX2GP7dyWhKL6Myon2OX-nx4TrO4Vo">
+<meta name="author" content="Cyril Voyant">
 <meta name="email" content="cyril.voyant@minesparis.psl.eu">
-<meta name="google-site-verification" content="cBxccPwCPtXg-lX2GP7dyWhKL6Myon2OX-nx4TrO4Vo" />
+<meta name="description" content="Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL / O.I.E. His research focuses on solar irradiance forecasting, PV power forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics and medical physics.">
+<meta name="keywords" content="Cyril Voyant, solar irradiance forecasting, solar radiation forecasting, GHI forecasting, PV power forecasting, photovoltaic forecasting, time-series forecasting, AI for energy systems, Extreme Learning Machine, ELM forecasting, MIMO forecasting, NICEk metrics, forecast evaluation metrics, renewable energy forecasting, medical physics, radiotherapy dosimetry, LQ LQL models, Mines Paris PSL, OIE, Stanford Elsevier Top 2% Scientists, Energy subfield">
+<meta name="citation_author" content="Voyant, Cyril">
+<meta name="citation_author_orcid" content="0000-0003-0242-7377">
+<meta name="citation_keywords" content="solar irradiance forecasting; solar radiation forecasting; PV forecasting; time-series modelling; AI for energy systems; forecast evaluation metrics; medical physics">
 
-<!-- Core SEO -->
-<meta name="description" content="Cyril Voyant (Mines Paris–PSL) — solar forecasting (GHI/PV), time-series modelling (ELM/MIMO), evaluation metrics (NICEk), open-source tools; prior work in medical physics (radiotherapy dose equivalence, LQ/LQL).">
-<meta name="keywords" content="Cyril Voyant,Mines Paris PSL,OIE,solar forecasting,GHI,PV power,time series,ELM,MIMO,NICEk,forecast evaluation,open science,medical physics,radiotherapy,dosimetry,LQ,LQL,software">
 <link rel="canonical" href="https://cyrilvoyant.github.io/">
-
-<!-- Open Graph / Twitter -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Cyril Voyant — Mines Paris–PSL">
-<meta property="og:description" content="Solar forecasting & time series (ELM/MIMO, NICEk), open science; prior contributions in medical physics (LQ/LQL).">
-<meta property="og:url" content="https://cyrilvoyant.github.io/">
-<meta property="og:image" content="https://github.com/cyrilvoyant.png">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Cyril Voyant — Research Director, Mines Paris–PSL">
-<meta name="twitter:description" content="Solar forecasting, time series, medical physics, open science.">
-<meta name="twitter:image" content="https://github.com/cyrilvoyant.png">
-
-<!-- Identity links -->
+<link rel="author" href="https://person.cyrilvoyant.com/">
+<link rel="me" href="https://person.cyrilvoyant.com/">
+<link rel="me" href="https://www.cyrilvoyant.com/">
 <link rel="me" href="https://orcid.org/0000-0003-0242-7377">
+<link rel="me" href="https://cv.hal.science/cyril-voyant">
+<link rel="me" href="https://www.idref.fr/161422802">
 <link rel="me" href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en">
 <link rel="me" href="https://github.com/cyrilvoyant">
-<link rel="me" href="https://www.cyrilvoyant.com/">
-<link rel="me" href="https://person.cyrilvoyant.com/">
+<link rel="me" href="https://www.wikidata.org/wiki/Q58251573">
+<link rel="me" href="https://www.semanticscholar.org/author/Cyril-Voyant/2013408">
+<link rel="me" href="https://dblp.org/pid/60/1422">
+<link rel="alternate" type="application/json" href="https://cyrilvoyant.github.io/cv.json" title="Machine-readable CV">
+<link rel="alternate" type="text/markdown" href="https://cyrilvoyant.github.io/llms.txt" title="LLM-readable profile summary">
+<link rel="sitemap" type="application/xml" href="https://cyrilvoyant.github.io/sitemap.xml">
 
-<!-- Minimal, clean CSS -->
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Cyril Voyant — Research Director at Mines Paris–PSL">
+<meta property="og:description" content="Solar irradiance forecasting, PV forecasting, time-series modelling, AI for energy systems, NICEk metrics, open science and medical physics.">
+<meta property="og:url" content="https://cyrilvoyant.github.io/">
+<meta property="og:image" content="https://github.com/cyrilvoyant.png">
+<meta property="profile:first_name" content="Cyril">
+<meta property="profile:last_name" content="Voyant">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Cyril Voyant — Solar Forecasting, AI for Energy Systems">
+<meta name="twitter:description" content="Research Director at Mines Paris–PSL / O.I.E. Solar irradiance forecasting, time-series modelling, forecast metrics and medical physics.">
+<meta name="twitter:image" content="https://github.com/cyrilvoyant.png">
+
 <style>
-:root{--fg:#0d0d0d;--muted:#666;--bg:#fff;--card:#f7f7f8;--link:#0a66c2}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 system-ui,Segoe UI,Roboto,Arial}
-a{color:var(--link);text-decoration:none} a:hover{text-decoration:underline}
-.wrap{max-width:1100px;margin:0 auto;padding:24px}
-header{display:flex;gap:20px;align-items:center;margin:10px 0 24px}
-header img{width:96px;height:96px;border-radius:50%;border:1px solid #e6e6e8}
-header h1{margin:0 0 4px;font-size:1.8rem}
-header p{margin:0;color:var(--muted)}
-.badges a{display:inline-block;margin:6px 8px 0 0;padding:6px 12px;border-radius:999px;background:var(--card);border:1px solid #e6e6e8;font-size:.88rem}
-.section{margin:28px 0}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{background:var(--card);border:1px solid #e6e6e8;border-radius:14px;padding:16px}
-.card h3{margin:.2rem 0 .4rem;font-size:1.05rem}
-.card p{margin:.3rem 0;color:var(--muted)}
-small.muted{color:var(--muted)}
-footer{margin:32px 0 12px;color:var(--muted)}
-.kv{display:grid;grid-template-columns:130px 1fr;gap:8px 16px}
-.kv div{padding:2px 0}
+:root {
+  --fg:#111;
+  --muted:#555;
+  --bg:#fff;
+  --card:#f7f7f8;
+  --line:#e3e3e6;
+  --link:#0a58a8;
+}
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--fg); font:16px/1.62 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif; }
+a { color:var(--link); text-decoration:none; }
+a:hover { text-decoration:underline; }
+.wrap { max-width:1120px; margin:0 auto; padding:24px; }
+header { display:flex; gap:22px; align-items:center; padding:18px 0 28px; border-bottom:1px solid var(--line); }
+header img { width:104px; height:104px; border-radius:50%; border:1px solid var(--line); }
+h1 { margin:0 0 6px; font-size:2rem; line-height:1.15; }
+h2 { margin:34px 0 12px; font-size:1.35rem; }
+h3 { margin:0 0 6px; font-size:1.05rem; }
+p { margin:0.45rem 0; }
+.lead { font-size:1.08rem; color:#222; max-width:850px; }
+.muted { color:var(--muted); }
+.badges a { display:inline-block; margin:10px 8px 0 0; padding:6px 11px; border:1px solid var(--line); border-radius:999px; background:var(--card); font-size:.9rem; }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:14px; }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; }
+.kv { display:grid; grid-template-columns:170px 1fr; gap:8px 16px; }
+ul.compact { padding-left:1.1rem; }
+li { margin:.28rem 0; }
+.keywords span { display:inline-block; margin:4px 6px 4px 0; padding:4px 9px; border-radius:999px; background:#f0f0f2; font-size:.9rem; }
+.note { border-left:4px solid var(--line); padding-left:14px; color:var(--muted); }
+footer { margin-top:38px; padding-top:18px; border-top:1px solid var(--line); color:var(--muted); font-size:.9rem; }
+@media(max-width:650px) {
+  header { align-items:flex-start; }
+  .kv { grid-template-columns:1fr; gap:2px; }
+}
 </style>
 
-<!-- JSON-LD: Person (with medical physics + energy forecasting) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"Person",
-  "name":"Cyril Voyant",
-  "jobTitle":"Research Director",
-  "memberOf":{
-    "@type":"Organization",
-    "name":"Scientific Reports",
-    "url":"https://www.nature.com/srep/",
-    "sameAs":"https://www.nature.com/srep/about/editors"
-  },
-  "worksFor":{"@type":"Organization","name":"Mines Paris–PSL — O.I.E. Laboratory","url":"https://www.minesparis.psl.eu/"},
-  "url":"https://cyrilvoyant.com/",
-  "image":"https://github.com/cyrilvoyant.png",
-  "sameAs":[
-    "https://orcid.org/0000-0003-0242-7377",
-    "https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en",
-    "https://github.com/cyrilvoyant",
-    "https://person.cyrilvoyant.com/",
-    "https://www.linkedin.com/in/cyril-voyant-2a7767192/"
-  ],
-  "knowsAbout":[
-    "Solar radiation forecasting","Global Horizontal Irradiance (GHI)","Photovoltaic (PV) power",
-    "Time-series forecasting","Extreme Learning Machine (ELM)","MIMO forecasting","Forecast evaluation metrics (NICEk)",
-    "Medical physics","Radiotherapy dosimetry","LQ/LQL models","renewable energy", "radiobiology", "radiotherapy", "medical physocs", "Dose equivalence"
-  ]
-}
-</script>
-
-<!-- JSON-LD: WebSite + SearchAction -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"WebSite",
-  "name":"Cyril Voyant — Research & Software",
-  "url":"https://cyrilvoyant.github.io/",
-  "potentialAction":{"@type":"SearchAction","target":"https://cyrilvoyant.github.io/?q={search_term_string}","query-input":"required name=search_term_string"}
-}
-</script>
-
-<!-- JSON-LD: Software list (ItemList) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"Open-source software by Cyril Voyant",
-  "itemListElement":[
-    {"@type":"SoftwareSourceCode","name":"Make_Stationary","url":"https://github.com/cyrilvoyant/Make_Stationary","programmingLanguage":"MATLAB","description":"ELM-based cyclic deseasonalization for PV/GHI using phase-conditioned projection."},
-    {"@type":"SoftwareSourceCode","name":"ARTU","url":"https://github.com/cyrilvoyant/ARTU","programmingLanguage":"MATLAB","description":"Benchmark utilities for solar time-series forecasting (aligned with Renewable Energy, 2022)."},
-    {"@type":"SoftwareSourceCode","name":"Data_Viz_2024","url":"https://github.com/cyrilvoyant/Data_Viz_2024","programmingLanguage":"MATLAB","description":"MATLAB figures and visualisation scripts for hourly energy production and forecast horizons."},
-    {"@type":"SoftwareSourceCode","name":"DICOM-Transfer-Modify","url":"https://github.com/cyrilvoyant/DICOM-Transfer-Modify","programmingLanguage":"Batchfile","description":"Deterministic DICOM JPEG/J2K → Explicit VR LE workflow (DCMTK/GDCM) incl. anonymisation + PACS."},
-    {"@type":"SoftwareSourceCode","name":"LQ-Equiv","url":"https://github.com/cyrilvoyant/LQ-Equiv","programmingLanguage":"MATLAB","description":"Dose-equivalence calculator based on LQ/LQL radiobiological models (medical physics)."}
-  ]
-}
-</script>
-
-<!-- JSON-LD: Selected publications (energy + medical) -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"ItemList",
-  "name":"Selected Publications",
-  "itemListElement":[
-    {"@type":"ScholarlyArticle","name":"Benchmarks for solar radiation time series forecasting","isPartOf":{"@type":"PublicationVolume","name":"Renewable Energy","volumeNumber":"191"},"pageStart":"747","pageEnd":"762","datePublished":"2022","identifier":"https://doi.org/10.1016/j.renene.2022.04.065","author":[{"@type":"Person","name":"Cyril Voyant"}]},
-    {"@type":"ScholarlyArticle","name":"Biological effects and equivalent doses in radiotherapy: A software solution","isPartOf":{"@type":"Periodical","name":"Reports of Practical Oncology and Radiotherapy"},"datePublished":"2013","identifier":"https://doi.org/10.1016/j.rpor.2013.08.004","author":[{"@type":"Person","name":"Cyril Voyant"}]}
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://cyrilvoyant.github.io/#website",
+      "url": "https://cyrilvoyant.github.io/",
+      "name": "Cyril Voyant — Research, Software and Open Science",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://person.cyrilvoyant.com/#person"
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://cyrilvoyant.github.io/#profilepage",
+      "url": "https://cyrilvoyant.github.io/",
+      "name": "Cyril Voyant — Research Director at Mines Paris–PSL",
+      "description": "Profile page for Cyril Voyant, Research Director at Mines Paris–PSL / O.I.E., specializing in solar irradiance forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics and medical physics.",
+      "inLanguage": "en",
+      "dateModified": "2026-06-23",
+      "isPartOf": {
+        "@id": "https://cyrilvoyant.github.io/#website"
+      },
+      "primaryImageOfPage": "https://github.com/cyrilvoyant.png",
+      "mainEntity": {
+        "@id": "https://person.cyrilvoyant.com/#person"
+      },
+      "about": {
+        "@id": "https://person.cyrilvoyant.com/#person"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://person.cyrilvoyant.com/#person",
+      "name": "Cyril Voyant",
+      "givenName": "Cyril",
+      "familyName": "Voyant",
+      "honorificSuffix": "PhD, HDR",
+      "image": "https://github.com/cyrilvoyant.png",
+      "url": "https://person.cyrilvoyant.com/",
+      "email": "mailto:cyril.voyant@minesparis.psl.eu",
+      "jobTitle": "Research Director",
+      "worksFor": {
+        "@id": "https://www.minesparis.psl.eu/#organization"
+      },
+      "affiliation": [
+        {
+          "@id": "https://www.minesparis.psl.eu/#organization"
+        },
+        {
+          "@id": "https://www.oie.minesparis.psl.eu/#organization"
+        },
+        {
+          "@id": "https://fin.kg.ac.rs/#organization"
+        }
+      ],
+      "description": "French physicist and Research Director at Mines Paris–PSL / O.I.E. His research focuses on solar irradiance forecasting, photovoltaic power forecasting, time-series modelling, machine learning for energy systems, forecast evaluation metrics and open scientific software. He also has prior and continuing contributions in medical physics, radiotherapy dosimetry and radiobiological dose-equivalence modelling.",
+      "disambiguatingDescription": "Cyril Voyant, French physicist specializing in solar radiation forecasting, solar energy, AI for energy systems and medical physics.",
+      "knowsAbout": [
+        "solar irradiance forecasting",
+        "solar radiation forecasting",
+        "global horizontal irradiance forecasting",
+        "GHI forecasting",
+        "photovoltaic power forecasting",
+        "PV forecasting",
+        "time-series forecasting",
+        "multi-horizon forecasting",
+        "Extreme Learning Machine",
+        "ELM forecasting",
+        "MIMO forecasting",
+        "forecast evaluation metrics",
+        "NICEk metrics",
+        "renewable energy systems",
+        "energy forecasting",
+        "microgrids",
+        "open science",
+        "medical physics",
+        "radiotherapy dosimetry",
+        "radiobiological modelling",
+        "LQ and LQL dose-equivalence models"
+      ],
+      "sameAs": [
+        "https://www.cyrilvoyant.com/",
+        "https://cyrilvoyant.github.io/",
+        "https://orcid.org/0000-0003-0242-7377",
+        "https://cv.hal.science/cyril-voyant",
+        "https://www.idref.fr/161422802",
+        "https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en",
+        "https://github.com/cyrilvoyant",
+        "https://www.wikidata.org/wiki/Q58251573",
+        "https://www.semanticscholar.org/author/Cyril-Voyant/2013408",
+        "https://dblp.org/pid/60/1422",
+        "https://www.linkedin.com/in/cyril-voyant-2a7767192/",
+        "https://www.researchgate.net/profile/Cyril-Voyant",
+        "https://www.nature.com/srep/about/editors",
+        "https://fin.kg.ac.rs/en/component/content/article/202-news/2380-professors-gilles-notton-and-cyril-voyant-appointed-as-visiting-professors-at-the-faculty-of-engineering?Itemid=620"
+      ],
+      "subjectOf": [
+        {
+          "@type": "WebPage",
+          "name": "HAL scientific CV",
+          "url": "https://cv.hal.science/cyril-voyant"
+        },
+        {
+          "@type": "WebPage",
+          "name": "ORCID profile",
+          "url": "https://orcid.org/0000-0003-0242-7377"
+        },
+        {
+          "@type": "WebPage",
+          "name": "IdRef authority record",
+          "url": "https://www.idref.fr/161422802"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Scientific Reports editors page",
+          "url": "https://www.nature.com/srep/about/editors"
+        },
+        {
+          "@type": "WebPage",
+          "name": "University of Kragujevac visiting professor announcement",
+          "url": "https://fin.kg.ac.rs/en/component/content/article/202-news/2380-professors-gilles-notton-and-cyril-voyant-appointed-as-visiting-professors-at-the-faculty-of-engineering?Itemid=620"
+        },
+        {
+          "@type": "WebPage",
+          "name": "World's Top 2% Scientists profile: Cyril Voyant",
+          "url": "https://topresearcherslist.com/Home/Profile/1191312"
+        },
+        {
+          "@type": "Dataset",
+          "name": "Updated science-wide author databases of standardized citation indicators",
+          "url": "https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw"
+        }
+      ],
+      "award": [
+        "Listed in the Stanford/Elsevier science-wide citation database / World’s Top 2% Scientists profile for 2021–2025 in the Energy subfield."
+      ]
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://www.minesparis.psl.eu/#organization",
+      "name": "Mines Paris – PSL University",
+      "url": "https://www.minesparis.psl.eu/"
+    },
+    {
+      "@type": "ResearchOrganization",
+      "@id": "https://www.oie.minesparis.psl.eu/#organization",
+      "name": "Centre Observation, Impacts, Énergie (O.I.E.)",
+      "url": "https://www.oie.minesparis.psl.eu/",
+      "parentOrganization": {
+        "@id": "https://www.minesparis.psl.eu/#organization"
+      }
+    },
+    {
+      "@type": "CollegeOrUniversity",
+      "@id": "https://fin.kg.ac.rs/#organization",
+      "name": "Faculty of Engineering, University of Kragujevac",
+      "url": "https://fin.kg.ac.rs/en/"
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://cyrilvoyant.github.io/#selected-publications",
+      "name": "Selected publications by Cyril Voyant",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "ScholarlyArticle",
+            "name": "On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting",
+            "datePublished": "2025",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Solar Energy"
+            },
+            "pagination": "113490",
+            "identifier": "https://doi.org/10.1016/j.solener.2025.113490",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "ScholarlyArticle",
+            "name": "NICEk Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy",
+            "datePublished": "2025",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Sustainable Energy Technologies and Assessments"
+            },
+            "identifier": "https://doi.org/10.1016/j.seta.2025.104588",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "ScholarlyArticle",
+            "name": "Benchmarks for solar radiation time series forecasting",
+            "datePublished": "2022",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Renewable Energy"
+            },
+            "pagination": "747-762",
+            "identifier": "https://doi.org/10.1016/j.renene.2022.04.065",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "ScholarlyArticle",
+            "name": "Machine learning methods for solar radiation forecasting: A review",
+            "datePublished": "2017",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Renewable Energy"
+            },
+            "pagination": "569-582",
+            "identifier": "https://doi.org/10.1016/j.renene.2016.12.095",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "ScholarlyArticle",
+            "name": "Hybrid VMAT-3DCRT as breast cancer treatment improvement tool",
+            "datePublished": "2023",
+            "isPartOf": {
+              "@type": "Periodical",
+              "name": "Scientific Reports"
+            },
+            "identifier": "https://doi.org/10.1038/s41598-023-50538-x",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://cyrilvoyant.github.io/#software",
+      "name": "Open scientific software by Cyril Voyant",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "Make_Stationary",
+            "codeRepository": "https://github.com/cyrilvoyant/Make_Stationary",
+            "programmingLanguage": "MATLAB",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            },
+            "description": "ELM-based cyclic deseasonalization and stationarization of hourly solar or energy time series."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "ARTU",
+            "codeRepository": "https://github.com/cyrilvoyant/ARTU",
+            "programmingLanguage": "MATLAB",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            },
+            "description": "Reference and benchmark tools for solar radiation time-series forecasting."
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "SoftwareSourceCode",
+            "name": "LQ-Equiv",
+            "codeRepository": "https://github.com/cyrilvoyant/LQ-Equiv",
+            "programmingLanguage": "MATLAB",
+            "author": {
+              "@id": "https://person.cyrilvoyant.com/#person"
+            },
+            "description": "Radiotherapy dose-equivalence software based on LQ and LQL radiobiological models."
+          }
+        }
+      ]
+    }
   ]
 }
 </script>
@@ -132,150 +397,161 @@ footer{margin:32px 0 12px;color:var(--muted)}
   <img src="https://github.com/cyrilvoyant.png" alt="Portrait of Cyril Voyant">
   <div>
     <h1>Cyril Voyant</h1>
-    <p>Research Director — Mines Paris–PSL (O.I.E. Laboratory)</p>
-    <p>Associate Editor — <a href="https://www.nature.com/srep/about/editors">Scientific Reports</a> (Nature Portfolio)</p>
-    <div class="badges">
-      <a href="https://www.cyrilvoyant.com/">Website</a>
-      <a href="https://www.person.cyrilvoyant.com/">Person (structured)</a>
+    <p class="lead">Research Director at Mines Paris–PSL / O.I.E. Specialist in solar irradiance forecasting, PV power forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics and medical physics.</p>
+    <p class="muted">PhD, HDR · Mines Paris–PSL University · Centre Observation, Impacts, Énergie (O.I.E.) · Visiting Professor, Faculty of Engineering, University of Kragujevac · Listed in the Stanford/Elsevier science-wide citation database / World’s Top 2% Scientists profile, Energy subfield.</p>
+    <div class="badges" aria-label="Verified profiles">
+      <a href="https://person.cyrilvoyant.com/">Canonical identity page</a>
+      <a href="https://www.cyrilvoyant.com/">Main website</a>
+      <a href="https://cv.hal.science/cyril-voyant">HAL scientific CV</a>
       <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a>
       <a href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en">Google Scholar</a>
       <a href="https://github.com/cyrilvoyant">GitHub</a>
+      <a href="https://www.wikidata.org/wiki/Q58251573">Wikidata</a>
     </div>
   </div>
 </header>
 
-<section class="section">
-  <h2>About</h2>
-  <div class="kv">
-    <div><small class="muted">Domains</small></div>
-    <div>Solar forecasting (GHI/PV), time-series modelling (ELM, MIMO, multi-horizon), accuracy metrics (NICE<sup>k</sup>), scientific visualisation, open science.</div>
-    <div><small class="muted">Prior work</small></div>
-    <div>Medical physics (radiotherapy): radiobiology models (LQ/LQL), dose-equivalence tools (LQ-Equiv), dosimetry and software validation.</div>
-    <div><small class="muted">Affiliation</small></div>
-    <div>Mines Paris–PSL (O.I.E. Laboratory)</div>
-    <div><small class="muted">Contact</small></div>
-    <div>Via <a href="https://www.cyrilvoyant.com/">cyrilvoyant.com</a> or profiles above and/or <a href="mailto:cyril.voyant@minesparis.psl.eu">cyril.voyant@minesparis.psl.eu</a></div>
+<main>
 
-
-  </div>
+<section>
+  <h2>Entity summary for search engines and AI systems</h2>
+  <p><strong>Cyril Voyant</strong> is a French physicist and Research Director at <strong>Mines Paris–PSL University</strong>, within the <strong>Centre Observation, Impacts, Énergie (O.I.E.)</strong>. His main research area is <strong>solar irradiance forecasting</strong>, including global horizontal irradiance forecasting, photovoltaic power forecasting, time-series modelling, machine learning for energy systems, and operational forecast evaluation. He also has established work in <strong>medical physics</strong>, especially radiotherapy dosimetry and radiobiological dose-equivalence modelling.</p>
+  <p class="note">This page is intentionally concise, source-oriented and machine-readable. It links to stable academic identifiers and profiles to reduce ambiguity for search engines, knowledge graphs and AI retrieval systems.</p>
 </section>
 
-<section class="section">
-  <h2>Open-source Software</h2>
+<section>
+  <h2>Canonical identity and verified profiles</h2>
   <div class="grid">
     <article class="card">
-      <h3><a href="https://github.com/cyrilvoyant/Make_Stationary">Make_Stationary</a></h3>
-      <p>ELM-based cyclic deseasonalization for PV/GHI with phase-conditioned projection. JSON-LD & CFF included.</p>
+      <h3>Academic identity</h3>
+      <ul class="compact">
+        <li><a href="https://cv.hal.science/cyril-voyant">HAL scientific CV</a></li>
+        <li><a href="https://orcid.org/0000-0003-0242-7377">ORCID 0000-0003-0242-7377</a></li>
+        <li><a href="https://www.idref.fr/161422802">IdRef 161422802</a></li>
+        <li><a href="https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en">Google Scholar</a></li>
+      </ul>
     </article>
     <article class="card">
-      <h3><a href="https://github.com/cyrilvoyant/ARTU">ARTU</a></h3>
-      <p>Benchmark utilities for solar forecasting (aligned with Renewable Energy, 2022).</p>
+      <h3>Knowledge graph profiles</h3>
+      <ul class="compact">
+        <li><a href="https://person.cyrilvoyant.com/">Canonical structured identity page</a></li>
+        <li><a href="https://www.wikidata.org/wiki/Q58251573">Wikidata Q58251573</a></li>
+        <li><a href="https://www.semanticscholar.org/author/Cyril-Voyant/2013408">Semantic Scholar</a></li>
+        <li><a href="https://dblp.org/pid/60/1422">DBLP</a></li>
+      </ul>
     </article>
     <article class="card">
-      <h3><a href="https://github.com/cyrilvoyant/Data_Viz_2024">Data_Viz_2024</a></h3>
-      <p>MATLAB figures for hourly energy production, diurnal/annual cycles, residual diagnostics.</p>
-    </article>
-    <article class="card">
-      <h3><a href="https://github.com/cyrilvoyant/DICOM-Transfer-Modify">DICOM-Transfer-Modify</a></h3>
-      <p>Deterministic JPEG/J2K → Explicit VR LE DICOM pipeline (DCMTK/GDCM) incl. anonymisation + PACS.</p>
-    </article>
-    <article class="card">
-      <h3><a href="https://github.com/cyrilvoyant/LQ-Equiv">LQ-Equiv</a></h3>
-      <p>Radiotherapy dose-equivalence calculator based on LQ/LQL models.</p>
+      <h3>Current roles</h3>
+      <ul class="compact">
+        <li>Research Director — Mines Paris–PSL / O.I.E.</li>
+        <li>Visiting Professor — Faculty of Engineering, University of Kragujevac</li>
+        <li>Listed on the <a href="https://www.nature.com/srep/about/editors">Scientific Reports editors page</a></li>
+      </ul>
     </article>
   </div>
 </section>
 
-<section class="section">
-  <h2>Selected Publications</h2>
+<section>
+  <h2>Bibliometric recognition</h2>
+  <div class="card">
+    <p><strong>Stanford/Elsevier science-wide citation database / World’s Top 2% Scientists profile:</strong> Cyril Voyant is listed for 2021, 2022, 2023, 2024 and 2025 in the Energy subfield, according to the public TopResearchersList profile derived from the Stanford/Elsevier standardized citation indicator datasets.</p>
+    <p class="muted">This is a bibliometric listing based on Scopus-derived citation indicators and composite score methodology. It is not presented here as an academic prize.</p>
+    <p><a href="https://topresearcherslist.com/Home/Profile/1191312">TopResearchersList profile</a> · <a href="https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw">Elsevier Data Repository dataset</a></p>
+  </div>
+</section>
+
+<section>
+  <h2>Research focus</h2>
+  <div class="grid">
+    <article class="card">
+      <h3>Solar irradiance and PV forecasting</h3>
+      <p>Forecasting of solar radiation, global horizontal irradiance, photovoltaic production and renewable energy time series, with emphasis on short-term and multi-horizon operational use.</p>
+    </article>
+    <article class="card">
+      <h3>Time-series modelling and AI</h3>
+      <p>Machine learning and statistical modelling for energy systems, including Extreme Learning Machines, autoregressive models, MIMO forecasting, cyclostationarity and benchmark design.</p>
+    </article>
+    <article class="card">
+      <h3>Forecast evaluation metrics</h3>
+      <p>Development and use of rigorous deterministic forecast metrics, including NICE<sup>k</sup>, with attention to benchmark choice, statistical discrimination and operational interpretability.</p>
+    </article>
+    <article class="card">
+      <h3>Medical physics</h3>
+      <p>Prior and continuing work on radiotherapy dosimetry, radiobiology, LQ/LQL dose-equivalence models and software tools for treatment interpretation and comparison.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>High-value topical queries</h2>
+  <p class="muted">The following terms describe the scientific scope of this profile and are intentionally present as visible text for retrieval systems.</p>
+  <p class="keywords">
+    <span>solar irradiance forecasting</span>
+    <span>solar radiation forecasting</span>
+    <span>GHI forecasting</span>
+    <span>PV power forecasting</span>
+    <span>photovoltaic forecasting</span>
+    <span>time-series forecasting</span>
+    <span>AI for energy systems</span>
+    <span>Extreme Learning Machine forecasting</span>
+    <span>MIMO forecasting</span>
+    <span>NICEk metrics</span>
+    <span>forecast evaluation metrics</span>
+    <span>renewable energy forecasting</span>
+    <span>medical physics</span>
+    <span>radiotherapy dosimetry</span>
+    <span>LQ/LQL dose-equivalence models</span>
+  </p>
+</section>
+
+<section>
+  <h2>Selected publications</h2>
   <ul>
-
-    <li>
-      Voyant C., Despotovic M., Notton G., Saint-Drenan Y.-M., Asloune M., Garcia-Gutierrez L.,
-      <em>On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting</em>,
-      <strong>Solar Energy</strong>, 294:113490 (2025).
-    </li>
-
-    <li>
-      Voyant C., Despotovic M., Garcia-Gutierrez L., Amaro e Silva R., Lauret P., Soubdhan T., Bailek N.,
-      <em>NICE<sup>k</sup> Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy</em>,
-      <strong>Sustainable Energy Technologies and Assessments</strong>, 83:104588 (2025).
-    </li>
-
-    <li>
-      Voyant C., Lauret P., Notton G., Duchaud J.-L., Garcia-Gutierrez L., Faggianelli G.-A.,
-      <em>Complex-valued time series based solar irradiance forecast</em>,
-      <strong>Journal of Renewable and Sustainable Energy</strong>, 14(6) (2022).
-    </li>
-
-    <li>
-      Voyant C. et al.,
-      <em>Benchmarks for solar radiation time series forecasting</em>,
-      <strong>Renewable Energy</strong>, 191:747–762 (2022).
-      DOI: <a href="https://doi.org/10.1016/j.renene.2022.04.065">10.1016/j.renene.2022.04.065</a>
-    </li>
-
-    <li>
-      Voyant C., Pinpin M., Leschi D., Prapant S., Savigny F., Acquaviva M.-A.,
-      <em>Hybrid VMAT-3DCRT as Breast Cancer Treatment Improvement Tool</em>,
-      <strong>Scientific Reports</strong>, 13 (2023).
-    </li>
-
-    <li>
-      Voyant C. et al.,
-      <em>Machine learning methods for solar radiation forecasting: A review</em>,
-      <strong>Renewable Energy</strong>, 105:569–582 (2017).
-    </li>
-
-    <li>
-      Voyant C., Soubdhan T., Lauret P., David M., Muselli M.,
-      <em>Statistical parameters as a means to a priori assess the accuracy of solar forecasting models</em>,
-      <strong>Energy</strong>, 90:671–679 (2015).
-    </li>
-
-    <li>
-      Voyant C., Haurant P., Muselli M., Paoli C., Nivet M.-L.,
-      <em>Time series modeling and large scale global solar radiation forecasting from geostationary satellites data</em>,
-      <strong>Solar Energy</strong>, 102:131–142 (2014).
-    </li>
-
-    <li>
-      Voyant C., Darras C., Muselli M., Paoli C., Nivet M.-L., Poggi P.,
-      <em>Bayesian rules and stochastic models for high accuracy prediction of solar radiation</em>,
-      <strong>Applied Energy</strong>, 114:218–226 (2013).
-    </li>
-
-    <li>
-      Voyant C., Muselli M., Paoli C., Nivet M.-L.,
-      <em>Hybrid methodology for hourly global radiation forecasting in Mediterranean area</em>,
-      <strong>Renewable Energy</strong>, 53:1–11 (2013).
-    </li>
-
-    <li>
-      Voyant C., Muselli M., Paoli C., Nivet M.-L.,
-      <em>Numerical weather prediction (NWP) and hybrid ARMA/ANN model to predict global radiation</em>,
-      <strong>Energy</strong>, 39(1):341–355 (2012).
-    </li>
-
-    <li>
-      Voyant C., Muselli M., Paoli C., Nivet M.-L.,
-      <em>Optimization of an artificial neural network dedicated to the multivariate forecasting of daily global radiation</em>,
-      <strong>Energy</strong>, 36(1):348–359 (2011).
-    </li>
-
-    <li>
-      Voyant C., Julian D.,
-      <em>Biological effects and equivalent doses in radiotherapy: A software solution</em>,
-      <strong>Reports of Practical Oncology and Radiotherapy</strong> (2013).
-      DOI: <a href="https://doi.org/10.1016/j.rpor.2013.08.004">10.1016/j.rpor.2013.08.004</a>
-    </li>
-
+    <li>Voyant C., Despotovic M., Notton G., Saint-Drenan Y.-M., Asloune M., Garcia-Gutierrez L. <em>On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting</em>. <strong>Solar Energy</strong>, 294:113490, 2025. DOI: <a href="https://doi.org/10.1016/j.solener.2025.113490">10.1016/j.solener.2025.113490</a>.</li>
+    <li>Voyant C., Despotovic M., Garcia-Gutierrez L., Amaro e Silva R., Lauret P., Soubdhan T., Bailek N. <em>NICE<sup>k</sup> Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy</em>. <strong>Sustainable Energy Technologies and Assessments</strong>, 83:104588, 2025. DOI: <a href="https://doi.org/10.1016/j.seta.2025.104588">10.1016/j.seta.2025.104588</a>.</li>
+    <li>Voyant C. et al. <em>Benchmarks for solar radiation time series forecasting</em>. <strong>Renewable Energy</strong>, 191:747–762, 2022. DOI: <a href="https://doi.org/10.1016/j.renene.2022.04.065">10.1016/j.renene.2022.04.065</a>.</li>
+    <li>Voyant C. et al. <em>Machine learning methods for solar radiation forecasting: A review</em>. <strong>Renewable Energy</strong>, 105:569–582, 2017. DOI: <a href="https://doi.org/10.1016/j.renene.2016.12.095">10.1016/j.renene.2016.12.095</a>.</li>
+    <li>Voyant C. et al. <em>Hybrid VMAT-3DCRT as breast cancer treatment improvement tool</em>. <strong>Scientific Reports</strong>, 13, 2023. DOI: <a href="https://doi.org/10.1038/s41598-023-50538-x">10.1038/s41598-023-50538-x</a>.</li>
+    <li>Voyant C., Julian D. et al. <em>Biological effects and equivalent doses in radiotherapy: a software solution</em>. <strong>Reports of Practical Oncology and Radiotherapy</strong>, 2013. DOI: <a href="https://doi.org/10.1016/j.rpor.2013.08.004">10.1016/j.rpor.2013.08.004</a>.</li>
   </ul>
 </section>
 
+<section>
+  <h2>Open scientific software</h2>
+  <div class="grid">
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/Make_Stationary">Make_Stationary</a></h3>
+      <p>MATLAB software for cyclic deseasonalization and stationarization of hourly solar or energy time series using ELM-based phase-conditioned modelling.</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/ARTU">ARTU</a></h3>
+      <p>Reference and benchmark tools for solar radiation time-series forecasting.</p>
+    </article>
+    <article class="card">
+      <h3><a href="https://github.com/cyrilvoyant/LQ-Equiv">LQ-Equiv</a></h3>
+      <p>Radiotherapy dose-equivalence calculator based on LQ and LQL radiobiological models.</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <h2>Machine-readable resources</h2>
+  <div class="kv">
+    <div class="muted">JSON CV</div>
+    <div><a href="https://cyrilvoyant.github.io/cv.json">https://cyrilvoyant.github.io/cv.json</a></div>
+    <div class="muted">LLM summary</div>
+    <div><a href="https://cyrilvoyant.github.io/llms.txt">https://cyrilvoyant.github.io/llms.txt</a></div>
+    <div class="muted">Sitemap</div>
+    <div><a href="https://cyrilvoyant.github.io/sitemap.xml">https://cyrilvoyant.github.io/sitemap.xml</a></div>
+    <div class="muted">Canonical person page</div>
+    <div><a href="https://person.cyrilvoyant.com/">https://person.cyrilvoyant.com/</a></div>
+  </div>
+</section>
+
+</main>
 
 <footer>
-  <small class="muted">© Cyril Voyant — Mines Paris–PSL • Open science • JSON-LD enabled • Last updated: 2025-11-08</small>
+  <p>© Cyril Voyant — Mines Paris–PSL / O.I.E. Last updated: 2026-06-23. This page uses JSON-LD structured data and links to verified academic identifiers.</p>
 </footer>
 
 </div>
