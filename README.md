@@ -1,26 +1,120 @@
-# Cyril Voyant — Research Director (Mines Paris–PSL) | Associate Editor, Scientific Reports (Nature Portfolio)
+# Cyril Voyant — Research Director, Mines Paris–PSL
 
-This repository hosts my public website: **solar forecasting (GHI/PV), time-series modelling (ELM/MIMO), NICE^k metrics, open-source tools**, and **earlier contributions in medical physics** (LQ/LQL radiobiology, dose equivalence).
+This repository hosts the public GitHub Pages profile of **Cyril Voyant**, Research Director at **Mines Paris–PSL / Centre Observation, Impacts, Énergie (O.I.E.)**.
 
-**Live site:** https://cyrilvoyant.github.io/  
-(You may point a custom domain/subdomain via `CNAME`.)
+The page is designed as a concise, machine-readable and search-engine-readable profile for academic visibility, open science, and AI retrieval systems.
 
-## Profiles
-- Personal website: https://www.cyrilvoyant.com/  
-- Structured person page: https://person.cyrilvoyant.com/
-- ORCID: https://orcid.org/0000-0003-0242-7377  
-- Google Scholar: https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en  
-- GitHub: https://github.com/cyrilvoyant
+## Research scope
 
-## Contents
-- `index.html` — SEO/OG/Twitter + JSON-LD (Person, Website, Software list, Publications)
-- `robots.txt` — crawl policy + sitemap
-- `sitemap.xml` — basic sitemap for search engines
+Main research fields:
 
-## How to publish (GitHub Pages)
-- Repo name: `cyrilvoyant.github.io`
-- Settings → Pages → **Branch: `main`**, **Folder: `/`**
-- Push `index.html` (and optional `robots.txt`, `sitemap.xml`, `CNAME`) → site goes live.
+* solar irradiance forecasting;
+* solar radiation forecasting;
+* global horizontal irradiance (GHI) forecasting;
+* photovoltaic (PV) power forecasting;
+* time-series modelling;
+* machine learning and AI for energy systems;
+* Extreme Learning Machines (ELM), autoregressive models and MIMO forecasting;
+* deterministic forecast evaluation metrics, including NICE<sup>k</sup>;
+* renewable energy systems and microgrids;
+* medical physics, radiotherapy dosimetry, and LQ/LQL dose-equivalence modelling.
+
+## Live site
+
+* GitHub Pages: https://cyrilvoyant.github.io/
+* Main website: https://www.cyrilvoyant.com/
+* Canonical structured identity page: https://person.cyrilvoyant.com/
+
+## Verified profiles
+
+* ORCID: https://orcid.org/0000-0003-0242-7377
+* HAL scientific CV: https://cv.hal.science/cyril-voyant
+* IdRef: https://www.idref.fr/161422802
+* Google Scholar: https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en
+* GitHub: https://github.com/cyrilvoyant
+* Wikidata: https://www.wikidata.org/wiki/Q58251573
+* Semantic Scholar: https://www.semanticscholar.org/author/Cyril-Voyant/2013408
+* DBLP: https://dblp.org/pid/60/1422
+
+## Bibliometric recognition
+
+Cyril Voyant is listed in the **Stanford/Elsevier science-wide citation database / World’s Top 2% Scientists profile** for the Energy subfield.
+
+Public profile:
+
+* https://topresearcherslist.com/Home/Profile/1191312
+
+This is a bibliometric listing based on standardized Scopus-derived citation indicators. It should be interpreted as a citation-impact indicator, not as an academic prize.
+
+## Current roles
+
+* Research Director, Mines Paris–PSL / O.I.E.
+* Visiting Professor, Faculty of Engineering, University of Kragujevac
+* Listed on the Scientific Reports editors page, Nature Portfolio
+
+## Repository contents
+
+* `index.html` — public profile page with SEO metadata, Open Graph metadata and JSON-LD structured data.
+* `cv.json` — machine-readable academic CV.
+* `llms.txt` — concise profile summary for AI retrieval systems.
+* `robots.txt` — crawl policy and sitemap declaration.
+* `sitemap.xml` — sitemap for search engines.
+* `README.md` — repository-level profile and deployment information.
+* `publications.json` — list of publications.
+
+## Structured data
+
+The website includes JSON-LD metadata using Schema.org entities such as:
+
+* `Person`;
+* `ProfilePage`;
+* `WebSite`;
+* `ScholarlyArticle`;
+* `SoftwareSourceCode`;
+* `ResearchOrganization`.
+
+The objective is to reduce ambiguity around the identity “Cyril Voyant” and to consolidate links between academic profiles, publications, software repositories, and institutional affiliations.
+
+## Selected keywords
+
+Cyril Voyant, solar irradiance forecasting, solar radiation forecasting, GHI forecasting, PV power forecasting, photovoltaic forecasting, time-series forecasting, AI for energy systems, Extreme Learning Machine, ELM forecasting, MIMO forecasting, NICEk metrics, forecast evaluation metrics, renewable energy forecasting, medical physics, radiotherapy dosimetry, LQ/LQL models, Mines Paris–PSL, O.I.E.
+
+## GitHub Pages deployment
+
+Repository name:
+
+```text
+cyrilvoyant.github.io
+```
+
+Recommended settings:
+
+```text
+Settings → Pages → Branch: main → Folder: /
+```
+
+Files to keep at the repository root:
+
+```text
+index.html
+cv.json
+llms.txt
+robots.txt
+sitemap.xml
+README.md
+```
+
+After deployment, the following URLs should be checked:
+
+```text
+https://cyrilvoyant.github.io/
+https://cyrilvoyant.github.io/cv.json
+https://cyrilvoyant.github.io/llms.txt
+https://cyrilvoyant.github.io/sitemap.xml
+```
 
 ## License
-Unless otherwise noted, website content is released under **CC-BY 4.0**, and linked software keeps its own repository license.
+
+Unless otherwise stated, website text and metadata are released under **CC BY 4.0**.
+
+Linked software repositories keep their own licenses.
