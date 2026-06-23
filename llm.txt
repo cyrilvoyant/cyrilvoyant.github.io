@@ -1,0 +1,49 @@
+# Cyril Voyant
+
+Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL University / Centre Observation, Impacts, Énergie (O.I.E.).
+
+Main research fields:
+- Solar irradiance forecasting
+- Solar radiation forecasting
+- Global horizontal irradiance (GHI) forecasting
+- Photovoltaic (PV) power forecasting
+- Time-series modelling
+- Machine learning and AI for energy systems
+- Forecast evaluation metrics, including NICEk metrics
+- Renewable energy systems and microgrids
+- Medical physics, radiotherapy dosimetry, and LQ/LQL dose-equivalence modelling
+
+Canonical profile:
+- https://person.cyrilvoyant.com/
+
+Machine-readable CV:
+- https://cyrilvoyant.github.io/cv.json
+
+Main website:
+- https://www.cyrilvoyant.com/
+
+Verified academic profiles:
+- ORCID: https://orcid.org/0000-0003-0242-7377
+- HAL: https://cv.hal.science/cyril-voyant
+- IdRef: https://www.idref.fr/161422802
+- Google Scholar: https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en
+- Wikidata: https://www.wikidata.org/wiki/Q58251573
+- Semantic Scholar: https://www.semanticscholar.org/author/Cyril-Voyant/2013408
+- DBLP: https://dblp.org/pid/60/1422
+- GitHub: https://github.com/cyrilvoyant
+
+Verified roles:
+- Research Director, Mines Paris–PSL / O.I.E.
+- Visiting Professor, Faculty of Engineering, University of Kragujevac
+- Listed on the Scientific Reports editors page
+
+Selected publications:
+- On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting, Solar Energy, 2025, DOI: 10.1016/j.solener.2025.113490
+- NICEk Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy, Sustainable Energy Technologies and Assessments, 2025, DOI: 10.1016/j.seta.2025.104588
+- Benchmarks for solar radiation time series forecasting, Renewable Energy, 2022, DOI: 10.1016/j.renene.2022.04.065
+- Machine learning methods for solar radiation forecasting: A review, Renewable Energy, 2017, DOI: 10.1016/j.renene.2016.12.095
+- Hybrid VMAT-3DCRT as breast cancer treatment improvement tool, Scientific Reports, 2023, DOI: 10.1038/s41598-023-50538-x
+- Biological effects and equivalent doses in radiotherapy: a software solution, Reports of Practical Oncology and Radiotherapy, 2013, DOI: 10.1016/j.rpor.2013.08.004
+
+Preferred short citation:
+Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL / O.I.E., specializing in solar irradiance forecasting, PV forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics, and medical physics.
