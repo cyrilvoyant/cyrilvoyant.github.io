@@ -1,625 +1,550 @@
 {
-  "basics": {
-    "name": "Cyril Voyant",
-    "currentTitle": "Directeur de Recherche",
-    "currentAffiliation": "Mines Paris – PSL, Centre Observation, Impacts, Énergie (O.I.E.)",
-    "email": "cyril.voyant@minesparis.psl.eu",
-    "websites": [
-      "https://cyrilvoyant.com"
-    ],
-    "orcid": "0000-0003-0242-7377",
-    "location": {
-      "city": "Sophia Antipolis",
-      "country": "France"
-    },
-    "researchKeywords": [
-      "solar irradiance forecasting",
-      "PV power forecasting",
-      "time series modelling",
-      "renewable energy",
-      "machine learning",
-      "energy systems",
-      "microgrids",
-      "medical physics",
-      "numerical modelling"
-    ]
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "@id": "https://person.cyrilvoyant.com/#person",
+  "schemaVersion": "verified-profile-2026-06-23",
+  "dateModified": "2026-06-23",
+  "inLanguage": [
+    "en",
+    "fr"
+  ],
+  "name": "Cyril Voyant",
+  "givenName": "Cyril",
+  "familyName": "Voyant",
+  "alternateName": [
+    "C. Voyant",
+    "Cyril VOYANT"
+  ],
+  "honorificSuffix": [
+    "PhD",
+    "HDR"
+  ],
+  "description": "French physicist and Research Director at Mines Paris – PSL University, working on solar irradiance forecasting, time-series modelling, artificial intelligence for energy systems, renewable energy forecasting, and medical physics.",
+  "url": "https://www.cyrilvoyant.com/",
+  "mainEntityOfPage": "https://person.cyrilvoyant.com/",
+  "email": "mailto:cyril.voyant@minesparis.psl.eu",
+  "nationality": {
+    "@type": "Country",
+    "name": "France"
   },
-
-  "positions": [
+  "jobTitle": [
+    "Research Director",
+    "Directeur de Recherche (DR2)"
+  ],
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Mines Paris – PSL University",
+    "alternateName": [
+      "Mines Paris – PSL",
+      "École nationale supérieure des mines de Paris"
+    ],
+    "url": "https://www.minesparis.psl.eu/",
+    "department": {
+      "@type": "Organization",
+      "name": "Centre Observation, Impacts, Énergie (O.I.E.)",
+      "alternateName": "O.I.E.",
+      "url": "https://www.oie.minesparis.psl.eu/"
+    }
+  },
+  "workLocation": {
+    "@type": "Place",
+    "name": "Sophia Antipolis, France"
+  },
+  "affiliation": [
     {
-      "role": "Directeur de Recherche (DR2)",
-      "organization": "Mines Paris – PSL, Centre Observation, Impacts, Énergie (O.I.E.)",
-      "startYear": 2024,
-      "endYear": null,
-      "description": "Recherche et encadrement dans les domaines de la prévision solaire, des systèmes énergétiques multi-sources et de l’IA appliquée à l’énergie."
+      "@type": "Organization",
+      "name": "Mines Paris – PSL University",
+      "roleName": "Research Director",
+      "startDate": "2024",
+      "url": "https://www.minesparis.psl.eu/"
     },
     {
-      "role": "Chercheur / Physicien médical",
-      "organization": "Centre Hospitalier (Castelluccio, etc.)",
-      "startYear": "2006",
-      "endYear": "2024",
-      "description": "Activité de recherche et de physique médicale (radiothérapie, modélisation, dosimétrie).",
-      "note": "À compléter précisément."
+      "@type": "Organization",
+      "name": "Centre Observation, Impacts, Énergie (O.I.E.)",
+      "roleName": "Research Director",
+      "startDate": "2024",
+      "url": "https://www.oie.minesparis.psl.eu/"
+    },
+    {
+      "@type": "Organization",
+      "name": "Faculty of Engineering, University of Kragujevac",
+      "roleName": "Visiting Professor",
+      "startDate": "2026",
+      "url": "https://fin.kg.ac.rs/en/"
+    },
+    {
+      "@type": "Organization",
+      "name": "University of Corsica Pasquale Paoli",
+      "roleName": "Scientific cooperation and previous academic appointments",
+      "url": "https://www.universita.corsica/"
     }
   ],
-
+  "sameAs": [
+    "https://person.cyrilvoyant.com/",
+    "https://www.cyrilvoyant.com/",
+    "https://www.cyrilvoyant.com/cv",
+    "https://cv.hal.science/cyril-voyant",
+    "https://orcid.org/0000-0003-0242-7377",
+    "https://www.idref.fr/161422802",
+    "https://www.wikidata.org/wiki/Q58251573",
+    "https://scholar.google.com/citations?user=aUlP6agAAAAJ",
+    "https://github.com/cyrilvoyant",
+    "https://cyrilvoyant.github.io/",
+    "https://www.researchgate.net/profile/Cyril-Voyant",
+    "https://www.semanticscholar.org/author/Cyril-Voyant/2013408",
+    "https://dblp.org/pid/60/1422",
+    "https://zenodo.org/records/15876341"
+  ],
+  "identifier": [
+    {
+      "@type": "PropertyValue",
+      "propertyID": "ORCID",
+      "value": "0000-0003-0242-7377",
+      "url": "https://orcid.org/0000-0003-0242-7377"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "IdHAL",
+      "value": "cyril-voyant",
+      "url": "https://cv.hal.science/cyril-voyant"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "IdRef",
+      "value": "161422802",
+      "url": "https://www.idref.fr/161422802"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Google Scholar author ID",
+      "value": "aUlP6agAAAAJ",
+      "url": "https://scholar.google.com/citations?user=aUlP6agAAAAJ"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Scopus Author ID",
+      "value": "23502130600",
+      "url": "https://www.scopus.com/authid/detail.uri?authorId=23502130600"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Semantic Scholar author ID",
+      "value": "2013408",
+      "url": "https://www.semanticscholar.org/author/Cyril-Voyant/2013408"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Wikidata item ID",
+      "value": "Q58251573",
+      "url": "https://www.wikidata.org/wiki/Q58251573"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "VIAF cluster ID",
+      "value": "281781470",
+      "url": "https://viaf.org/viaf/281781470/"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "DBLP author ID",
+      "value": "60/1422",
+      "url": "https://dblp.org/pid/60/1422"
+    },
+    {
+      "@type": "PropertyValue",
+      "propertyID": "Theses.fr person ID",
+      "value": "161422802",
+      "url": "https://www.theses.fr/161422802"
+    }
+  ],
+  "knowsAbout": [
+    "solar irradiance forecasting",
+    "photovoltaic power forecasting",
+    "renewable energy forecasting",
+    "time-series modelling",
+    "machine learning",
+    "artificial intelligence for energy systems",
+    "solar resource assessment",
+    "probabilistic forecasting",
+    "forecast verification metrics",
+    "microgrids",
+    "energy storage",
+    "medical physics",
+    "radiotherapy dose modelling",
+    "radiobiology",
+    "numerical modelling"
+  ],
   "education": [
     {
-      "degree": "HDR",
-      "field": "Numérique : de la prévision du rayonnement solaire aux sciences de la vie",
-      "institution": "Université / établissement à préciser",
-      "year": "2019"
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "HDR",
+      "name": "Habilitation à Diriger des Recherches",
+      "about": "Numerical simulation from solar irradiance forecasting to life sciences",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Corsica Pasquale Paoli"
+      },
+      "dateCreated": "2019"
     },
     {
-      "degree": "PhD",
-      "field": "Physique / énergie (à préciser)",
-      "institution": "Université à préciser",
-      "year": "2011"
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "PhD",
+      "name": "PhD in Physics",
+      "about": "Time series modeling and global solar radiation forecasting",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Corsica Pasquale Paoli"
+      },
+      "dateCreated": "2011"
     },
     {
-      "degree": "Qualification DQPRM",
-      "field": "Physique médicale",
-      "institution": "À préciser",
-      "year": "2003"
-    }
-  ],
-
-  "projects": [
-    {
-      "name": "Fine4Cast",
-      "type": "ANR (PEPR TASE)",
-      "years": "2023–2028",
-      "role": "Participant / co-chercheur",
-      "description": "Amélioration de la prévision minutes–jours de la production et de la consommation EnR à résolution géographique fine."
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional qualification",
+      "name": "DQPRM — Medical Physics Qualification",
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "INSTN – Saclay"
+      },
+      "dateCreated": "2003"
     },
     {
-      "name": "ELECTRE",
-      "type": "Programme Mines Carnot",
-      "years": "2025–",
-      "role": "Coordinateur scientifique",
-      "description": "Programme de ressourcement scientifique sur l’IA appliquée à l’énergie, la prévision et les systèmes multi-sources."
-    }
-  ],
-
-  "honours": [
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Master / DEA",
+      "name": "DEA in Radiations and Medical Imaging",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Toulouse"
+      },
+      "dateCreated": "2002"
+    },
     {
-      "title": "Classement Stanford–Elsevier Top 2 % Scientists",
-      "year": "2020-",
-      "description": "Reconnaissance de l’impact scientifique dans le domaine de l’énergie et de la modélisation."
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Master",
+      "name": "Master's degree in Fundamental Physics",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Montpellier II"
+      },
+      "dateCreated": "2001"
     }
   ],
-
+  "academicAppointments": [
+    {
+      "role": "Research Director (DR2)",
+      "organization": "Mines Paris – PSL University, Centre Observation, Impacts, Énergie (O.I.E.)",
+      "startYear": 2024,
+      "endYear": null,
+      "location": "Sophia Antipolis, France",
+      "description": "Research in solar resource modelling, forecasting algorithms, artificial intelligence for energy systems, and microgrid-oriented decision tools."
+    },
+    {
+      "role": "Visiting Professor",
+      "organization": "Faculty of Engineering, University of Kragujevac",
+      "startYear": 2026,
+      "endYear": null,
+      "location": "Kragujevac, Serbia",
+      "description": "Official visiting professorship within the Faculty of Engineering, University of Kragujevac."
+    },
+    {
+      "role": "PAST Lecturer-Researcher",
+      "organization": "University of Corsica Pasquale Paoli, UMR CNRS 6134 SPE",
+      "startYear": 2015,
+      "endYear": 2018,
+      "description": "Teaching and research in solar energy forecasting, artificial intelligence, and time-series modelling."
+    },
+    {
+      "role": "Associate Researcher",
+      "organization": "University of La Réunion, PIMENT Laboratory",
+      "startYear": 2018,
+      "endYear": 2019,
+      "description": "Research on predictive control and energy-system optimization in island contexts."
+    },
+    {
+      "role": "Invited Researcher",
+      "organization": "University of Corsica Pasquale Paoli, UMR CNRS 6134 SPE",
+      "startYear": 2013,
+      "endYear": 2015,
+      "description": "Research activity in solar irradiance forecasting and numerical modelling."
+    }
+  ],
+  "professionalExperience": [
+    {
+      "role": "Head of the Medical Physics and Radiation Protection Unit",
+      "organization": "CHD Castelluccio, Ajaccio",
+      "startYear": 2020,
+      "endYear": 2024,
+      "domain": "medical physics, radiotherapy, radiation protection"
+    },
+    {
+      "role": "Senior Medical Physicist",
+      "organization": "CHD Castelluccio, Ajaccio",
+      "startYear": 2006,
+      "endYear": 2020,
+      "domain": "medical physics, radiotherapy, dosimetry"
+    },
+    {
+      "role": "Medical Physicist",
+      "organization": "Polyclinique Saint-Roch, Montpellier",
+      "startYear": 2003,
+      "endYear": 2006,
+      "domain": "medical physics and radiotherapy"
+    }
+  ],
   "editorialActivities": [
     {
-      "role": "Rôle éditorial",
-      "journal": "À préciser (Solar Energy, IJF, etc.)",
-      "description": "Participation à des comités éditoriaux et à l’évaluation d’articles sur la prévision solaire et les systèmes énergétiques."
+      "role": "Editorial board member / editor listing",
+      "journal": "Scientific Reports",
+      "publisher": "Nature Portfolio / Springer Nature",
+      "url": "https://www.nature.com/srep/about/editors"
     }
   ],
-
-  "skills": {
-    "scientific": [
-      "prévision de séries temporelles",
-      "prévision solaire et PV",
-      "modèles stochastiques",
-      "modèles physico-statistiques",
-      "apprentissage automatique",
-      "optimisation et contrôle"
-    ],
-    "technical": [
-      "MATLAB",
-      "Python",
-      "R",
-      "Git/GitHub",
-      "modélisation numérique"
-    ],
-    "domains": [
-      "systèmes énergétiques insulaires",
-      "microgrids PV + stockage",
-      "évaluation et métriques de prévision",
-      "physique médicale et radiothérapie"
-    ]
+  "scientificServiceAndRecognition": [
+    {
+      "name": "Stanford–Elsevier Top 2% Scientists list",
+      "startYear": 2020,
+      "description": "Repeated appearance in the Stanford–Elsevier Top 2% Scientists list, as stated in the public CV."
+    },
+    {
+      "name": "PVSEC 2009 award",
+      "year": 2009,
+      "description": "Award for work on photovoltaic systems, as stated in the public CV."
+    },
+    {
+      "name": "City of Nice Prize — Accademia Corsa",
+      "year": 2012,
+      "description": "Scientific distinction listed in the public CV."
+    }
+  ],
+  "softwareAndOpenScience": [
+    {
+      "name": "LQ-Equiv",
+      "applicationCategory": "medical physics software",
+      "description": "Radiotherapy dose-equivalence calculator based on LQ/LQL radiobiological models.",
+      "url": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "name": "Make_Stationary",
+      "applicationCategory": "scientific software",
+      "description": "ELM-based cyclic deseasonalization for PV/GHI time series with phase-conditioned projection.",
+      "url": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "name": "ARTU",
+      "applicationCategory": "scientific software",
+      "description": "Benchmark utilities for solar radiation time-series forecasting.",
+      "url": "https://cyrilvoyant.github.io/"
+    }
+  ],
+  "bibliographicProfiles": {
+    "hal": {
+      "url": "https://cv.hal.science/cyril-voyant",
+      "idhal": "cyril-voyant",
+      "documentCountObservedOn2026-06-23": 132
+    },
+    "semanticScholar": {
+      "url": "https://www.semanticscholar.org/author/Cyril-Voyant/2013408",
+      "authorId": "2013408"
+    },
+    "googleScholar": {
+      "url": "https://scholar.google.com/citations?user=aUlP6agAAAAJ",
+      "authorId": "aUlP6agAAAAJ"
+    }
   },
-
-  "links": [
+  "selectedPublications": [
     {
-      "label": "Site personnel",
-      "url": "https://cyrilvoyant.com"
-    }
-  ],
-
-  "publications": [
-    {
-      "id": 1,
       "title": "Stochastic Coefficient of Variation: Assessing the Variability and Forecastability of Solar Irradiance",
-      "authors": ["Cyril Voyant", "Alan Julien", "Milan Despotovic", "Gilles Notton", "Luis Antonio Garcia-Gutierrez", "Claudio Francesco Nicolosi", "Philippe Blanc", "Jamie Bright"],
+      "authors": [
+        "Cyril Voyant",
+        "Alan Julien",
+        "Milan Despotovic",
+        "Gilles Notton",
+        "Luis Antonio Garcia-Gutierrez",
+        "Claudio Francesco Nicolosi",
+        "Philippe Blanc",
+        "Jamie Bright"
+      ],
       "journal": "Renewable Energy",
       "volume": "256",
       "pages": "123913",
-      "year": 2026
+      "year": 2026,
+      "doi": "10.1016/j.renene.2025.123913"
     },
     {
-      "id": 2,
-      "title": "From Trends to Insights: A Text Mining Analysis of Solar Energy Forecasting (2017–2023)",
-      "authors": ["M. Asloune", "G. Notton", "C. Voyant"],
-      "journal": "Energies",
-      "volume": "18",
-      "issue": "19",
-      "pages": "5231",
-      "year": 2025
-    },
-    {
-      "id": 3,
-      "title": "Comparative Study of Feature Selection Techniques for Machine Learning-Based Solar Irradiation Forecasting to Facilitate the Sustainable Development of Photovoltaics: Application to Algerian Climatic Conditions",
-      "authors": ["Said Benkaciali", "Gilles Notton", "Cyril Voyant"],
-      "journal": "Sustainability",
-      "volume": "17",
-      "pages": "6400",
-      "year": 2025
-    },
-    {
-      "id": 4,
       "title": "On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting",
-      "authors": ["Cyril Voyant", "Milan Despotovic", "Gilles Notton", "Yves-Marie Saint-Drenan", "Mohammed Asloune", "Luis Garcia-Gutierrez"],
+      "authors": [
+        "Cyril Voyant",
+        "Milan Despotovic",
+        "Gilles Notton",
+        "Yves-Marie Saint-Drenan",
+        "Mohammed Asloune",
+        "Luis Garcia-Gutierrez"
+      ],
       "journal": "Solar Energy",
       "volume": "294",
       "pages": "113490",
-      "year": 2025
-    },
-    {
-      "id": 5,
-      "title": "A Simple Method for Quickly Estimating Solar Irradiance Forecast Errors",
-      "authors": ["P. Lauret", "M. David", "J. Le Gal La Salle", "E. Lorenz", "R. Perez", "C. Voyant"],
-      "journal": "Solar Energy",
-      "volume": "301",
-      "pages": "113821",
-      "year": 2025
-    },
-    {
-      "id": 6,
-      "title": "Transfer Learning for Wind Speed Forecasting: A Scalable Approach for Data-Scarce Environments",
-      "authors": ["M. Despotovic", "G. Notton", "C. Voyant"],
-      "journal": "International Journal of Green Energy",
       "year": 2025,
-      "pages": "1–16"
+      "doi": "10.1016/j.solener.2025.113490"
     },
     {
-      "id": 7,
-      "title": "NICE^k Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy",
-      "authors": ["C. Voyant", "M. Despotovic", "L. Garcia-Gutierrez", "R. Amaro e Silva", "P. Lauret"],
+      "title": "NICE k metrics: Unified and multidimensional framework for evaluating deterministic solar forecasting accuracy",
+      "authors": [
+        "Cyril Voyant",
+        "Milan Despotovic",
+        "Luis Garcia-Gutierrez",
+        "Rodrigo Amaro E Silva",
+        "Philippe Lauret",
+        "Ted Soubdhan",
+        "Nadjem Bailek"
+      ],
       "journal": "Sustainable Energy Technologies and Assessments",
       "volume": "83",
       "pages": "104588",
-      "year": 2025
+      "year": 2025,
+      "doi": "10.1016/j.seta.2025.104588"
     },
     {
-      "id": 8,
       "title": "Solar irradiance time series forecasting using auto-regressive and extreme learning methods: Influence of transfer learning and clustering",
-      "authors": ["Milan Despotovic", "Cyril Voyant", "Luis Garcia-Gutierrez", "Javier Almorox", "Gilles Notton"],
+      "authors": [
+        "Milan Despotovic",
+        "Cyril Voyant",
+        "Luis Garcia-Gutierrez",
+        "Javier Almorox",
+        "Gilles Notton"
+      ],
       "journal": "Applied Energy",
       "volume": "365",
       "pages": "123215",
-      "year": 2024
+      "year": 2024,
+      "doi": "10.1016/j.apenergy.2024.123215"
     },
     {
-      "id": 9,
-      "title": "Profitability and performance improvement of smart photovoltaic/energy storage microgrid by integration of solar production forecasting tool",
-      "authors": ["G. Notton", "S. Ouédraogo", "G.A. Faggianelli", "C. Voyant", "J.L. Duchaud"],
-      "journal": "Intelligent Learning Approaches for Renewable and Sustainable Energy",
-      "pages": "73–102",
-      "year": 2024
-    },
-    {
-      "id": 10,
-      "title": "Evaluation and Comparison of Spatial Clustering for Solar Irradiance Time Series",
-      "authors": ["L. Garcia-Gutierrez", "C. Voyant", "G. Notton", "J. Almorox"],
-      "journal": "Applied Sciences",
-      "volume": "12",
-      "issue": "17",
-      "pages": "8529",
-      "year": 2022
-    },
-    {
-      "id": 11,
-      "title": "Impact of electricity tariffs and energy management strategies on PV/Battery microgrid performances",
-      "authors": ["S. Ouédraogo", "G.A. Faggianelli", "G. Notton", "J.L. Duchaud", "C. Voyant"],
+      "title": "Benchmarks for solar radiation time series forecasting",
+      "authors": [
+        "Cyril Voyant",
+        "Gilles Notton",
+        "Jean-Laurent Duchaud",
+        "Luis Antonio Garcia-Gutierrez",
+        "Jamie M. Bright",
+        "Dazhi Yang"
+      ],
       "journal": "Renewable Energy",
-      "volume": "199",
-      "pages": "816–825",
-      "year": 2022
+      "volume": "191",
+      "pages": "747-762",
+      "year": 2022,
+      "doi": "10.1016/j.renene.2022.04.065"
     },
     {
-      "id": 12,
-      "title": "Complex-Valued Time Series Based Solar Irradiance Forecast",
-      "authors": ["C. Voyant", "P. Lauret", "G. Notton", "J.L. Duchaud"],
-      "journal": "Journal of Renewable and Sustainable Energy",
-      "year": 2022
-    },
-    {
-      "id": 13,
-      "title": "Benchmarks for Solar Radiation Time Series Forecasting",
-      "authors": ["C. Voyant", "G. Notton", "J.L. Duchaud", "L.A.G. Gutiérrez", "J.M. Bright", "D. Yang"],
-      "journal": "Renewable Energy",
-      "year": 2022
-    },
-    {
-      "id": 14,
-      "title": "Effect of the meta parameters on a model predictive algorithm for renewable micro-grid optimal control",
-      "authors": ["J.L. Duchaud", "G. Notton", "C. Voyant", "G. Notton"],
-      "journal": "Sustainable Energy Technologies and Assessments",
-      "volume": "54",
-      "pages": "102886",
-      "year": 2022
-    },
-    {
-      "id": 15,
-      "title": "Contribution of ordinal variables to short-term global solar irradiation forecasting for sites with low variabilities",
-      "authors": ["K. Gairaa", "C. Voyant", "G. Notton", "S. Benkaciali", "M. Guermoui"],
-      "journal": "Renewable Energy",
-      "year": 2022
-    },
-    {
-      "id": 16,
-      "title": "Total solar irradiance's effect on the performance of empirical models for estimating global solar radiation: An empirical-based review",
-      "authors": ["J. Almorox", "C. Voyant", "N. Bailek", "A. Kuriqi", "J.A. Arnaldo"],
-      "journal": "Energy",
-      "volume": "236",
-      "pages": "121486",
-      "year": 2021
-    },
-    {
-      "id": 17,
-      "title": "Value of deterministic day-ahead forecasts of PV generation in PV+ Storage operation for the Australian electricity market",
-      "authors": ["M. David", "J. Boland", "L. Cirocco", "P. Lauret", "C. Voyant"],
-      "journal": "Solar Energy",
-      "volume": "224",
-      "pages": "672–684",
-      "year": 2021
-    },
-    {
-      "id": 18,
-      "title": "A Monte Carlo based solar radiation forecastability estimation",
-      "authors": ["C. Voyant", "P. Lauret", "G. Notton", "J.L. Duchaud", "A. Fouilloy", "M. David"],
-      "journal": "Journal of Renewable and Sustainable Energy",
-      "volume": "13",
-      "issue": "2",
-      "pages": "026501",
-      "year": 2021
-    },
-    {
-      "id": 19,
-      "title": "Solar irradiation prediction intervals based on Box–Cox transformation and univariate representation of periodic autoregressive model",
-      "authors": ["C. Voyant", "G. Notton", "J.L. Duchaud", "J. Almorox", "Z.M. Yaseen"],
-      "journal": "Renewable Energy Focus",
-      "volume": "33",
-      "pages": "43–53",
-      "year": 2021
-    },
-    {
-      "id": 20,
-      "title": "Verification of deterministic solar forecasts",
-      "authors": ["D. Yang", "S. Alessandrini", "J. Antonanzas", "F. Antonanzas-Torres", "V. Badescu", "H.G. Beyer", "R. Blaga", "J. Boland", "J.M. Bright", "C.F.M. Coimbra", "M. David", "A. Frimane", "C.A. Gueymard", "T. Hong", "M.J. Kay", "S. Killinger", "J. Kleissl", "P. Lauret", "E. Lorenz", "D. van der Meer", "M. Paulescu", "R. Perez", "O. Perpiñán-Lamigueiro", "I.M. Peters", "G. Reikard", "D. Renné", "Y.M. Saint-Drenan", "Y. Shuai", "R. Urraca", "H. Verbois", "F. Vignola", "C. Voyant", "J. Zhang"],
-      "journal": "Solar Energy",
-      "year": 2020
-    },
-    {
-      "id": 21,
-      "title": "A Newly Developed Integrative Bio-Inspired Artificial Intelligence Model for Wind Speed Prediction",
-      "authors": ["H. Tao", "S.Q. Salih", "M.K. Saggi", "E. Dodangeh", "C. Voyant", "N. Al-Ansari", "Z.M. Yaseen", "S. Shahid"],
-      "journal": "IEEE Access",
-      "volume": "8",
-      "pages": "83347–83358",
-      "year": 2020
-    },
-    {
-      "id": 22,
-      "title": "Etude de performance des modèles large bande pour des conditions de ciel clair: cas de sud de l'Algérie",
-      "authors": ["S. Benkaciali", "G. Notton", "C. Voyant", "K. Gairaa"],
-      "journal": "Journal of Renewable Energies",
-      "volume": "23",
-      "pages": "236–258",
-      "year": 2020
-    },
-    {
-      "id": 23,
-      "title": "Global solar radiation prediction over North Dakota using air temperature: Development of novel hybrid intelligence model",
-      "authors": ["H. Tao", "Ahmed A. Ewees", "Ali Omran Al-Sulttani", "Ufuk Beyaztas", "Mohammed Majeed Hameed", "Sinan Q. Salih", "Asaad M. Armanuos", "Nadhir Al-Ansari", "Cyril Voyant", "Shamsuddin Shahid", "Zaher Mundher Yaseen"],
-      "journal": "Energy Reports",
-      "volume": "7",
-      "pages": "136–157",
-      "year": 2020
-    },
-    {
-      "id": 24,
-      "title": "Trade-Off between Precision and Resolution of a Solar Power Forecasting Algorithm for Micro-Grid Optimal Control",
-      "authors": ["J.L. Duchaud", "C. Voyant", "A. Fouilloy", "G. Notton", "M.L. Nivet"],
-      "journal": "Energies",
-      "volume": "13",
-      "issue": "14",
-      "pages": "3565",
-      "year": 2020
-    },
-    {
-      "id": 25,
-      "title": "Hybrid renewable power plant sizing – Graphical decision tool, sensitivity analysis and applications in Ajaccio and Tilos",
-      "authors": ["J.L. Duchaud", "G. Notton", "A. Fouilloy", "C. Voyant"],
-      "journal": "Applied Energy",
-      "volume": "254",
-      "pages": "113601",
-      "year": 2019
-    },
-    {
-      "id": 26,
-      "title": "The electrical energy situation of French islands and focus on the Corsican situation",
-      "authors": ["G. Notton", "J.L. Duchaud", "M.L. Nivet", "C. Voyant", "K. Chalvatzis", "A. Fouilloy"],
-      "journal": "Renewable Energy",
-      "volume": "135",
-      "pages": "1157–1165",
-      "year": 2019
-    },
-    {
-      "id": 27,
-      "title": "Designing a New Data Intelligence Model for Global Solar Radiation Prediction: Application of Multivariate Modeling Scheme",
-      "authors": ["H. Tao", "I. Ebtehaj", "H. Bonakdari", "S. Heddam", "C. Voyant", "N. Al-Ansari", "R. Deo", "Z.M. Yaseen"],
-      "journal": "Energies",
-      "volume": "7",
-      "pages": "1365",
-      "year": 2019
-    },
-    {
-      "id": 28,
-      "title": "Solar Radiation Forecasting using Artificial Neural Network and Random Forest Methods: Application to Normal Beam, Horizontal Diffuse and Global Components",
-      "authors": ["L. Benali", "G. Notton", "A. Fouilloy", "C. Voyant", "R. Dizene"],
-      "journal": "Renewable Energy",
-      "volume": "132",
-      "pages": "871–884",
-      "year": 2019
-    },
-    {
-      "id": 29,
-      "title": "Some Applications of ANN to Solar Radiation Estimation and Forecasting for Energy Applications",
-      "authors": ["G. Notton", "C. Voyant", "A. Fouilloy", "J.L. Duchaud"],
-      "journal": "Applied Sciences",
-      "volume": "9",
-      "pages": "209",
-      "year": 2019
-    },
-    {
-      "id": 30,
-      "title": "Multi-Objective Particle Swarm Optimal Sizing of a Renewable Hybrid Power Plant with Storage",
-      "authors": ["J.L. Duchaud", "G. Notton", "C. Darras", "C. Voyant"],
-      "journal": "Renewable Energy",
-      "volume": "131",
-      "pages": "1156–1167",
-      "year": 2019
-    },
-    {
-      "id": 31,
-      "title": "Periodic Autoregressive Forecasting of Global Solar Irradiation Without Knowledge-based Model Implementation",
-      "authors": ["C. Voyant", "J. De Gooijer", "G. Notton"],
-      "journal": "Solar Energy",
-      "volume": "174",
-      "pages": "121–129",
-      "year": 2018
-    },
-    {
-      "id": 32,
-      "title": "Prediction intervals for global solar irradiation forecasting using regression trees methods",
-      "authors": ["C. Voyant", "F. Motte", "G. Notton", "A. Fouilloy", "M.L. Nivet", "J.L. Duchaud"],
-      "journal": "Renewable Energy",
-      "volume": "126",
-      "pages": "332–340",
-      "year": 2018
-    },
-    {
-      "id": 33,
-      "title": "Prediction bands for solar energy: New short-term time series forecasting techniques",
-      "authors": ["M. Fliess", "C. Join", "C. Voyant"],
-      "journal": "Solar Energy",
-      "volume": "166",
-      "pages": "519–528",
-      "year": 2018
-    },
-    {
-      "id": 34,
-      "title": "Intermittent and stochastic character of renewable energy sources: consequences, cost of intermittence and benefit of forecasting",
-      "authors": ["G. Notton", "M.L. Nivet", "C. Voyant", "C. Darras", "F. Motte", "C. Paoli"],
-      "journal": "Renewable & Sustainable Energy Reviews",
-      "volume": "87",
-      "pages": "96–105",
-      "year": 2018
-    },
-    {
-      "id": 35,
-      "title": "Solar irradiation nowcasting by stochastic persistence: a new parsimonious, simple and efficient forecasting tool",
-      "authors": ["C. Voyant", "G. Notton"],
-      "journal": "Renewable & Sustainable Energy Reviews",
-      "year": 2018
-    },
-    {
-      "id": 36,
-      "title": "Power ramp-rate control algorithm with optimal State of Charge reference via Dynamic Programming",
-      "authors": ["J.L. Duchaud", "G. Notton", "C. Darras", "C. Voyant"],
-      "journal": "Energy",
-      "volume": "149",
-      "pages": "709–717",
-      "year": 2018
-    },
-    {
-      "id": 37,
-      "title": "Solar irradiation forecasting with machine learning and computational methods for 3 weather variabilities",
-      "authors": ["A. Fouilloy", "C. Voyant", "F. Motte", "G. Notton", "C. Paoli", "M.L. Nivet", "E. Guillot"],
-      "journal": "Renewable Energy",
-      "year": 2018
-    },
-    {
-      "id": 38,
       "title": "Machine learning methods for solar radiation forecasting: A review",
-      "authors": ["C. Voyant", "G. Notton", "S. Kalogirou", "M.L. Nivet", "C. Paoli", "F. Motte", "A. Fouilloy"],
+      "authors": [
+        "Cyril Voyant",
+        "Gilles Notton",
+        "Soteris Kalogirou",
+        "Marie-Laure Nivet",
+        "Christophe Paoli",
+        "Fabrice Motte",
+        "Alexis Fouilloy"
+      ],
       "journal": "Renewable Energy",
       "volume": "105",
-      "pages": "569–582",
-      "year": 2017
+      "pages": "569-582",
+      "year": 2017,
+      "doi": "10.1016/j.renene.2016.12.095"
     },
     {
-      "id": 39,
-      "title": "Uncertainties in global radiation time series forecasting using machine learning: The multilayer perceptron case",
-      "authors": ["C. Voyant", "G. Notton", "C. Paoli", "A. Fouilloy", "F. Motte", "C. Darras"],
-      "journal": "Energy",
-      "volume": "125",
-      "pages": "248–257",
-      "year": 2017
-    },
-    {
-      "id": 40,
-      "title": "Forecasting method for global radiation time series without training phase: comparison with other well-known prediction methodologies",
-      "authors": ["C. Voyant", "F. Motte", "A. Fouilloy", "G. Notton", "C. Paoli", "M.L. Nivet"],
-      "journal": "Energy",
-      "volume": "120",
-      "pages": "199–208",
-      "year": 2017
-    },
-    {
-      "id": 41,
-      "title": "Multi-layer Perceptron and Pruning",
-      "authors": ["C. Voyant", "C. Paoli", "G. Notton", "M.L. Nivet", "A. Fouilloy", "F. Motte"],
-      "journal": "Turkish Journal of Forecasting",
-      "volume": "1",
-      "issue": "1",
-      "pages": "1–6",
-      "year": 2017
-    },
-    {
-      "id": 42,
-      "title": "Multilayer Perceptron approach for estimating 5-min and hourly horizontal global irradiation from exogenous meteorological data in locations without solar measure...",
-      "authors": ["K. Dahmani", "G. Notton", "C. Voyant", "R. Dizene", "M.L. Nivet", "C. Paoli", "W. Tamas"],
-      "journal": "Renewable Energy",
-      "volume": "90",
-      "pages": "267–282",
-      "year": 2016
-    },
-    {
-      "id": 43,
       "title": "Statistical parameters as a means to a priori assess the accuracy of solar forecasting models",
-      "authors": ["C. Voyant", "T. Soubdhan", "P. Lauret", "M. David", "M. Muselli"],
+      "authors": [
+        "Cyril Voyant",
+        "Ted Soubdhan",
+        "Philippe Lauret",
+        "Mathieu David",
+        "Marc Muselli"
+      ],
       "journal": "Energy",
       "volume": "90",
-      "pages": "671–679",
-      "year": 2015
-    },
-    {
-      "id": 44,
-      "title": "A benchmarking of machine learning techniques for solar radiation forecasting in an insular context",
-      "authors": ["P. Lauret", "C. Voyant", "T. Soubdhan", "M. David", "P. Poggi"],
-      "journal": "Solar Energy",
-      "year": 2015
-    },
-    {
-      "id": 45,
-      "title": "Twenty four hours ahead global irradiation forecasting using multi‐layer perceptron",
-      "authors": ["C. Voyant", "P. Randimbivololona", "M.L. Nivet", "C. Paoli", "M. Muselli"],
-      "journal": "Meteorological Applications",
-      "volume": "21",
-      "issue": "3",
-      "pages": "644–655",
-      "year": 2014
-    },
-    {
-      "id": 46,
-      "title": "Estimation of 5-min time-step data of tilted solar global irradiation using ANN (Artificial Neural Network) model",
-      "authors": ["K. Dahmani", "R. Dizene", "G. Notton", "C. Paoli", "C. Voyant", "M.L. Nivet"],
-      "journal": "Energy",
-      "volume": "70",
-      "pages": "374–381",
-      "year": 2014
-    },
-    {
-      "id": 47,
-      "title": "Time series modeling and large scale global solar radiation forecasting from geostationary satellites data",
-      "authors": ["C. Voyant", "P. Haurant", "M. Muselli", "C. Paoli", "M.L. Nivet"],
-      "journal": "Solar Energy",
-      "volume": "102",
-      "pages": "131–142",
-      "year": 2014
-    },
-    {
-      "id": 48,
-      "title": "Heterogeneous transfer functions MultiLayer Perceptron (MLP) for meteorological time series forecasting",
-      "authors": ["C. Voyant", "M.L. Nivet", "C. Paoli", "M. Muselli", "G. Notton"],
-      "journal": "International Journal of Modeling, Simulation, and Scientific Computing",
-      "year": 2014
-    },
-    {
-      "id": 49,
-      "title": "Numerical weather prediction or stochastic modeling: an objective criterion of choice for the global radiation forecasting",
-      "authors": ["C. Voyant", "G. Notton", "C. Paoli", "M.L. Nivet", "M. Muselli", "K. Dahmani"],
-      "journal": "International Journal of Energy Technology and Policy",
-      "year": 2014
-    },
-    {
-      "id": 50,
-      "title": "Bayesian rules and stochastic models for high accuracy prediction of solar radiation",
-      "authors": ["C. Voyant", "C. Darras", "M. Muselli", "C. Paoli", "M.L. Nivet", "P. Poggi"],
-      "journal": "Applied Energy",
-      "year": 2014
-    },
-    {
-      "id": 51,
-      "title": "Multi-horizon solar radiation forecasting for Mediterranean locations using time series models",
-      "authors": ["C. Voyant", "C. Paoli", "M. Muselli", "M.L. Nivet"],
-      "journal": "Renewable and Sustainable Energy Reviews",
-      "volume": "28",
-      "pages": "44–52",
-      "year": 2013
-    },
-    {
-      "id": 52,
-      "title": "Hybrid methodology for hourly global radiation forecasting in Mediterranean area",
-      "authors": ["C. Voyant", "M. Muselli", "C. Paoli", "M.L. Nivet"],
-      "journal": "Renewable Energy",
-      "volume": "53",
-      "pages": "1–11",
-      "year": 2013
-    },
-    {
-      "id": 53,
-      "title": "PV output power fluctuations smoothing: The MYRTE platform experience",
-      "authors": ["C. Darras", "M. Muselli", "P. Poggi", "C. Voyant", "J.C. Hoguet", "F. Montignac"],
-      "journal": "International Journal of Hydrogen Energy",
-      "volume": "37",
-      "issue": "19",
-      "pages": "14015–14025",
-      "year": 2012
-    },
-    {
-      "id": 54,
-      "title": "Numerical weather prediction (NWP) and hybrid ARMA/ANN model to predict global radiation",
-      "authors": ["C. Voyant", "M. Muselli", "C. Paoli", "M.L. Nivet"],
-      "journal": "Energy",
-      "volume": "39",
-      "issue": "1",
-      "pages": "341–355",
-      "year": 2012
-    },
-    {
-      "id": 55,
-      "title": "Optimization of an artificial neural network dedicated to the multivariate forecasting of daily global radiation",
-      "authors": ["C. Voyant", "M. Muselli", "C. Paoli", "M.L. Nivet"],
-      "journal": "Energy",
-      "volume": "36",
-      "issue": "1",
-      "pages": "348–359",
-      "year": 2011
-    },
-    {
-      "id": 56,
-      "title": "Forecasting of preprocessed daily solar radiation time series using neural networks",
-      "authors": ["C. Paoli", "C. Voyant", "M. Muselli", "M.L. Nivet"],
-      "journal": "Solar Energy",
-      "volume": "84",
-      "issue": "12",
-      "pages": "2146–2160",
-      "year": 2010
+      "pages": "671-679",
+      "year": 2015,
+      "doi": "10.1016/j.energy.2015.07.089"
     }
+  ],
+  "verificationSources": [
+    {
+      "name": "HAL CV profile",
+      "url": "https://cv.hal.science/cyril-voyant",
+      "usedFor": [
+        "current affiliation",
+        "IdHAL",
+        "ORCID",
+        "IdRef",
+        "Google Scholar ID",
+        "HAL document count"
+      ]
+    },
+    {
+      "name": "IdRef authority record",
+      "url": "https://www.idref.fr/161422802",
+      "usedFor": [
+        "person authority record",
+        "PhD in Physics at University of Corsica",
+        "ORCID",
+        "Scopus Author ID",
+        "VIAF"
+      ]
+    },
+    {
+      "name": "Faculty of Engineering, University of Kragujevac official announcement",
+      "url": "https://fin.kg.ac.rs/en/component/content/article/202-news/2380-professors-gilles-notton-and-cyril-voyant-appointed-as-visiting-professors-at-the-faculty-of-engineering?Itemid=620",
+      "usedFor": [
+        "Visiting Professor appointment"
+      ]
+    },
+    {
+      "name": "Scientific Reports editors page",
+      "url": "https://www.nature.com/srep/about/editors",
+      "usedFor": [
+        "editorial listing"
+      ]
+    },
+    {
+      "name": "Personal canonical identity page",
+      "url": "https://person.cyrilvoyant.com/",
+      "usedFor": [
+        "canonical identity node",
+        "academic appointments",
+        "research scope"
+      ]
+    },
+    {
+      "name": "Personal CV page",
+      "url": "https://www.cyrilvoyant.com/cv",
+      "usedFor": [
+        "education",
+        "medical physics career",
+        "selected distinctions",
+        "professional experience"
+      ]
+    },
+    {
+      "name": "GitHub Pages profile",
+      "url": "https://cyrilvoyant.github.io/",
+      "usedFor": [
+        "open-source software",
+        "selected publications",
+        "research domains"
+      ]
+    },
+    {
+      "name": "Wikidata item Q58251573",
+      "url": "https://www.wikidata.org/wiki/Q58251573",
+      "usedFor": [
+        "cross-identifiers",
+        "sameAs reconciliation"
+      ]
+    }
+  ],
+  "curationNotes": [
+    "This JSON is intentionally conservative: placeholders from the previous version were removed rather than completed without evidence.",
+    "The complete publication record should remain delegated to HAL, ORCID, Google Scholar, Scopus and Semantic Scholar rather than duplicated manually in this file.",
+    "No phone number or full postal address is included, even when visible in public CV pages, to keep the machine-readable profile focused and privacy-minimal.",
+    "OpenAlex is not included because the profile URL was not independently resolved during this verification pass. It can be added later once the live author page is confirmed."
   ]
 }
