@@ -1,0 +1,31 @@
+cff-version: 1.2.0
+message: "If you use this repository or its machine-readable academic metadata, please cite it as below."
+title: "Cyril Voyant — Research, Software and Open Science Profile"
+type: dataset
+authors:
+  - family-names: Voyant
+    given-names: Cyril
+    orcid: "https://orcid.org/0000-0003-0242-7377"
+abstract: "Machine-readable academic profile of Cyril Voyant, Research Director at Mines Paris–PSL / O.I.E., including structured metadata for solar irradiance forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics, medical physics, selected publications and open scientific software."
+url: "https://cyrilvoyant.github.io/"
+repository-code: "https://github.com/cyrilvoyant/cyrilvoyant.github.io"
+license: "CC-BY-4.0"
+date-released: "2026-06-23"
+keywords:
+  - solar irradiance forecasting
+  - PV power forecasting
+  - time-series modelling
+  - AI for energy systems
+  - forecast evaluation metrics
+  - NICEk metrics
+  - medical physics
+  - radiotherapy dosimetry
+preferred-citation:
+  type: generic
+  title: "Cyril Voyant — Research, Software and Open Science Profile"
+  authors:
+    - family-names: Voyant
+      given-names: Cyril
+      orcid: "https://orcid.org/0000-0003-0242-7377"
+  year: 2026
+  url: "https://cyrilvoyant.github.io/"
