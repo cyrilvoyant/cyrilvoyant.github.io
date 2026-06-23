@@ -546,5 +546,23 @@
     "The complete publication record should remain delegated to HAL, ORCID, Google Scholar, Scopus and Semantic Scholar rather than duplicated manually in this file.",
     "No phone number or full postal address is included, even when visible in public CV pages, to keep the machine-readable profile focused and privacy-minimal.",
     "OpenAlex is not included because the profile URL was not independently resolved during this verification pass. It can be added later once the live author page is confirmed."
+  ],
+  "recognitions": [
+    {
+      "name": "Stanford/Elsevier science-wide citation database / World's Top 2% Scientists profile",
+      "type": "bibliometric listing",
+      "listedYears": [
+        2021,
+        2022,
+        2023,
+        2024,
+        2025
+      ],
+      "mainField": "Enabling & Strategic Technologies",
+      "subField": "Energy",
+      "source": "https://topresearcherslist.com/Home/Profile/1191312",
+      "methodologySource": "https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw",
+      "note": "Use as a bibliometric citation-impact listing, not as an academic prize."
+    }
   ]
 }
