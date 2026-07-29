@@ -33,11 +33,19 @@ Verified academic profiles:
 - GitHub: https://github.com/cyrilvoyant
 
 Verified roles:
-- Research Director, Mines Paris–PSL / O.I.E.
-- Visiting Professor, Faculty of Engineering, University of Kragujevac
+- Research Director (DR2), Mines Paris–PSL / O.I.E.
+- Visiting Professor, Faculty of Engineering, University of Kragujevac (Serbia)
+- Scientific Coordinator, Carnot Mines ELECTRE programme (AI for energy and forecasting), since 2025
+- Member, Internal Steering Committee, The Transition Institute 1.5, Mines Paris–PSL, since 2026
+- Expert reviewer, Swiss National Science Foundation (SNSF)
 - Listed on the Scientific Reports editors page
 
+The complete list of peer-reviewed publications (journal articles and book chapters, 2010–2026) is available as visible text on https://cyrilvoyant.github.io/ and as JSON-LD on https://cyrilvoyant.github.io/publications.json. Bibliometrics: 130+ peer-reviewed articles, ~8,000 citations (Google Scholar).
+
 Selected publications:
+- Stochastic Coefficient of Variation: Assessing the Variability and Forecastability of Solar Irradiance, Renewable Energy, 2026, DOI: 10.1016/j.renene.2025.123913
+- A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index, International Journal of Forecasting, 2026
+- Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach, Applied Energy, 2026
 - On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting, Solar Energy, 2025, DOI: 10.1016/j.solener.2025.113490
 - NICEk Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy, Sustainable Energy Technologies and Assessments, 2025, DOI: 10.1016/j.seta.2025.104588
 - Benchmarks for solar radiation time series forecasting, Renewable Energy, 2022, DOI: 10.1016/j.renene.2022.04.065
