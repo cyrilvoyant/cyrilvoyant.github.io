@@ -5,7 +5,7 @@
   "url": "https://cyrilvoyant.github.io/publications.json",
   "name": "Selected publications by Cyril Voyant",
   "description": "Curated, non-exhaustive list of selected publications by Cyril Voyant for search engines, academic knowledge graphs and AI retrieval systems. Full records should be checked on HAL, ORCID, Google Scholar and publisher pages.",
-  "dateModified": "2026-06-23",
+  "dateModified": "2026-07-29",
   "inLanguage": "en",
   "author": {
     "@type": "Person",
@@ -513,6 +513,120 @@
           "LQ model",
           "LQL model",
           "software"
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
+        "headline": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
+        "author": [
+          { "@type": "Person", "name": "Cyril Voyant" }
+        ],
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "International Journal of Forecasting"
+        },
+        "keywords": [
+          "gamma-index",
+          "forecast validation",
+          "spatio-temporal forecasting",
+          "forecast evaluation metrics",
+          "renewable energy forecasting",
+          "tolerance-based evaluation"
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 10,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
+        "headline": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
+        "author": [
+          { "@type": "Person", "name": "Cyril Voyant" },
+          { "@type": "Person", "name": "Milan Despotovic" },
+          { "@type": "Person", "name": "Luis Garcia-Gutierrez" },
+          { "@type": "Person", "name": "Mohammed Asloune" },
+          { "@type": "Person", "name": "Yves-Marie Saint-Drenan" },
+          { "@type": "Person", "name": "Jean-Laurent Duchaud" },
+          { "@type": "Person", "name": "Ghjuvan Antone Faggianelli" },
+          { "@type": "Person", "name": "Elena Magliaro" }
+        ],
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Applied Energy"
+        },
+        "keywords": [
+          "Extreme Learning Machine",
+          "MIMO forecasting",
+          "energy production forecasting",
+          "energy consumption forecasting",
+          "short-term forecasting",
+          "renewable energy forecasting"
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 11,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "Symmetry-Constrained Forecasting of Periodically Correlated Energy Processes",
+        "headline": "Symmetry-Constrained Forecasting of Periodically Correlated Energy Processes",
+        "author": [
+          { "@type": "Person", "name": "Cyril Voyant" },
+          { "@type": "Person", "name": "Candice Banes" },
+          { "@type": "Person", "name": "Luis Garcia-Gutierrez" },
+          { "@type": "Person", "name": "Gilles Notton" },
+          { "@type": "Person", "name": "Milan Despotovic" },
+          { "@type": "Person", "name": "Zaher Mundher Yaseen" }
+        ],
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Applied Mathematical Modelling"
+        },
+        "keywords": [
+          "periodically correlated processes",
+          "cyclostationarity",
+          "symmetry constraints",
+          "time-series forecasting",
+          "energy forecasting"
+        ]
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 12,
+      "item": {
+        "@type": "ScholarlyArticle",
+        "name": "A Computational Framework for Optimizing Radioiodine Therapy Protocols in Metastatic Thyroid Cancer",
+        "headline": "A Computational Framework for Optimizing Radioiodine Therapy Protocols in Metastatic Thyroid Cancer",
+        "author": [
+          { "@type": "Person", "name": "Marie Fusella-Giuntini" },
+          { "@type": "Person", "name": "Cyril Voyant" },
+          { "@type": "Person", "name": "David Taieb" },
+          { "@type": "Person", "name": "Dominique Barbolosi" }
+        ],
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": "Periodical",
+          "name": "Scientific Reports"
+        },
+        "keywords": [
+          "radioactive iodine therapy",
+          "thyroid cancer",
+          "computational modelling",
+          "personalized medicine",
+          "medical physics",
+          "dynamic surrogate model"
         ]
       }
     }

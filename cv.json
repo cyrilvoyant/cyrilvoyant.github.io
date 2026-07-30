@@ -2,8 +2,8 @@
   "@context": "https://schema.org",
   "@type": "Person",
   "@id": "https://person.cyrilvoyant.com/#person",
-  "schemaVersion": "verified-profile-2026-06-23",
-  "dateModified": "2026-06-23",
+  "schemaVersion": "verified-profile-2026-07-29",
+  "dateModified": "2026-07-29",
   "inLanguage": [
     "en",
     "fr"
@@ -301,6 +301,20 @@
   ],
   "scientificServiceAndRecognition": [
     {
+      "name": "Member, Internal Steering Committee — The Transition Institute 1.5, Mines Paris-PSL",
+      "startYear": 2026,
+      "description": "Contribution to the institute scientific strategy, doctoral and postdoctoral project selection, program monitoring and budget allocation."
+    },
+    {
+      "name": "Scientific Coordinator — Carnot Mines ELECTRE programme",
+      "startYear": 2025,
+      "description": "Leading the AI-applied-to-energy, forecasting and multi-source systems components."
+    },
+    {
+      "name": "Expert reviewer — Swiss National Science Foundation (SNSF)",
+      "description": "External expert evaluation of research proposals for the SNSF."
+    },
+    {
       "name": "Stanford–Elsevier Top 2% Scientists list",
       "startYear": 2020,
       "description": "Repeated appearance in the Stanford–Elsevier Top 2% Scientists list, as stated in the public CV."
@@ -316,6 +330,60 @@
       "description": "Scientific distinction listed in the public CV."
     }
   ],
+  "researchProjects": [
+    {
+      "name": "Fine4Cast",
+      "funder": "ANR (PEPR TASE)",
+      "years": "2023–2028",
+      "description": "Improvement of minute-to-day forecasting of renewable energy production and consumption at fine geographic resolution."
+    },
+    {
+      "name": "Mines Paris-PSL – UCPP – CNRS convention (UMR SPE 6134)",
+      "years": "2024–2027",
+      "description": "Intermittent solar forecasting and development of energy-management algorithms for smart microgrids."
+    },
+    {
+      "name": "SAPHIR",
+      "funder": "ANR",
+      "years": "2021–2024",
+      "description": "Sensor-Augmented Weather Prediction at High Resolution: coupling sensor data and numerical models to improve high-resolution forecasts."
+    },
+    {
+      "name": "INTELPOLY",
+      "funder": "COST Action (European Cooperation in Science & Technology)",
+      "years": "2021–2025",
+      "description": "Diagnosis, control and cyber-security of polygeneration / hybrid-storage installations."
+    },
+    {
+      "name": "HyLES",
+      "funder": "ANR",
+      "years": "2021–2024",
+      "description": "Integration of hydrogen in weakly interconnected networks."
+    },
+    {
+      "name": "TILOS",
+      "funder": "H2020 (LCE-2014-3)",
+      "years": "2014–2017",
+      "description": "Optimal integration of battery storage at local scale; island demonstrator."
+    }
+  ],
+  "doctoralSupervision": {
+    "ongoing": [
+      "Kamel Abdeladim — Hybrid approach to PV forecasting and algorithmic sobriety (Mines Paris)",
+      "Candice Banes — Solar radiation forecasting from satellite images, physics-informed AI (Mines Paris)",
+      "Alan Julien — Forecasting and optimization of CSP plant control (Mines Paris)",
+      "Mohammed Asloune — Solar forecasting with confidence intervals for electrical networks (Univ. Corsica)",
+      "Marie Fusella — Mathematical modelling of Iodine-131 metabolism in thyroid oncology (Univ. Corsica)"
+    ],
+    "thesisAndHdrJuries": [
+      "2026 — Killian Pujol, Laboratoire d'Aérologie (UMR 5560), Toulouse — examiner",
+      "2026 — Nicolas Chea, École Polytechnique (LMD) — reviewer",
+      "2026 — Bassel Chokr, University of Angers — reviewer",
+      "2026 — Claudio F. Nicolosi, University of Catania — reviewer",
+      "2016 — Adrian Grantham, University of South Australia — examiner",
+      "2026 — HDR: Ghjuvan Antone Faggianelli (UMR CNRS 6134 SPE) — examiner"
+    ]
+  },
   "softwareAndOpenScience": [
     {
       "name": "LQ-Equiv",
@@ -334,6 +402,30 @@
       "applicationCategory": "scientific software",
       "description": "Benchmark utilities for solar radiation time-series forecasting.",
       "url": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "name": "temporal-gamma-index",
+      "applicationCategory": "scientific software",
+      "description": "Temporal adaptation of the gamma index for time-series forecast evaluation under joint amplitude and timing tolerances.",
+      "url": "https://github.com/cyrilvoyant/temporal-gamma-index"
+    },
+    {
+      "name": "cyclostationary-forecasting-matlab",
+      "applicationCategory": "scientific software",
+      "description": "Training-free cyclostationary persistence operators (BLEND, CLIPER) for periodic energy time series.",
+      "url": "https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab"
+    },
+    {
+      "name": "PV_ELM_pred",
+      "applicationCategory": "scientific software",
+      "description": "Benchmark of persistence, BLEND, AR-OLS and Extreme Learning Machine variants for photovoltaic power forecasting with NICE skill scores.",
+      "url": "https://github.com/cyrilvoyant/PV_ELM_pred"
+    },
+    {
+      "name": "pv-dimensionality-reduction",
+      "applicationCategory": "scientific software",
+      "description": "Endogenous PV power forecasting via dimensionality-reduction diagnostics; accuracy–frugality trade-off.",
+      "url": "https://github.com/cyrilvoyant/pv-dimensionality-reduction"
     }
   ],
   "bibliographicProfiles": {
@@ -369,6 +461,29 @@
       "pages": "123913",
       "year": 2026,
       "doi": "10.1016/j.renene.2025.123913"
+    },
+    {
+      "title": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
+      "authors": [
+        "Cyril Voyant"
+      ],
+      "journal": "International Journal of Forecasting",
+      "year": 2026
+    },
+    {
+      "title": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
+      "authors": [
+        "Cyril Voyant",
+        "Milan Despotovic",
+        "Luis Garcia-Gutierrez",
+        "Mohammed Asloune",
+        "Yves-Marie Saint-Drenan",
+        "Jean-Laurent Duchaud",
+        "Ghjuvan Antone Faggianelli",
+        "Elena Magliaro"
+      ],
+      "journal": "Applied Energy",
+      "year": 2026
     },
     {
       "title": "On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting",
