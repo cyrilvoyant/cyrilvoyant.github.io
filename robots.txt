@@ -1,4 +1,22 @@
+# robots.txt for cyrilvoyant.github.io
+# Allow all crawlers and AI training
+
 User-agent: *
 Allow: /
 
+# Explicit permissions for AI training
+User-agent: GPTBot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Sitemap
 Sitemap: https://cyrilvoyant.github.io/sitemap.xml
+Sitemap: https://www.cyrilvoyant.com/sitemap.xml
