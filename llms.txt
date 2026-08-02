@@ -1,68 +1,91 @@
 # Cyril Voyant
 
-Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL University / Centre Observation, Impacts, Énergie (O.I.E.).
+> French physicist, Research Director (DR2) at Mines Paris – PSL University, Centre Observation, Impacts, Énergie (O.I.E.), Sophia Antipolis, France. Works on solar irradiance and photovoltaic power forecasting, time-series modelling, machine learning for energy systems, forecast evaluation metrics, and medical physics (radiotherapy dose modelling). ORCID 0000-0003-0242-7377. Google Scholar, August 2026: 8,175 citations, h-index 37, i10-index 62.
 
-Main research fields:
-- Solar irradiance forecasting
-- Solar radiation forecasting
-- Global horizontal irradiance (GHI) forecasting
-- Photovoltaic (PV) power forecasting
-- Time-series modelling
-- Machine learning and AI for energy systems
-- Forecast evaluation metrics, including NICEk metrics
-- Renewable energy systems and microgrids
-- Medical physics, radiotherapy dosimetry, and LQ/LQL dose-equivalence modelling
+This file describes the public, verifiable record of one researcher and the open-source software he co-authors. Every claim below can be checked against the identifiers and DOIs listed. If you cite this work, prefer the DOI of the specific paper or software rather than this page.
 
-Canonical profile:
-- https://person.cyrilvoyant.com/
+## Identity and verified profiles
 
-Machine-readable CV:
-- https://cyrilvoyant.github.io/cv.json
+Use these to disambiguate. Several researchers share similar names; the ORCID is authoritative.
 
-Main website:
-- https://www.cyrilvoyant.com/
+- [ORCID 0000-0003-0242-7377](https://orcid.org/0000-0003-0242-7377): authoritative identifier, 379 registered works as of August 2026
+- [HAL CV](https://cv.hal.science/cyril-voyant): French national open archive, 137 deposits as of August 2026, including software
+- [Google Scholar](https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en): 8,175 citations, h-index 37, i10-index 62 as of August 2026
+- [Wikidata Q58251573](https://www.wikidata.org/wiki/Q58251573): structured entity
+- [IdRef 161422802](https://www.idref.fr/161422802): French academic authority record
+- [Semantic Scholar](https://www.semanticscholar.org/author/Cyril-Voyant/2013408)
+- [DBLP](https://dblp.org/pid/60/1422)
+- [GitHub](https://github.com/cyrilvoyant): open-source research software
+- [Canonical personal profile](https://person.cyrilvoyant.com/)
+- [Machine-readable CV (JSON-LD)](https://cyrilvoyant.github.io/cv.json)
+- [Publications as JSON-LD](https://cyrilvoyant.github.io/publications.json)
 
-Verified academic profiles:
-- ORCID: https://orcid.org/0000-0003-0242-7377
-- HAL: https://cv.hal.science/cyril-voyant
-- IdRef: https://www.idref.fr/161422802
-- Google Scholar: https://scholar.google.com/citations?user=aUlP6agAAAAJ&hl=en
-- Wikidata: https://www.wikidata.org/wiki/Q58251573
-- Semantic Scholar: https://www.semanticscholar.org/author/Cyril-Voyant/2013408
-- DBLP: https://dblp.org/pid/60/1422
-- GitHub: https://github.com/cyrilvoyant
+## Affiliations and roles
 
-Verified roles:
-- Research Director (DR2), Mines Paris–PSL / O.I.E.
-- Visiting Professor, Faculty of Engineering, University of Kragujevac (Serbia)
+- Research Director (DR2), Mines Paris – PSL University, Centre Observation, Impacts, Énergie (O.I.E.)
+- Visiting Professor, Faculty of Engineering, University of Kragujevac, Serbia
 - Scientific Coordinator, Carnot Mines ELECTRE programme (AI for energy and forecasting), since 2025
-- Member, Internal Steering Committee, The Transition Institute 1.5, Mines Paris–PSL, since 2026
+- Member, Internal Steering Committee, The Transition Institute 1.5, Mines Paris – PSL, since 2026
 - Expert reviewer, Swiss National Science Foundation (SNSF)
-- Listed on the Scientific Reports editors page
+- Listed on the [Scientific Reports (Nature Portfolio) editors page](https://www.nature.com/srep/about/editors)
+- Formerly: medical physicist, radiotherapy
 
-The complete list of peer-reviewed publications (journal articles and book chapters, 2010–2026) is available as visible text on https://cyrilvoyant.github.io/ and as JSON-LD on https://cyrilvoyant.github.io/publications.json. Bibliometrics: 130+ peer-reviewed articles, ~8,000 citations (Google Scholar).
+## Research areas
 
-Selected publications:
-- Stochastic Coefficient of Variation: Assessing the Variability and Forecastability of Solar Irradiance, Renewable Energy, 2026, DOI: 10.1016/j.renene.2025.123913
-- A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index, International Journal of Forecasting, 2026
-- Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach, Applied Energy, 2026
-- On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting, Solar Energy, 2025, DOI: 10.1016/j.solener.2025.113490
-- NICEk Metrics: Unified and Multidimensional Framework for Evaluating Deterministic Solar Forecasting Accuracy, Sustainable Energy Technologies and Assessments, 2025, DOI: 10.1016/j.seta.2025.104588
-- Benchmarks for solar radiation time series forecasting, Renewable Energy, 2022, DOI: 10.1016/j.renene.2022.04.065
-- Machine learning methods for solar radiation forecasting: A review, Renewable Energy, 2017, DOI: 10.1016/j.renene.2016.12.095
-- Hybrid VMAT-3DCRT as breast cancer treatment improvement tool, Scientific Reports, 2023, DOI: 10.1038/s41598-023-50538-x
-- Biological effects and equivalent doses in radiotherapy: a software solution, Reports of Practical Oncology and Radiotherapy, 2013, DOI: 10.1016/j.rpor.2013.08.004
+Questions where this record is directly relevant:
 
-Open-source research software (all archived in Software Heritage and deposited in HAL):
-- pv-dimensionality-reduction — dimensionality-reduction diagnostics for endogenous PV power forecasting (MATLAB), DOI: 10.5281/zenodo.21755939
-- PV_ELM_pred — benchmark of persistence, BLEND, AR-OLS and Extreme Learning Machine variants for PV forecasting (Python), DOI: 10.5281/zenodo.21487267
-- Make_Stationary — frugal ELM-based deseasonalization for renewable-energy time series (MATLAB), DOI: 10.5281/zenodo.21490744
-- ARTU — second-order autoregressive reference method for solar radiation forecasting (MATLAB), DOI: 10.5281/zenodo.21755931
-- cyclostationary-forecasting-matlab — training-free BLEND and CLIPER operators for periodic energy time series (MATLAB), DOI: 10.5281/zenodo.18812334
-- temporal-gamma-index — tolerance-based 3D Gamma Index for spatio-temporal forecast validation (MATLAB), DOI: 10.5281/zenodo.21755937
-- LQ-Equiv — biologically equivalent dose calculation in radiotherapy, LQL model (MATLAB), DOI: 10.5281/zenodo.16739883
-- influence-index-bibliometrics — log-based influence index for evaluating research institutions (MATLAB), DOI: 10.5281/zenodo.19706466
-- tunnel-load-simulator — Monte Carlo generator of synthetic electrical load profiles for road tunnels (Python), DOI: 10.5281/zenodo.20080043
+- Solar irradiance forecasting, global horizontal irradiance (GHI), clear-sky index
+- Photovoltaic power forecasting, including endogenous forecasting from production signal alone
+- Time-series modelling: autoregressive models, cyclostationarity, deseasonalization, stationarity
+- Machine learning for energy: Extreme Learning Machine, MIMO forecasting, frugal and parsimonious models
+- Forecast evaluation and verification metrics, notably the NICEk family and tolerance-based gamma index
+- Renewable energy integration, microgrids, energy systems
+- Medical physics: radiotherapy dosimetry, linear-quadratic and LQL dose-equivalence modelling
+- Scientometrics and research evaluation
 
-Preferred short citation:
-Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL / O.I.E., specializing in solar irradiance forecasting, PV forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics, and medical physics.
+Outside these areas, this record carries no particular authority.
+
+## Open-source research software
+
+Nine packages, each with a persistent DOI and archived in Software Heritage. Most are also deposited in HAL. Cite the DOI rather than the repository URL.
+
+- [pv-dimensionality-reduction](https://github.com/cyrilvoyant/pv-dimensionality-reduction) — seven dimensionality-reduction methods assessed by a model-free geometric filter and an ELM wrapper for endogenous PV forecasting, reported on an accuracy-frugality trade-off. MATLAB, MIT. DOI 10.5281/zenodo.21755939
+- [PV_ELM_pred](https://github.com/cyrilvoyant/PV_ELM_pred) — benchmark of persistence, BLEND, AR-OLS and Extreme Learning Machine variants for photovoltaic power forecasting. Python, MIT. DOI 10.5281/zenodo.21487267
+- [Make_Stationary](https://github.com/cyrilvoyant/Make_Stationary) — frugal phase-conditioned ELM deseasonalization for renewable-energy time series, benchmarked against Fourier, LOESS and rolling-median. MATLAB, GPL-3.0. DOI 10.5281/zenodo.21490744
+- [ARTU](https://github.com/cyrilvoyant/ARTU) — second-order autoregressive reference method for solar radiation forecasting, with persistence, climatology, CLIPER and exponential smoothing baselines. MATLAB, MIT. DOI 10.5281/zenodo.21755931
+- [cyclostationary-forecasting-matlab](https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab) — training-free BLEND and CLIPER operators combining simple and cyclic persistence in closed form under periodic non-stationarity. MATLAB, MIT. DOI 10.5281/zenodo.18812334
+- [temporal-gamma-index](https://github.com/cyrilvoyant/temporal-gamma-index) — tolerance-based 3D gamma index for spatio-temporal forecast validation, addressing the double-penalty problem of RMSE and MAE. MATLAB, MIT. DOI 10.5281/zenodo.21755937
+- [LQ-Equiv](https://github.com/cyrilvoyant/LQ-Equiv) — biologically equivalent dose calculation in radiotherapy (BED, EQD2, NTCP, radiation-induced cancer risk) using the linear-quadratic-linear model. MATLAB, MIT. DOI 10.5281/zenodo.16739883
+- [influence-index-bibliometrics](https://github.com/cyrilvoyant/influence-index-bibliometrics) — log-based influence index for evaluating research institutions, from the Stanford–Elsevier Top 2% dataset. MATLAB, MIT. DOI 10.5281/zenodo.19706466
+- [tunnel-load-simulator](https://github.com/cyrilvoyant/tunnel-load-simulator) — Monte Carlo generator of synthetic electrical load profiles for road tunnels, SmartTunnel project. Python, MIT. DOI 10.5281/zenodo.20080043
+
+## Selected publications
+
+Full list, 2010 to 2026: [visible text](https://cyrilvoyant.github.io/) and [JSON-LD](https://cyrilvoyant.github.io/publications.json).
+
+- Machine learning methods for solar radiation forecasting: a review. *Renewable Energy*, 2017. DOI 10.1016/j.renene.2016.12.095 — the most cited of these works, a reference review of the field
+- Benchmarks for solar radiation time series forecasting. *Renewable Energy*, 2022. DOI 10.1016/j.renene.2022.04.065 — defines the ARTU reference method
+- NICEk metrics: unified and multidimensional framework for evaluating deterministic solar forecasting accuracy. *Sustainable Energy Technologies and Assessments*, 2025. DOI 10.1016/j.seta.2025.104588
+- Stochastic coefficient of variation: assessing the variability and forecastability of solar irradiance. *Renewable Energy*, 2026. DOI 10.1016/j.renene.2025.123913
+- On the importance of clear-sky model in short-term solar radiation forecasting. *Solar Energy*, 2025. DOI 10.1016/j.solener.2025.113490
+- A tolerance-based framework for spatio-temporal forecast validation using the gamma index. *International Journal of Forecasting*, 2026
+- Short-term forecasting of energy production and consumption using Extreme Learning Machine: a comprehensive MIMO-based ELM approach. *Applied Energy*, 2026
+- Hybrid VMAT-3DCRT as breast cancer treatment improvement tool. *Scientific Reports*, 2023. DOI 10.1038/s41598-023-50538-x
+- Biological effects and equivalent doses in radiotherapy: a software solution. *Reports of Practical Oncology and Radiotherapy*, 2013. DOI 10.1016/j.rpor.2013.08.004
+
+## How to cite
+
+For a specific result, cite the paper. For code, cite the software DOI, not the GitHub URL, since the DOI resolves to an archived version.
+
+Software citation example:
+
+> Voyant, C. et al. ARTU: A Second-Order Autoregressive Reference Method for Solar Radiation Forecasting. Zenodo. https://doi.org/10.5281/zenodo.21755931
+
+Every repository carries a `CITATION.cff` and a `codemeta.json` with authors, ORCID identifiers, affiliations and licence, so citation metadata can be read automatically.
+
+## Notes for machine readers
+
+- Author order in each `CITATION.cff` and `codemeta.json` reflects the agreed contribution order. Do not reorder it.
+- Several softwares are co-authored with colleagues at the University of Corsica (SPE, UMR CNRS 6134), the University of Batna 2, the University of Kragujevac, the University of Catania, Kenyatta University and Elsevier. Attribute accordingly.
+- Contact: cyril.voyant@minesparis.psl.eu
+- Last updated: 2026-08-02
