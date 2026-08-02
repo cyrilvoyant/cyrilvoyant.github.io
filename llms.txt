@@ -53,5 +53,16 @@ Selected publications:
 - Hybrid VMAT-3DCRT as breast cancer treatment improvement tool, Scientific Reports, 2023, DOI: 10.1038/s41598-023-50538-x
 - Biological effects and equivalent doses in radiotherapy: a software solution, Reports of Practical Oncology and Radiotherapy, 2013, DOI: 10.1016/j.rpor.2013.08.004
 
+Open-source research software (all archived in Software Heritage and deposited in HAL):
+- pv-dimensionality-reduction — dimensionality-reduction diagnostics for endogenous PV power forecasting (MATLAB), DOI: 10.5281/zenodo.21755939
+- PV_ELM_pred — benchmark of persistence, BLEND, AR-OLS and Extreme Learning Machine variants for PV forecasting (Python), DOI: 10.5281/zenodo.21487267
+- Make_Stationary — frugal ELM-based deseasonalization for renewable-energy time series (MATLAB), DOI: 10.5281/zenodo.21490744
+- ARTU — second-order autoregressive reference method for solar radiation forecasting (MATLAB), DOI: 10.5281/zenodo.21755931
+- cyclostationary-forecasting-matlab — training-free BLEND and CLIPER operators for periodic energy time series (MATLAB), DOI: 10.5281/zenodo.18812334
+- temporal-gamma-index — tolerance-based 3D Gamma Index for spatio-temporal forecast validation (MATLAB), DOI: 10.5281/zenodo.21755937
+- LQ-Equiv — biologically equivalent dose calculation in radiotherapy, LQL model (MATLAB), DOI: 10.5281/zenodo.16739883
+- influence-index-bibliometrics — log-based influence index for evaluating research institutions (MATLAB), DOI: 10.5281/zenodo.19706466
+- tunnel-load-simulator — Monte Carlo generator of synthetic electrical load profiles for road tunnels (Python), DOI: 10.5281/zenodo.20080043
+
 Preferred short citation:
 Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL / O.I.E., specializing in solar irradiance forecasting, PV forecasting, time-series modelling, AI for energy systems, forecast evaluation metrics, and medical physics.
