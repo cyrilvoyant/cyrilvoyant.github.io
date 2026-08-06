@@ -19,4 +19,4 @@ Allow: /
 
 # Sitemap
 Sitemap: https://cyrilvoyant.github.io/sitemap.xml
-Sitemap: https://www.cyrilvoyant.com/sitemap.xml
+Sitemap: https://person.cyrilvoyant.com/sitemap.xml
