@@ -293,10 +293,18 @@
   ],
   "editorialActivities": [
     {
-      "role": "Editorial board member / editor listing",
+      "role": "Editorial Board Member",
       "journal": "Scientific Reports",
       "publisher": "Nature Portfolio / Springer Nature",
       "url": "https://www.nature.com/srep/about/editors"
+    },
+    {
+      "role": "Editorial Board Member",
+      "journal": "Sustainability",
+      "section": "Energy Sustainability",
+      "publisher": "MDPI",
+      "startYear": 2026,
+      "url": "https://www.mdpi.com/journal/sustainability/sectioneditors/energy_sustainability"
     }
   ],
   "scientificServiceAndRecognition": [

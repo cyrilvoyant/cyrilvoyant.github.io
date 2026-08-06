@@ -50,7 +50,8 @@ This is a bibliometric listing based on standardized Scopus-derived citation ind
 
 - Research Director, Mines Paris–PSL / O.I.E.
 - Visiting Professor, Faculty of Engineering, University of Kragujevac
-- Listed on the Scientific Reports editors page, Nature Portfolio
+- Editorial Board Member, Scientific Reports (Nature Portfolio)
+- Editorial Board Member, Sustainability (MDPI), Energy Sustainability section
 
 ## Repository contents
 
