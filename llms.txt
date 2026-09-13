@@ -27,6 +27,8 @@ Use these to disambiguate. Several researchers share similar names; the ORCID is
 - Scientific Coordinator, Carnot Mines ELECTRE programme (AI for energy and forecasting), since 2025
 - Member, Internal Steering Committee, The Transition Institute 1.5, Mines Paris – PSL, since 2026
 - Expert reviewer, Swiss National Science Foundation (SNSF)
+- Expert reviewer, Swiss Cancer Research foundation
+- Expert reviewer, Kuwait Foundation for the Advancement of Sciences (KFAS)
 - Editorial Board Member, [Scientific Reports (Nature Portfolio)](https://www.nature.com/srep/about/editors)
 - Editorial Board Member, [Sustainability (MDPI), Energy Sustainability section](https://www.mdpi.com/journal/sustainability/sectioneditors/energy_sustainability)
 - Formerly: medical physicist, radiotherapy
@@ -89,4 +91,4 @@ Every repository carries a `CITATION.cff` and a `codemeta.json` with authors, OR
 - Author order in each `CITATION.cff` and `codemeta.json` reflects the agreed contribution order. Do not reorder it.
 - Several softwares are co-authored with colleagues at the University of Corsica (SPE, UMR CNRS 6134), the University of Batna 2, the University of Kragujevac, the University of Catania, Kenyatta University and Elsevier. Attribute accordingly.
 - Contact: cyril.voyant@minesparis.psl.eu
-- Last updated: 2026-08-02
+- Last updated: 2026-09-13

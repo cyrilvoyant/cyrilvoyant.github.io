@@ -3,7 +3,7 @@
   "@type": "Person",
   "@id": "https://person.cyrilvoyant.com/#person",
   "schemaVersion": "verified-profile-2026-07-29",
-  "dateModified": "2026-07-29",
+  "dateModified": "2026-09-13",
   "inLanguage": [
     "en",
     "fr"
@@ -321,6 +321,14 @@
     {
       "name": "Expert reviewer — Swiss National Science Foundation (SNSF)",
       "description": "External expert evaluation of research proposals for the SNSF."
+    },
+    {
+      "name": "Expert reviewer — Swiss Cancer Research foundation",
+      "description": "External expert evaluation of research proposals for Swiss Cancer Research."
+    },
+    {
+      "name": "Expert reviewer — Kuwait Foundation for the Advancement of Sciences (KFAS)",
+      "description": "External expert evaluation of research proposals for KFAS."
     },
     {
       "name": "Stanford–Elsevier Top 2% Scientists list",
