@@ -52,6 +52,7 @@ This is a bibliometric listing based on standardized Scopus-derived citation ind
 - Visiting Professor, Faculty of Engineering, University of Kragujevac
 - Editorial Board Member, Scientific Reports (Nature Portfolio)
 - Editorial Board Member, Sustainability (MDPI), Energy Sustainability section
+- Working Group Expert, ETIP PV (European Technology & Innovation Platform for Photovoltaics). Digital PV, Grid and Storage, European expert group addressing digitalization, PV integration, electricity grids and energy storage.
 
 ## Repository contents
 
