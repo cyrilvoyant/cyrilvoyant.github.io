@@ -1,0 +1,24 @@
+{
+  "namespace": "https://cyrilvoyant.github.io/metadata-vocabulary.json#",
+  "description": "Local documentary extensions; these terms are not Schema.org properties. Values use JSON-LD 1.1 @json to preserve the existing documentary records without presenting nested custom keys as Schema.org terms.",
+  "terms": {
+    "schemaVersion": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "dateModified": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "academicAppointments": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "professionalExperience": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "editorialActivities": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "scientificServiceAndRecognition": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "researchProjects": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "doctoralSupervision": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "softwareAndOpenScience": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "bibliographicProfiles": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "selectedPublications": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "verificationSources": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "curationNotes": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "recognitions": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence.",
+    "sourcePolicy": "Documentary field retained from the curated CV; consult its value and verificationSources for scope and evidence."
+  },
+  "personIdentifier": "https://person.cyrilvoyant.com/#cyril-voyant",
+  "previousPersonIdentifier": "https://person.cyrilvoyant.com/#person",
+  "identifierMigration": "The previous fragment identified the same person. New structured data references the identifier already used by the identity page."
+}

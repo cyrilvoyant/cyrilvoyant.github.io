@@ -1,9 +1,69 @@
 {
-  "@context": "https://schema.org",
+  "@context": [
+    "https://schema.org",
+    {
+      "schemaVersion": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#schemaVersion",
+        "@type": "@json"
+      },
+      "dateModified": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#dateModified",
+        "@type": "@json"
+      },
+      "academicAppointments": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#academicAppointments",
+        "@type": "@json"
+      },
+      "professionalExperience": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#professionalExperience",
+        "@type": "@json"
+      },
+      "editorialActivities": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#editorialActivities",
+        "@type": "@json"
+      },
+      "scientificServiceAndRecognition": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#scientificServiceAndRecognition",
+        "@type": "@json"
+      },
+      "researchProjects": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#researchProjects",
+        "@type": "@json"
+      },
+      "doctoralSupervision": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#doctoralSupervision",
+        "@type": "@json"
+      },
+      "softwareAndOpenScience": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#softwareAndOpenScience",
+        "@type": "@json"
+      },
+      "bibliographicProfiles": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#bibliographicProfiles",
+        "@type": "@json"
+      },
+      "selectedPublications": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#selectedPublications",
+        "@type": "@json"
+      },
+      "verificationSources": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#verificationSources",
+        "@type": "@json"
+      },
+      "curationNotes": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#curationNotes",
+        "@type": "@json"
+      },
+      "recognitions": {
+        "@id": "https://cyrilvoyant.github.io/metadata-vocabulary.json#recognitions",
+        "@type": "@json"
+      }
+    }
+  ],
   "@type": "Person",
-  "@id": "https://person.cyrilvoyant.com/#person",
+  "@id": "https://person.cyrilvoyant.com/#cyril-voyant",
   "schemaVersion": "verified-profile-2026-07-29",
-  "dateModified": "2026-09-13",
+  "dateModified": "2026-10-10",
   "inLanguage": [
     "en",
     "fr"
@@ -53,31 +113,34 @@
   },
   "affiliation": [
     {
-      "@type": "Organization",
-      "name": "Mines Paris – PSL University",
+      "@type": "OrganizationRole",
       "roleName": "Research Director",
       "startDate": "2024",
-      "url": "https://www.minesparis.psl.eu/"
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Mines Paris – PSL University",
+        "url": "https://www.minesparis.psl.eu/"
+      }
     },
     {
-      "@type": "Organization",
-      "name": "Centre Observation, Impacts, Énergie (O.I.E.)",
+      "@type": "OrganizationRole",
       "roleName": "Research Director",
       "startDate": "2024",
-      "url": "https://www.oie.minesparis.psl.eu/"
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Centre Observation, Impacts, Énergie (O.I.E.)",
+        "url": "https://www.oie.minesparis.psl.eu/"
+      }
     },
     {
-      "@type": "Organization",
-      "name": "Faculty of Engineering, University of Kragujevac",
+      "@type": "OrganizationRole",
       "roleName": "Visiting Professor",
       "startDate": "2026",
-      "url": "https://fin.kg.ac.rs/en/"
-    },
-    {
-      "@type": "Organization",
-      "name": "University of Corsica Pasquale Paoli",
-      "roleName": "Scientific cooperation and previous academic appointments",
-      "url": "https://www.universita.corsica/"
+      "affiliation": {
+        "@type": "Organization",
+        "name": "Faculty of Engineering, University of Kragujevac",
+        "url": "https://fin.kg.ac.rs/en/"
+      }
     }
   ],
   "sameAs": [
@@ -93,8 +156,7 @@
     "https://cyrilvoyant.github.io/",
     "https://www.researchgate.net/profile/Cyril-Voyant",
     "https://www.semanticscholar.org/author/Cyril-Voyant/2013408",
-    "https://dblp.org/pid/60/1422",
-    "https://zenodo.org/records/15876341"
+    "https://dblp.org/pid/60/1422"
   ],
   "identifier": [
     {
@@ -174,60 +236,6 @@
     "radiotherapy dose modelling",
     "radiobiology",
     "numerical modelling"
-  ],
-  "education": [
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "HDR",
-      "name": "Habilitation à Diriger des Recherches",
-      "about": "Numerical simulation from solar irradiance forecasting to life sciences",
-      "recognizedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Corsica Pasquale Paoli"
-      },
-      "dateCreated": "2019"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "PhD",
-      "name": "PhD in Physics",
-      "about": "Time series modeling and global solar radiation forecasting",
-      "recognizedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Corsica Pasquale Paoli"
-      },
-      "dateCreated": "2011"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Professional qualification",
-      "name": "DQPRM — Medical Physics Qualification",
-      "recognizedBy": {
-        "@type": "EducationalOrganization",
-        "name": "INSTN – Saclay"
-      },
-      "dateCreated": "2003"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Master / DEA",
-      "name": "DEA in Radiations and Medical Imaging",
-      "recognizedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Toulouse"
-      },
-      "dateCreated": "2002"
-    },
-    {
-      "@type": "EducationalOccupationalCredential",
-      "credentialCategory": "Master",
-      "name": "Master's degree in Fundamental Physics",
-      "recognizedBy": {
-        "@type": "CollegeOrUniversity",
-        "name": "University of Montpellier II"
-      },
-      "dateCreated": "2001"
-    }
   ],
   "academicAppointments": [
     {
@@ -405,13 +413,13 @@
       "name": "LQ-Equiv",
       "applicationCategory": "medical physics software",
       "description": "Radiotherapy dose-equivalence calculator based on LQ/LQL radiobiological models.",
-      "url": "https://cyrilvoyant.github.io/"
+      "url": "https://github.com/cyrilvoyant/LQ-Equiv"
     },
     {
       "name": "Make_Stationary",
       "applicationCategory": "scientific software",
       "description": "ELM-based cyclic deseasonalization for PV/GHI time series with phase-conditioned projection.",
-      "url": "https://cyrilvoyant.github.io/"
+      "url": "https://github.com/cyrilvoyant/Make_Stationary"
     },
     {
       "name": "ARTU",
@@ -695,6 +703,107 @@
       "source": "https://topresearcherslist.com/Home/Profile/1191312",
       "methodologySource": "https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw",
       "note": "Use as a bibliometric citation-impact listing, not as an academic prize."
+    }
+  ],
+  "hasCredential": [
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "HDR",
+      "name": "Habilitation à Diriger des Recherches",
+      "about": "Numerical simulation from solar irradiance forecasting to life sciences",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Corsica Pasquale Paoli"
+      },
+      "dateCreated": "2019"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "PhD",
+      "name": "PhD in Physics",
+      "about": "Time series modeling and global solar radiation forecasting",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Corsica Pasquale Paoli"
+      },
+      "dateCreated": "2011"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Professional qualification",
+      "name": "DQPRM — Medical Physics Qualification",
+      "recognizedBy": {
+        "@type": "EducationalOrganization",
+        "name": "INSTN – Saclay"
+      },
+      "dateCreated": "2003"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Master / DEA",
+      "name": "DEA in Radiations and Medical Imaging",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Toulouse"
+      },
+      "dateCreated": "2002"
+    },
+    {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "Master",
+      "name": "Master's degree in Fundamental Physics",
+      "recognizedBy": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of Montpellier II"
+      },
+      "dateCreated": "2001"
+    }
+  ],
+  "subjectOf": [
+    {
+      "@type": "WebPage",
+      "name": "HAL scientific CV",
+      "url": "https://cv.hal.science/cyril-voyant"
+    },
+    {
+      "@type": "WebPage",
+      "name": "ORCID profile",
+      "url": "https://orcid.org/0000-0003-0242-7377"
+    },
+    {
+      "@type": "WebPage",
+      "name": "IdRef authority record",
+      "url": "https://www.idref.fr/161422802"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Scientific Reports editors page",
+      "url": "https://www.nature.com/srep/about/editors"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Sustainability (MDPI) — Editorial Board, Energy Sustainability section",
+      "url": "https://www.mdpi.com/journal/sustainability/sectioneditors/energy_sustainability"
+    },
+    {
+      "@type": "WebPage",
+      "name": "University of Kragujevac visiting professor announcement",
+      "url": "https://fin.kg.ac.rs/en/component/content/article/202-news/2380-professors-gilles-notton-and-cyril-voyant-appointed-as-visiting-professors-at-the-faculty-of-engineering?Itemid=620"
+    },
+    {
+      "@type": "WebPage",
+      "name": "ETIP PV — Digital PV, Grid and Storage Working Group",
+      "url": "https://etip-pv.eu/about/working-groups/digital-pv-grid-and-storage/"
+    },
+    {
+      "@type": "WebPage",
+      "name": "World's Top 2% Scientists profile: Cyril Voyant",
+      "url": "https://topresearcherslist.com/Home/Profile/1191312"
+    },
+    {
+      "@type": "WebPage",
+      "name": "Updated science-wide author databases of standardized citation indicators",
+      "url": "https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw"
     }
   ]
 }
