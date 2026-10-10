@@ -761,6 +761,18 @@
   ],
   "subjectOf": [
     {
+      "@type": "CreativeWork",
+      "name": "Full CV – Cyril Voyant, PhD, HDR – Expert in Solar Forecasting and Renewable Energy",
+      "url": "https://zenodo.org/records/15876341",
+      "identifier": "https://doi.org/10.5281/zenodo.15876341",
+      "description": "Archived CV, version v1, published on 14 July 2025.",
+      "datePublished": "2025-07-14",
+      "version": "v1",
+      "about": {
+        "@id": "https://person.cyrilvoyant.com/#cyril-voyant"
+      }
+    },
+    {
       "@type": "WebPage",
       "name": "HAL scientific CV",
       "url": "https://cv.hal.science/cyril-voyant"
