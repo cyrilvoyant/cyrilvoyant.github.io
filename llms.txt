@@ -51,7 +51,7 @@ Outside these areas, this record carries no particular authority.
 
 ## Open-source research software
 
-Ten packages, each with a persistent DOI and archived in Software Heritage. Most are also deposited in HAL. Cite the DOI rather than the repository URL.
+Eleven packages, each with a persistent DOI and archived in Software Heritage. Most are also deposited in HAL. Cite the DOI rather than the repository URL.
 
 - [pv-dimensionality-reduction](https://github.com/cyrilvoyant/pv-dimensionality-reduction) — seven dimensionality-reduction methods assessed by a model-free geometric filter and an ELM wrapper for endogenous PV forecasting, reported on an accuracy-frugality trade-off. MATLAB, MIT. DOI 10.5281/zenodo.21755939
 - [PV_ELM_pred](https://github.com/cyrilvoyant/PV_ELM_pred) — benchmark of persistence, BLEND, AR-OLS and Extreme Learning Machine variants for photovoltaic power forecasting. Python, MIT. DOI 10.5281/zenodo.21487267
@@ -60,9 +60,10 @@ Ten packages, each with a persistent DOI and archived in Software Heritage. Most
 - [cyclostationary-forecasting-matlab](https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab) — training-free BLEND and CLIPER operators combining simple and cyclic persistence in closed form under periodic non-stationarity. MATLAB, MIT. DOI 10.5281/zenodo.18812334
 - [temporal-gamma-index](https://github.com/cyrilvoyant/temporal-gamma-index) — tolerance-based 3D gamma index for spatio-temporal forecast validation, addressing the double-penalty problem of RMSE and MAE. MATLAB, MIT. DOI 10.5281/zenodo.21755937
 - [LQ-Equiv](https://github.com/cyrilvoyant/LQ-Equiv) — biologically equivalent dose calculation in radiotherapy (BED, EQD2, NTCP, radiation-induced cancer risk) using the linear-quadratic-linear model. MATLAB, MIT. DOI 10.5281/zenodo.16739883
+- [LQL-Equiv-web](https://github.com/cyrilvoyant/LQL-Equiv-web) — Python library and browser app, usable without installation at https://cyrilvoyant.github.io/LQL-Equiv-web/, for biologically equivalent doses in radiotherapy (BED, EQD2, NTCP, TCP, radiation-induced cancer risk) under the linear-quadratic-linear model; validated successor to the 2014 MATLAB LQ-Equiv. Research and education only. Python, MIT. DOI 10.5281/zenodo.21948623
 - [influence-index-bibliometrics](https://github.com/cyrilvoyant/influence-index-bibliometrics) — log-based influence index for evaluating research institutions, from the Stanford–Elsevier Top 2% dataset. MATLAB, MIT. DOI 10.5281/zenodo.19706466
 - [tunnel-load-simulator](https://github.com/cyrilvoyant/tunnel-load-simulator) — Monte Carlo generator of synthetic electrical load profiles for road tunnels, SmartTunnel project. Python, MIT. DOI 10.5281/zenodo.20080043
-- [websemantic](https://github.com/cyrilvoyant/websemantic) — software-agnostic semantic layer that makes scientific codes usable by language-model agents: one descriptor per code is compiled into a readable contract, an ontology with SHACL rules ([w3id.org/websemantic/ns](https://w3id.org/websemantic/ns)) and FAIR metadata; a validator checks the proposed scenario before the unchanged code runs. Python, MIT, on PyPI (`pip install websemantic`). DOI 10.5281/zenodo.23238902
+- [websemantic](https://github.com/cyrilvoyant/websemantic) — software-agnostic semantic layer that makes scientific codes usable by language-model agents: one descriptor per code is compiled into a readable contract, an ontology with SHACL rules ([w3id.org/websemantic/ns](https://w3id.org/websemantic/ns)) and FAIR metadata; a validator checks the proposed scenario before the unchanged code runs. Python, MIT, on PyPI (`pip install websemantic` installs the Python layer; the three simulators come with the repository and its submodules). DOI 10.5281/zenodo.23238902
 
 ## Selected publications
 
