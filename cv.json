@@ -63,7 +63,7 @@
   "@type": "Person",
   "@id": "https://person.cyrilvoyant.com/#cyril-voyant",
   "schemaVersion": "verified-profile-2026-07-29",
-  "dateModified": "2026-10-10",
+  "dateModified": "2026-10-18",
   "inLanguage": [
     "en",
     "fr"
@@ -80,7 +80,7 @@
     "Prof",
     "HDR"
   ],
-  "description": "French physicist and Research Director at Mines Paris – PSL University, working on solar irradiance forecasting, time-series modelling, artificial intelligence for energy systems, renewable energy forecasting, and medical physics.",
+  "description": "Physicist and Research Director at Mines Paris–PSL, and Visiting Professor at the Faculty of Engineering, University of Kragujevac. Research in solar and photovoltaic forecasting, time-series modelling, frugal AI for energy systems, and medical physics.",
   "url": "https://www.cyrilvoyant.com/",
   "mainEntityOfPage": "https://person.cyrilvoyant.com/",
   "email": "mailto:cyril.voyant@minesparis.psl.eu",
@@ -90,7 +90,8 @@
   },
   "jobTitle": [
     "Research Director",
-    "Directeur de Recherche (DR2)"
+    "Directeur de Recherche (DR2)",
+    "Visiting Professor"
   ],
   "worksFor": {
     "@type": "Organization",
@@ -235,7 +236,11 @@
     "medical physics",
     "radiotherapy dose modelling",
     "radiobiology",
-    "numerical modelling"
+    "numerical modelling",
+    "Extreme Learning Machine",
+    "frugal AI",
+    "cyclostationary forecasting",
+    "deseasonalization"
   ],
   "academicAppointments": [
     {
@@ -487,15 +492,19 @@
       "doi": "10.1016/j.renene.2025.123913"
     },
     {
-      "title": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
+      "title": "A tolerance-based framework for spatiotemporal forecast validation using the γ-index",
       "authors": [
         "Cyril Voyant"
       ],
       "journal": "International Journal of Forecasting",
-      "year": 2026
+      "year": 2026,
+      "doi": "10.1016/j.ijforecast.2026.03.002",
+      "volume": "42",
+      "pages": "1207-1214",
+      "issue": "4"
     },
     {
-      "title": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
+      "title": "Short-term forecasting of energy production and consumption using extreme learning machine: A comprehensive MIMO based ELM approach",
       "authors": [
         "Cyril Voyant",
         "Milan Despotovic",
@@ -507,7 +516,10 @@
         "Elena Magliaro"
       ],
       "journal": "Applied Energy",
-      "year": 2026
+      "year": 2026,
+      "doi": "10.1016/j.apenergy.2026.127599",
+      "volume": "410",
+      "pages": "127599"
     },
     {
       "title": "On the Importance of Clearsky Model in Short-Term Solar Radiation Forecasting",

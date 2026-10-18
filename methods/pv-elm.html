@@ -1,0 +1,97 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>How much model is enough for solar forecasting? The PV_ELM_pred benchmark | Cyril Voyant</title><meta name="description" content="Open Python benchmark of persistence, linear AR and 14 Extreme Learning Machine variants for frugal PV, irradiance and weather forecasting at the edge."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://cyrilvoyant.github.io/methods/pv-elm.html"><meta property="og:type" content="article"><meta property="og:title" content="How much model is enough for solar forecasting? The PV_ELM_pred benchmark"><meta property="og:description" content="Open Python benchmark of persistence, linear AR and 14 Extreme Learning Machine variants for frugal PV, irradiance and weather forecasting at the edge."><meta property="og:url" content="https://cyrilvoyant.github.io/methods/pv-elm.html"><style>body{margin:0;color:#172536;background:#fbfcfe;font:17px/1.7 system-ui,sans-serif}main,header,footer{max-width:900px;margin:auto;padding:24px}header{border-bottom:1px solid #ccd6e0}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#07569a;text-decoration:underline;text-underline-offset:3px}a:focus-visible{outline:3px solid #ad5200;outline-offset:4px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2}h2{line-height:1.3;margin-top:2em}pre{background:#edf2f7;padding:18px;overflow:auto}code{font-size:.9em}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #ccd6e0;padding:10px}.note{padding:16px;border-left:4px solid #07569a;background:#edf4fa}.muted{color:#46586a}img{max-width:100%;height:auto}footer{border-top:1px solid #ccd6e0;font-size:.9em}</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "https://cyrilvoyant.github.io/methods/pv-elm.html#page",
+  "url": "https://cyrilvoyant.github.io/methods/pv-elm.html",
+  "headline": "How much model is enough for solar forecasting? The PV_ELM_pred benchmark",
+  "description": "Open Python benchmark of persistence, linear AR and 14 Extreme Learning Machine variants for frugal PV, irradiance and weather forecasting at the edge.",
+  "inLanguage": "en",
+  "author": {
+    "@type": "Person",
+    "@id": "https://person.cyrilvoyant.com/#cyril-voyant",
+    "name": "Cyril Voyant",
+    "url": "https://person.cyrilvoyant.com/"
+  },
+  "dateModified": "2026-10-18",
+  "isPartOf": {
+    "@id": "https://cyrilvoyant.github.io/#website"
+  },
+  "about": {
+    "@type": "SoftwareSourceCode",
+    "@id": "https://github.com/cyrilvoyant/PV_ELM_pred#software",
+    "name": "PV_ELM_pred",
+    "codeRepository": "https://github.com/cyrilvoyant/PV_ELM_pred",
+    "author": [
+      {
+        "@type": "Person",
+        "name": "Martin Leiva"
+      },
+      {
+        "@type": "Person",
+        "name": "Xavier Silvani",
+        "sameAs": "https://orcid.org/0000-0002-0387-1667"
+      },
+      {
+        "@type": "Person",
+        "name": "Gilles Notton",
+        "sameAs": "https://orcid.org/0000-0002-6267-9632"
+      },
+      {
+        "@type": "Person",
+        "name": "Cyril Voyant",
+        "sameAs": "https://orcid.org/0000-0003-0242-7377",
+        "@id": "https://person.cyrilvoyant.com/#cyril-voyant"
+      },
+      {
+        "@type": "Person",
+        "name": "Alan Julien",
+        "sameAs": "https://orcid.org/0009-0003-0247-0663"
+      }
+    ],
+    "identifier": "https://doi.org/10.5281/zenodo.21487267",
+    "license": "https://opensource.org/license/mit",
+    "softwareVersion": "v1.0.0"
+  }
+}
+</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>How much model is enough for solar forecasting? The PV_ELM_pred benchmark</h1><p class="muted">Cyril Voyant · Updated 2026-10-18</p><h2>What this benchmark answers</h2>
+<p>How much model is enough to forecast a measured solar or weather channel from its own past, from 30 minutes to several hours ahead? PV_ELM_pred puts persistence, a linear autoregression and 14 Extreme Learning Machine (ELM) variants through the same pipeline, the same splits and the same metrics, so that every gain in skill can be weighed against the extra model it costs.</p>
+<p>It is a frugal-AI testbed for edge forecasting: the models run on a CPU, use only the target's own history and cyclic time features, and need no numerical weather prediction.</p>
+<h2>Models compared</h2>
+<ul>
+<li><strong>Persistence</strong> baselines, including cyclic (one-day) persistence.</li>
+<li><strong>BLEND</strong>: convex blend of persistence terms, with the weight fitted by least squares or from a correlation formula.</li>
+<li><strong>AR-OLS</strong>: linear autoregression, fitted by pseudo-inverse.</li>
+<li><strong>ELM</strong>: one fixed random hidden layer, with only the output weights fitted. The 14 variants differ in their cost function or regularisation: OLS, ridge, robust risk, anisotropic Tikhonov, Box-Cox target, MAE, log-MSE, Huber, L³, temporally correlated errors (Corr-ELM), elastic net, Welsch M-estimator, general Lᵖ and a Gamma GLM.</li>
+<li><strong>Ablations</strong>: ELM without the cyclic time features.</li>
+<li><strong>TimeGPT</strong>, zero-shot, as an optional foundation-model reference (needs an API key).</li>
+</ul>
+<h2>Capacity sweep</h2>
+<p>A dedicated run varies the hidden-layer size from 5 to 1000 neurons over several random seeds. It plots the persistence-normalised skill <a href="nice-metrics.html">NICE</a>^Σ against the logarithm of the stored parameter count, with AR-OLS and persistence as references. This is how the benchmark makes "how much model is enough" measurable rather than assumed.</p>
+<h2>Data</h2>
+<ul>
+<li><strong>Palaiseau</strong> PV power at 30 min, from August 2020: shipped as a public example (<code>data.zip</code>), so the full benchmark runs end to end.</li>
+<li>Other supported series, used in the research but <strong>not redistributed</strong>: PV plants (Oxelar, Signes, SOLETE, Alice Springs), GHI (Palaiseau, Alice Springs) and Barani MeteoHelix weather stations (temperature, pressure, humidity). Access goes through the data management plan on <a href="https://www.webservice-energy.org/">webservice-energy.org</a> or the authors.</li>
+<li>Any new site can be added by registering one entry in <code>dataset_config.py</code>. No model code changes.</li>
+</ul>
+<h2>Reproduce</h2>
+<p>Python 3.10 or later.</p>
+<pre><code class="language-sh">git clone https://github.com/cyrilvoyant/PV_ELM_pred.git
+cd PV_ELM_pred
+python -m pip install -r requirements.txt
+unzip data.zip
+python scripts/run_full.py                  # all models, Palaiseau
+DATASET=mysite python scripts/run_full.py   # your own registered site
+</code></pre>
+<p>Running a single model script directly starts a fast 1000-point smoke test.</p>
+<h2>Good practice built into the pipeline</h2>
+<ul>
+<li>Input and target scaling are fitted on the training fold only. Since July 2026 the ELM target is centred as well, which removes a ridge bias on variables far from zero, such as pressure near 1013 hPa, without adding any learned parameter.</li>
+<li>Chronological splits, multiple random seeds, and separate daytime-only and all-hours scores.</li>
+<li>Parameter counts are not energy measurements: report latency and memory separately, and never infer a carbon saving from a parameter count.</li>
+</ul>
+<h2>Status and scope</h2>
+<p>The associated manuscript on frugal, edge-oriented forecasting is in preparation. This page describes the public software only and reports no results from it. Rankings depend on the site, the horizon and the protocol. An endogenous short-term benchmark says nothing about weather-driven day-ahead forecasting without a separate test.</p>
+<h2>Cite and reuse</h2>
+<p>M. Leiva, X. Silvani, G. Notton, C. Voyant, A. Julien, <em>ELM benchmark for PV prediction</em>, software v1.0.0, 2026. <a href="https://doi.org/10.5281/zenodo.21487267">doi:10.5281/zenodo.21487267</a> · <a href="https://github.com/cyrilvoyant/PV_ELM_pred">GitHub repository</a> · MIT licence, archived in Software Heritage.</p>
+<p>Related: <a href="make-stationary.html">Make_Stationary deseasonalization benchmark</a> · <a href="nice-metrics.html">NICE metrics</a>.</p></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer></body></html>

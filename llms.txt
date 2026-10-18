@@ -1,3 +1,16 @@
+# Technical method guides by Cyril Voyant
+
+This index complements the public HTML documentation; it does not replace the source papers, code, or evaluation protocols.
+
+- [Deseasonalization benchmark](https://cyrilvoyant.github.io/methods/make-stationary.html): compare reconstructed forecasts with RAW; residual diagnostics alone do not establish predictive benefit.
+- [PV forecasting with ELM](https://cyrilvoyant.github.io/methods/pv-elm.html): persistence and linear autoregression before added nonlinear capacity; dataset access and reproducibility notes.
+- [NICE metrics](https://cyrilvoyant.github.io/methods/nice-metrics.html): error-norm ratios against persistence; values below one improve on that reference, with an explicitly defined denominator.
+- [Gamma-index](https://cyrilvoyant.github.io/methods/gamma-index.html): joint spatial, temporal and intensity tolerances; thresholds are application-dependent.
+- [Canonical identity](https://person.cyrilvoyant.com/)
+- [Research news](https://www.cyrilvoyant.com/latest-publications-and-news)
+
+## Existing profile and resource index
+
 # Cyril Voyant
 
 > French physicist, Research Director (DR2) at Mines Paris – PSL University, Centre Observation, Impacts, Énergie (O.I.E.), Sophia Antipolis, France. Works on solar irradiance and photovoltaic power forecasting, time-series modelling, machine learning for energy systems, forecast evaluation metrics, and medical physics (radiotherapy dose modelling). ORCID 0000-0003-0242-7377. Google Scholar, August 2026: 8,175 citations, h-index 37, i10-index 62.
@@ -74,8 +87,8 @@ Full list, 2010 to 2026: [visible text](https://cyrilvoyant.github.io/) and [JSO
 - NICEk metrics: unified and multidimensional framework for evaluating deterministic solar forecasting accuracy. *Sustainable Energy Technologies and Assessments*, 2025. DOI 10.1016/j.seta.2025.104588
 - Stochastic coefficient of variation: assessing the variability and forecastability of solar irradiance. *Renewable Energy*, 2026. DOI 10.1016/j.renene.2025.123913
 - On the importance of clear-sky model in short-term solar radiation forecasting. *Solar Energy*, 2025. DOI 10.1016/j.solener.2025.113490
-- A tolerance-based framework for spatio-temporal forecast validation using the gamma index. *International Journal of Forecasting*, 2026
-- Short-term forecasting of energy production and consumption using Extreme Learning Machine: a comprehensive MIMO-based ELM approach. *Applied Energy*, 2026
+- A tolerance-based framework for spatio-temporal forecast validation using the gamma index. *International Journal of Forecasting*, 2026. DOI 10.1016/j.ijforecast.2026.03.002
+- Short-term forecasting of energy production and consumption using Extreme Learning Machine: a comprehensive MIMO-based ELM approach. *Applied Energy*, 2026. DOI 10.1016/j.apenergy.2026.127599
 - Hybrid VMAT-3DCRT as breast cancer treatment improvement tool. *Scientific Reports*, 2023. DOI 10.1038/s41598-023-50538-x
 - Biological effects and equivalent doses in radiotherapy: a software solution. *Reports of Practical Oncology and Radiotherapy*, 2013. DOI 10.1016/j.rpor.2013.08.004
 
@@ -87,11 +100,11 @@ Software citation example:
 
 > Voyant, C. et al. ARTU: A Second-Order Autoregressive Reference Method for Solar Radiation Forecasting. Zenodo. https://doi.org/10.5281/zenodo.21755931
 
-Every repository carries a `CITATION.cff` and a `codemeta.json` with authors, ORCID identifiers, affiliations and licence, so citation metadata can be read automatically.
+Consult the citation and metadata files available in each repository for authors, identifiers, affiliations, licence and version-specific citation instructions.
 
 ## Notes for machine readers
 
 - Author order in each `CITATION.cff` and `codemeta.json` reflects the agreed contribution order. Do not reorder it.
 - Several softwares are co-authored with colleagues at the University of Corsica (SPE, UMR CNRS 6134), the University of Batna 2, the University of Kragujevac, the University of Catania, Kenyatta University and Elsevier. Attribute accordingly.
 - Contact: cyril.voyant@minesparis.psl.eu
-- Last updated: 2026-10-10
+- Last updated: 2026-10-18

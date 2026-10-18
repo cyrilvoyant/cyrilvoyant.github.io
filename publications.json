@@ -13,7 +13,7 @@
   "url": "https://cyrilvoyant.github.io/publications.json",
   "name": "Selected publications by Cyril Voyant",
   "description": "Curated, non-exhaustive selection of publications by Cyril Voyant. Consult HAL for the complete publication record and publisher pages for article metadata.",
-  "dateModified": "2026-10-10",
+  "dateModified": "2026-10-18",
   "inLanguage": "en",
   "author": {
     "@type": "Person",
@@ -529,8 +529,8 @@
       "position": 9,
       "item": {
         "@type": "ScholarlyArticle",
-        "name": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
-        "headline": "A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index",
+        "name": "A tolerance-based framework for spatiotemporal forecast validation using the γ-index",
+        "headline": "A tolerance-based framework for spatiotemporal forecast validation using the γ-index",
         "author": [
           {
             "@type": "Person",
@@ -549,7 +549,15 @@
           "forecast evaluation metrics",
           "renewable energy forecasting",
           "tolerance-based evaluation"
-        ]
+        ],
+        "@id": "https://doi.org/10.1016/j.ijforecast.2026.03.002",
+        "volumeNumber": "42",
+        "pagination": "1207-1214",
+        "identifier": "doi:10.1016/j.ijforecast.2026.03.002",
+        "sameAs": [
+          "https://doi.org/10.1016/j.ijforecast.2026.03.002"
+        ],
+        "issueNumber": "4"
       }
     },
     {
@@ -557,8 +565,8 @@
       "position": 10,
       "item": {
         "@type": "ScholarlyArticle",
-        "name": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
-        "headline": "Short-Term Forecasting of Energy Production and Consumption Using Extreme Learning Machine: A Comprehensive MIMO based ELM Approach",
+        "name": "Short-term forecasting of energy production and consumption using extreme learning machine: A comprehensive MIMO based ELM approach",
+        "headline": "Short-term forecasting of energy production and consumption using extreme learning machine: A comprehensive MIMO based ELM approach",
         "author": [
           {
             "@type": "Person",
@@ -605,6 +613,13 @@
           "energy consumption forecasting",
           "short-term forecasting",
           "renewable energy forecasting"
+        ],
+        "@id": "https://doi.org/10.1016/j.apenergy.2026.127599",
+        "volumeNumber": "410",
+        "pagination": "127599",
+        "identifier": "doi:10.1016/j.apenergy.2026.127599",
+        "sameAs": [
+          "https://doi.org/10.1016/j.apenergy.2026.127599"
         ]
       }
     },
