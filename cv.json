@@ -374,8 +374,12 @@
     {
       "name": "SAPHIR",
       "funder": "ANR",
-      "years": "2021–2024",
-      "description": "Sensor-Augmented Weather Prediction at High Resolution: coupling sensor data and numerical models to improve high-resolution forecasts."
+      "years": "2022 start; initial duration 48 months",
+      "description": "Sensor-Augmented Weather Prediction at High Resolution: coupling sensor data and numerical models to improve high-resolution forecasts.",
+      "projectStart": "2022-01",
+      "initialDurationMonths": 48,
+      "url": "https://anr.fr/Projet-ANR-21-CE04-0014",
+      "dateNote": "Project start and initial duration from the official ANR record; personal participation dates are not specified here."
     },
     {
       "name": "INTELPOLY",
@@ -392,8 +396,10 @@
     {
       "name": "TILOS",
       "funder": "H2020 (LCE-2014-3)",
-      "years": "2014–2017",
-      "description": "Optimal integration of battery storage at local scale; island demonstrator."
+      "years": "2015–2019",
+      "description": "Optimal integration of battery storage at local scale; island demonstrator.",
+      "url": "https://cordis.europa.eu/project/id/646529",
+      "dateNote": "years describes the funded project period from CORDIS, not personal participation dates."
     }
   ],
   "doctoralSupervision": {
