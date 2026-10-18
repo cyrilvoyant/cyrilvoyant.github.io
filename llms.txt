@@ -9,6 +9,11 @@ This file describes the public, verifiable record of one researcher and the open
 - [Curriculum vitae](https://cyrilvoyant.github.io/cv.html): positions, editorial roles, distinctions, career, supervision, teaching.
 - [Research projects](https://cyrilvoyant.github.io/research-projects.html): Fine4Cast, ELECTRE, SAPHIR, HyLES, INTELPOLY, TILOS and others.
 
+## Teaching and talks
+
+- [Forecasting the intermittent solar resource (course, Mines Paris – PSL, UE14)](https://cyrilvoyant.github.io/teaching/solar-forecasting-course.html): from solar geometry and clear-sky index to AR models, NICE metrics, Extreme Learning Machines and online learning, on 10 years of Ajaccio data. Cite as: Voyant, C. (2026). Prévision de la ressource solaire intermittente. Course UE14, Mines Paris – PSL.
+- [Research excellence in 2026: beyond publish and pray](https://cyrilvoyant.github.io/talks/research-excellence.html): 45-min talk and SSRN preprint (doi:10.2139/ssrn.6877118) introducing the RTVACOS framework.
+
 ## Live research tools (use them now)
 
 - [LQL-Equiv](https://cyrilvoyant.github.io/LQL-Equiv-web/): radiotherapy dose-equivalence calculator (BED, EQD2, NTCP, TCP, radiation-induced cancer risk) under the linear-quadratic-linear model, 34 organs at risk and 20 tumour sites; runs in the browser, no data leaves the page; validated against the 2014 MATLAB LQ-Equiv on 4,438 schedules (2 differ, both exact ties). Code: https://github.com/cyrilvoyant/LQL-Equiv-web · DOI 10.5281/zenodo.21948623. Research and education only. Guide: https://cyrilvoyant.github.io/tools/lql-equiv.html
