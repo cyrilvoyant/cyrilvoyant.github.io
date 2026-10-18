@@ -1,0 +1,46 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>WebSemantic: scientific codes that ask before they compute | Cyril Voyant</title><meta name="description" content="When an LLM guesses missing inputs, simulation results changed up to 2.6×. WebSemantic checks every input against the code and asks the user. Free app."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://cyrilvoyant.github.io/tools/websemantic.html"><meta property="og:type" content="website"><meta property="og:title" content="WebSemantic: scientific codes that ask before they compute"><meta property="og:description" content="When an LLM guesses missing inputs, simulation results changed up to 2.6×. WebSemantic checks every input against the code and asks the user. Free app."><meta property="og:url" content="https://cyrilvoyant.github.io/tools/websemantic.html"><meta name="twitter:card" content="summary"><style>body{margin:0;color:#172536;background:#fbfcfe;font:17px/1.7 system-ui,sans-serif}main,header,footer{max-width:900px;margin:auto;padding:24px}header{border-bottom:1px solid #ccd6e0}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#07569a;text-decoration:underline;text-underline-offset:3px}a:focus-visible{outline:3px solid #ad5200;outline-offset:4px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2}h2{line-height:1.3;margin-top:2em}pre{background:#edf2f7;padding:18px;overflow:auto}code{font-size:.9em}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #ccd6e0;padding:10px}.note{padding:16px;border-left:4px solid #07569a;background:#edf4fa}.muted{color:#46586a}.cta{display:inline-block;margin:8px 0 4px;padding:12px 22px;border-radius:8px;background:#07569a;color:#fff;font-weight:600;text-decoration:none}.cta:hover{background:#05457c}footer{border-top:1px solid #ccd6e0;font-size:.9em}</style><script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "@id": "https://cyrilvoyant.github.io/tools/websemantic.html#page", "url": "https://cyrilvoyant.github.io/tools/websemantic.html", "name": "WebSemantic: scientific codes that ask before they compute", "description": "When an LLM guesses missing inputs, simulation results changed up to 2.6×. WebSemantic checks every input against the code and asks the user. Free app.", "inLanguage": "en", "dateModified": "2026-10-18", "isPartOf": {"@id": "https://cyrilvoyant.github.io/#website"}, "mainEntity": {"@id": "https://cyrilvoyant.github.io/tools/websemantic.html#app"}, "author": {"@id": "https://person.cyrilvoyant.com/#cyril-voyant"}}, {"@type": "SoftwareApplication", "@id": "https://cyrilvoyant.github.io/tools/websemantic.html#app", "name": "WebSemantic", "url": "https://cyrilvoyant-websemantic.static.hf.space/index.html", "applicationCategory": "DeveloperApplication", "operatingSystem": "Web browser", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"}, "isAccessibleForFree": true, "license": "https://opensource.org/licenses/MIT", "identifier": "https://doi.org/10.5281/zenodo.23238902", "sameAs": ["https://github.com/cyrilvoyant/websemantic", "https://doi.org/10.5281/zenodo.23238902"], "author": [{"@type": "Person", "name": "Cyril Voyant", "@id": "https://person.cyrilvoyant.com/#cyril-voyant"}]}]}</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="/#tools">Live tools</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>WebSemantic: scientific codes that ask before they compute</h1><p class="muted">Cyril Voyant · Updated 2026-10-18</p><p><a class="cta" href="https://cyrilvoyant-websemantic.static.hf.space/index.html">Open the web app</a><br><span class="muted">Free, nothing to install, in English or French, on a computer or a phone.</span></p>
+
+<p><strong>A language model asked to run a simulation may fill gaps by itself.</strong> "A weak updraft" becomes 0.1 m/s, "the usual dose" becomes 3 Gy, and the code runs on values that nobody stated. In simulations of plausible interpretations, such choices <strong>changed the computed result by up to a factor of 2.6</strong> and moved a complication probability <strong>from 3% to 47%</strong>.</p>
+<p>WebSemantic sits between the person, the language model and an unchanged scientific code. The model only translates words into the code's variables. WebSemantic checks them, proposes declared defaults, <strong>asks for what is missing</strong>, and runs the original code only after the person agrees. Every result states its units, its sources and the exact code version.</p>
+<h2>One description, four views</h2>
+<p>Each code is described once. From that descriptor WebSemantic derives:</p>
+<table>
+<thead>
+<tr>
+<th>Artefact</th>
+<th>Role</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Contract</td>
+<td>Reading rules for language models: meaning, unit, what may be assumed, what must be asked</td>
+</tr>
+<tr>
+<td>Ontology</td>
+<td>OWL/SKOS vocabulary aligned with QUDT and PROV-O, with SHACL shapes that check a scenario</td>
+</tr>
+<tr>
+<td>Validator</td>
+<td>One decision per scenario: execute, clarify or refuse. It never fills in a value</td>
+</tr>
+<tr>
+<td>FAIR metadata</td>
+<td>Identity, licence, versions and persistent identifiers</td>
+</tr>
+</tbody>
+</table>
+<p>The scientific code is never modified: it is pinned to a commit and its sources are checked by SHA-256 before each run.</p>
+<h2>Three codes, three domains</h2>
+<ul>
+<li><a href="tunnel-load-simulator.html">Tunnel Load Simulator</a>: electricity demand of road tunnels (web app).</li>
+<li><a href="lql-equiv.html">LQL-Equiv</a>: radiotherapy dose equivalence, research and teaching only (web app).</li>
+<li><a href="https://github.com/darothen/pyrcel">pyrcel</a>: cloud physics, aerosol activation (Python route).</li>
+</ul>
+<h2>What you get back</h2>
+<p>CSV tables with units, a <code>manifest.json</code> listing every parameter with its value, unit, origin and acceptance, software versions and SHA-256 hashes, and the provenance as an RDF graph (PROV-O).</p>
+<h2>Evidence so far</h2>
+<p>On a corpus of 78 cases asked to four language models, adding the contract to the documentation reduced premature calculations, for example from 26% to 6% (Mistral-Small) and from 52% to 23% (Codestral). Details are in the repository; the associated paper is in preparation.</p>
+<h2>Install and cite</h2>
+<p><code>pip install websemantic</code> installs the Python layer; agents can start from <a href="https://github.com/cyrilvoyant/websemantic/blob/main/llm.md">llm.md</a>. Cite the software: C. Voyant, <em>WebSemantic</em>, <a href="https://doi.org/10.5281/zenodo.23238902">doi:10.5281/zenodo.23238902</a>.</p>
+<p><a href="https://github.com/cyrilvoyant/websemantic">Source code (MIT)</a> · <a href="https://pypi.org/project/websemantic/">PyPI</a> · <a href="https://w3id.org/websemantic/ns">Ontology</a></p></main><footer><p>Live research tools and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer></body></html>
