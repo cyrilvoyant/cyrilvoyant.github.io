@@ -1,0 +1,172 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Why compare a solar forecast with persistence? BLEND and cyclostationary persistence | Cyril Voyant</title><meta name="description" content="Persistence is the reference every solar forecast must beat. BLEND, a training-free cyclostationary persistence operator (Applied Mathematical Modelling, 2026), gives a stronger, interpretable baseline. Method, limits, MATLAB code, citation."><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://cyrilvoyant.github.io/methods/persistence-blend.html"><meta property="og:type" content="article"><meta property="og:title" content="Why compare a solar forecast with persistence? BLEND and cyclostationary persistence"><meta property="og:description" content="Persistence is the reference every solar forecast must beat. BLEND, a training-free cyclostationary persistence operator (Applied Mathematical Modelling, 2026), gives a stronger, interpretable baseline. Method, limits, MATLAB code, citation."><meta property="og:url" content="https://cyrilvoyant.github.io/methods/persistence-blend.html"><style>body{margin:0;color:#172536;background:#fbfcfe;font:17px/1.7 system-ui,sans-serif}main,header,footer{max-width:900px;margin:auto;padding:24px}header{border-bottom:1px solid #ccd6e0}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#07569a;text-decoration:underline;text-underline-offset:3px}a:focus-visible{outline:3px solid #ad5200;outline-offset:4px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2}h2{line-height:1.3;margin-top:2em}pre{background:#edf2f7;padding:18px;overflow:auto}code{font-size:.9em}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #ccd6e0;padding:10px}.note{padding:16px;border-left:4px solid #07569a;background:#edf4fa}.muted{color:#46586a}img{max-width:100%;height:auto}footer{border-top:1px solid #ccd6e0;font-size:.9em}.cite-lede{font-size:1.02rem;border-left:3px solid currentColor;padding-left:.8rem;margin:.6rem 0}</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "@id": "https://cyrilvoyant.github.io/methods/persistence-blend.html#page",
+  "url": "https://cyrilvoyant.github.io/methods/persistence-blend.html",
+  "headline": "Why compare a solar forecast with persistence? BLEND and cyclostationary persistence",
+  "description": "Persistence is the reference every solar forecast must beat. BLEND, a training-free cyclostationary persistence operator (Applied Mathematical Modelling, 2026), gives a stronger, interpretable baseline. Method, limits, MATLAB code, citation.",
+  "inLanguage": [
+    "en",
+    "fr"
+  ],
+  "author": {
+    "@type": "Person",
+    "@id": "https://person.cyrilvoyant.com/#cyril-voyant",
+    "name": "Cyril Voyant",
+    "url": "https://person.cyrilvoyant.com/"
+  },
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "isPartOf": {
+    "@id": "https://cyrilvoyant.github.io/#website"
+  },
+  "about": [
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab#software",
+      "name": "cyclostationary-forecasting-matlab",
+      "codeRepository": "https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab",
+      "identifier": "https://doi.org/10.5281/zenodo.18812334",
+      "programmingLanguage": "MATLAB",
+      "license": "https://opensource.org/license/mit"
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "@id": "https://github.com/cyrilvoyant/ARTU#software",
+      "name": "ARTU",
+      "codeRepository": "https://github.com/cyrilvoyant/ARTU",
+      "identifier": "https://doi.org/10.5281/zenodo.21755931",
+      "programmingLanguage": "MATLAB",
+      "license": "https://opensource.org/license/mit"
+    }
+  ],
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Symmetry-constrained forecasting of periodically correlated energy processes",
+      "identifier": "https://doi.org/10.1016/j.apm.2026.116988",
+      "url": "https://doi.org/10.1016/j.apm.2026.116988",
+      "author": [
+        {
+          "@id": "https://person.cyrilvoyant.com/#cyril-voyant"
+        },
+        {
+          "@type": "Person",
+          "name": "Candice Banes"
+        },
+        {
+          "@type": "Person",
+          "name": "Luis Garcia-Gutierrez"
+        },
+        {
+          "@type": "Person",
+          "name": "Gilles Notton"
+        },
+        {
+          "@type": "Person",
+          "name": "Milan Despotovic"
+        },
+        {
+          "@type": "Person",
+          "name": "Zaher Mundher Yaseen"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Applied Mathematical Modelling"
+      },
+      "datePublished": "2026"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "name": "Benchmarks for solar radiation time series forecasting",
+      "identifier": "https://doi.org/10.1016/j.renene.2022.04.065",
+      "url": "https://doi.org/10.1016/j.renene.2022.04.065",
+      "author": [
+        {
+          "@id": "https://person.cyrilvoyant.com/#cyril-voyant"
+        },
+        {
+          "@type": "Person",
+          "name": "Gilles Notton"
+        },
+        {
+          "@type": "Person",
+          "name": "Jean-Laurent Duchaud"
+        },
+        {
+          "@type": "Person",
+          "name": "Luis Antonio Garcia-Gutierrez"
+        },
+        {
+          "@type": "Person",
+          "name": "Jamie M. Bright"
+        },
+        {
+          "@type": "Person",
+          "name": "Dazhi Yang"
+        }
+      ],
+      "isPartOf": {
+        "@type": "Periodical",
+        "name": "Renewable Energy"
+      },
+      "datePublished": "2022"
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Why compare a solar forecast with persistence?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Persistence costs nothing and is hard to beat at short horizons, so a forecast that does not beat a well-defined persistence reference on the same samples adds no demonstrated skill. Reporting the gain against persistence, for example with the NICE^k metrics (Voyant et al., 2025, doi:10.1016/j.seta.2025.104588), makes results comparable across sites and horizons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is cyclostationary persistence (BLEND)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "BLEND, introduced by Cyril Voyant and co-authors in Applied Mathematical Modelling (2026, doi:10.1016/j.apm.2026.116988), combines ordinary persistence with the same-phase value of the previous cycle using the closed-form weight lambda = (1 + rho)/2, where rho is the local phase-dependent correlation. It needs no training and gives a stronger reference forecast for periodic energy series."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi comparer une prévision solaire à la persistance ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "La persistance ne coûte rien et reste difficile à battre aux courts horizons : une prévision qui ne fait pas mieux qu'une persistance bien définie, sur les mêmes échantillons, n'apporte pas de gain démontré. Exprimer le gain par rapport à la persistance, par exemple avec les métriques NICE^k, rend les résultats comparables entre sites et horizons."
+      }
+    }
+  ]
+}
+</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Why compare a solar forecast with persistence? BLEND and cyclostationary persistence</h1><p class="muted">Cyril Voyant · Published 2026-10-19</p>
+<section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">BLEND, the cyclostationary persistence operator of Cyril Voyant and co-authors (<em>Applied Mathematical Modelling</em>, 2026, <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>), mixes ordinary persistence with same-phase persistence from the previous cycle, giving a training-free reference forecast for periodically correlated energy series.</p><p class="cite-lede" lang="fr">BLEND, l’opérateur de persistance cyclostationnaire de Cyril Voyant et coll. (<em>Applied Mathematical Modelling</em>, 2026, <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>), combine la persistance ordinaire et la persistance de même phase du cycle précédent : c’est une prévision de référence sans apprentissage pour les séries énergétiques à corrélation périodique.</p></section>
+<section id="questions"><h2>Questions about persistence in solar forecasting</h2>
+<h3>Why compare a solar forecast with persistence?</h3><p>Persistence costs nothing and is hard to beat at short horizons. A forecast that does not beat a well-defined persistence reference, on the same samples and horizons, adds no demonstrated skill. Report the gain against that reference, for example with the <a href="nice-metrics.html">NICEᵏ metrics</a>, and state which persistence you used: simple, clear-sky (“smart”) or cyclostationary.</p>
+<h3>What is cyclostationary persistence?</h3><p>Solar irradiance, wind and load do not keep the same statistics through the day: mean, variance and correlation repeat with the cycle. Cyclostationary persistence uses that structure. BLEND weights the latest observation and the same-phase observation of the previous cycle with the closed-form coefficient <code>λ = (1 + ρ)/2</code>, where <code>ρ</code> is the local, phase-dependent correlation. No network is trained and no parameter is fitted by optimisation.</p>
+<div lang="fr"><h3>Pourquoi comparer une prévision solaire à la persistance ?</h3><p>La persistance ne coûte rien et reste difficile à battre aux courts horizons. Une prévision qui ne fait pas mieux qu’une persistance bien définie, sur les mêmes dates et horizons, n’apporte pas de gain démontré. Il faut exprimer le gain par rapport à cette référence, par exemple avec les <a href="nice-metrics.html">métriques NICEᵏ</a>, et préciser quelle persistance est utilisée : simple, normalisée par le ciel clair ou cyclostationnaire.</p>
+<h3>Qu’est-ce que la persistance cyclostationnaire ?</h3><p>L’éclairement solaire, le vent ou la charge électrique n’ont pas les mêmes statistiques à toute heure : moyenne, variance et corrélation se répètent avec le cycle. BLEND pondère la dernière observation et l’observation de même phase du cycle précédent avec le coefficient analytique <code>λ = (1 + ρ)/2</code>, où <code>ρ</code> est la corrélation locale dépendant de la phase. Aucun réseau n’est entraîné.</p></div></section>
+<h2>Key finding</h2><p>Accounting for the daily phase improves persistence forecasts on the solar series studied, and the differences widen at longer lead times. In the <em>Applied Mathematical Modelling</em> paper, validation combines controlled cyclostationary simulations with measurements from 68 Spanish stations; on measured data, cyclostationary adjustments reduce errors relative to their naive counterparts, and inter-model differences are tested with Wilcoxon tests. Simplified BLEND works directly on raw irradiance, without normalising by an external clear-sky model.</p>
+<h2>A ladder of reference forecasts</h2><p>Use references in increasing order of sophistication, and report each one. The first five are documented in <em>Benchmarks for solar radiation time series forecasting</em> (Voyant, Notton, Duchaud, Garcia-Gutierrez, Bright, Yang, <em>Renewable Energy</em> 191, 747–762, 2022, <a href="https://doi.org/10.1016/j.renene.2022.04.065">doi:10.1016/j.renene.2022.04.065</a>) and implemented in <a href="https://github.com/cyrilvoyant/ARTU">ARTU</a>; BLEND comes from the 2026 paper.</p>
+<table><thead><tr><th>Reference</th><th>Idea</th><th>Estimated from data</th></tr></thead><tbody>
+<tr><td>Persistence (PER)</td><td>carry the last clear-sky index forward</td><td>nothing</td></tr>
+<tr><td>Climatology (CLIM)</td><td>mean clear-sky index of the training sample</td><td>one mean</td></tr>
+<tr><td>CLIPER</td><td>persistence and climatology weighted by the lag-h autocorrelation</td><td>one correlation</td></tr>
+<tr><td>Exponential smoothing (ES)</td><td>exponentially weighted recent values</td><td>one correlation</td></tr>
+<tr><td>ARTU</td><td>second-order extension using lag-h and lag-2h autocorrelations, coefficients read from a lookup table</td><td>two correlations</td></tr>
+<tr><td>BLEND (cyclostationary)</td><td>persistence and same-phase persistence, <code>λ = (1 + ρ)/2</code> per phase</td><td>cyclic statistics, no optimisation</td></tr>
+</tbody></table>
+<h2>Limits</h2><p>“Training-free” does not mean “observation-free”: cyclic means, deviations and correlations must still be estimated on past data, and they need enough cycles to be stable. BLEND does not outperform every optimised method; autoregressive or learned predictors can do better under some conditions. The evidence concerns the datasets of the paper, not a universal ranking of forecasting methods. Test the transfer to your own series rather than assuming it.</p>
+<h2>Code and citation</h2><p>MATLAB implementation of BLEND, CLIPER and their stationary and cyclostationary variants, with Holt-Winters, Theta and periodic AR benchmarks: <a href="https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab">cyclostationary-forecasting-matlab</a> · software <a href="https://doi.org/10.5281/zenodo.18812334">doi:10.5281/zenodo.18812334</a> · MIT licence · archived in Software Heritage. Preprint: <a href="https://arxiv.org/abs/2602.18949">arXiv:2602.18949</a>.</p>
+<p>Cite: C. Voyant, C. Banes, L. Garcia-Gutierrez, G. Notton, M. Despotovic, Z. M. Yaseen, “Symmetry-constrained forecasting of periodically correlated energy processes”, <em>Applied Mathematical Modelling</em> 157, 116988 (2026), <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>.</p>
+<p>Related: <a href="nice-metrics.html">NICEᵏ metrics</a> · <a href="pv-elm.html">PV_ELM_pred benchmark (persistence, BLEND, AR, ELM)</a> · <a href="make-stationary.html">deseasonalization benchmark</a>.</p>
+<section id="research-stories"><h2>Research explained</h2><ul><li><a href="https://www.cyrilvoyant.com/latest-publications-and-news/forecasting-with-less">Better persistence, without training a neural network (research story, EN/FR)</a></li></ul></section></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>

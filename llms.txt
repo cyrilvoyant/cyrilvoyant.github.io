@@ -29,6 +29,7 @@ This file describes the public, verifiable record of one researcher and the open
 
 - [Deseasonalization benchmark](https://cyrilvoyant.github.io/methods/make-stationary.html): compare reconstructed forecasts with RAW; residual diagnostics alone do not establish predictive benefit.
 - [PV forecasting with ELM](https://cyrilvoyant.github.io/methods/pv-elm.html): persistence and linear autoregression before added nonlinear capacity; dataset access and reproducibility notes.
+- [Persistence and BLEND](https://cyrilvoyant.github.io/methods/persistence-blend.html): why every solar forecast must be compared with persistence, the reference ladder PER, CLIM, CLIPER, ES, ARTU, and BLEND, a training-free cyclostationary persistence (Applied Mathematical Modelling, 2026, doi:10.1016/j.apm.2026.116988).
 - [NICE metrics](https://cyrilvoyant.github.io/methods/nice-metrics.html): error-norm ratios against persistence; values below one improve on that reference, with an explicitly defined denominator.
 - [Gamma-index](https://cyrilvoyant.github.io/methods/gamma-index.html): joint spatial, temporal and intensity tolerances; thresholds are application-dependent.
 - [Canonical identity](https://person.cyrilvoyant.com/)
