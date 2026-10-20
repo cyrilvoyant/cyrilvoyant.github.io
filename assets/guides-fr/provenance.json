@@ -1,0 +1,22 @@
+{
+  "pv-redondance-palaiseau": {
+    "type": "new descriptive teaching calculation",
+    "source": "https://github.com/cyrilvoyant/PV_ELM_pred/blob/main/data.zip",
+    "file": "data/Palaiseau/PV_AC_30min_2ans.csv",
+    "raw_sha256": "e2801ef6848ffef94ec671c11c959a921aea4157bade7b3e002b1de3773e12d3",
+    "trace": "2021-06-01 through 2021-06-07 UTC",
+    "correlation_and_PCA": "48 raw-power lags; records before 2021-08-01; nights retained; covariance PCA; no forecast score"
+  },
+  "frugalite-modele-et-elm": {
+    "type": "structural parameter counts plus reused course diagram",
+    "counts": "52 inputs; linear 53; ELM L hidden neurons, all weights and biases 54L+1 in the illustrated architecture",
+    "diagram_source": "https://cyrilvoyant.github.io/assets/course/elm_reseau.png",
+    "not_measured": "accuracy, hardware memory, latency, energy"
+  },
+  "hub_reused_course_figure": {
+    "source": "https://cyrilvoyant.github.io/assets/course/ghi_csi_3jours.png",
+    "description": "Ajaccio course figure, three days in 2007; additive GHI minus clear-sky gap",
+    "not_claimed": "a result of the dimensionality or frugality manuscript"
+  },
+  "authoring": "Matplotlib plots and vector schematics. Existing ELM diagram assembled without generated imagery. No image-generation model used."
+}
