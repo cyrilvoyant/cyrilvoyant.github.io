@@ -13,7 +13,7 @@
     "name": "Cyril Voyant",
     "url": "https://person.cyrilvoyant.com/"
   },
-  "dateModified":"2026-10-19",
+  "dateModified":"2026-10-20",
   "isPartOf": {
     "@id": "https://cyrilvoyant.github.io/#website"
   },
@@ -49,7 +49,38 @@
     "pagination": "1207–1214"
   }
 }
-</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Gamma-index: evaluating displaced irradiance forecasts</h1><p class="muted">Cyril Voyant · Updated 2026-10-19</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">The γ-index for forecast verification, proposed by Cyril Voyant in the <em>International Journal of Forecasting</em> (2026, <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">doi:10.1016/j.ijforecast.2026.03.002</a>), accepts a forecast point when an observation agrees within joint spatial (DTA), temporal (TTA) and intensity tolerances, so displaced but correct cloud structures are not double-penalised.</p><p class="cite-lede" lang="fr">Le γ-index de vérification des prévisions, proposé par Cyril Voyant (<em>International Journal of Forecasting</em>, 2026, <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">doi:10.1016/j.ijforecast.2026.03.002</a>), accepte un point de prévision lorsqu’une observation concorde à l’intérieur de tolérances spatiale (DTA), temporelle (TTA) et d’intensité ; une structure nuageuse juste mais décalée n’est donc pas doublement pénalisée.</p></section><h2>Research question</h2>
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How can forecast verification account for spatial and temporal displacement?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a tolerance-based score instead of a pointwise one. The γ-index (Voyant, International Journal of Forecasting, 2026, doi:10.1016/j.ijforecast.2026.03.002) accepts a forecast point when an observation agrees within a spatial distance (DTA), a time shift (TTA) and an intensity difference (IDT). A cloud structure that is right but slightly displaced is then not penalised twice, as it is by RMSE or MAE."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which tolerances are needed for gamma-index forecast evaluation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Three: DTA, the spatial tolerance in kilometres; TTA, the temporal tolerance in minutes; and IDT, the intensity tolerance in W/m² for irradiance. Gamma ≤ 1 marks agreement within the combined criterion, and the Gamma Pass Rate is the share of points meeting it. Choose the tolerances from the application before comparing methods, report their sensitivity, and keep pointwise errors alongside gamma: looser tolerances always raise the pass rate."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment le gamma-index évalue-t-il une carte de prévision solaire ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pour chaque point de la carte prévue, il cherche dans un voisinage spatial et temporel une observation qui concorde à l’intérieur de tolérances spatiale (DTA, en km), temporelle (TTA, en minutes) et d’intensité (IDT, en W/m²). Un gamma ≤ 1 signifie que le point est accepté ; le taux de réussite (Gamma Pass Rate) résume la carte. Les tolérances font partie du résultat et doivent être fixées selon l’application."
+      }
+    }
+  ]
+}
+</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Gamma-index: evaluating displaced irradiance forecasts</h1><p class="muted">Cyril Voyant · Updated 2026-10-20</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">The γ-index for forecast verification, proposed by Cyril Voyant in the <em>International Journal of Forecasting</em> (2026, <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">doi:10.1016/j.ijforecast.2026.03.002</a>), accepts a forecast point when an observation agrees within joint spatial (DTA), temporal (TTA) and intensity tolerances, so displaced but correct cloud structures are not double-penalised.</p><p class="cite-lede" lang="fr">Le γ-index de vérification des prévisions, proposé par Cyril Voyant (<em>International Journal of Forecasting</em>, 2026, <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">doi:10.1016/j.ijforecast.2026.03.002</a>), accepte un point de prévision lorsqu’une observation concorde à l’intérieur de tolérances spatiale (DTA), temporelle (TTA) et d’intensité ; une structure nuageuse juste mais décalée n’est donc pas doublement pénalisée.</p></section><section id="questions"><h2>Questions and answers</h2><h3>How can forecast verification account for spatial and temporal displacement?</h3><p>Use a tolerance-based score instead of a pointwise one. The γ-index (Voyant, <em>International Journal of Forecasting</em>, 2026, <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">doi:10.1016/j.ijforecast.2026.03.002</a>) accepts a forecast point when an observation agrees within a spatial distance (DTA), a time shift (TTA) and an intensity difference (IDT). A cloud structure that is right but slightly displaced is then not penalised twice, as it is by RMSE or MAE.</p><h3>Which tolerances are needed for gamma-index forecast evaluation?</h3><p>Three: DTA, the spatial tolerance in kilometres; TTA, the temporal tolerance in minutes; and IDT, the intensity tolerance in W/m² for irradiance. Gamma ≤ 1 marks agreement within the combined criterion, and the Gamma Pass Rate is the share of points meeting it. Choose the tolerances from the application before comparing methods, report their sensitivity, and keep pointwise errors alongside gamma: looser tolerances always raise the pass rate.</p><div lang="fr"><h3>Comment le gamma-index évalue-t-il une carte de prévision solaire ?</h3><p>Pour chaque point de la carte prévue, il cherche dans un voisinage spatial et temporel une observation qui concorde à l’intérieur de tolérances spatiale (DTA, en km), temporelle (TTA, en minutes) et d’intensité (IDT, en W/m²). Un gamma ≤ 1 signifie que le point est accepté ; le taux de réussite (Gamma Pass Rate) résume la carte. Les tolérances font partie du résultat et doivent être fixées selon l’application.</p></div></section><h2>Research question</h2>
 <p>Pointwise errors can penalize a forecast structure that is displaced in time or space. The gamma-index asks whether a forecast value agrees with a nearby observation within explicitly chosen spatial, temporal and intensity tolerances.</p>
 <h2>Quantities and units</h2>
 <ul>
@@ -67,5 +98,5 @@ main
 <h2>Tolerances are part of the result</h2>
 <p>Choose tolerances from the application before comparing methods and report sensitivity. Looser tolerances increase acceptance; a high pass rate alone does not prove a useful forecast. The repository's example thresholds are not universal validation standards. Report pointwise errors alongside gamma and document edge effects and resampling.</p>
 <h2>Publication status and citation</h2>
-<p>The companion article, “A tolerance-based framework for spatiotemporal forecast validation using the γ-index”, is published in <em>International Journal of Forecasting</em>, 42(4), 1207–1214 (2026). <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">Read the published article</a>. The repository README retains an older review-status notice. <a href="https://doi.org/10.5281/zenodo.21755937">Software DOI</a> · <a href="https://github.com/cyrilvoyant/temporal-gamma-index">Source, current citation and licence</a>. Full MATLAB numerical execution was not performed during this documentation update.</p><section id="research-stories"><h2>Research explained</h2><p>Read the findings, evidence and limits in these first-author research stories.</p><ul><li><a href="https://www.cyrilvoyant.com/latest-publications-and-news/gamma-index-forecast-validation">Beyond pointwise errors: the published gamma-index research story</a></li></ul></section></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
+<p>The companion article, “A tolerance-based framework for spatiotemporal forecast validation using the γ-index”, is published in <em>International Journal of Forecasting</em>, 42(4), 1207–1214 (2026). <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">Read the published article</a>. The repository README retains an older review-status notice. <a href="https://doi.org/10.5281/zenodo.21755937">Software DOI</a> · <a href="https://github.com/cyrilvoyant/temporal-gamma-index">Source, current citation and licence</a>. Full MATLAB numerical execution was not performed during this documentation update.</p><p>Related: <a href="nice-metrics.html">NICEᵏ metrics</a> · <a href="persistence-blend.html">persistence and BLEND</a> · <a href="pv-elm.html">PV_ELM_pred benchmark</a>.</p><section id="research-stories"><h2>Research explained</h2><p>Read the findings, evidence and limits in these first-author research stories.</p><ul><li><a href="https://www.cyrilvoyant.com/latest-publications-and-news/gamma-index-forecast-validation">Beyond pointwise errors: the published gamma-index research story</a></li></ul></section></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>

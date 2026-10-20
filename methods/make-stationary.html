@@ -13,7 +13,7 @@
     "name": "Cyril Voyant",
     "url": "https://person.cyrilvoyant.com/"
   },
-  "dateModified": "2026-10-19",
+  "dateModified":"2026-10-20",
   "isPartOf": {
     "@id": "https://cyrilvoyant.github.io/#website"
   },
@@ -54,7 +54,38 @@
     "license": "https://www.gnu.org/licenses/gpl-3.0.html",
     "softwareVersion": "1.0.0"
   }
-}</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark</h1><p class="muted">Cyril Voyant · Updated 2026-10-19</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton; software <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a>; companion manuscript submitted, 2026) tests whether deseasonalization improves the final solar and wind forecast, and shows that a more stationary residual is not necessarily a more predictable one.</p><p class="cite-lede" lang="fr">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton ; logiciel <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a> ; manuscrit soumis, 2026) teste si la désaisonnalisation améliore la prévision finale solaire et éolienne, et montre qu’un résidu plus stationnaire n’est pas forcément plus prévisible.</p></section><section id="questions"><h2>Questions about deseasonalization and forecasting</h2><h3>Does deseasonalization always improve renewable energy forecasting?</h3><p>No. Removing a recurring cycle can improve residual stationarity without improving the final forecast. Evaluate the full pipeline: fit the seasonal component on training data, forecast the residual, reconstruct the signal, and compare with forecasting the raw signal on identical test samples and horizons.</p><h3>How can I test whether preprocessing helps?</h3><p>Use a chronological training/test split, prevent information from future observations entering the seasonal estimate, and keep scoring windows and baseline definitions fixed. Report absolute forecast errors alongside a persistence-relative metric such as <a href="nice-metrics.html">NICEᵏ</a>. Test both the raw and preprocessed pipelines, rather than selecting a transform from a stationarity diagnostic alone.</p><div lang="fr"><h3>La désaisonnalisation améliore-t-elle toujours la prévision énergétique ?</h3><p>Non. Un résidu plus stationnaire ne garantit pas une meilleure prévision du signal d’origine. Il faut comparer les prévisions reconstruites à une prévision directe du signal brut, sur les mêmes dates et horizons, sans utiliser de données futures pour estimer la saisonnalité.</p></div><p>These answers summarize the public benchmark protocol. The companion manuscript remains submitted; this guide does not turn its status into a published journal article.</p></section><h2>Key finding</h2>
+}</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does deseasonalization always improve renewable energy forecasting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Removing a recurring cycle can improve residual stationarity without improving the final forecast. Evaluate the full pipeline: fit the seasonal component on training data, forecast the residual, reconstruct the signal, and compare with forecasting the raw signal on identical test samples and horizons."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I test whether preprocessing helps?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use a chronological training/test split, prevent information from future observations entering the seasonal estimate, and keep scoring windows and baseline definitions fixed. Report absolute forecast errors alongside a persistence-relative metric such as NICEᵏ. Test both the raw and preprocessed pipelines, rather than selecting a transform from a stationarity diagnostic alone."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "La désaisonnalisation améliore-t-elle toujours la prévision énergétique ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Un résidu plus stationnaire ne garantit pas une meilleure prévision du signal d’origine. Il faut comparer les prévisions reconstruites à une prévision directe du signal brut, sur les mêmes dates et horizons, sans utiliser de données futures pour estimer la saisonnalité."
+      }
+    }
+  ]
+}
+</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark</h1><p class="muted">Cyril Voyant · Updated 2026-10-20</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton; software <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a>; companion manuscript submitted, 2026) tests whether deseasonalization improves the final solar and wind forecast, and shows that a more stationary residual is not necessarily a more predictable one.</p><p class="cite-lede" lang="fr">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton ; logiciel <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a> ; manuscrit soumis, 2026) teste si la désaisonnalisation améliore la prévision finale solaire et éolienne, et montre qu’un résidu plus stationnaire n’est pas forcément plus prévisible.</p></section><section id="questions"><h2>Questions about deseasonalization and forecasting</h2><h3>Does deseasonalization always improve renewable energy forecasting?</h3><p>No. Removing a recurring cycle can improve residual stationarity without improving the final forecast. Evaluate the full pipeline: fit the seasonal component on training data, forecast the residual, reconstruct the signal, and compare with forecasting the raw signal on identical test samples and horizons.</p><h3>How can I test whether preprocessing helps?</h3><p>Use a chronological training/test split, prevent information from future observations entering the seasonal estimate, and keep scoring windows and baseline definitions fixed. Report absolute forecast errors alongside a persistence-relative metric such as <a href="nice-metrics.html">NICEᵏ</a>. Test both the raw and preprocessed pipelines, rather than selecting a transform from a stationarity diagnostic alone.</p><div lang="fr"><h3>La désaisonnalisation améliore-t-elle toujours la prévision énergétique ?</h3><p>Non. Un résidu plus stationnaire ne garantit pas une meilleure prévision du signal d’origine. Il faut comparer les prévisions reconstruites à une prévision directe du signal brut, sur les mêmes dates et horizons, sans utiliser de données futures pour estimer la saisonnalité.</p></div><p>These answers summarize the public benchmark protocol. The companion manuscript remains submitted; this guide does not turn its status into a published journal article.</p></section><h2>Key finding</h2>
 <p>A cleaner residual is not a more predictable one. On nine energy and weather series from Corsica, forecast 1 to 6 hours ahead, removing the daily and annual cycle gives the most stationary residuals with the rolling median and the two ELM operators, but this ranking does not carry over to forecast accuracy.</p>
 <ul>
 <li>Forecasting gains depend on the signal and the horizon: about <strong>3 percentage points</strong> of nRMSE for hourly wind speed, neutral or mildly detrimental for PV power, total electrical load and wind power.</li>
@@ -99,5 +130,5 @@ Forecasting/main_forecasting_PV_WT_PT_WS_T2M.m   % 3b. other variables
 <h2>Cite and reuse</h2>
 <p>M. Agoundedemba, C. Voyant, M. Despotovic, L. A. Garcia-Gutierrez, G. Notton, <em>Does Deseasonalization Improve Renewable Energy Forecasting? A Comparative Benchmark</em>, manuscript submitted, 2026.</p>
 <p>Software: <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a> · <a href="https://github.com/cyrilvoyant/Make_Stationary">GitHub repository</a> · <a href="https://github.com/cyrilvoyant/Make_Stationary/blob/main/CITATION.cff">Citation file</a> · GPL-3.0, archived in Software Heritage.</p>
-<p>Related: <a href="pv-elm.html">PV forecasting with ELM</a> · <a href="nice-metrics.html">NICE metrics</a> · <a href="https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab">cyclostationary persistence operators</a>.</p></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
+<p>Related: <a href="persistence-blend.html">persistence and BLEND</a> · <a href="pv-elm.html">PV forecasting with ELM</a> · <a href="nice-metrics.html">NICE metrics</a> · <a href="https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab">cyclostationary persistence operators</a>.</p></main><footer><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
