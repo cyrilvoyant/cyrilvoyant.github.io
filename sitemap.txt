@@ -11,8 +11,6 @@ https://cyrilvoyant.github.io/research-projects.html
 https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html
 https://cyrilvoyant.github.io/teaching/solar-forecasting-course.html
 https://cyrilvoyant.github.io/talks/research-excellence.html
-https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction.html
-https://cyrilvoyant.github.io/methods/frugal-solar-forecasting.html
 https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction-en.html
 https://cyrilvoyant.github.io/methods/frugal-solar-forecasting-en.html
 https://cyrilvoyant.github.io/methods/solar-forecasting-made-simple.html
