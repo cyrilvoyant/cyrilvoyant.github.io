@@ -16,7 +16,22 @@ class Canonical(HTMLParser):
 def candidates():
     explicit=os.environ.get('INDEXNOW_URLS','').strip()
     if explicit:return explicit.splitlines()
-    names=subprocess.check_output(['git','diff','--name-only','--diff-filter=AM','HEAD^','HEAD'],cwd=ROOT,text=True).splitlines()
+    before='HEAD^'
+    event_file=os.environ.get('GITHUB_EVENT_PATH')
+    if event_file and os.environ.get('GITHUB_EVENT_NAME')=='workflow_run':
+        run=json.loads(Path(event_file).read_text())['workflow_run']
+        # Compare with the preceding successful Pages deployment, including
+        # every commit in a multi-commit push, not just the final commit.
+        api='https://api.github.com/repos/cyrilvoyant/cyrilvoyant.github.io/actions/workflows/'+str(int(run['workflow_id']))+'/runs?status=success&per_page=30'
+        req=urllib.request.Request(api,headers={'Accept':'application/vnd.github+json','User-Agent':'cyrilvoyant-indexnow'})
+        with urllib.request.urlopen(req,timeout=30) as r:previous=json.load(r)['workflow_runs']
+        older=[x for x in previous if x['id']<run['id'] and x['head_branch']=='main' and x['head_sha']!=run['head_sha']]
+        if not older:raise RuntimeError('No earlier Pages baseline found; explicit changed URLs required')
+        before=max(older,key=lambda x:x['id'])['head_sha']
+        if not re.fullmatch(r'[a-f0-9]{40}',before):raise ValueError('Invalid deployment SHA')
+        subprocess.run(['git','fetch','--no-tags','--depth=1','origin',before],cwd=ROOT,check=True,stdout=subprocess.DEVNULL)
+        print('Comparing with previous successful Pages deployment '+before[:12])
+    names=subprocess.check_output(['git','diff','--name-only','--diff-filter=AM',before,'HEAD'],cwd=ROOT,text=True).splitlines()
     urls=[]
     for name in names:
         if name.endswith('.html') and 'websemantic' not in name.lower():
