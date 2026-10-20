@@ -53,23 +53,28 @@
         },
         {
           "@type": "Person",
-          "name": "Candice Banes"
+          "name": "Candice Banes",
+          "sameAs": "https://orcid.org/0009-0003-6656-8168"
         },
         {
           "@type": "Person",
-          "name": "Luis Garcia-Gutierrez"
+          "name": "Luis Garcia-Gutierrez",
+          "sameAs": "https://orcid.org/0000-0002-3480-1784"
         },
         {
           "@type": "Person",
-          "name": "Gilles Notton"
+          "name": "Gilles Notton",
+          "sameAs": "https://orcid.org/0000-0002-6267-9632"
         },
         {
           "@type": "Person",
-          "name": "Milan Despotovic"
+          "name": "Milan Despotovic",
+          "sameAs": "https://orcid.org/0000-0003-3144-5945"
         },
         {
           "@type": "Person",
-          "name": "Zaher Mundher Yaseen"
+          "name": "Zaher Mundher Yaseen",
+          "sameAs": "https://orcid.org/0000-0003-3344-214X"
         }
       ],
       "isPartOf": {
@@ -89,7 +94,8 @@
         },
         {
           "@type": "Person",
-          "name": "Gilles Notton"
+          "name": "Gilles Notton",
+          "sameAs": "https://orcid.org/0000-0002-6267-9632"
         },
         {
           "@type": "Person",
@@ -97,15 +103,18 @@
         },
         {
           "@type": "Person",
-          "name": "Luis Antonio Garcia-Gutierrez"
+          "name": "Luis Antonio Garcia-Gutierrez",
+          "sameAs": "https://orcid.org/0000-0002-3480-1784"
         },
         {
           "@type": "Person",
-          "name": "Jamie M. Bright"
+          "name": "Jamie M. Bright",
+          "sameAs": "https://orcid.org/0000-0002-9465-3453"
         },
         {
           "@type": "Person",
-          "name": "Dazhi Yang"
+          "name": "Dazhi Yang",
+          "sameAs": "https://orcid.org/0000-0003-2162-6873"
         }
       ],
       "isPartOf": {
@@ -180,7 +189,7 @@
 <div lang="fr"><h3>Pourquoi comparer une prévision solaire à la persistance ?</h3><p>La persistance ne coûte rien et reste difficile à battre aux courts horizons. Une prévision qui ne fait pas mieux qu’une persistance bien définie, sur les mêmes dates et horizons, n’apporte pas de gain démontré. Il faut exprimer le gain par rapport à cette référence, par exemple avec les <a href="nice-metrics.html">métriques NICEᵏ</a>, et préciser quelle persistance est utilisée : simple, normalisée par le ciel clair ou cyclostationnaire.</p>
 <h3>Qu’est-ce que la persistance cyclostationnaire ?</h3><p>L’éclairement solaire, le vent ou la charge électrique n’ont pas les mêmes statistiques à toute heure : moyenne, variance et corrélation se répètent avec le cycle. BLEND pondère la dernière observation et l’observation de même phase du cycle précédent avec le coefficient analytique <code>λ = (1 + ρ)/2</code>, où <code>ρ</code> est la corrélation locale dépendant de la phase. Aucun réseau n’est entraîné.</p></div></section>
 <h2>Key finding</h2><p>Accounting for the daily phase improves persistence forecasts on the solar series studied, and the differences widen at longer lead times. In the <em>Applied Mathematical Modelling</em> paper, validation combines controlled cyclostationary simulations with measurements from 68 Spanish stations; on measured data, cyclostationary adjustments reduce errors relative to their naive counterparts, and inter-model differences are tested with Wilcoxon tests. Simplified BLEND works directly on raw irradiance, without normalizing by an external clear-sky model.</p>
-<h2>A ladder of reference forecasts</h2><p>Use references in increasing order of sophistication, and report each one. The first five are documented in <em>Benchmarks for solar radiation time series forecasting</em> (Voyant, Notton, Duchaud, Garcia-Gutierrez, Bright, Yang, <em>Renewable Energy</em> 191, 747–762, 2022, <a href="https://doi.org/10.1016/j.renene.2022.04.065">doi:10.1016/j.renene.2022.04.065</a>) and implemented in <a href="https://github.com/cyrilvoyant/ARTU">ARTU</a>; BLEND comes from the 2026 paper.</p>
+<h2>A ladder of reference forecasts</h2><p>Use references in increasing order of sophistication, and report each one. The first five are documented in <em>Benchmarks for solar radiation time series forecasting</em> (<a href="https://orcid.org/0000-0003-0242-7377" rel="nofollow">Cyril Voyant</a>, <a href="https://orcid.org/0000-0002-6267-9632" rel="nofollow">Gilles Notton</a>, Jean-Laurent Duchaud, <a href="https://orcid.org/0000-0002-3480-1784" rel="nofollow">Luis Antonio Garcia-Gutierrez</a>, <a href="https://orcid.org/0000-0002-9465-3453" rel="nofollow">Jamie M. Bright</a>, <a href="https://orcid.org/0000-0003-2162-6873" rel="nofollow">Dazhi Yang</a>, <em>Renewable Energy</em> 191, 747–762, 2022, <a href="https://doi.org/10.1016/j.renene.2022.04.065">doi:10.1016/j.renene.2022.04.065</a>) and implemented in <a href="https://github.com/cyrilvoyant/ARTU">ARTU</a>; BLEND comes from the 2026 paper.</p>
 <table><thead><tr><th>Reference</th><th>Idea</th><th>Estimated from data</th></tr></thead><tbody>
 <tr><td>Persistence (PER)</td><td>carry the last clear-sky index forward</td><td>nothing</td></tr>
 <tr><td>Climatology (CLIM)</td><td>mean clear-sky index of the training sample</td><td>one mean</td></tr>
@@ -190,8 +199,8 @@
 <tr><td>BLEND (cyclostationary)</td><td>persistence and same-phase persistence, <code>λ = (1 + ρ)/2</code> per phase</td><td>cyclic statistics, no optimisation</td></tr>
 </tbody></table>
 <h2>Limits</h2><p>“Training-free” does not mean “observation-free”: cyclic means, deviations and correlations must still be estimated on past data, and they need enough cycles to be stable. BLEND does not outperform every optimized method; autoregressive or learned predictors can do better under some conditions. The evidence concerns the datasets of the paper, not a universal ranking of forecasting methods. Test the transfer to your own series rather than assuming it.</p>
-<h2>Code and citation</h2><p>MATLAB implementation of BLEND, CLIPER and their stationary and cyclostationary variants, with Holt-Winters, Theta and periodic AR benchmarks: <a href="https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab">cyclostationary-forecasting-matlab</a> · software <a href="https://doi.org/10.5281/zenodo.18812334">doi:10.5281/zenodo.18812334</a> · MIT licence · archived in Software Heritage. Preprint: <a href="https://arxiv.org/abs/2602.18949">arXiv:2602.18949</a>.</p>
-<p>Cite: C. Voyant, C. Banes, L. Garcia-Gutierrez, G. Notton, M. Despotovic, Z. M. Yaseen, “Symmetry-constrained forecasting of periodically correlated energy processes”, <em>Applied Mathematical Modelling</em> 157, 116988 (2026), <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>.</p>
+<h2>Authors, code and citation</h2><p>BLEND is the work of six co-authors, listed here in the order of the article; names link to their ORCID record when the publisher metadata provides it.</p><p>MATLAB implementation of BLEND, CLIPER and their stationary and cyclostationary variants, with Holt-Winters, Theta and periodic AR benchmarks: <a href="https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab">cyclostationary-forecasting-matlab</a> · software <a href="https://doi.org/10.5281/zenodo.18812334">doi:10.5281/zenodo.18812334</a> · MIT licence · archived in Software Heritage. Preprint: <a href="https://arxiv.org/abs/2602.18949">arXiv:2602.18949</a>.</p>
+<p>Cite: <a href="https://orcid.org/0000-0003-0242-7377" rel="nofollow">Cyril Voyant</a>, <a href="https://orcid.org/0009-0003-6656-8168" rel="nofollow">Candice Banes</a>, <a href="https://orcid.org/0000-0002-3480-1784" rel="nofollow">Luis Garcia-Gutierrez</a>, <a href="https://orcid.org/0000-0002-6267-9632" rel="nofollow">Gilles Notton</a>, <a href="https://orcid.org/0000-0003-3144-5945" rel="nofollow">Milan Despotovic</a>, <a href="https://orcid.org/0000-0003-3344-214X" rel="nofollow">Zaher Mundher Yaseen</a>, “Symmetry-constrained forecasting of periodically correlated energy processes”, <em>Applied Mathematical Modelling</em> 157, 116988 (2026), <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>.</p>
 <p>Related: <a href="nice-metrics.html">NICEᵏ metrics</a> · <a href="pv-elm.html">PV_ELM_pred benchmark (persistence, BLEND, AR, ELM)</a> · <a href="make-stationary.html">deseasonalization benchmark</a>.</p>
-<section id="research-stories"><h2>Research explained</h2><ul><li><a href="https://www.cyrilvoyant.com/latest-publications-and-news/forecasting-with-less">Better persistence, without training a neural network (research story, EN/FR)</a></li></ul></section><section><h2>Pour comprendre les choix</h2><p><a href="pv-dimensionality-reduction.html">Prévoir le PV directement et réduire la dimension</a> · <a href="frugal-solar-forecasting.html">Pourquoi déployer des modèles frugaux ?</a></p></section></main><footer><div class="institutional-brand" style="margin:20px 0;padding:12px;background:#fff;color:#172536"><a href="https://www.minesparis.psl.eu/annuaire-de-la-recherche/chercheur/cyril-voyant/"><img src="/assets/mines-paris-psl-logo.png" alt="Mines Paris – PSL" width="220" height="136" loading="lazy" style="max-width:100%;height:auto;vertical-align:middle"></a><span style="display:inline-block;vertical-align:middle;padding:8px">Centre O.I.E.<br>Observation, Impacts, Énergie<br>Mines Paris – PSL</span></div><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
+<section id="research-stories"><h2>Research explained</h2><ul><li><a href="https://www.cyrilvoyant.com/latest-publications-and-news/forecasting-with-less">Better persistence, without training a neural network (research story, EN/FR)</a></li></ul></section></main><footer><div class="institutional-brand" style="margin:20px 0;padding:12px;background:#fff;color:#172536"><a href="https://www.minesparis.psl.eu/annuaire-de-la-recherche/chercheur/cyril-voyant/"><img src="/assets/mines-paris-psl-logo.png" alt="Mines Paris – PSL" width="220" height="136" loading="lazy" style="max-width:100%;height:auto;vertical-align:middle"></a><span style="display:inline-block;vertical-align:middle;padding:8px">Centre O.I.E.<br>Observation, Impacts, Énergie<br>Mines Paris – PSL</span></div><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
 </body></html>
