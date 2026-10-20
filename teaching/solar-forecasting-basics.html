@@ -1,0 +1,221 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Solar forecasting basics: a worked example on ten years of Ajaccio data | Cyril Voyant</title><meta name="description" content="How to forecast solar irradiance one hour ahead, step by step: clear-sky index, AR(1) and AR(p) by least squares, persistence references, error metrics, Extreme Learning Machine and frugality, with real numbers from Ajaccio (1998–2007)."><meta name="author" content="Cyril Voyant"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html"><meta property="og:type" content="article"><meta property="og:title" content="Solar forecasting basics: a worked example on ten years of Ajaccio data"><meta property="og:description" content="How to forecast solar irradiance one hour ahead, step by step: clear-sky index, AR(1) and AR(p) by least squares, persistence references, error metrics, Extreme Learning Machine and frugality, with real numbers from Ajaccio (1998–2007)."><meta property="og:url" content="https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html"><meta property="og:image" content="https://cyrilvoyant.github.io/assets/course/ghi_csi_3jours.png"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Solar forecasting basics: a worked example on ten years of Ajaccio data"><meta name="twitter:image" content="https://cyrilvoyant.github.io/assets/course/ghi_csi_3jours.png"><style>body{margin:0;color:#172536;background:#fbfcfe;font:17px/1.7 system-ui,sans-serif}main,header,footer{max-width:900px;margin:auto;padding:24px}header{border-bottom:1px solid #ccd6e0}nav{display:flex;gap:18px;flex-wrap:wrap}a{color:#07569a;text-decoration:underline;text-underline-offset:3px}a:focus-visible{outline:3px solid #ad5200;outline-offset:4px}h1{font-size:clamp(1.8rem,4vw,2.7rem);line-height:1.2}h2{line-height:1.3;margin-top:2em}pre{background:#edf2f7;padding:18px;overflow:auto}code{font-size:.9em}table{border-collapse:collapse;display:block;overflow:auto}td,th{border:1px solid #ccd6e0;padding:10px}.note{padding:16px;border-left:4px solid #07569a;background:#edf4fa}.muted{color:#46586a}img{max-width:100%;height:auto}footer{border-top:1px solid #ccd6e0;font-size:.9em}.cite-lede{font-size:1.02rem;border-left:3px solid currentColor;padding-left:.8rem;margin:.6rem 0}figure{margin:1.4em 0}figcaption{font-size:.9em;color:#46586a}.logo{height:56px;width:auto;display:block;margin:8px 0}.key{font-size:1.08rem;padding:16px;border-left:4px solid #07569a;background:#edf4fa}table td,table th{text-align:center}table td:first-child,table th:first-child{text-align:left}</style><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": [
+    "LearningResource",
+    "TechArticle"
+  ],
+  "@id": "https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html#page",
+  "url": "https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html",
+  "headline": "Solar forecasting basics: a worked example on ten years of Ajaccio data",
+  "name": "Solar forecasting basics: a worked example on ten years of Ajaccio data",
+  "description": "How to forecast solar irradiance one hour ahead, step by step: clear-sky index, AR(1) and AR(p) by least squares, persistence references, error metrics, Extreme Learning Machine and frugality, with real numbers from Ajaccio (1998–2007).",
+  "inLanguage": "en",
+  "learningResourceType": "worked example",
+  "educationalLevel": "Master / engineering school",
+  "teaches": [
+    "clear-sky index",
+    "autoregressive forecasting",
+    "ordinary least squares",
+    "persistence reference forecasts",
+    "forecast error metrics",
+    "Extreme Learning Machine",
+    "online learning",
+    "frugal AI"
+  ],
+  "author": {
+    "@type": "Person",
+    "@id": "https://person.cyrilvoyant.com/#cyril-voyant",
+    "name": "Cyril Voyant",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "Mines Paris – PSL"
+    }
+  },
+  "datePublished": "2026-10-20",
+  "dateModified": "2026-10-20",
+  "isPartOf": {
+    "@id": "https://cyrilvoyant.github.io/#website"
+  },
+  "isBasedOn": {
+    "@type": "Course",
+    "name": "Prévision de la ressource solaire intermittente (UE14)",
+    "url": "https://cyrilvoyant.github.io/teaching/solar-forecasting-course.html",
+    "provider": {
+      "@type": "CollegeOrUniversity",
+      "name": "Mines Paris – PSL"
+    }
+  },
+  "license": "https://creativecommons.org/licenses/by/4.0/",
+  "citation": [
+    {
+      "@type": "ScholarlyArticle",
+      "identifier": "https://doi.org/10.1016/j.renene.2016.12.095"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "identifier": "https://doi.org/10.1016/j.renene.2022.04.065"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "identifier": "https://doi.org/10.1016/j.renene.2025.123913"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "identifier": "https://doi.org/10.1016/j.solener.2025.113490"
+    },
+    {
+      "@type": "ScholarlyArticle",
+      "identifier": "https://doi.org/10.1016/j.seta.2025.104588"
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do you forecast solar irradiance one hour ahead?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Remove the deterministic solar cycle with a clear-sky model (here Solis), forecast the clear-sky index with a linear autoregressive model fitted by least squares, add the clear-sky irradiance back, and compare the result with smart persistence. On ten years of Ajaccio data, AR(2) reaches a daytime nRMSE of 21.3 % at 1 h, against 22.0 % for smart persistence."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should the clear-sky index be a difference or a ratio?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Both remove the daily and annual cycle. The difference CSI = GHI − GHIcs (in W/m²) is defined day and night (0 − 0 = 0) and needs no solar-elevation filter. The ratio GHI / GHIcs is unitless and common in the literature, but undefined at night and unstable near sunrise and sunset, so it needs a filter such as solar elevation above 10°."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is smart persistence in solar forecasting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Smart (clear-sky) persistence assumes the sky stays the same: it keeps the current gap to the clear-sky irradiance, GHI(t+1) = GHI(t) − GHIcs(t) + GHIcs(t+1). It is an AR(1) with weight 1 and the reference of the skill score. At Ajaccio it divides the RMSE of simple persistence by about 1.7."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Why must forecast errors state day-only or day-and-night hours?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At night every model predicts zero and is right, so adding night hours lowers the RMSE (79 → 56 W/m² for AR(2) at Ajaccio) but halves the mean irradiance (372 → 186 W/m²), which raises the nRMSE (21 % → 30 %). The ranking of models does not change, but the numbers do."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is an Extreme Learning Machine worth it over a linear AR model?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "At Ajaccio, 1 h ahead, an ELM with 50 hidden neurons reaches 20.5 % daytime nRMSE against 21.3 % for AR(2): about 4 points of skill score for roughly 100 times more coefficients, a result that depends on the random draw, and several years of training data. The useful question is whether the gain justifies the cost."
+      }
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Cyril Voyant — Methods & code",
+      "item": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Solar forecasting basics: a worked example on ten years of Ajaccio data",
+      "item": "https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html"
+    }
+  ]
+}
+</script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Solar forecasting basics: a worked example on ten years of Ajaccio data</h1><p class="muted">Cyril Voyant · Mines Paris – PSL · from the course UE14 (2026) · Published 2026-10-20</p>
+<p class="key"><strong>Result first.</strong> On ten years of hourly measurements in Ajaccio (Corsica), forecasting global irradiance one hour ahead, a linear AR(2) model with <strong>2 coefficients</strong> reaches a daytime nRMSE of <strong>21.3 %</strong>, smart persistence <strong>22.0 %</strong>, and an Extreme Learning Machine with <strong>about 200 coefficients</strong> <strong>20.5 %</strong>. Removing the solar cycle and choosing the right reference matter more than the model.</p>
+<p>This page follows the course step by step, in English, with the actual numbers. It is meant for students and engineers who want the method, not only the vocabulary. Data: Météo-France, Ajaccio station, hourly global horizontal irradiance (GHI), 1998–2007.</p>
+
+<h2>1. Why forecast, and in which unit</h2>
+<p>PV output follows irradiance: <code>P ≈ η · S · G</code>. With a module efficiency η ≈ 20 %, 10 m² under 800 W/m² give about <strong>1.6 kW</strong>. Forecasting GHI is therefore forecasting production. Grid operators need it to keep frequency stable, to charge or discharge storage at the right time, to schedule hydro or gas, and to sell energy at the best price.</p>
+<figure><img src="../assets/course/own_grid_schematic.png" alt="Grid operator balancing PV, batteries, hydro/gas and consumers" loading="lazy" width="1100"><figcaption>A one-hour forecast lets the grid operator act before clouds arrive.</figcaption></figure>
+<p>Irradiance is a power (W/m²); irradiation is an energy (Wh/m²). Hourly irradiation in Wh/m² equals the mean irradiance of that hour in W/m². Météo-France files give J/cm²: 1 J/cm² = 2.78 Wh/m², so Wh/m² = J/cm² / 0.36.</p>
+<figure><img src="../assets/course/annee_2007.png" alt="Hourly GHI at Ajaccio in 2007" loading="lazy" width="1100"><figcaption>Hourly GHI measured at Ajaccio in 2007: 8,760 values, maximum 1,025 Wh/m², daytime mean 368 Wh/m² over 1998–2007.</figcaption></figure>
+<p>Ten years are split chronologically: <strong>1998–2005 to learn, 2006 to tune, 2007 to test</strong>, once, on data never seen.</p>
+
+<h2>2. Remove the solar cycle: the clear-sky index</h2>
+<p>Raw GHI is not stationary: its mean depends on the hour and the month. A clear-sky model gives the irradiance without clouds; the course uses Solis (Ineichen, 2008), whose clear-sky error at Ajaccio is about 32 Wh/m². The <strong>clear-sky index</strong> is then taken as a <strong>difference</strong>:</p>
+<p><code>CSI(t) = GHI(t) − GHIcs(t)</code> &nbsp; (≈ 0 under clear sky, 0 at night, negative under clouds)</p>
+<figure><img src="../assets/course/ghi_csi_3jours.png" alt="GHI, clear-sky GHI and clear-sky index on three days" loading="lazy" width="1100"><figcaption>Top: measured and clear-sky GHI on a clear, a variable and an overcast day. Bottom: the clear-sky index; the daily cycle has gone.</figcaption></figure>
+<p>Why a difference rather than the usual ratio <code>GHI / GHIcs</code>? The ratio is 0/0 at night and explodes near sunrise and sunset, so it requires filtering on solar elevation (for example above 10°). The difference works day and night with no filter. Its monthly mean stays between −105 and −43 Wh/m², against 163 to 521 Wh/m² for raw GHI: approximately stationary. It is then centred: <code>y(t) = CSI(t) − μ</code>, with μ ≈ −33 Wh/m².</p>
+
+<h2>3. How variable, how forecastable? sCV and F</h2>
+<p>The stochastic coefficient of variation (sCV) measures how far GHI departs from clear sky at a site; it does not depend on the horizon. Forecastability F adds the memory of clouds: <code>F(h) = 1 − sCV · (1 − ρmax(h))</code>, where ρmax(h) is the strongest remaining correlation of the clear-sky gap (Voyant et al., <em>Renewable Energy</em> 2026, <a href="https://doi.org/10.1016/j.renene.2025.123913">doi:10.1016/j.renene.2025.123913</a>).</p>
+<figure><img src="../assets/course/F_horizon.png" alt="Forecastability F as a function of horizon at Ajaccio" loading="lazy" width="1100"><figcaption>Ajaccio 1998–2007: sCV = 0.52 (fixed). F = 0.92 at 1 h, 0.74 at 3 h, 0.53 at 6 h: cloud memory fades within a few hours.</figcaption></figure>
+
+<h2>4. A first model, with numbers: AR(1)</h2>
+<p><code>y(t+1) = w · y(t) + ε(t+1)</code>, so the forecast h hours ahead is <code>ŷ(t+h) = w<sup>h</sup> · y(t)</code>. At Ajaccio, <strong>w ≈ 0.84</strong>. A cloud gives CSI = −300 Wh/m², so y = −267. One hour later: 0.84 × (−267) = −224, i.e. a forecast CSI of <strong>−257</strong> Wh/m², then −221 and −191 at 2 h and 3 h: the forecast returns towards the mean.</p>
+<figure><img src="../assets/course/ar1_exemple.png" alt="AR(1) forecast of the clear-sky index returning to its mean" loading="lazy" width="1100"><figcaption>The forecast clear-sky index returns towards its mean as the horizon grows.</figcaption></figure>
+
+<h2>5. AR(p) is a linear regression: least squares</h2>
+<p>With p lags, <code>y = X w + ε</code>, where each row of X holds the p previous values. Example with p = 2 and five centred values (−10, −25, −240, −180, −30): the rows are (−25, −10 → −240), (−240, −25 → −180), (−180, −240 → −30). The least-squares solution is exact, in one step: <code>ŵ = (XᵀX)⁻¹ Xᵀy</code>. At Ajaccio, AR(2) gives <strong>ŵ = (0.97, −0.15)</strong>, computed in 6 ms on about 70,000 rows: the last value weighs by far the most.</p>
+<p>How many lags? The PACF suggests p ≈ 2 (PACF(1) = 0.84, PACF(2) = −0.15), but with 70,000 points almost everything is “significant”. The wrapper approach trains AR(p) for p = 1…12 and measures the validation error:</p>
+<figure><img src="../assets/course/choix_p.png" alt="Validation RMSE as a function of the number of lags" loading="lazy" width="1100"><figcaption>Validation RMSE (2006, daytime): 78.0 (p = 1), 77.7 (p = 2), 77.3 Wh/m² (p = 12). Parsimony: the smallest p within 0.5 % of the best, p = 2.</figcaption></figure>
+
+<h2>6. Always compare with a reference</h2>
+<p>A model that does not beat a simple reference brings nothing. Three references: <strong>simple persistence</strong> GHI(t+1) = GHI(t) (ignores the Sun's course); <strong>clear sky</strong> GHI(t+1) = GHIcs(t+1) (ignores clouds); <strong>smart persistence</strong> GHI(t+1) = GHI(t) − GHIcs(t) + GHIcs(t+1) (keeps the gap to clear sky; an AR(1) with w = 1). Two rules for every model: forecast 0 when the Sun is below the horizon, and replace negative forecasts by 0.</p>
+<figure><img src="../assets/course/references_journee.png" alt="Reference forecasts on a variable day" loading="lazy" width="1100"><figcaption>A variable day of 2007, 1-h forecasts: measurement, simple persistence, clear sky, smart persistence.</figcaption></figure>
+<p>Errors: nMBE (bias, should stay below 1 % in magnitude), MAE, RMSE, nRMSE = RMSE / mean GHI. The skill score <code>SS = 1 − RMSE / RMSE(smart persistence)</code> compares with smart persistence; the <a href="../methods/nice-metrics.html">NICEᵏ metrics</a> compare with simple persistence on three error norms (Voyant et al., 2025, <a href="https://doi.org/10.1016/j.seta.2025.104588">doi:10.1016/j.seta.2025.104588</a>).</p>
+<table><thead><tr><th>Model (test 2007, 1 h)</th><th>RMSE day (W/m²)</th><th>nRMSE day</th><th>nRMSE day + night</th><th>SS</th><th>NICE<sup>Σ</sup></th></tr></thead><tbody>
+<tr><td>Simple persistence</td><td>135</td><td>36.4 %</td><td>51.5 %</td><td>−0.66</td><td>1.00</td></tr>
+<tr><td>Clear sky</td><td>148</td><td>39.9 %</td><td>56.4 %</td><td>−0.82</td><td>1.06</td></tr>
+<tr><td>Smart persistence</td><td>82</td><td>22.0 %</td><td>31.0 %</td><td>0.00</td><td>0.59</td></tr>
+<tr><td>AR(2)</td><td>79</td><td>21.3 %</td><td>30.1 %</td><td>+0.03</td><td>0.58</td></tr>
+<tr><td>ELM (L = 50, best draw)</td><td>76</td><td>20.5 %</td><td>28.9 %</td><td>+0.07</td><td>0.55</td></tr>
+</tbody></table>
+<p>Smart persistence divides the RMSE of simple persistence by 1.7; AR(2) gains 3 % on it, the ELM 7 %. Daytime: 4,380 hours, mean GHI 372 W/m². Day + night: 8,759 hours, mean 186 W/m².</p>
+<p><strong>Day only or day + night?</strong> Adding night hours lowers the RMSE of AR(2) from 79 to 56 W/m² (everyone is right at night) but halves the mean (372 → 186), so the nRMSE rises from 21 % to 30 %. The ranking does not change; the numbers do. Always say which hours you used.</p>
+<figure><img src="../assets/course/prevision_vs_mesure.png" alt="Hourly forecast and measurement over four days" loading="lazy" width="1100"><figcaption>Four days of October 2007, 1-h forecasts: both models follow regular days and miss sudden changes, because an arriving cloud is not visible in the past.</figcaption></figure>
+
+<h2>7. Extreme Learning Machine: nonlinear, still least squares</h2>
+<p>An ELM is a one-hidden-layer network whose input weights and biases are drawn at random and frozen; only the output weights are learnt, by (ridge) least squares: <code>H = g(X W<sub>in</sub> + b)</code>, <code>β = (HᵀH + αI)⁻¹ Hᵀy</code> (Huang et al., 2006). Same equation as AR, other columns. At Ajaccio, L = 50 neurons is enough (validation RMSE 85.2 at L = 5, 75.9 at L = 50, no gain beyond), and 20 random draws give a test nRMSE between 20.37 and 20.51 %.</p>
+<figure><img src="../assets/course/elm_reseau.png" alt="Extreme Learning Machine schematic" loading="lazy" width="1100"><figcaption>ELM: random frozen input weights, output weights learnt by least squares.</figcaption></figure>
+<p>Stationarise or give the time? A linear AR needs the clear-sky index; an ELM given sin/cos encodings of hour and day can learn the solar cycle from raw GHI (Voyant et al., <em>Solar Energy</em> 2025, <a href="https://doi.org/10.1016/j.solener.2025.113490">doi:10.1016/j.solener.2025.113490</a>).</p>
+<figure><img src="../assets/course/variantes.png" alt="Daytime nRMSE of AR and ELM for four input variants" loading="lazy" width="1100"><figcaption>Daytime nRMSE, test 2007: raw GHI, raw GHI + sin/cos, CSI, CSI + sin/cos, for AR(2) and ELM.</figcaption></figure>
+
+<h2>8. Online learning and frugality</h2>
+<p>With a sliding window, the model is re-estimated every hour on the last W hours (11 µs per update for AR, 38 µs for the ELM). AR(2) stays at 21.3–21.5 % even with one month of data; the ELM degrades to 25.6 % with one month: the more parameters, the more data a model needs.</p>
+<figure><img src="../assets/course/fenetre_glissante.png" alt="Daytime nRMSE as a function of training window length" loading="lazy" width="1100"><figcaption>Daytime nRMSE on 2007 as a function of the training window, from one month to eight years.</figcaption></figure>
+<table><thead><tr><th>Model</th><th>Learnt coefficients</th><th>Training cost</th><th>Data needed</th><th>nRMSE day (test)</th></tr></thead><tbody>
+<tr><td>Smart persistence</td><td>0</td><td>none</td><td>1 hour</td><td>22.0 %</td></tr>
+<tr><td>AR(2)</td><td>2</td><td>6 ms</td><td>1 month is enough</td><td>21.3 %</td></tr>
+<tr><td>ELM (L = 50)</td><td>51 (+150 random)</td><td>58 ms per draw</td><td>several years</td><td>20.5 %</td></tr>
+<tr><td>AR, 1-month sliding window</td><td>2</td><td>11 µs per hour</td><td>720 hours</td><td>21.5 %</td></tr>
+</tbody></table>
+<p>Timings on a laptop; only orders of magnitude matter. The right question is not “which model is best?” but <strong>“does the gain justify the cost?”</strong> in computation, data, maintenance and monitoring. See also the <a href="../methods/pv-elm.html">PV_ELM_pred benchmark</a> and <a href="../methods/persistence-blend.html">persistence and BLEND</a>.</p>
+
+<h2>Takeaways</h2><ul>
+<li>A forecast is useful only if it beats a reference: always report persistence and smart persistence.</li>
+<li>Remove or encode the solar cycle before learning, and say how (difference, ratio or time encoding).</li>
+<li>Choose model complexity on data you do not test on; state day-only or day + night.</li>
+<li>A small model refreshed often can rival a larger one: frugality is a design choice.</li></ul>
+
+<section id="questions"><h2>Questions and answers</h2><h3>How do you forecast solar irradiance one hour ahead?</h3><p>Remove the deterministic solar cycle with a clear-sky model (here Solis), forecast the clear-sky index with a linear autoregressive model fitted by least squares, add the clear-sky irradiance back, and compare the result with smart persistence. On ten years of Ajaccio data, AR(2) reaches a daytime nRMSE of 21.3 % at 1 h, against 22.0 % for smart persistence.</p><h3>Should the clear-sky index be a difference or a ratio?</h3><p>Both remove the daily and annual cycle. The difference CSI = GHI − GHIcs (in W/m²) is defined day and night (0 − 0 = 0) and needs no solar-elevation filter. The ratio GHI / GHIcs is unitless and common in the literature, but undefined at night and unstable near sunrise and sunset, so it needs a filter such as solar elevation above 10°.</p><h3>What is smart persistence in solar forecasting?</h3><p>Smart (clear-sky) persistence assumes the sky stays the same: it keeps the current gap to the clear-sky irradiance, GHI(t+1) = GHI(t) − GHIcs(t) + GHIcs(t+1). It is an AR(1) with weight 1 and the reference of the skill score. At Ajaccio it divides the RMSE of simple persistence by about 1.7.</p><h3>Why must forecast errors state day-only or day-and-night hours?</h3><p>At night every model predicts zero and is right, so adding night hours lowers the RMSE (79 → 56 W/m² for AR(2) at Ajaccio) but halves the mean irradiance (372 → 186 W/m²), which raises the nRMSE (21 % → 30 %). The ranking of models does not change, but the numbers do.</p><h3>Is an Extreme Learning Machine worth it over a linear AR model?</h3><p>At Ajaccio, 1 h ahead, an ELM with 50 hidden neurons reaches 20.5 % daytime nRMSE against 21.3 % for AR(2): about 4 points of skill score for roughly 100 times more coefficients, a result that depends on the random draw, and several years of training data. The useful question is whether the gain justifies the cost.</p></section>
+
+<h2>How to cite</h2>
+<p>Voyant, C. (2026). <em>Solar forecasting basics: a worked example on ten years of Ajaccio data</em>. From the course UE14 “Prévision de la ressource solaire intermittente”, Mines Paris – PSL. https://cyrilvoyant.github.io/teaching/solar-forecasting-basics.html. Licence CC BY 4.0. When you reuse a method, also cite the article behind it.</p>
+<h2>References</h2><ul>
+<li>Voyant C. et al. (2017). Machine learning methods for solar radiation forecasting: a review. <em>Renewable Energy</em> 105, 569–582. <a href="https://doi.org/10.1016/j.renene.2016.12.095">doi:10.1016/j.renene.2016.12.095</a></li>
+<li>Voyant C. et al. (2022). Benchmarks for solar radiation time series forecasting. <em>Renewable Energy</em> 191, 747–762. <a href="https://doi.org/10.1016/j.renene.2022.04.065">doi:10.1016/j.renene.2022.04.065</a></li>
+<li>Voyant C. et al. (2026). Stochastic coefficient of variation: assessing the variability and forecastability of solar irradiance. <em>Renewable Energy</em> 256, 123913. <a href="https://doi.org/10.1016/j.renene.2025.123913">doi:10.1016/j.renene.2025.123913</a></li>
+<li>Voyant C., Despotovic M., Notton G., Saint-Drenan Y.-M., Asloune M., Garcia-Gutierrez L. (2025). On the importance of clearsky model in short-term solar radiation forecasting. <em>Solar Energy</em> 289, 113490. <a href="https://doi.org/10.1016/j.solener.2025.113490">doi:10.1016/j.solener.2025.113490</a></li>
+<li>Voyant C. et al. (2025). NICEᵏ metrics: unified and multidimensional framework for evaluating deterministic solar forecasting accuracy. <em>Sustainable Energy Technologies and Assessments</em> 81, 104588. <a href="https://doi.org/10.1016/j.seta.2025.104588">doi:10.1016/j.seta.2025.104588</a></li>
+<li>Ineichen P. (2008). A broadband simplified version of the Solis clear sky model. <em>Solar Energy</em> 82(8), 758–762. <a href="https://doi.org/10.1016/j.solener.2008.02.009">doi:10.1016/j.solener.2008.02.009</a></li>
+<li>Huang G.-B., Zhu Q.-Y., Siew C.-K. (2006). Extreme learning machine: theory and applications. <em>Neurocomputing</em> 70, 489–501. <a href="https://doi.org/10.1016/j.neucom.2005.12.126">doi:10.1016/j.neucom.2005.12.126</a></li>
+<li>Hyndman R. J., Athanasopoulos G. (2021). <em>Forecasting: Principles and Practice</em>, 3rd ed. OTexts.</li></ul>
+<p>Data: Météo-France, Ajaccio station. All figures drawn by the author from these data. Course page (French, slides for students): <a href="solar-forecasting-course.html">Forecasting the intermittent solar resource</a>.</p></main><footer><div class="institutional-brand" style="margin:20px 0;padding:12px;background:#fff;color:#172536"><a href="https://www.minesparis.psl.eu/annuaire-de-la-recherche/chercheur/cyril-voyant/"><img src="/assets/mines-paris-psl-logo.png" alt="Mines Paris – PSL" width="220" height="136" loading="lazy" style="max-width:100%;height:auto;vertical-align:middle"></a><span style="display:inline-block;vertical-align:middle;padding:8px">Centre O.I.E.<br>Observation, Impacts, Énergie<br>Mines Paris – PSL</span></div><p>Methods and open scientific software · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a> · <a href="/">All resources</a></p></footer><!-- Cloudflare Web Analytics --><script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"7cb73890451a455ea5993194a82881eb"}'></script><!-- End Cloudflare Web Analytics -->
+</body></html>
