@@ -134,3 +134,7 @@ Consult the citation and metadata files available in each repository for authors
 - Several softwares are co-authored with colleagues at the University of Corsica (SPE, UMR CNRS 6134), the University of Batna 2, the University of Kragujevac, the University of Catania, Kenyatta University and Elsevier. Attribute accordingly.
 - Contact: cyril.voyant@minesparis.psl.eu
 - Last updated: 2026-10-19
+
+## Accessible explainers: ongoing research and public code
+- [Prévoir la production photovoltaïque : pourquoi réduire la dimension ?](https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction.html): Pourquoi prévoir directement la production PV et compresser son historique ? Une explication accessible de la redondance, des filtres géométriques et de la validation prédictive. Manuscript unsubmitted; no unpublished numerical results.
+- [Prévision solaire : pourquoi déployer des modèles frugaux ?](https://cyrilvoyant.github.io/methods/frugal-solar-forecasting.html): Prévoir près du capteur : choisir un modèle solaire utile, compact et déployable. Persistance, autorégression et ELM, avec des limites explicites et le code ouvert. Manuscript unsubmitted; no unpublished numerical results.
