@@ -184,7 +184,7 @@
 <h2>7. Extreme Learning Machine: nonlinear, still least squares</h2>
 <p>An ELM is a one-hidden-layer network whose input weights and biases are drawn at random and frozen; only the output weights are learnt, by (ridge) least squares: <code>H = g(X W<sub>in</sub> + b)</code>, <code>β = (HᵀH + αI)⁻¹ Hᵀy</code> (Huang et al., 2006). Same equation as AR, other columns. At Ajaccio, L = 50 neurons is enough (validation RMSE 85.2 at L = 5, 75.9 at L = 50, no gain beyond), and 20 random draws give a test nRMSE between 20.37 and 20.51 %.</p>
 <figure><img src="../assets/course/elm_reseau.png" alt="Extreme Learning Machine schematic" loading="lazy" width="1100"><figcaption>ELM: random frozen input weights, output weights learnt by least squares.</figcaption></figure>
-<p>Stationarise or give the time? A linear AR needs the clear-sky index; an ELM given sin/cos encodings of hour and day can learn the solar cycle from raw GHI (Voyant et al., <em>Solar Energy</em> 2025, <a href="https://doi.org/10.1016/j.solener.2025.113490">doi:10.1016/j.solener.2025.113490</a>).</p>
+<p>Stationarize or give the time? A linear AR needs the clear-sky index; an ELM given sin/cos encodings of hour and day can learn the solar cycle from raw GHI (Voyant et al., <em>Solar Energy</em> 2025, <a href="https://doi.org/10.1016/j.solener.2025.113490">doi:10.1016/j.solener.2025.113490</a>).</p>
 <figure><img src="../assets/course/variantes.png" alt="Daytime nRMSE of AR and ELM for four input variants" loading="lazy" width="1100"><figcaption>Daytime nRMSE, test 2007: raw GHI, raw GHI + sin/cos, CSI, CSI + sin/cos, for AR(2) and ELM.</figcaption></figure>
 
 <h2>8. Online learning and frugality</h2>
