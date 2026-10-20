@@ -145,3 +145,11 @@ Consult the citation and metadata files available in each repository for authors
 - [Solar forecasting: why deploy frugal models?](https://cyrilvoyant.github.io/methods/frugal-solar-forecasting-en.html): Full English article, numerical teaching example, study authors, sources and limits. Associated manuscript unsubmitted.
 
 - [Solar forecasting, made simple: ideas and methods](https://cyrilvoyant.github.io/methods/solar-forecasting-made-simple.html): English research guide linking forecastability, BLEND, NICE, gamma-index, reproducible teaching and ongoing unsubmitted studies, with attribution and limits.
+
+- [blend worked example](https://cyrilvoyant.github.io/teaching/blend-worked-example.html): Source-linked teaching calculation. Fictitious inputs for worked examples; public Palaiseau observations for the interactive comparison. No unpublished manuscript findings.
+
+- [artu worked example](https://cyrilvoyant.github.io/teaching/artu-worked-example.html): Source-linked teaching calculation. Fictitious inputs for worked examples; public Palaiseau observations for the interactive comparison. No unpublished manuscript findings.
+
+- [stochastic persistence worked example](https://cyrilvoyant.github.io/teaching/stochastic-persistence-worked-example.html): Source-linked teaching calculation. Fictitious inputs for worked examples; public Palaiseau observations for the interactive comparison. No unpublished manuscript findings.
+
+- [reference model comparison](https://cyrilvoyant.github.io/teaching/reference-model-comparison.html): Source-linked teaching calculation. Fictitious inputs for worked examples; public Palaiseau observations for the interactive comparison. No unpublished manuscript findings.
