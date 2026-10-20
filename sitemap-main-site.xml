@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.cyrilvoyant.com/</loc>
   </url>
@@ -13,13 +13,13 @@
     <loc>https://www.cyrilvoyant.com/latest-publications-and-news</loc>
   </url>
   <url>
-    <loc>https://www.cyrilvoyant.com/prevision-pv-reduction-dimension</loc>
+    <loc>https://www.cyrilvoyant.com/prevision-pv-reduction-dimension</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.cyrilvoyant.com/prevision-pv-reduction-dimension"/><xhtml:link rel="alternate" hreflang="en" href="https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction-en.html"/>
   </url>
   <url>
-    <loc>https://www.cyrilvoyant.com/prevision-solaire-modeles-frugaux</loc>
+    <loc>https://www.cyrilvoyant.com/prevision-solaire-modeles-frugaux</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.cyrilvoyant.com/prevision-solaire-modeles-frugaux"/><xhtml:link rel="alternate" hreflang="en" href="https://cyrilvoyant.github.io/methods/frugal-solar-forecasting-en.html"/>
   </url>
   <url>
-    <loc>https://www.cyrilvoyant.com/prevision-solaire-faire-simple</loc>
+    <loc>https://www.cyrilvoyant.com/prevision-solaire-faire-simple</loc><xhtml:link rel="alternate" hreflang="fr" href="https://www.cyrilvoyant.com/prevision-solaire-faire-simple"/><xhtml:link rel="alternate" hreflang="en" href="https://cyrilvoyant.github.io/methods/solar-forecasting-made-simple.html"/>
   </url>
   <url>
     <loc>https://www.cyrilvoyant.com/latest-publications-and-news/why-forecast-solar-power</loc>
