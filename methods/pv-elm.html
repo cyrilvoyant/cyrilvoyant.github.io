@@ -85,6 +85,31 @@
     }
   ]
 }
+</script><meta name="author" content="Cyril Voyant"><meta property="og:site_name" content="Cyril Voyant — Methods &amp; open scientific software"><meta property="og:image" content="https://cyrilvoyant.github.io/assets/og/methods-pv-elm.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="How much model is enough for solar forecasting? The PV_ELM_pred benchmark — Cyril Voyant"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="How much model is enough for solar forecasting? The PV_ELM_pred benchmark"><meta name="twitter:description" content="Open Python benchmark of persistence, linear AR and 14 Extreme Learning Machine variants for frugal PV, irradiance and weather forecasting at the edge."><meta name="twitter:image" content="https://cyrilvoyant.github.io/assets/og/methods-pv-elm.png"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Cyril Voyant — Methods & code",
+      "item": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Methods",
+      "item": "https://cyrilvoyant.github.io/#methods"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "How much model is enough for solar forecasting? The PV_ELM_pred benchmark",
+      "item": "https://cyrilvoyant.github.io/methods/pv-elm.html"
+    }
+  ]
+}
 </script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>How much model is enough for solar forecasting? The PV_ELM_pred benchmark</h1><p class="muted">Cyril Voyant · Updated 2026-10-20</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">PV_ELM_pred (M. Leiva, X. Silvani, G. Notton, C. Voyant, A. Julien, 2026, <a href="https://doi.org/10.5281/zenodo.21487267">doi:10.5281/zenodo.21487267</a>) benchmarks persistence, BLEND, linear autoregression and 14 Extreme Learning Machine variants on the same splits and metrics, so that every gain in skill can be weighed against the extra model it costs.</p><p class="cite-lede" lang="fr">PV_ELM_pred (M. Leiva, X. Silvani, G. Notton, C. Voyant, A. Julien, 2026, <a href="https://doi.org/10.5281/zenodo.21487267">doi:10.5281/zenodo.21487267</a>) compare persistance, BLEND, autorégression linéaire et 14 variantes d’Extreme Learning Machine sur les mêmes découpages et métriques, pour mettre chaque gain de précision en regard du surcoût de modèle.</p><p class="cite-lede" lang="en">BLEND, the cyclostationary persistence operator of Cyril Voyant and co-authors (<em>Applied Mathematical Modelling</em>, 2026, <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>), mixes ordinary persistence with same-phase persistence from the previous cycle, giving a training-free reference forecast for periodically correlated energy series.</p><p class="cite-lede" lang="fr">BLEND, l’opérateur de persistance cyclostationnaire de Cyril Voyant et coll. (<em>Applied Mathematical Modelling</em>, 2026, <a href="https://doi.org/10.1016/j.apm.2026.116988">doi:10.1016/j.apm.2026.116988</a>), combine la persistance ordinaire et la persistance de même phase du cycle précédent : c’est une prévision de référence sans apprentissage pour les séries énergétiques à corrélation périodique.</p></section><section id="questions"><h2>Questions and answers</h2><h3>How should ELM and linear autoregression be benchmarked for PV forecasting?</h3><p>On the same chronological splits, inputs and metrics, with persistence and a cyclostationary persistence such as <a href="persistence-blend.html">BLEND</a> as references. Fit scaling on the training fold only, use several random seeds for the ELM, and report daytime-only and all-hours scores separately. PV_ELM_pred implements this protocol for AR-OLS and 14 ELM variants.</p><h3>How can forecasting skill be compared with model complexity in energy forecasting?</h3><p>Plot a persistence-normalised skill score (for example NICE^Σ from the <a href="nice-metrics.html">NICEᵏ family</a>) against the logarithm of the stored parameter count, across a sweep of model sizes and seeds, with persistence and linear AR as fixed references. PV_ELM_pred runs such a sweep from 5 to 1000 hidden neurons. A parameter count is not an energy measurement: report latency and memory separately.</p><div lang="fr"><h3>Comment comparer un ELM à une autorégression pour prévoir la production photovoltaïque ?</h3><p>Sur les mêmes découpages chronologiques, les mêmes entrées et les mêmes métriques, avec la persistance et une persistance cyclostationnaire (BLEND) comme références. La normalisation est ajustée sur l’apprentissage seulement, l’ELM est évalué sur plusieurs graines, et les scores de jour et sur 24 h sont donnés séparément. Le gain de précision se lit en regard du nombre de paramètres ajoutés.</p></div></section><h2>What this benchmark answers</h2>
 <p>How much model is enough to forecast a measured solar or weather channel from its own past, from 30 minutes to several hours ahead? PV_ELM_pred puts persistence, a linear autoregression and 14 Extreme Learning Machine (ELM) variants through the same pipeline, the same splits and the same metrics, so that every gain in skill can be weighed against the extra model it costs.</p>
 <p>It is a frugal-AI testbed for edge forecasting: the models run on a CPU, use only the target's own history and cyclic time features, and need no numerical weather prediction.</p>

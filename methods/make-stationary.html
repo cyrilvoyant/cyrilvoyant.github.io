@@ -85,6 +85,31 @@
     }
   ]
 }
+</script><meta name="author" content="Cyril Voyant"><meta property="og:site_name" content="Cyril Voyant — Methods &amp; open scientific software"><meta property="og:image" content="https://cyrilvoyant.github.io/assets/og/methods-make-stationary.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark — Cyril Voyant"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark"><meta name="twitter:description" content="Frugal ELM deseasonalization tested on 9 solar, wind and load series: cleaner residuals do not mean better forecasts. Results, method, MATLAB code, citation."><meta name="twitter:image" content="https://cyrilvoyant.github.io/assets/og/methods-make-stationary.png"><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Cyril Voyant — Methods & code",
+      "item": "https://cyrilvoyant.github.io/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Methods",
+      "item": "https://cyrilvoyant.github.io/#methods"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark",
+      "item": "https://cyrilvoyant.github.io/methods/make-stationary.html"
+    }
+  ]
+}
 </script></head><body><header><nav aria-label="Main navigation"><a href="/">Methods &amp; code</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main id="main"><h1>Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark</h1><p class="muted">Cyril Voyant · Updated 2026-10-20</p><section id="cite-lede" aria-label="Method in one sentence"><p class="cite-lede" lang="en">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton; software <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a>; companion manuscript submitted, 2026) tests whether deseasonalization improves the final solar and wind forecast, and shows that a more stationary residual is not necessarily a more predictable one.</p><p class="cite-lede" lang="fr">Make_Stationary (M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez, G. Notton ; logiciel <a href="https://doi.org/10.5281/zenodo.21490744">doi:10.5281/zenodo.21490744</a> ; manuscrit soumis, 2026) teste si la désaisonnalisation améliore la prévision finale solaire et éolienne, et montre qu’un résidu plus stationnaire n’est pas forcément plus prévisible.</p></section><section id="questions"><h2>Questions about deseasonalization and forecasting</h2><h3>Does deseasonalization always improve renewable energy forecasting?</h3><p>No. Removing a recurring cycle can improve residual stationarity without improving the final forecast. Evaluate the full pipeline: fit the seasonal component on training data, forecast the residual, reconstruct the signal, and compare with forecasting the raw signal on identical test samples and horizons.</p><h3>How can I test whether preprocessing helps?</h3><p>Use a chronological training/test split, prevent information from future observations entering the seasonal estimate, and keep scoring windows and baseline definitions fixed. Report absolute forecast errors alongside a persistence-relative metric such as <a href="nice-metrics.html">NICEᵏ</a>. Test both the raw and preprocessed pipelines, rather than selecting a transform from a stationarity diagnostic alone.</p><div lang="fr"><h3>La désaisonnalisation améliore-t-elle toujours la prévision énergétique ?</h3><p>Non. Un résidu plus stationnaire ne garantit pas une meilleure prévision du signal d’origine. Il faut comparer les prévisions reconstruites à une prévision directe du signal brut, sur les mêmes dates et horizons, sans utiliser de données futures pour estimer la saisonnalité.</p></div><p>These answers summarize the public benchmark protocol. The companion manuscript remains submitted; this guide does not turn its status into a published journal article.</p></section><h2>Key finding</h2>
 <p>A cleaner residual is not a more predictable one. On nine energy and weather series from Corsica, forecast 1 to 6 hours ahead, removing the daily and annual cycle gives the most stationary residuals with the rolling median and the two ELM operators, but this ranking does not carry over to forecast accuracy.</p>
 <ul>
