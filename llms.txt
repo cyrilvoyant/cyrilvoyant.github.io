@@ -139,3 +139,7 @@ Consult the citation and metadata files available in each repository for authors
 ## Accessible explainers: ongoing research and public code
 - [Prévoir la production photovoltaïque : pourquoi réduire la dimension ?](https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction.html): Pourquoi prévoir directement la production PV et compresser son historique ? Une explication accessible de la redondance, des filtres géométriques et de la validation prédictive. Manuscript unsubmitted; no unpublished numerical results.
 - [Prévision solaire : pourquoi déployer des modèles frugaux ?](https://cyrilvoyant.github.io/methods/frugal-solar-forecasting.html): Prévoir près du capteur : choisir un modèle solaire utile, compact et déployable. Persistance, autorégression et ELM, avec des limites explicites et le code ouvert. Manuscript unsubmitted; no unpublished numerical results.
+
+## Full English explainers
+- [Direct PV power forecasting: why reduce dimensionality?](https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction-en.html): Full English article, numerical teaching example, study authors, sources and limits. Associated manuscript unsubmitted.
+- [Solar forecasting: why deploy frugal models?](https://cyrilvoyant.github.io/methods/frugal-solar-forecasting-en.html): Full English article, numerical teaching example, study authors, sources and limits. Associated manuscript unsubmitted.
