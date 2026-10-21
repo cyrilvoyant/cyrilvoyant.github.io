@@ -34,6 +34,7 @@
 <tr><td><strong>BLEND, weight per phase</strong></td><td><strong>0.299</strong></td><td><strong>0.444</strong></td><td><strong>0.488</strong></td></tr>
 <tr><td>Simplified weight (1 + ρ)/2</td><td>0.472</td><td>0.576</td><td>0.762</td></tr>
 </table>
+<figure><img src="../assets/blend/blend-nrmse-horizon-en.png" width="1813" height="1071" loading="lazy" alt="nRMSE versus horizon: BLEND with one weight per phase stays below cyclic persistence at every horizon; the simplified weight degrades beyond two steps."><figcaption>All horizons and references: <a href="../methods/persistence-blend.html#open-code-results">full results</a> · <a href="../assets/data/blend-v1.1.0-nrmse.csv">CSV</a>.</figcaption></figure>
 <p>The weight per phase beats previous-cycle persistence at every horizon and smart persistence from three steps ahead, without a clear-sky model. The simplified weight (1 + ρ)/2 assumes the same mean at t and t + h; on a daily cycle it only helps one or two steps ahead.</p>
 <h2>What this study contributes</h2>
 <p>The published study develops a family of analytical forecasting operators for periodically correlated energy signals. The calculation illustrates its BLEND member; it does not reproduce the full benchmark.</p>
