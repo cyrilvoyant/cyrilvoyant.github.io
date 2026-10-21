@@ -834,5 +834,14 @@
       "name": "Updated science-wide author databases of standardized citation indicators",
       "url": "https://elsevier.digitalcommonsdata.com/datasets/compare/btchxktzyw"
     }
+  ],
+  "professionalNetworks": [
+    {
+      "name": "SciPinion",
+      "url": "https://scipinion.com/for-experts/",
+      "status": "Registered with the expert network",
+      "since": "2026",
+      "description": "Network registration; no panel appointment or completed assignment is asserted."
+    }
   ]
 }
