@@ -34,16 +34,16 @@ Cyclostationary CLIPER,CLIPER_cyclo,9,0.9278
 "BLEND, cyclostationary (MSE-optimal weight per phase)",BLEND_cyclo,3,0.4443
 "BLEND, cyclostationary (MSE-optimal weight per phase)",BLEND_cyclo,6,0.4877
 "BLEND, cyclostationary (MSE-optimal weight per phase)",BLEND_cyclo,9,0.4951
-"BLEND, least-squares weight per phase",BLEND_LS,1,0.2990
-"BLEND, least-squares weight per phase",BLEND_LS,2,0.3945
-"BLEND, least-squares weight per phase",BLEND_LS,3,0.4443
-"BLEND, least-squares weight per phase",BLEND_LS,6,0.4877
-"BLEND, least-squares weight per phase",BLEND_LS,9,0.4951
-"BLEND, simplified weight (1+rho)/2",BLEND_tilde,1,0.4718
-"BLEND, simplified weight (1+rho)/2",BLEND_tilde,2,0.4965
-"BLEND, simplified weight (1+rho)/2",BLEND_tilde,3,0.5764
-"BLEND, simplified weight (1+rho)/2",BLEND_tilde,6,0.7619
-"BLEND, simplified weight (1+rho)/2",BLEND_tilde,9,0.5973
+"BLEND, least-squares weight per phase (equals the MSE-optimal weight)",BLEND_LS,1,0.2990
+"BLEND, least-squares weight per phase (equals the MSE-optimal weight)",BLEND_LS,2,0.3945
+"BLEND, least-squares weight per phase (equals the MSE-optimal weight)",BLEND_LS,3,0.4443
+"BLEND, least-squares weight per phase (equals the MSE-optimal weight)",BLEND_LS,6,0.4877
+"BLEND, least-squares weight per phase (equals the MSE-optimal weight)",BLEND_LS,9,0.4951
+"BLEND, simplified weight per phase (1+rho_k)/2",BLEND_tilde,1,0.4718
+"BLEND, simplified weight per phase (1+rho_k)/2",BLEND_tilde,2,0.4965
+"BLEND, simplified weight per phase (1+rho_k)/2",BLEND_tilde,3,0.5764
+"BLEND, simplified weight per phase (1+rho_k)/2",BLEND_tilde,6,0.7619
+"BLEND, simplified weight per phase (1+rho_k)/2",BLEND_tilde,9,0.5973
 Holt-Winters,HW,1,0.7147
 Holt-Winters,HW,2,0.7689
 Holt-Winters,HW,3,0.8160
