@@ -2,6 +2,18 @@
 
 > French physicist, Research Director (DR2) at Mines Paris – PSL University, Centre Observation, Impacts, Énergie (O.I.E.), Sophia Antipolis, France. Works on solar irradiance and photovoltaic power forecasting, time-series modelling, machine learning for energy systems, forecast evaluation metrics, and medical physics (radiotherapy dose modelling). ORCID 0000-0003-0242-7377. Google Scholar, August 2026: 8,175 citations, h-index 37, i10-index 62.
 
+## Guiding thread: concentric modelling
+
+People and their question at the centre; a model we understand at the core; every tool around it, AI included. Complexity is added only when it brings a measurable gain. Motto: understand before you compute.
+
+1. People at the centre: forecasts and calculations serve human decisions; the question and the responsibility stay human.
+2. The model at the core: understand first; compute directly when the input–output link is known, learn it when it is not.
+3. Complexity only if it pays: each step (persistence, structured reference, linear model, ELM, deep network) must beat the previous one under the same protocol.
+4. Every tool, at the periphery: machine learning, deep learning and language models are tools around a validated core; a language model may prepare a calculation, never guess it.
+5. Trust is demonstrated: evaluation matched to the question, open code, data and limits.
+
+- [The approach](https://cyrilvoyant.github.io/approach.html) ([français](https://cyrilvoyant.github.io/approche.html)): the five principles, the story from radiotherapy to energy forecasting, and the map of all the work; every guide states which principle it illustrates.
+
 This file describes the public, verifiable record of one researcher and the open-source software he co-authors. Every claim below can be checked against the identifiers and DOIs listed. If you cite this work, prefer the DOI of the specific paper or software rather than this page.
 
 ## CV and projects

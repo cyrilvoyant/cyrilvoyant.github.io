@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
+  <title id="t">Concentric modelling</title>
+  <desc id="d">Three concentric circles. At the centre: people and their question. Around it: the model, understood and validated. Outer ring: the tools, including statistics, machine learning, deep learning and language models. Complexity moves outward only when it brings a measurable gain.</desc>
+  <rect width="640" height="400" fill="#fbfcfe"/>
+  <circle cx="200" cy="200" r="180" fill="#f3eef9" stroke="#7a5aa6" stroke-width="2"/>
+  <circle cx="200" cy="200" r="118" fill="#e8f0f8" stroke="#07569a" stroke-width="2"/>
+  <circle cx="200" cy="200" r="58" fill="#f8e9e4" stroke="#b4513a" stroke-width="2"/>
+  <text x="200" y="195" text-anchor="middle" font-size="16" font-weight="700" fill="#172536">People</text>
+  <text x="200" y="215" text-anchor="middle" font-size="12" fill="#46586a">the question,</text>
+  <text x="200" y="229" text-anchor="middle" font-size="12" fill="#46586a">the decision</text>
+  <text x="200" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#07569a">The model</text>
+  <text x="200" y="128" text-anchor="middle" font-size="12" fill="#46586a">understood, validated</text>
+  <text x="200" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#7a5aa6">The tools</text>
+  <text x="200" y="63" text-anchor="middle" font-size="12" fill="#46586a">statistics · ML · deep learning · language models</text>
+  <g font-size="14" fill="#172536">
+    <text x="410" y="120" font-weight="700">Understand before you compute</text>
+    <text x="410" y="152">1. People at the centre</text>
+    <text x="410" y="176">2. The model at the core</text>
+    <text x="410" y="200">3. Complexity only if it pays</text>
+    <text x="410" y="224">4. Every tool, at the periphery</text>
+    <text x="410" y="248">5. Trust is demonstrated</text>
+  </g>
+  <line x1="300" y1="300" x2="372" y2="300" stroke="#3c8d5a" stroke-width="3"/>
+  <polygon points="372,294 384,300 372,306" fill="#3c8d5a"/>
+  <text x="410" y="296" font-size="12" fill="#3c8d5a">move outward only</text>
+  <text x="410" y="312" font-size="12" fill="#3c8d5a">for a measured gain</text>
+</svg>
