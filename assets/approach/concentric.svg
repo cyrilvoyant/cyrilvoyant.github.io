@@ -11,7 +11,7 @@
   <text x="200" y="110" text-anchor="middle" font-size="15" font-weight="700" fill="#07569a">The model</text>
   <text x="200" y="128" text-anchor="middle" font-size="12" fill="#46586a">understood, validated</text>
   <text x="200" y="45" text-anchor="middle" font-size="15" font-weight="700" fill="#7a5aa6">The tools</text>
-  <text x="200" y="63" text-anchor="middle" font-size="12" fill="#46586a">statistics · ML · deep learning · language models</text>
+  <text x="200" y="63" text-anchor="middle" font-size="11" fill="#46586a">statistics · ML · deep learning · LLMs</text>
   <g font-size="14" fill="#172536">
     <text x="410" y="120" font-weight="700">Understand before you compute</text>
     <text x="410" y="152">1. People at the centre</text>
