@@ -6,6 +6,8 @@
 
 People and their question at the centre; a model we understand at the core; every tool around it, AI included. Complexity is added only when it brings a measurable gain. Motto: understand before you compute.
 
+One method across medicine, energy and language: compute directly when the input–output link is known (radiobiological dose equivalence, compartmental models, simulation); otherwise climb the complexity ladder one step at a time — persistence, structured references, statistical models, extreme learning machines, deep networks — keeping each step only if it beats the previous one.
+
 1. People at the centre: forecasts and calculations serve human decisions; the question and the responsibility stay human.
 2. The model at the core: understand first; compute directly when the input–output link is known, learn it when it is not.
 3. Complexity only if it pays: each step (persistence, structured reference, linear model, ELM, deep network) must beat the previous one under the same protocol.
