@@ -10,7 +10,7 @@ One method across medicine, energy and language: compute directly when the input
 
 1. People at the centre: forecasts and calculations serve human decisions; the question and the responsibility stay human.
 2. The model at the core: understand first; compute directly when the input–output link is known, learn it when it is not.
-3. Complexity only if it pays: each step (persistence, structured reference, linear model, ELM, deep network) must beat the previous one under the same protocol.
+3. Complexity only if it pays: no a priori on the method; start simple and climb only if, and only as far as, needed. Each step (persistence, structured reference, linear model, ELM, deep network) must beat the previous one under the same protocol. Simpler is often no worse and sometimes better: a clearsky-free ELM matches or outperforms ARMA with McClear clear sky (Solar Energy 2025, doi:10.1016/j.solener.2025.113490); a per-cell ELM beats whole-field deep models with a thousand times fewer parameters.
 4. Every tool, at the periphery: machine learning, deep learning and language models are tools around a validated core; a language model may prepare a calculation, never guess it.
 5. Trust is demonstrated: evaluation matched to the question, open code, data and limits.
 
