@@ -19,7 +19,9 @@ $$\mathrm{EQD}_x=\frac{\mathrm{BED}}{1+x/(\alpha/\beta)}.$$
 <p>With overall time, LQL-Equiv solves for the number of reference fractions numerically.</p>
 <h3>Model illustrations (never clinically validated)</h3>
 $$\mathrm{NTCP}=\Phi\!\left(\frac{\mathrm{EQD}-TD_{50}}{m\,TD_{50}}\right)\quad\text{(Lyman, }\Phi\text{ the standard normal distribution)},$$
-$$\mathrm{TCP}=\frac{1}{1+\left(TCD_{50}/\mathrm{EQD}\right)^{4\gamma_{50}}}\quad\text{(logistic)}\qquad\text{or}\qquad \mathrm{TCP}=2^{-\exp\left(e\gamma_{50}\left(1-\mathrm{EQD}/TCD_{50}\right)\right)}\quad\text{(Poisson)}.$$
+$$\mathrm{TCP}=\frac{1}{1+\left(TCD_{50}/\mathrm{EQD}\right)^{4\gamma_{50}}}\quad\text{(logistic)},$$
+<p>or, with the Poisson form,</p>
+$$\mathrm{TCP}=2^{-\exp\left(e\gamma_{50}\left(1-\mathrm{EQD}/TCD_{50}\right)\right)}.$$
 <h3>Worked example: one fraction of 15 Gy to the rectum</h3>
 <p>Rectum: \(\alpha/\beta=3.9\) Gy, \(d_T=7.8\) Gy. LQ: \(15\,(1+15/3.9)=72.7\) Gy. LQL: \(7.8\,(1+7.8/3.9)+5\,(15-7.8)=23.4+36.0=59.4\) Gy, <strong>18 % lower</strong>. The difference grows with the dose per fraction, which is why the choice of model matters when comparing hypofractionated and conventional schedules. The calculator then adds the time and repair corrections of the tissue.</p>
 <figure><img src="/assets/articles/lql-curve-en.png" width="1301" height="798" loading="lazy" alt="Biologically effective dose per fraction against dose per fraction for the rectum. LQ and LQL coincide up to the transition dose of 7.8 Gy; above it LQ keeps curving upward to about 123 Gy at 20 Gy while LQL grows linearly to about 85 Gy."><figcaption>LQ and LQL for the rectum (α/β = 3.9 Gy, d<sub>T</sub> = 7.8 Gy), computed with the library of LQL-Equiv. <a href="/assets/articles/lql-curve-en.pdf">PDF</a></figcaption></figure></section><section id="run" class="run"><h2>Run it</h2><p>The core package depends only on the Python standard library. Executed on 22 October 2026 (Python 3.12). Fictitious research case; not a medical device.</p><pre><code class="language-python"># pip install -e .   (from a clone of github.com/cyrilvoyant/LQL-Equiv-web)

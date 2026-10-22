@@ -8,7 +8,9 @@
 <p>For a forecast at grid point \((x,y)\) and time \(t\), with \((x-x')^2+(y-y')^2\) in km² and \(t-t'\) in minutes:</p>
 $$\Gamma(x,y,t)=\min_{(x',y',t')\in\mathcal N}\sqrt{\frac{(x-x')^2+(y-y')^2}{\mathrm{DTA}^2}+\frac{(t-t')^2}{\mathrm{TTA}^2}+\frac{\big(\mathrm{pred}(x,y,t)-\mathrm{obs}(x',y',t')\big)^2}{\mathrm{IDT}^2}}$$
 <p>Each term is a distance divided by its tolerance, so each tolerance counts as 1. A point <strong>passes</strong> when \(\Gamma\le1\): some observation lies inside the ellipsoid of tolerances. Over the \(N\) evaluated points:</p>
-$$\mathrm{GPR}=\frac{100}{N}\sum_{i=1}^{N}\mathbb 1\!\left(\Gamma_i\le1\right)\ \%,\qquad \bar\Gamma=\frac1N\sum_{i=1}^{N}\Gamma_i,\qquad \Gamma_{\max}=\max_i\Gamma_i .$$
+$$\mathrm{GPR}=\frac{100}{N}\sum_{i=1}^{N}\mathbb 1\!\left(\Gamma_i\le1\right)\ \%,$$
+$$\bar\Gamma=\frac1N\sum_{i=1}^{N}\Gamma_i,$$
+$$\Gamma_{\max}=\max_i\Gamma_i .$$
 <p>GPR (gamma pass rate) is the share of the field within tolerance; \(\bar\Gamma\) and \(\Gamma_{\max}\) say how far the failing points are from the boundary.</p>
 <h3>Assumptions and validity</h3>
 <p>The tolerances are application choices, fixed before comparing methods; looser tolerances always raise GPR, so report them and their sensitivity, and keep pointwise errors (RMSE) alongside. The forecast and observed fields must share the grid and the time step after resampling. The method does not claim the invention of the medical-physics γ-index; it applies it to forecast verification.</p>

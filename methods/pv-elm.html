@@ -4,15 +4,19 @@
 <p>It is a frugal-AI testbed for edge forecasting: the models run on a CPU, use only the target's own history and cyclic time features, and need no numerical weather prediction.</p>
 <section id="theory" class="theory"><h2>The theory</h2><h3>Reference forecasts</h3>
 <p>At origin \(t\) and horizon \(h\), with cycle length \(T\) (24 hourly steps for a day):</p>
-$$\hat y^{\,\mathrm{P}}_{t+h}=y_t\quad(\text{persistence}),\qquad \hat y^{\,\mathrm{C}}_{t+h}=y_{t+h-T}\quad(\text{cyclic persistence: same phase, previous cycle}).$$
+$$\hat y^{\,\mathrm{P}}_{t+h}=y_t\quad(\text{persistence}),$$
+$$\hat y^{\,\mathrm{C}}_{t+h}=y_{t+h-T}\quad(\text{cyclic persistence: same phase, previous cycle}).$$
 <h3>Linear autoregression (AR-OLS)</h3>
-$$\hat y_{t+h}=a_0+\sum_{i=1}^{p}a_i\,y_{t-i+1}+\mathbf c^{\top}\mathbf p_{t+h},\qquad \mathbf a=X^{+}\mathbf y,$$
+$$\hat y_{t+h}=a_0+\sum_{i=1}^{p}a_i\,y_{t-i+1}+\mathbf c^{\top}\mathbf p_{t+h},$$
+$$\mathbf a=X^{+}\mathbf y,$$
 <p>with \(\mathbf p_{t+h}\) the cyclic time features of the target time and \(X^{+}\) the pseudo-inverse of the design matrix.</p>
 <h3>Extreme learning machine (ELM)</h3>
 <p>For an input row \(\mathbf x\in\mathbb R^{d}\), a hidden layer of \(L\) neurons with weights \(W\in\mathbb R^{L\times d}\) and biases \(\mathbf b\in\mathbb R^{L}\) drawn at random and <strong>never trained</strong>:</p>
-$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),\qquad \hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
+$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),$$
+$$\hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
 <p>Only the output weights \(\beta\) are fitted, in closed form, on the \(N\) training rows stacked in \(H\in\mathbb R^{N\times L}\) and the targets \(Y\):</p>
-$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),\qquad \beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
+$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),$$
+$$\beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
 <p>Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters for one output: \(dL+L+(L+1)\) (input weights, biases, output weights with intercept). ELM: Huang, Zhu and Siew (2006).</p><h3>The fourteen ELM variants</h3>
 <p>They share \(H\) and differ only in the cost minimised to obtain \(\beta\): \(\min_\beta \sum_t \ell\!\left(y_t-\mathbf h_t^{\top}\beta\right)+R(\beta)\), with \(\ell\) the squared error (OLS, ridge), the absolute error (MAE), Huber, Welsch, \(|e|^3\), general \(|e|^p\), log-MSE, a Box-Cox target, a Gamma GLM or temporally correlated errors (Corr-ELM), and \(R\) a ridge, anisotropic Tikhonov or elastic-net penalty, or a robust risk.</p>
 <h3>Score against a reference</h3>

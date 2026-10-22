@@ -6,15 +6,19 @@
 <dl><dt>\(I_{c,t}\)</dt><dd>irradiance of cell \(c\) at hour \(t\) (722 scored cells)</dd><dt>\(\mathbf z_{c,t}\)</dt><dd>input: \(I_{c,t-23:t}\) (one cell), or the same hours on a patch, the whole field, or a compressed field (Radon, DCT, wavelet, PCA, random projection, subsampling, autoencoder)</dd><dt>\(\hat{\mathbf I}_{c,t+1:t+24}\)</dt><dd>the 24 forecasts, all at once</dd></dl>
 <h3>Extreme learning machine (ELM)</h3>
 <p>For an input row \(\mathbf x\in\mathbb R^{d}\), a hidden layer of \(L\) neurons with weights \(W\in\mathbb R^{L\times d}\) and biases \(\mathbf b\in\mathbb R^{L}\) drawn at random and <strong>never trained</strong>:</p>
-$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),\qquad \hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
+$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),$$
+$$\hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
 <p>Only the output weights \(\beta\) are fitted, in closed form, on the \(N\) training rows stacked in \(H\in\mathbb R^{N\times L}\) and the targets \(Y\):</p>
-$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),\qquad \beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
+$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),$$
+$$\beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
 <p>Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters for one output: \(dL+L+(L+1)\) (input weights, biases, output weights with intercept). ELM: Huang, Zhu and Siew (2006).</p><h3>Reference forecasts</h3>
 <p>At origin \(t\) and horizon \(h\), with cycle length \(T\) (24 hourly steps for a day):</p>
-$$\hat y^{\,\mathrm{P}}_{t+h}=y_t\quad(\text{persistence}),\qquad \hat y^{\,\mathrm{C}}_{t+h}=y_{t+h-T}\quad(\text{cyclic persistence: same phase, previous cycle}).$$
+$$\hat y^{\,\mathrm{P}}_{t+h}=y_t\quad(\text{persistence}),$$
+$$\hat y^{\,\mathrm{C}}_{t+h}=y_{t+h-T}\quad(\text{cyclic persistence: same phase, previous cycle}).$$
 <h3>Scores</h3>
 <p>Errors are pooled over all scored cells, lead times \(h=1,\dots,24\) and test hours where the cell's own solar elevation exceeds 5°:</p>
-$$\mathrm{nRMSE}=\frac{1}{\bar I}\sqrt{\frac{1}{|\mathcal S|}\sum_{(c,t,h)\in\mathcal S}\left(I_{c,t+h}-\hat I_{c,t+h}\right)^2},\qquad \bar I=407.9\ \mathrm{W/m^2}\ (\text{mean scored test observation}).$$
+$$\mathrm{nRMSE}=\frac{1}{\bar I}\sqrt{\frac{1}{|\mathcal S|}\sum_{(c,t,h)\in\mathcal S}\left(I_{c,t+h}-\hat I_{c,t+h}\right)^2},$$
+$$\bar I=407.9\ \mathrm{W/m^2}\ (\text{mean scored test observation}).$$
 <p>NICE against persistence and the gamma pass rate GPR of the <a href="/methods/gamma-index.html">temporal γ-index</a> complete the table; the parameter count is what each route stores.</p>
 <h3>Assumptions and validity</h3>
 <p>One region (Corsica), one satellite product (HelioClim-3), 2005 for training and 2006 for testing, hourly steps: a benchmark result, not a general law. Intra-hour nowcasting driven by cloud motion can behave differently.</p></section><h2>Results (from the public repository)</h2><p>nRMSE pooled over 1 to 24 hours ahead and at two lead times; parameters stored, in thousands (k) or millions (M); GPR = gamma pass rate, mean of six lead times.</p><table><thead><tr><th>Model</th><th>nRMSE</th><th>1 h</th><th>24 h</th><th>Parameters</th><th>GPR</th></tr></thead><tbody><tr><td>ELM per cell</td><td><strong>0.308</strong></td><td>0.156</td><td>0.325</td><td>100.4k</td><td>58.6 %</td></tr><tr><td>LSTM, whole field</td><td>0.326</td><td>0.182</td><td>0.343</td><td>5.5M</td><td>54.2 %</td></tr><tr><td>U-Net, whole field (8 channels)</td><td>0.343</td><td>0.205</td><td>0.346</td><td>31.2k</td><td>42.7 %</td></tr><tr><td>Autoencoder + ELM, field (p = 392), best compression</td><td>0.348</td><td>0.181</td><td>—</td><td>39.4M</td><td>—</td></tr><tr><td>Ridge per cell</td><td>0.354</td><td>0.175</td><td>0.353</td><td>600</td><td>57.1 %</td></tr><tr><td>ELM, whole field</td><td>0.355</td><td>0.174</td><td>0.376</td><td>100.7M</td><td>48.6 %</td></tr><tr><td><a href="persistence-blend.html">BLEND</a></td><td>0.376</td><td>0.226</td><td>0.396</td><td>576</td><td>50.6 %</td></tr><tr><td>Persistence, 24 h (same hour yesterday)</td><td>0.396</td><td>0.396</td><td>0.396</td><td>0</td><td>61.2 %</td></tr><tr><td>Persistence (last hour)</td><td>0.998</td><td>0.320</td><td>0.396</td><td>0</td><td>19.8 %</td></tr></tbody></table>

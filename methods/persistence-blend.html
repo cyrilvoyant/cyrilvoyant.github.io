@@ -13,11 +13,13 @@
 <p>The forecast mixes the latest value \(r=x_t\) and the value at the target phase one cycle earlier, \(c=x_{t+h-T}\):</p>
 $$\hat x_{t+h}=\lambda_{\varphi}\,x_t+\left(1-\lambda_{\varphi}\right)x_{t+h-T}.$$
 <p>The weight is the one-dimensional least-squares fit, per phase, on past triplets \((r,c,y=x_{t+h})\): minimising \(\sum\big(y-c-\lambda(r-c)\big)^2\) gives</p>
-$$\lambda_{\varphi}=\frac{\sum (y-c)(r-c)}{\sum (r-c)^2},\qquad \text{clipped to }[0,1].$$
+$$\lambda_{\varphi}=\frac{\sum (y-c)(r-c)}{\sum (r-c)^2},$$
+$$\text{clipped to }[0,1].$$
 <p>\(\lambda=1\) is ordinary persistence, \(\lambda=0\) cyclic persistence. A simplified weight \(\lambda=(1+\rho)/2\), computed per phase from the local correlation, holds under the article's assumptions (equal means and variances at \(t\) and \(t+h\), negligible long-lag correlation); the ramps of the solar cycle violate them beyond the first step.</p>
 <h3>Cyclostationary CLIPER</h3>
 <p>CLIPER mixes the latest value with the mean of the target phase:</p>
-$$\hat x_{t+h}=\lambda\,\mu(t+h)+(1-\lambda)\,x_t,\qquad \lambda=\frac{[\mu(t+h)-\mu(t)]^2+\sigma(t)^2-\rho(t,h)\,\sigma(t)\,\sigma(t+h)}{[\mu(t+h)-\mu(t)]^2+\sigma(t)^2},$$
+$$\hat x_{t+h}=\lambda\,\mu(t+h)+(1-\lambda)\,x_t,$$
+$$\lambda=\frac{[\mu(t+h)-\mu(t)]^2+\sigma(t)^2-\rho(t,h)\,\sigma(t)\,\sigma(t+h)}{[\mu(t+h)-\mu(t)]^2+\sigma(t)^2},$$
 <p>the MSE-optimal weight when the anchor is \(\mu(t+h)\), clipped to \([0,1]\). The printed Definition 5 of the article writes \(\mu(t)\); the code and this page use \(\mu(t+h)\), as documented in the repository.</p>
 <h3>Assumptions and validity</h3>
 <p>“Training-free” does not mean “observation-free”: phase means, deviations, correlations and weights are estimated on past cycles only, and need enough cycles to be stable. All references are scored on the same targets.</p></section><section id="run" class="run"><h2>Run it</h2><p>Requires MATLAB R2021a or later with the Statistics and Machine Learning, Econometrics and (for <code>main.m</code> only) Curve Fitting toolboxes. <code>run_benchmark</code> rebuilds the out-of-sample table of the next section; <code>main</code> is the in-sample demonstration.</p><pre><code class="language-matlab">% from a clone of github.com/cyrilvoyant/cyclostationary-forecasting-matlab (v1.1.1)

@@ -6,7 +6,8 @@
 <figure><img src="/assets/articles/ladder-tls-en.png" width="1218" height="702" loading="lazy" alt="Complexity ladder with six rungs. The Tunnel Load Simulator stops at the second rung, simulation from what is known."><figcaption>Where the Tunnel Load Simulator sits on the complexity ladder: simulation from what is known. <a href="/assets/articles/ladder-tls-en.pdf">PDF</a></figcaption></figure>
 <h3>The load, term by term</h3>
 <p>At each 10-minute step \(t\), the power is the sum of four terms with a multiplicative noise:</p>
-$$P(t)=\max\!\Big(0,\ \big[P_0+P_{\mathrm{light}}(t)+P_{\mathrm{vent}}(t)+P_{\mathrm{aux}}(t)\big]\big(1+\varepsilon_t\big)\Big),\qquad \varepsilon_t\sim\mathcal N(0,\sigma^2).$$
+$$P(t)=\max\!\Big(0,\ \big[P_0+P_{\mathrm{light}}(t)+P_{\mathrm{vent}}(t)+P_{\mathrm{aux}}(t)\big]\big(1+\varepsilon_t\big)\Big),$$
+$$\varepsilon_t\sim\mathcal N(0,\sigma^2).$$
 <dl><dt>Traffic \(q(t)\)</dt><dd>night floor \(0.16+0.06\cos\frac{2\pi(\tau-3)}{24}\) plus Gaussian morning and evening peaks, normalised by a one-day reference, then multiplied by context (urban 1.20, peri-urban 1.00, rural 0.78), season (winter 1.12 … summer 0.92), day of week (weekdays 1.00, Saturday 0.86, Sunday 0.78), traffic level and a daily random factor; clipped to \([0,2]\)</dd>
 <dt>Lighting</dt><dd>\(P_{\mathrm{light}}=p_\ell\,L_{\mathrm{km}}\,n_{\mathrm{lanes}}\,\min\!\big(1,\ f_{\min}+(1-f_{\min})(1-D(t))+c_q\,q(t)\big)\), with \(D(t)\) a smooth daylight indicator from seasonal sunrise and sunset, and \((p_\ell,c_q,f_{\min})\) per technology (LED adaptive: 16 kW/km/lane, 0.18, 0.20)</dd>
 <dt>Ventilation</dt><dd>\(P_{\mathrm{vent}}=p_v\,L_{\mathrm{km}}\,n_{\mathrm{tubes}}\,\big(0.15+s\,q(t)\big)\,a\,g\,\big(1+s_p\,\mathbb 1_{\mathrm{pollution}}(t)+s_a\,\mathbb 1_{\mathrm{accident}}(t)\big)\), with \(p_v\) per system (longitudinal: 120 kW/km/tube), altitude factor \(a=1+\max(z-500,0)/6000\) and slope factor \(g=1+|i|/20\)</dd>

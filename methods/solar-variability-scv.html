@@ -5,7 +5,8 @@
 <h3>Definitions</h3>
 <dl><dt>\(I_t\)</dt><dd>measured global irradiance</dd><dt>\(I^{\mathrm{clr}}_t\)</dt><dd>clear-sky irradiance at the same time and place</dd><dt>\(\mu_{\mathrm{clr}},\ \sigma_{\mathrm{clr}}\)</dt><dd>mean and standard deviation of \(I^{\mathrm{clr}}\) (night hours included)</dd><dt>\(d\)</dt><dd>diffuse floor: fraction of clear sky left under a thick cloud, \(d=0.2\)</dd><dt>\(\varepsilon_t=I_t-I^{\mathrm{clr}}_t\)</dt><dd>the part the sun's course does not explain</dd><dt>\(n\)</dt><dd>forecast horizon, in time steps; \(T\) steps per day</dd></dl>
 <h3>sCV: variability around clear sky</h3>
-$$\mathrm{sCV}=\frac{\sqrt2}{|d-1|}\cdot\frac{\mathrm{RMSE}\!\left(I,I^{\mathrm{clr}}\right)}{\sqrt{\sigma_{\mathrm{clr}}^2+\mu_{\mathrm{clr}}^2}},\qquad \mathrm{RMSE}\!\left(I,I^{\mathrm{clr}}\right)=\sqrt{\tfrac1N\textstyle\sum_t\varepsilon_t^2}.$$
+$$\mathrm{sCV}=\frac{\sqrt2}{|d-1|}\cdot\frac{\mathrm{RMSE}\!\left(I,I^{\mathrm{clr}}\right)}{\sqrt{\sigma_{\mathrm{clr}}^2+\mu_{\mathrm{clr}}^2}},$$
+$$\mathrm{RMSE}\!\left(I,I^{\mathrm{clr}}\right)=\sqrt{\tfrac1N\textstyle\sum_t\varepsilon_t^2}.$$
 <p>The numerator is the error of the clear-sky model used as a forecast; \(\sqrt{\sigma_{\mathrm{clr}}^2+\mu_{\mathrm{clr}}^2}\) is the root mean square of the clear-sky curve, so night hours change nothing. The factor \(\sqrt2/|d-1|\) sets the reference value: <strong>sCV = 0</strong> for a clear sky and <strong>sCV = 1</strong> for a sky that switches at random, half of the time, between clear sky and the diffuse floor. 1 is a reference, not a maximum: a sky that stays at the diffuse floor (\(I=d\,I^{\mathrm{clr}}\)) gives \(\sqrt2\).</p>
 <h3>F: forecastability at a horizon</h3>
 <p>With \(\rho_\varepsilon(k)\) the autocorrelation of \(\varepsilon\) at lag \(k\) and \(\rho_{\max}=\max_{n\le k\le T/2}\rho_\varepsilon(k)\):</p>

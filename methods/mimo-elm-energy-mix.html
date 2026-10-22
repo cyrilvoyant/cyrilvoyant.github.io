@@ -7,16 +7,21 @@
 <h3>Definitions</h3>
 <dl><dt>\(\mathbf y_t\in\mathbb R^{m+1}\)</dt><dd>the total and the \(m\) sources at hour \(t\)</dd><dt>\(\mathbf x_t\)</dt><dd>input: the last 48 hours of all signals and the hour of the day</dd><dt>\(h\)</dt><dd>horizon, 1 to 24 hours</dd></dl>
 <h3>Three organisations</h3>
-$$\text{SISO: }\ \hat y^{(j)}_{t+h}=f_{j,h}\!\left(y^{(j)}_{t-47:t}\right),\qquad \text{MIMO: }\ \hat{\mathbf y}_{t+h}=f_h(\mathbf x_t),\qquad \text{MIMO-MH: }\ \left[\hat{\mathbf y}_{t+1},\dots,\hat{\mathbf y}_{t+24}\right]=f(\mathbf x_t).$$
+$$\text{SISO: }\ \hat y^{(j)}_{t+h}=f_{j,h}\!\left(y^{(j)}_{t-47:t}\right),$$
+$$\text{MIMO: }\ \hat{\mathbf y}_{t+h}=f_h(\mathbf x_t),$$
+$$\text{MIMO-MH: }\ \left[\hat{\mathbf y}_{t+1},\dots,\hat{\mathbf y}_{t+24}\right]=f(\mathbf x_t).$$
 <h3>Extreme learning machine (ELM)</h3>
 <p>For an input row \(\mathbf x\in\mathbb R^{d}\), a hidden layer of \(L\) neurons with weights \(W\in\mathbb R^{L\times d}\) and biases \(\mathbf b\in\mathbb R^{L}\) drawn at random and <strong>never trained</strong>:</p>
-$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),\qquad \hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
+$$\mathbf h(\mathbf x)=g\!\left(W\mathbf x+\mathbf b\right),$$
+$$\hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
 <p>Only the output weights \(\beta\) are fitted, in closed form, on the \(N\) training rows stacked in \(H\in\mathbb R^{N\times L}\) and the targets \(Y\):</p>
-$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),\qquad \beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
+$$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),$$
+$$\beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
 <p>Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters for one output: \(dL+L+(L+1)\) (input weights, biases, output weights with intercept). ELM: Huang, Zhu and Siew (2006).</p><p>In the article's MATLAB code the activation is the ReLU \(g(z)=\max(0,z)\), with 4,096 hidden neurons, a 48-hour window and \(\beta=H^{+}Y\); the MIMO-MH Python pipeline uses ridge with \(\lambda=10^{-6}\).</p>
 <h3>Reconciliation: forecasts that add up</h3>
 <p>Write the coherence constraint with the summing matrix \(S=\begin{bmatrix}\mathbf 1^{\top}\\ I_m\end{bmatrix}\): a coherent vector is \(\tilde{\mathbf y}=S\mathbf b\) for some source vector \(\mathbf b\). Weighted least squares (MinT with a diagonal covariance) finds the coherent forecasts closest to the base forecasts \(\hat{\mathbf y}\), trusting reliable forecasts more:</p>
-$$\tilde{\mathbf y}=S\left(S^{\top}W^{-1}S\right)^{-1}S^{\top}W^{-1}\hat{\mathbf y},\qquad W=\operatorname{diag}\!\left(\hat\sigma^2_{\text{total}},\hat\sigma^2_{1},\dots,\hat\sigma^2_{m}\right),$$
+$$\tilde{\mathbf y}=S\left(S^{\top}W^{-1}S\right)^{-1}S^{\top}W^{-1}\hat{\mathbf y},$$
+$$W=\operatorname{diag}\!\left(\hat\sigma^2_{\text{total}},\hat\sigma^2_{1},\dots,\hat\sigma^2_{m}\right),$$
 <p>with the variances estimated on the training residuals, one \(W\) per horizon. By construction the total equals the sum of the sources, and the source with the largest error variance moves most.</p>
 <h3>Assumptions and validity</h3>
 <p>Hourly data of one island grid (EDF Corse, 2016–2022); chronological train and test periods; the ELM is compared with persistence, SISO and an LSTM under the same protocol.</p></section><h2>Worked example: making forecasts add up</h2><p>For one hour, suppose the forecasts are 330 MW for the total, 150 for thermal, 90 for imports and 80 for solar, with error variances 36, 25, 49 and 100 MW². The components sum to 320, not 330. Weighted least-squares reconciliation finds the coherent forecasts closest to the original ones, trusting the more reliable forecasts more: thermal 151.2, imports 92.3, solar 84.8 and total 328.3 MW. The gap is closed; solar, the least reliable, moves most. Illustrative values; the formula and its use are in the repository.</p>

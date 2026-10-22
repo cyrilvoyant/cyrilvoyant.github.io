@@ -6,7 +6,8 @@
 <h2>The question</h2>
 <p>Should the next forecast follow the latest measurement or the recurring daily pattern? BLEND mixes both, with one weight per hour of the day: Î(t+h) = (1 − λ)·I(t+h−T) + λ·I(t), as in the article. Here the weight is a one-line least-squares fit on past days.</p>
 <section id="theory" class="theory"><h2>The theory</h2><p>With \(r=I(t)\) the latest value, \(c=I(t+h-T)\) the value at the target hour one cycle earlier and \(y=I(t+h)\) the value to forecast:</p>
-$$\hat I(t+h)=(1-\lambda)\,c+\lambda\,r,\qquad \lambda=\frac{\sum (y-c)(r-c)}{\sum (r-c)^2}\ \text{on past days, clipped to }[0,1].$$
+$$\hat I(t+h)=(1-\lambda)\,c+\lambda\,r,$$
+$$\lambda=\frac{\sum (y-c)(r-c)}{\sum (r-c)^2}\ \text{on past days, clipped to }[0,1].$$
 <p>\(\lambda\) minimises \(\sum\big(y-c-\lambda(r-c)\big)^2\): a one-line least-squares fit, one weight per hour of the day. Full theory: <a href="/methods/persistence-blend.html#theory">BLEND guide</a>.</p></section><h2>Calculate it, without using the future</h2>
 <ol>
 <li>Set the forecast origin t to 12:00 today, horizon h to one hour and cycle T to 24 hours. The target is 13:00 today.</li>
