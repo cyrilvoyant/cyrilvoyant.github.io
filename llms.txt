@@ -29,6 +29,7 @@ This file describes the public, verifiable record of one researcher and the open
 ## Method guides
 
 - [Solar variability and forecastability: sCV and F](https://cyrilvoyant.github.io/methods/solar-variability-scv.html): definitions, worked example and open MATLAB implementation linked to the Renewable Energy article (doi:10.1016/j.renene.2025.123913); distinguish variability from horizon-dependent forecastability.
+- [Forecasting every source of an island grid at once: MIMO-ELM](https://cyrilvoyant.github.io/methods/mimo-elm-energy-mix.html): multi-input multi-output extreme learning machines for the Corsican electricity mix (Applied Energy 2026, doi:10.1016/j.apenergy.2026.127599), MIMO-MH extension with reconciliation (manuscript, submission in progress), EDF open data and code in github.com/cyrilvoyant/Data_Viz_2024 (doi:10.5281/zenodo.23562559).
 
 - [Satellite irradiance: how much space is enough?](https://cyrilvoyant.github.io/methods/satellite-irradiance-space.html): per-cell, patch, whole-field and compressed forecasting on HelioClim-3 over Corsica; public MATLAB/Python benchmark, SoDa data credit, manuscript in preparation (not a published journal article).
 
