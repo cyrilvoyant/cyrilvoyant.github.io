@@ -83,6 +83,21 @@ footer .brand { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; 
 section.thread { scroll-margin-top: 16px; }
 .institutional-brand { margin: 20px 0; padding: 12px; background: #fff; color: var(--ink); }
 
+/* The theory, Run it, Links: the three technical blocks of every github.io guide (22 October 2026) */
+.theory { margin: 28px 0; padding: 6px 18px 16px; background: var(--paper); border: 1px solid var(--line); border-top: 4px solid var(--p2); border-radius: 6px; }
+.theory > h2 { margin-top: .7em; }
+.theory h3 { margin-bottom: .3em; }
+.theory dl { display: grid; grid-template-columns: max-content 1fr; gap: 4px 14px; margin: .4em 0; }
+.theory dt { font-weight: 600; }
+.theory dd { margin: 0; }
+.katex-display { overflow-x: auto; overflow-y: hidden; padding: 4px 0; }
+.run, .links-box { margin: 28px 0; }
+.run .out { background: #f6f8fa; border-left: 4px solid var(--p3); }
+.links-box table { display: table; width: 100%; table-layout: fixed; }
+.links-box td, .links-box th { overflow-wrap: anywhere; }
+.links-box th { width: 11em; background: var(--soft); }
+@media (max-width: 600px) { .theory dl { grid-template-columns: 1fr; } .links-box th { width: auto; } }
+
 @media (max-width: 600px) {
   body { font-size: 16px; }
   nav a[lang] { margin-left: 0; }
