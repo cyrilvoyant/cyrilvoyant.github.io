@@ -287,7 +287,114 @@
     box.addEventListener("input", upd); upd();
   }
 
-  var MOUNT = { lql: mountLQL, thyroid: mountThyroid, nice: mountNICE, blend: mountBLEND, scv: mountSCV };
+  // ---------------------------------------------------------------- widget: ARTU coefficients (Voyant et al., Renewable Energy 2022)
+  // The tables M(R) of the ARTU repository (K_alpha.zip), interpolated like MATLAB interp2 'linear': K[i][j], i = rho(h), j = rho(2h).
+  CVT.artuLookup = function (tables, rh, r2h, R) {
+    var T = tables.tables[String(R)], g = tables.grid, n = g.n - 1;
+    if (!T || !(rh >= -1 && rh <= 1 && r2h >= -1 && r2h <= 1)) return { K: NaN, alpha: NaN };
+    function bil(M) {
+      var fi = (rh - g.start) / g.step, fj = (r2h - g.start) / g.step;
+      var i = Math.min(Math.floor(fi + 1e-9), n - 1), j = Math.min(Math.floor(fj + 1e-9), n - 1), u = fi - i, v = fj - j;
+      return (1 - u) * (1 - v) * M[i][j] + u * (1 - v) * M[i + 1][j] + (1 - u) * v * M[i][j + 1] + u * v * M[i + 1][j + 1];
+    }
+    var K = bil(T.K), a = bil(T.alpha);
+    return { K: K, alpha: a, S: a + K, P: a * K };
+  };
+  function mountARTU(box) {
+    box.innerHTML = '<p class="cvt-hint">Loading the coefficient tables of the ARTU repository…</p>';
+    fetch("/assets/artu/artu-tables.json").then(function (r) { return r.json(); }).then(function (tab) { buildARTU(box, tab); })
+      .catch(function () { box.innerHTML = '<p class="cvt-hint">The tables could not be loaded.</p>'; });
+  }
+  function buildARTU(box, tab) {
+    var RS = ["0", "0.01", "0.05", "0.1"];
+    box.innerHTML = '<div class="cvt-grid">' + slider("Autocorrelation at lag h, ρ(h)", "ar-1", -0.95, 0.95, 0.01, 0.4) +
+      slider("Autocorrelation at lag 2h, ρ(2h)", "ar-2", -0.95, 0.95, 0.01, 0.3) + "</div>" +
+      '<fieldset class="cvt-seg"><legend>Measurement quality R = σ<sub>v</sub>² / σ<sub>x</sub>² (noise variance over signal variance)</legend>' +
+      RS.map(function (r) { return '<label><input type="radio" name="ar-R" value="' + r + '"' + (r === "0.05" ? " checked" : "") + "> " + r + (r === "0.05" ? " (article)" : "") + "</label>"; }).join("") +
+      '<button type="button" class="cvt-btn" id="ar-play" aria-pressed="false">▶ Let R grow</button></fieldset>' +
+      '<div class="cvt-artu"><div class="cvt-map"><div class="cvt-seg small" role="group" aria-label="Map shown">' +
+      '<label><input type="radio" name="ar-m" value="K" checked> map of K</label><label><input type="radio" name="ar-m" value="alpha"> map of α</label></div>' +
+      '<div class="cvt-mapbox"><canvas width="200" height="200" aria-hidden="true"></canvas><svg viewBox="0 0 200 200" class="cvt-over" role="img" aria-label="Coefficient map against rho(h) and rho(2h); click to choose a point"></svg></div>' +
+      '<p class="cvt-scale"><span>−1</span><i></i><span>+1</span></p>' +
+      '<p class="cvt-hint">Horizontal: ρ(h); vertical: ρ(2h). Click or drag on the map. Solid lines: ρ(h) = 0 and the parabola ρ(2h) = ρ(h)², which bound the four areas of K described in the article. ' +
+      'Grey zone: ρ(2h) &lt; 2ρ(h)² − 1, out of reach for a stationary series (a general property of autocorrelations, not a result of the article).</p></div>' +
+      '<div class="cvt-res"><div class="cvt-out" aria-live="polite"></div><div class="cvt-w"></div></div></div>' +
+      '<p class="cvt-hint">Tables M(R) of the <a href="https://github.com/cyrilvoyant/ARTU">ARTU repository</a> (step 0.05), interpolated linearly as <code>K_alpha.m</code> does. ' +
+      'Example of the article (h = 1, ρ(1) = 0.4, ρ(2) = 0.3, R = 0.05): α = 0.59, K = −0.25, forecast 0.34 y(t) + 0.15 y(t−1) + 0.51 ȳ.</p>' + TESTS;
+    var cv = box.querySelector("canvas"), ctx = cv.getContext("2d"), svg = box.querySelector(".cvt-over"), mapKey = "", timer = null;
+    function R() { return box.querySelector('input[name="ar-R"]:checked').value; }
+    function which() { return box.querySelector('input[name="ar-m"]:checked').value; }
+    function color(v) {                      // diverging: blue below 0, white at 0, terracotta above, clipped at +-1
+      var t = Math.max(-1, Math.min(1, v)), a = Math.abs(t), c = t < 0 ? [7, 86, 154] : [180, 81, 58];
+      return [255 + (c[0] - 255) * a, 255 + (c[1] - 255) * a, 255 + (c[2] - 255) * a];
+    }
+    function drawMap() {
+      var key = R() + which();
+      if (key === mapKey) return;
+      mapKey = key;
+      var img = ctx.createImageData(200, 200), M = which();
+      for (var py = 0; py < 200; py++) for (var px = 0; px < 200; px++) {
+        var r1 = -1 + 2 * (px + 0.5) / 200, r2 = 1 - 2 * (py + 0.5) / 200, k = (py * 200 + px) * 4;
+        var v = CVT.artuLookup(tab, r1, r2, R())[M], c = color(v);
+        if (r2 < 2 * r1 * r1 - 1) c = [c[0] * 0.55 + 205 * 0.45, c[1] * 0.55 + 210 * 0.45, c[2] * 0.55 + 216 * 0.45];
+        img.data[k] = c[0]; img.data[k + 1] = c[1]; img.data[k + 2] = c[2]; img.data[k + 3] = 255;
+      }
+      ctx.putImageData(img, 0, 0);
+    }
+    function X(r) { return (r + 1) * 100; }
+    function Y(r) { return (1 - r) * 100; }
+    function upd() {
+      var r1 = +box.querySelector("#ar-1").value, r2 = +box.querySelector("#ar-2").value, Rv = R();
+      box.querySelector("#ar-1-o").textContent = r1.toFixed(2); box.querySelector("#ar-2-o").textContent = r2.toFixed(2);
+      drawMap();
+      var par = "", fea = "";
+      for (var x = -1; x <= 1.0001; x += 0.02) { par += (par ? "L" : "M") + X(x).toFixed(1) + " " + Y(x * x).toFixed(1); fea += (fea ? "L" : "M") + X(x).toFixed(1) + " " + Y(2 * x * x - 1).toFixed(1); }
+      svg.innerHTML = '<line x1="100" x2="100" y1="0" y2="200" stroke="#172536" stroke-width="1"/><path d="' + par + '" fill="none" stroke="#172536" stroke-width="1.2"/>' +
+        '<path d="' + fea + '" fill="none" stroke="#6b7c8c" stroke-width="1" stroke-dasharray="3 3"/>' +
+        '<circle cx="' + X(r1) + '" cy="' + Y(r2) + '" r="5" fill="#fff" stroke="#172536" stroke-width="2"/>';
+      var c = CVT.artuLookup(tab, r1, r2, Rv), out = box.querySelector(".cvt-out");
+      if (r2 < 2 * r1 * r1 - 1) {
+        out.innerHTML = "<p>This pair of autocorrelations cannot come from a stationary series (ρ(2h) &lt; 2ρ(h)² − 1). Choose a point outside the grey zone.</p>";
+        box.querySelector(".cvt-w").innerHTML = ""; return;
+      }
+      var wy = c.S, wl = -c.P, wm = 1 + c.P - c.S;
+      out.innerHTML = "<p>R = <strong>" + Rv + "</strong>: α = <strong>" + fmt(c.alpha, 2) + "</strong>, K = <strong>" + fmt(c.K, 2) + "</strong>, so S = α + K = " + fmt(c.S, 2) + " and P = αK = " + fmt(c.P, 2) + ".</p>" +
+        '<p class="cvt-eq">ŷ(t + h) = <strong>' + fmt(wy, 2) + "</strong> y(t) " + (wl < 0 ? "− " : "+ ") + "<strong>" + fmt(Math.abs(wl), 2) + "</strong> y(t − h) " + (wm < 0 ? "− " : "+ ") +
+        "<strong>" + fmt(Math.abs(wm), 2) + "</strong> ȳ</p><p class=\"cvt-hint\">Only S and P enter the forecast, so K and α can exchange their roles (as at R = 0) without changing it. The three weights sum to 1.</p>";
+      var bars = [["latest value y(t)", wy, "#07569a"], ["value h earlier y(t − h)", wl, "#3c8d5a"], ["training mean ȳ", wm, "#b4513a"]], g = '<svg viewBox="0 0 340 112" class="cvt-chart" role="img" aria-label="Weights of the ARTU forecast">';
+      var Z = 170, U = 120;
+      g += '<line x1="' + Z + '" x2="' + Z + '" y1="4" y2="108" stroke="#9fb0c0"/>';
+      bars.forEach(function (b, k) {
+        var w = Math.max(-1.35, Math.min(1.35, b[1])) * U, y = 10 + k * 34;
+        g += '<rect x="' + (w < 0 ? Z + w : Z) + '" y="' + y + '" width="' + Math.abs(w) + '" height="16" fill="' + b[2] + '" rx="2"/>' +
+          '<text x="' + (w < 0 ? Z + 6 : Z - 6) + '" y="' + (y + 12) + '" text-anchor="' + (w < 0 ? "start" : "end") + '">' + b[0] + "</text>" +
+          '<text x="' + (w < 0 ? Z + w - 4 : Z + w + 4) + '" y="' + (y + 12) + '" text-anchor="' + (w < 0 ? "end" : "start") + '" class="ax">' + fmt(b[1], 2) + "</text>";
+      });
+      box.querySelector(".cvt-w").innerHTML = g + "</svg>";
+    }
+    function pick(e) {
+      var r = svg.getBoundingClientRect(), p = e.touches ? e.touches[0] : e;
+      var r1 = Math.max(-0.95, Math.min(0.95, -1 + 2 * (p.clientX - r.left) / r.width)), r2 = Math.max(-0.95, Math.min(0.95, 1 - 2 * (p.clientY - r.top) / r.height));
+      box.querySelector("#ar-1").value = r1.toFixed(2); box.querySelector("#ar-2").value = r2.toFixed(2); upd();
+    }
+    var down = false;
+    svg.addEventListener("pointerdown", function (e) { down = true; svg.setPointerCapture && svg.setPointerCapture(e.pointerId); pick(e); });
+    svg.addEventListener("pointermove", function (e) { if (down) pick(e); });
+    svg.addEventListener("pointerup", function () { down = false; });
+    box.querySelector("#ar-play").addEventListener("click", function () {
+      var b = this;
+      if (timer) { clearInterval(timer); timer = null; b.textContent = "▶ Let R grow"; b.setAttribute("aria-pressed", "false"); return; }
+      b.textContent = "❚❚ Stop"; b.setAttribute("aria-pressed", "true");
+      function step() {
+        var k = (RS.indexOf(R()) + 1) % RS.length;
+        box.querySelector('input[name="ar-R"][value="' + RS[k] + '"]').checked = true; upd();
+      }
+      step(); timer = setInterval(step, 1400);
+    });
+    box.addEventListener("input", upd); box.addEventListener("change", upd); upd();
+  }
+
+  var MOUNT = { lql: mountLQL, thyroid: mountThyroid, nice: mountNICE, blend: mountBLEND, scv: mountSCV, artu: mountARTU };
   function init() {
     [].forEach.call(document.querySelectorAll(".cvt[data-tool]"), function (box) {
       var f = MOUNT[box.getAttribute("data-tool")];
