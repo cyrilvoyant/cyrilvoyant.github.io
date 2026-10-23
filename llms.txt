@@ -20,8 +20,8 @@ This file describes the public, verifiable record of one researcher and the open
 
 ## CV and projects
 
-- [Curriculum vitae](https://cyrilvoyant.github.io/cv.html): positions, editorial roles, distinctions, career, supervision, teaching.
-- [Research projects](https://cyrilvoyant.github.io/research-projects.html): Fine4Cast, ELECTRE, SAPHIR, HyLES, INTELPOLY, TILOS and others.
+- [Curriculum vitae](https://www.cyrilvoyant.com/cv/): positions, editorial roles, distinctions, career, supervision, teaching.
+- [Research projects](https://www.cyrilvoyant.com/research-projects/): Fine4Cast, ELECTRE, SAPHIR, HyLES, INTELPOLY, TILOS and others.
 
 ## Teaching and talks
 
