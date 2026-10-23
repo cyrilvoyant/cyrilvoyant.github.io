@@ -44,7 +44,6 @@
       return out[out.length - 1][1];
     });
   };
-  CVT.thyroidThreshold = function (Td) { return Math.LN2 / (0.00407 * Td); };   // A* = ln2 / (r0 Td), GBq
 
   // ---------------------------------------------------------------- NICE^k against a reference forecast
   CVT.nice = function (y, yhat, yref, w) {
@@ -199,10 +198,11 @@
     function upd() {
       var Td = +box.querySelector("#th-p").value, n = +box.querySelector("#th-n").value, l = +box.querySelector("#th-l").value, A = +box.querySelector("#th-a").value;
       box.querySelector("#th-n-o").textContent = n; box.querySelector("#th-l-o").textContent = l; box.querySelector("#th-a-o").textContent = A.toFixed(1);
-      var pts = CVT.thyroidTg({ Td: Td, sessions: n, lag: l, activity: A, h: 0.01 }), last = pts[pts.length - 1][1], thr = CVT.thyroidThreshold(Td);
+      var pts = CVT.thyroidTg({ Td: Td, sessions: n, lag: l, activity: A, h: 0.01 }), last = pts[pts.length - 1][1];
       var peak = Math.max.apply(null, pts.map(function (p) { return p[1]; }));
-      box.querySelector(".cvt-out").innerHTML = "<p>Thyroglobulin after 80 months: <strong>" + fmt(last, 1) + " ng/mL</strong> (start 100). Activity threshold A* = ln2/(r<sub>0</sub>T<sub>d</sub>) = <strong>" +
-        fmt(thr, 1) + " GBq</strong>: " + (A > thr ? "each session is above it." : "each session is below it; only accumulated activity can reach it.") + "</p>";
+      box.querySelector(".cvt-out").innerHTML = "<p>Thyroglobulin after 80 months: <strong>" + fmt(last, 1) + " ng/mL</strong> (start 100 ng/mL, as in the article's simulations). " +
+        (Td < 30 ? "Refractory profile of the article (27.5 % of the cohort): thyroglobulin first decreases, then rises again unless the protocol is intensified."
+                 : "Responding profile of the article (72.5 % of the cohort): thyroglobulin decreases progressively; the aim is the minimal effective activity.") + "</p>";
       var thin = pts.filter(function (p, i) { return i % 20 === 0; });
       box.querySelector(".cvt-plot").innerHTML = lineChart([{ pts: thin, color: "#b4513a", label: "Tg (ng/mL)" }],
         { xlabel: "months", ylabel: "thyroglobulin (ng/mL)", xmin: 0, xmax: 80, ymin: 0, ymax: Math.max(110, peak * 1.05), aria: "Thyroglobulin over 80 months" });
