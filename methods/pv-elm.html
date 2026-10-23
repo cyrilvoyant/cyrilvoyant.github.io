@@ -19,8 +19,8 @@ $$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),$$
 $$\beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
 <p>Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters for one output: \(dL+L+(L+1)\) (input weights, biases, output weights with intercept). ELM: Huang, Zhu and Siew (2006).</p><h3>The fourteen ELM variants</h3>
 <p>They share \(H\) and differ only in the cost minimised to obtain \(\beta\): \(\min_\beta \sum_t \ell\!\left(y_t-\mathbf h_t^{\top}\beta\right)+R(\beta)\), with \(\ell\) the squared error (OLS, ridge), the absolute error (MAE), Huber, Welsch, \(|e|^3\), general \(|e|^p\), log-MSE, a Box-Cox target, a Gamma GLM or temporally correlated errors (Corr-ELM), and \(R\) a ridge, anisotropic Tikhonov or elastic-net penalty, or a robust risk.</p>
-<h3>Score against a reference</h3>
-<p>Errors are compared on the same samples with the NICE ratio \(\mathrm{NICE}^{k}=E_k(\text{model})/E_k(\text{reference})\), where \(E_k=\big(\tfrac1N\sum|y-\hat y|^{k}\big)^{1/k}\); below 1 the model beats the reference (<a href="/methods/nice-metrics.html">NICE guide</a>).</p><h3>How much model is enough</h3>
+<h3>Score against simple persistence</h3>
+<p>Errors are compared on the same samples with \(\mathrm{NICE}^{k}=L^k\text{-Error}_X/L^k\text{-Error}_P\), where \(L^k\text{-Error}=\big(\tfrac1n\sum|y-\hat y|^{k}\big)^{1/k}\) and P is simple persistence: 0 for a perfect forecast, 1 for persistence (<a href="/methods/nice-metrics.html">NICE guide</a>).</p><h3>How much model is enough</h3>
 <p>The capacity sweep plots \(\mathrm{NICE}^{\Sigma}\) against \(\log_{10}\) of the stored parameter count, from 5 to 1000 hidden neurons and several seeds. A model earns its size only if it moves down, not just right. A parameter count is not an energy measurement.</p></section><h2>Models compared</h2>
 <ul>
 <li><strong>Persistence</strong> baselines, including cyclic (one-day) persistence.</li>

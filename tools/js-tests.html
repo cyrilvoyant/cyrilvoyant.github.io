@@ -4,7 +4,7 @@
 <section class="note"><h2>What is compared</h2><ul>
 <li><strong>LQ and LQL dose</strong> (<a href="/tools/lql-equiv.html">LQL-Equiv</a>): biologically effective dose per course before proliferation, against <code>lqlequiv.model._lql_dose_term</code> of LQL-Equiv-web (Python), for the rectum, bladder and spinal cord, 1 to 25 fractions of 1 to 20 Gy.</li>
 <li><strong>Thyroid protocol explorer</strong> (<a href="/methods/thyroid-radioiodine.html">RAIR-Sim</a>): thyroglobulin every month over 80 months, against the symbolic solution of the public MATLAB demonstrators (<code>Demonstrateur98f.m</code>, <code>Demonstrateur666f.m</code>), refractory and responding profiles, 1 and 8 sessions of 3.7 GBq every 3 months. The browser integrates the thyroglobulin equation with a fourth-order Runge–Kutta scheme.</li>
-<li><strong>NICE<sup>k</sup></strong> (<a href="/methods/nice-metrics.html">guide</a>): against <code>nice_metrics.m</code>, with persistence and 24-hour persistence as references.</li>
+<li><strong>NICE<sup>k</sup></strong> (<a href="/methods/nice-metrics.html">guide</a>): against <code>nice_metrics.m</code>, with simple persistence as the reference (the only reference of NICE).</li>
 <li><strong>BLEND</strong> (<a href="/methods/persistence-blend.html">guide</a>): weights per phase and RMSE, against <code>predict_P_BLEND_LS.m</code>, horizons 1, 3 and 6.</li>
 <li><strong>sCV and F</strong> (<a href="/methods/solar-variability-scv.html">guide</a>): against <code>scv.m</code> and <code>forecastability.m</code>, horizons 1 and 3.</li>
 </ul><p>The reference values were produced on 23 October 2026 with MATLAB R2025b and Python, from the archived codes; the inputs are a synthetic hourly series of 30 days (<a href="/assets/tools/test-vectors.json">test vectors, JSON</a>). Scripts: <code>make_vectors.m</code> and <code>make_vectors_lql.py</code>.</p></section>
@@ -39,10 +39,9 @@
       });
     });
     var s = V.series, x = s.x, T = s.T;
-    var m1 = CVT.nice(x, s.yhat), ref24 = x.map(function (v, i) { return i >= T ? x[i - T] : NaN; }), m2 = CVT.nice(x, s.yhat, ref24);
+    var m1 = CVT.nice(x, s.yhat);   // the only reference of NICE: simple persistence y(t - 1)
     ["NICE1", "NICE2", "NICE3", "NICE_Sigma", "E2_model", "E2_ref"].forEach(function (f) {
-      row("NICE", f + ", persistence", V.nice.persistence[f], m1[f], 1e-9);
-      row("NICE", f + ", 24-h persistence", V.nice.persistence24[f], m2[f], 1e-9);
+      row("NICE", f + ", simple persistence", V.nice.persistence[f], m1[f], 1e-9);
     });
     [1, 3, 6].forEach(function (h) {
       var b = CVT.blendLS(x, T, h), R = V.blend["h" + h];

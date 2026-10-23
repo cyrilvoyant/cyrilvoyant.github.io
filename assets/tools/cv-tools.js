@@ -227,19 +227,29 @@
     return '<label class="cvt-data" for="' + id + '"><span>' + hint + '</span><textarea id="' + id + '" rows="6" spellcheck="false">' + rows + "</textarea></label>";
   }
   function mountNICE(box) {
-    box.innerHTML = dataBox("ni-d", ["x", "f"], "Two columns: observation, forecast (one row per time step). Demo data loaded; paste your own.") +
-      '<div class="cvt-grid"><label class="cvt-row" for="ni-r"><span>Reference</span><select id="ni-r"><option value="1">persistence (previous step)</option><option value="24">persistence 24 steps earlier</option></select></label></div>' +
+    box.innerHTML = dataBox("ni-d", ["x", "f"], "Two columns: observation y(t), forecast of y(t) issued n steps earlier (one row per time step). Demo data loaded (n = 1); paste your own.") +
+      '<div class="cvt-grid">' + num("Forecast horizon n (steps)", "ni-n", 1, 1) + "</div>" +
+      '<p class="cvt-hint">The reference is always simple persistence: the observation n steps earlier, ŷ(t) = y(t − nΔt) (Eqs. 2 and 11 of the article).</p>' +
       '<div class="cvt-out" aria-live="polite"></div>' + TESTS;
+    var ta = box.querySelector("#ni-d"), demoText = ta.value, demoLag = 1;
+    function demoFor(n) {          // demo forecast issued n steps ahead: it may only use observations up to t - n
+      var d = demo();
+      return d.x.map(function (v, t) { return v + "\t" + (+Math.max(0, 0.6 * d.x[Math.max(0, t - n)] + 0.32 * d.cs[t]).toFixed(1)); }).join("\n");
+    }
     function upd() {
-      var rows = parseCols(box.querySelector("#ni-d").value), y = rows.map(function (r) { return r[0]; }), f = rows.map(function (r) { return r[1]; });
-      var lag = +box.querySelector("#ni-r").value, ref = lag === 1 ? null : y.map(function (v, i) { return i >= lag ? y[i - lag] : NaN; });
-      if (y.length < 3) { box.querySelector(".cvt-out").innerHTML = "<p>Paste at least three rows.</p>"; return; }
+      var lag = Math.max(1, Math.round(+box.querySelector("#ni-n").value || 1));
+      if (ta.value === demoText && lag !== demoLag) { demoText = ta.value = demoFor(lag); demoLag = lag; }
+      var rows = parseCols(ta.value), y = rows.map(function (r) { return r[0]; }), f = rows.map(function (r) { return r[1]; });
+      var ref = y.map(function (v, i) { return i >= lag ? y[i - lag] : NaN; });
+      if (y.length < lag + 3) { box.querySelector(".cvt-out").innerHTML = "<p>Paste at least n + 3 rows.</p>"; return; }
       var m = CVT.nice(y, f, ref);
       box.querySelector(".cvt-out").innerHTML = '<table class="cvt-table"><tr><th></th><th>k = 1 (MAE)</th><th>k = 2 (RMSE)</th><th>k = 3</th></tr>' +
         "<tr><th>model error E<sub>k</sub></th><td>" + fmt(m.E1_model, 2) + "</td><td>" + fmt(m.E2_model, 2) + "</td><td>" + fmt(m.E3_model, 2) + "</td></tr>" +
-        "<tr><th>reference error</th><td>" + fmt(m.E1_ref, 2) + "</td><td>" + fmt(m.E2_ref, 2) + "</td><td>" + fmt(m.E3_ref, 2) + "</td></tr>" +
+        "<tr><th>simple persistence error</th><td>" + fmt(m.E1_ref, 2) + "</td><td>" + fmt(m.E2_ref, 2) + "</td><td>" + fmt(m.E3_ref, 2) + "</td></tr>" +
         "<tr><th>NICE<sup>k</sup></th><td>" + fmt(m.NICE1) + "</td><td>" + fmt(m.NICE2) + "</td><td>" + fmt(m.NICE3) + "</td></tr></table>" +
-        "<p>NICE<sup>Σ</sup> = <strong>" + fmt(m.NICE_Sigma) + "</strong> on " + m.n + " samples: " + (m.NICE_Sigma < 1 ? "the forecast beats the reference." : "the forecast does not beat the reference.") + "</p>";
+        "<p>NICE<sup>Σ</sup> = <strong>" + fmt(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
+        (m.NICE_Sigma <= 1 ? "Scale from 0 (perfect forecast) to 1 (simple persistence): the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
+          : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>";
     }
     box.addEventListener("input", upd); upd();
   }
