@@ -1,0 +1,59 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Interactive tools checked against the reference codes | Cyril Voyant</title><meta name="description" content="The JavaScript tools of cyrilvoyant.github.io (LQ/LQL dose, thyroid protocol explorer, NICE, BLEND, sCV and F) run in your browser against values computed by the reference MATLAB and Python codes."><meta name="author" content="Cyril Voyant"><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://cyrilvoyant.github.io/tools/js-tests.html"><link rel="stylesheet" href="/assets/site.css"><link rel="stylesheet" href="/assets/nav.css"><script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://cyrilvoyant.github.io/"}, {"@type": "ListItem", "position": 2, "name": "Tools", "item": "https://cyrilvoyant.github.io/#tools"}, {"@type": "ListItem", "position": 3, "name": "Interactive tools checked against the reference codes", "item": "https://cyrilvoyant.github.io/tools/js-tests.html"}]}</script></head><body><div class="xs-bar" role="navigation" aria-label="Cyril Voyant sites"><div class="xs-in"><a class="xs-name" href="https://www.cyrilvoyant.com/">Cyril Voyant</a><a href="https://www.cyrilvoyant.com/">The story</a><a class="xs-here" href="/" aria-current="true">Methods and code</a><a href="https://person.cyrilvoyant.com/">Profile</a><a class="xs-lang" href="https://www.cyrilvoyant.com/fr/" lang="fr" hreflang="fr">Français</a></div></div><header><div class="site-id"><strong><a href="https://person.cyrilvoyant.com/">Cyril Voyant</a></strong><span class="motto">Understand before you compute</span></div><nav aria-label="Main navigation"><a href="/">Methods and code</a><a href="/approach.html">The approach</a><a href="/teaching/solar-forecasting-course.html">Course</a><a href="https://www.cyrilvoyant.com/latest-publications-and-news">Research news</a><a href="https://person.cyrilvoyant.com/">Author profile</a></nav></header><main><nav class="xs-crumbs" aria-label="Breadcrumb"><a href="/">Home</a> › <a href="/#tools">Tools</a> › <span aria-current="page">Interactive tools checked against the reference codes</span></nav>
+<h1>Interactive tools checked against the reference codes</h1>
+<p class="lead">Every interactive tool of this site reproduces a published code. This page runs the JavaScript in your browser on the same inputs as the reference codes and compares the results, case by case.</p>
+<section class="note"><h2>What is compared</h2><ul>
+<li><strong>LQ and LQL dose</strong> (<a href="/tools/lql-equiv.html">LQL-Equiv</a>): biologically effective dose per course before proliferation, against <code>lqlequiv.model._lql_dose_term</code> of LQL-Equiv-web (Python), for the rectum, bladder and spinal cord, 1 to 25 fractions of 1 to 20 Gy.</li>
+<li><strong>Thyroid protocol explorer</strong> (<a href="/methods/thyroid-radioiodine.html">RAIR-Sim</a>): thyroglobulin every month over 80 months, against the symbolic solution of the public MATLAB demonstrators (<code>Demonstrateur98f.m</code>, <code>Demonstrateur666f.m</code>), refractory and responding profiles, 1 and 8 sessions of 3.7 GBq every 3 months. The browser integrates the thyroglobulin equation with a fourth-order Runge–Kutta scheme.</li>
+<li><strong>NICE<sup>k</sup></strong> (<a href="/methods/nice-metrics.html">guide</a>): against <code>nice_metrics.m</code>, with persistence and 24-hour persistence as references.</li>
+<li><strong>BLEND</strong> (<a href="/methods/persistence-blend.html">guide</a>): weights per phase and RMSE, against <code>predict_P_BLEND_LS.m</code>, horizons 1, 3 and 6.</li>
+<li><strong>sCV and F</strong> (<a href="/methods/solar-variability-scv.html">guide</a>): against <code>scv.m</code> and <code>forecastability.m</code>, horizons 1 and 3.</li>
+</ul><p>The reference values were produced on 23 October 2026 with MATLAB R2025b and Python, from the archived codes; the inputs are a synthetic hourly series of 30 days (<a href="/assets/tools/test-vectors.json">test vectors, JSON</a>). Scripts: <code>make_vectors.m</code> and <code>make_vectors_lql.py</code>.</p></section>
+<p id="summary" class="lead" aria-live="polite">Running the tests…</p>
+<table id="results" class="cvt-table"><thead><tr><th>Tool</th><th>Case</th><th>Reference code</th><th>JavaScript</th><th>Relative difference</th><th>Tolerance</th><th>Result</th></tr></thead><tbody></tbody></table>
+<p class="cvt-note">Tolerances: 10<sup>−9</sup> for closed-form formulas (rounding only); 10<sup>−4</sup> for the thyroid model, whose thyroglobulin equation the browser integrates numerically.</p>
+</main><footer><div class="brand"><a href="https://www.minesparis.psl.eu/annuaire-de-la-recherche/chercheur/cyril-voyant/"><img src="/assets/mines-paris-psl-logo.png" alt="Mines Paris – PSL" width="110" height="68"></a><span>Centre O.I.E., Observation, Impacts, Energy · Mines Paris – PSL</span></div><p>Cyril Voyant · Mines Paris – PSL, center O.I.E. · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a></p><p class="xs-foot"><a href="https://www.cyrilvoyant.com/">www.cyrilvoyant.com</a> · <a href="/">cyrilvoyant.github.io</a> · <a href="https://person.cyrilvoyant.com/">person.cyrilvoyant.com</a> · <a href="https://orcid.org/0000-0003-0242-7377">ORCID</a></p></footer>
+<script src="/assets/tools/cv-tools.js"></script>
+<script>
+(function () {
+  var tb = document.querySelector("#results tbody"), ok = 0, all = 0;
+  function row(tool, cas, ref, js, tol) {
+    var rel = Math.abs(js - ref) / Math.max(Math.abs(ref), 1e-12), pass = rel <= tol || Math.abs(js - ref) < 1e-12;
+    all++; if (pass) ok++;
+    var tr = document.createElement("tr");
+    tr.innerHTML = "<td>" + tool + "</td><td>" + cas + "</td><td>" + (+ref.toPrecision(10)) + "</td><td>" + (+js.toPrecision(10)) + "</td><td>" + rel.toExponential(1) +
+      "</td><td>" + tol.toExponential(0) + "</td><td>" + (pass ? "✔ pass" : "✘ fail") + "</td>";
+    if (!pass) tr.className = "fail";
+    tb.appendChild(tr);
+  }
+  fetch("/assets/tools/test-vectors.json").then(function (r) { return r.json(); }).then(function (V) {
+    V.lql.cases.forEach(function (c) {
+      var cas = c.organ + ", " + c.n + " × " + c.d + " Gy";
+      row("LQ BED", cas, c.bed_lq, CVT.bedLQ(c.n, c.d, c.alpha_beta), 1e-9);
+      row("LQL BED", cas, c.bed_lql, CVT.bedLQL(c.n, c.d, c.alpha_beta, c.dt, V.lql.gamma_over_alpha), 1e-9);
+    });
+    Object.keys(V.thyroid).forEach(function (k) {
+      var c = V.thyroid[k], grid = c.tg.map(function (_, i) { return i; });
+      var js = CVT.thyroidTg({ Td: c.Td, sessions: c.sessions, lag: c.lag, activity: c.activity, grid: grid, h: 0.001 });
+      [0, 1, 3, 6, 12, 24, 40, 60, 80].forEach(function (t) {
+        row("Thyroid Tg", "T<sub>d</sub> " + c.Td + " months, " + c.sessions + " session(s), month " + t, c.tg[t], js[t], 1e-4);
+      });
+    });
+    var s = V.series, x = s.x, T = s.T;
+    var m1 = CVT.nice(x, s.yhat), ref24 = x.map(function (v, i) { return i >= T ? x[i - T] : NaN; }), m2 = CVT.nice(x, s.yhat, ref24);
+    ["NICE1", "NICE2", "NICE3", "NICE_Sigma", "E2_model", "E2_ref"].forEach(function (f) {
+      row("NICE", f + ", persistence", V.nice.persistence[f], m1[f], 1e-9);
+      row("NICE", f + ", 24-h persistence", V.nice.persistence24[f], m2[f], 1e-9);
+    });
+    [1, 3, 6].forEach(function (h) {
+      var b = CVT.blendLS(x, T, h), R = V.blend["h" + h];
+      row("BLEND", "RMSE, h = " + h, R.rmse, b.rmse, 1e-9);
+      [0, 5, 11, 17].forEach(function (p) { row("BLEND", "λ phase " + (p + 1) + ", h = " + h, R.lambda[p], b.lambda[p], 1e-9); });
+    });
+    row("sCV", "sCV (d = 0.2)", V.scv.scv, CVT.scv(x, s.cs), 1e-9);
+    var f1 = CVT.forecastability(x, s.cs, T, 1), f3 = CVT.forecastability(x, s.cs, T, 3);
+    row("F", "F, n = 1", V.scv.F1, f1.F, 1e-9); row("F", "ρ<sub>max</sub>, n = 1", V.scv.rho1, f1.rho_max, 1e-9);
+    row("F", "F, n = 3", V.scv.F3, f3.F, 1e-9); row("F", "ρ<sub>max</sub>, n = 3", V.scv.rho3, f3.rho_max, 1e-9);
+    document.getElementById("summary").innerHTML = "<strong>" + ok + " of " + all + " checks pass</strong>" + (ok === all ? ": every tool reproduces its reference code." : ".");
+  });
+})();
+</script></body></html>
