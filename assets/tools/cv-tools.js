@@ -255,46 +255,94 @@
   }
   function mountBLEND(box) {
     box.innerHTML = dataBox("bl-d", ["x"], "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own.") +
+      '<p class="cvt-hint"><button type="button" class="cvt-btn bl-real">Load real PV data (Palaiseau, 40 days, 30-min steps)</button> <span class="bl-src"></span></p>' +
       '<div class="cvt-grid">' + num("Period T (steps)", "bl-T", 24, 1) + slider("Horizon h", "bl-h", 1, 24, 1, 1, "steps") + slider("Window shown (period)", "bl-w", 1, 30, 1, 1, "") + "</div>" +
-      '<div class="cvt-out" aria-live="polite"></div><div class="cvt-plot bl-p1"></div><div class="cvt-plot bl-p2"></div><div class="cvt-plot bl-p3"></div>' +
+      '<div class="cvt-out" aria-live="polite"></div>' +
+      "<h3>1. Three whole periods, night to night</h3><div class=\"cvt-plot bl-p1\"></div>" +
+      "<h3>2. Set λ yourself</h3><p class=\"cvt-hint\">At one phase of the period, the forecast is (1 − λ) × the value one period earlier + λ × the latest value. " +
+      "Its mean squared error is a parabola in λ; the RMSE shown is its square root and has the same minimum. λ = 0 is cyclic persistence, λ = 1 is persistence, and BLEND takes the least-squares minimum within [0, 1].</p>" +
+      '<div class="cvt-grid">' + slider("Phase of the origin", "bl-ph", 1, 24, 1, 1, "") + slider("Your λ", "bl-l", 0, 1, 0.01, 0.5, "") + "</div>" +
+      '<div class="cvt-out bl-o2" aria-live="polite"></div><div class="cvt-plot bl-p2"></div><div class="cvt-plot bl-p3"></div>' +
+      "<h3>3. What blending adds, horizon by horizon</h3><div class=\"cvt-plot bl-p4\"></div><div class=\"cvt-out bl-o4\"></div>" +
       '<p class="cvt-hint">Weights fitted on the whole series (an in-sample diagnostic, as the default of the reference code); to evaluate, fit on a training period and test on the rest.</p>' + TESTS;
+    var lastKey = "", real = null;
     function errs(x, T, h) {                // RMSE of persistence, cyclic persistence and BLEND on the same targets
       var b = CVT.blendLS(x, T, h), sp = 0, sc = 0, k = 0;
       for (var t = T + 1; t <= x.length - h; t++, k++) { sp += Math.pow(x[t + h - 1] - x[t - 1], 2); sc += Math.pow(x[t + h - 1] - x[t + h - T - 1], 2); }
       return { b: b, p: Math.sqrt(sp / k), c: Math.sqrt(sc / k) };
     }
+    function nightStart(x, T) {             // middle of the longest low stretch of the mean profile, so that the window shows whole days
+      var prof = new Array(T).fill(0), cnt = new Array(T).fill(0), i, q;
+      for (i = 0; i < x.length; i++) { prof[i % T] += x[i]; cnt[i % T]++; }
+      for (q = 0; q < T; q++) prof[q] /= cnt[q];
+      var mx = Math.max.apply(null, prof), lo = prof.map(function (v) { return v <= 0.02 * mx; }), bestLen = 0, bestMid = prof.indexOf(Math.min.apply(null, prof));
+      for (q = 0; q < T; q++) {
+        if (!lo[q] || lo[(q + T - 1) % T]) continue;
+        var n = 0; while (n < T && lo[(q + n) % T]) n++;
+        if (n > bestLen) { bestLen = n; bestMid = (q + Math.floor(n / 2)) % T; }
+      }
+      return bestMid;
+    }
     function upd() {
-      var x = parseCols(box.querySelector("#bl-d").value).map(function (r) { return r[0]; }), T = Math.round(+box.querySelector("#bl-T").value), h = +box.querySelector("#bl-h").value;
-      box.querySelector("#bl-h-o").textContent = h;
+      var x = parseCols(box.querySelector("#bl-d").value).map(function (r) { return r[0]; }), T = Math.round(+box.querySelector("#bl-T").value), hEl = box.querySelector("#bl-h");
+      hEl.max = Math.max(1, T); var h = +hEl.value; box.querySelector("#bl-h-o").textContent = h;
       if (!(T >= 2) || x.length < 3 * T || h > T) { box.querySelector(".cvt-out").innerHTML = "<p>Need at least three periods of data and h ≤ T.</p>"; return; }
-      var nper = Math.max(1, Math.floor((x.length - T - h) / T) - 2), wEl = box.querySelector("#bl-w");
-      wEl.max = nper; if (+wEl.value > nper) wEl.value = nper;
-      var w = +wEl.value; box.querySelector("#bl-w-o").textContent = w;
       var e = errs(x, T, h), best = Math.min(e.p, e.c), gain = 100 * (1 - e.b.rmse / best);
       box.querySelector(".cvt-out").innerHTML = "<p>RMSE on the same targets: BLEND <strong>" + fmt(e.b.rmse, 1) + "</strong> · persistence " + fmt(e.p, 1) +
         " · cyclic persistence " + fmt(e.c, 1) + ".</p><p>At this horizon, BLEND is <strong>" + fmt(gain, 1) + " %</strong> below the better of the two persistences, " +
         (e.p < e.c ? "persistence." : "cyclic persistence.") + "</p>";
-      // 1. the forecast itself over three periods
-      var i0 = (w - 1) * T, P = [], C = [], B = [], O = [];
-      for (var k = i0; k < Math.min(e.b.pred.length, i0 + 3 * T); k++) {
-        var t = T + 1 + k, s = k - i0;
+      // 1. the forecast itself over three whole periods, starting in the middle of the night
+      var q0 = nightStart(x, T), k0 = ((q0 - T - h) % T + 2 * T) % T, nper = Math.max(1, Math.floor((e.b.pred.length - k0) / T) - 2), wEl = box.querySelector("#bl-w");
+      wEl.max = nper; if (+wEl.value > nper) wEl.value = nper;
+      var w = +wEl.value; box.querySelector("#bl-w-o").textContent = w;
+      var i0 = k0 + (w - 1) * T, P = [], C = [], B = [], O = [];
+      for (var k = i0; k < Math.min(e.b.pred.length, i0 + 3 * T + 1); k++) {
+        var t = T + 1 + k, s = (k - i0) / T;
         O.push([s, x[t + h - 1]]); P.push([s, x[t - 1]]); C.push([s, x[t + h - T - 1]]); B.push([s, e.b.pred[k]]);
       }
       box.querySelector(".bl-p1").innerHTML = lineChart([
         { pts: O, color: "#172536", label: "observation" }, { pts: P, color: "#ad5200", label: "persistence (last value)", dash: true },
         { pts: C, color: "#8a96a3", label: "cyclic persistence (one period earlier)", dash: true }, { pts: B, color: "#3c8d5a", label: "BLEND" }],
-        { xlabel: "time step in the window", ylabel: "signal", aria: "Forecasts and observation over three periods" });
-      // 2. error against horizon: where each reference wins, and BLEND
-      var Hm = Math.min(T, 24), RP = [], RC = [], RB = [];
-      for (var hh = 1; hh <= Hm; hh++) { var r = errs(x, T, hh); RP.push([hh, r.p]); RC.push([hh, r.c]); RB.push([hh, r.b.rmse]); }
-      box.querySelector(".bl-p2").innerHTML = lineChart([
-        { pts: RP, color: "#ad5200", label: "persistence", dash: true }, { pts: RC, color: "#8a96a3", label: "cyclic persistence", dash: true },
-        { pts: RB, color: "#3c8d5a", label: "BLEND" }, { pts: [[h, e.b.rmse]], color: "#3c8d5a", marker: true }],
-        { xlabel: "horizon h (steps)", ylabel: "RMSE", xmin: 1, xmax: Hm, aria: "RMSE against horizon for the three forecasts" });
-      // 3. what BLEND trusts at each phase of the day
-      box.querySelector(".bl-p3").innerHTML = lineChart([{ pts: e.b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: "λ by phase of the origin: 1 = trust the latest value, 0 = trust one period earlier" }],
+        { xlabel: "periods in the window (each tick: middle of the night)", ylabel: "signal", xmin: 0, xmax: 3, aria: "Forecasts and observation over three whole periods" });
+      // 2. the parabola at one phase, with the reader's lambda and the least-squares one
+      var phEl = box.querySelector("#bl-ph"), key = T + "|" + h + "|" + x.length + "|" + x[0];
+      phEl.max = T;
+      if (key !== lastKey) {                // new data, period or horizon: start at the phase where BLEND mixes most (lambda closest to 0.5)
+        var bp = 0; e.b.lambda.forEach(function (l, p) { if (Math.abs(l - 0.5) < Math.abs(e.b.lambda[bp] - 0.5)) bp = p; });
+        phEl.value = bp + 1; lastKey = key;
+      }
+      var p = +phEl.value - 1, lu = +box.querySelector("#bl-l").value, ls = e.b.lambda[p], ys = [], rs = [], cs = [];
+      box.querySelector("#bl-ph-o").textContent = p + 1; box.querySelector("#bl-l-o").textContent = lu.toFixed(2);
+      for (t = T + 1; t <= x.length - h; t++) if ((t - 1) % T === p) { ys.push(x[t + h - 1]); rs.push(x[t - 1]); cs.push(x[t + h - T - 1]); }
+      function E(l) { var s2 = 0; for (var i = 0; i < ys.length; i++) s2 += Math.pow(ys[i] - (1 - l) * cs[i] - l * rs[i], 2); return Math.sqrt(s2 / ys.length); }
+      var par = []; for (var j = 0; j <= 50; j++) par.push([j / 50, E(j / 50)]);
+      box.querySelector(".bl-o2").innerHTML = "<p>Phase " + (p + 1) + " (" + ys.length + " targets): cyclic persistence (λ = 0) " + fmt(E(0), 1) + " · persistence (λ = 1) " + fmt(E(1), 1) +
+        " · your λ = " + lu.toFixed(2) + ": <strong>" + fmt(E(lu), 1) + "</strong> · BLEND λ = " + ls.toFixed(2) + ": <strong>" + fmt(E(ls), 1) + "</strong>.</p>";
+      box.querySelector(".bl-p2").innerHTML = lineChart([{ pts: par, color: "#3c8d5a", label: "RMSE at this phase against λ" },
+        { pts: [[lu, E(lu)]], color: "#ad5200", marker: true }, { pts: [[ls, E(ls)]], color: "#3c8d5a", marker: true }],
+        { xlabel: "λ (0 = one period earlier, 1 = latest value)", ylabel: "RMSE", xmin: 0, xmax: 1, ymin: 0.8 * E(ls), aria: "Error at one phase against the blending weight" });
+      box.querySelector(".bl-p3").innerHTML = lineChart([{ pts: e.b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: "BLEND λ at every phase (the dot: the phase above)" },
+        { pts: [[p + 1, ls]], color: "#3c8d5a", marker: true }],
         { xlabel: "phase of the origin", ylabel: "λ", xmin: 1, xmax: T, ymin: 0, ymax: 1, aria: "BLEND weight by phase" });
+      // 3. gain over the better persistence, for every horizon up to one period
+      var G = [], cross = 0;
+      for (var hh = 1; hh <= T; hh++) { var r = errs(x, T, hh), refError = Math.min(r.p, r.c); if (refError > 0) G.push([hh, 100 * (1 - r.b.rmse / refError)]); if (!cross && r.c <= r.p) cross = hh; }
+      var gainSeries = [{ pts: G, color: "#3c8d5a", label: "BLEND gain over the better persistence (%)" }];
+      if (isFinite(gain)) gainSeries.push({ pts: [[h, gain]], color: "#3c8d5a", marker: true });
+      box.querySelector(".bl-p4").innerHTML = G.length ? lineChart(gainSeries,
+        { xlabel: "horizon h (steps)", ylabel: "gain (%)", xmin: 1, xmax: T, ymin: 0, aria: "Gain of BLEND against horizon" }) : "<p>Relative gain is undefined when the reference error is zero. Read the absolute errors above.</p>";
+      box.querySelector(".bl-o4").innerHTML = "<p>" + (cross ? "First horizon where cyclic persistence matches or beats persistence: h = " + cross + " steps. This need not hold at every later horizon."
+        : "Persistence has lower RMSE at every tested horizon.") + " Blending matters most where neither wins clearly. Never negative here, since the weights are fitted on these same data.</p>";
     }
+    box.querySelector(".bl-real").addEventListener("click", function () {
+      function load(j) {
+        real = j; box.querySelector("#bl-d").value = j.x.join("\n"); box.querySelector("#bl-T").value = j.T; box.querySelector("#bl-h").value = 2;
+        box.querySelector(".bl-src").innerHTML = "AC power (W), from " + j.start_utc.slice(0, 10) + ", UTC; phase 1 = 00:00, one step = 30 min. <a href=\"https://doi.org/" + j.doi + "\">PV_ELM_pred</a>, public example.";
+        upd();
+      }
+      if (real) { load(real); return; }
+      fetch("/assets/tools/blend-palaiseau.json").then(function (r) { return r.json(); }).then(load).catch(function () { box.querySelector(".bl-src").textContent = "The data could not be loaded."; });
+    });
     box.addEventListener("input", upd); upd();
   }
   function mountSCV(box) {
