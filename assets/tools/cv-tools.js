@@ -170,8 +170,8 @@
   // ---------------------------------------------------------------- widget: LQ / LQL dose slider
   function mountLQL(box) {
     box.innerHTML = '<div class="cvt-grid">' + slider("Dose per fraction d", "lq-d", 0.5, 25, 0.1, 15, "Gy") + slider("Number of fractions n", "lq-n", 1, 40, 1, 1) +
-      '</div><div class="cvt-grid">' + num("α/β (Gy)", "lq-ab", 3.9) + num("Transition dose d<sub>T</sub> (Gy)", "lq-dt", 7.8) + num("γ/α (Gy)", "lq-g", 5) +
-      '</div><p class="cvt-hint">Defaults: rectum in LQL-Equiv (α/β = 3.9 Gy, d<sub>T</sub> = 7.8 Gy, γ/α = 5 Gy). BED before proliferation, one fraction a day.</p>' +
+      '</div><div class="cvt-grid">' + num("α/β (Gy)", "lq-ab", 3.9) + num("Transition dose d<sub>T</sub> (Gy)", "lq-dt", 7.8) + num("γ/α (dimensionless tail slope)", "lq-g", 5) +
+      '</div><p class="cvt-hint">Defaults: rectum in LQL-Equiv (α/β = 3.9 Gy, d<sub>T</sub> = 7.8 Gy, γ/α = 5). BED before proliferation, one fraction a day.</p>' +
       '<div class="cvt-out" aria-live="polite"></div><div class="cvt-plot"></div>' + TESTS;
     function upd() {
       var d = +box.querySelector("#lq-d").value, n = +box.querySelector("#lq-n").value, ab = +box.querySelector("#lq-ab").value,
@@ -248,25 +248,51 @@
         "<tr><th>simple persistence error</th><td>" + fmt(m.E1_ref, 2) + "</td><td>" + fmt(m.E2_ref, 2) + "</td><td>" + fmt(m.E3_ref, 2) + "</td></tr>" +
         "<tr><th>NICE<sup>k</sup></th><td>" + fmt(m.NICE1) + "</td><td>" + fmt(m.NICE2) + "</td><td>" + fmt(m.NICE3) + "</td></tr></table>" +
         "<p>NICE<sup>Σ</sup> = <strong>" + fmt(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
-        (m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
+        (!isFinite(m.NICE_Sigma) ? "Undefined ratio: check that the reference error is nonzero and that valid data share the same target dates." : m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
           : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>";
     }
     box.addEventListener("input", upd); upd();
   }
   function mountBLEND(box) {
     box.innerHTML = dataBox("bl-d", ["x"], "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own.") +
-      '<div class="cvt-grid">' + num("Period T (steps)", "bl-T", 24, 1) + slider("Horizon h", "bl-h", 1, 24, 1, 1, "steps") + "</div>" +
-      '<div class="cvt-out" aria-live="polite"></div><div class="cvt-plot"></div>' +
+      '<div class="cvt-grid">' + num("Period T (steps)", "bl-T", 24, 1) + slider("Horizon h", "bl-h", 1, 24, 1, 1, "steps") + slider("Window shown (period)", "bl-w", 1, 30, 1, 1, "") + "</div>" +
+      '<div class="cvt-out" aria-live="polite"></div><div class="cvt-plot bl-p1"></div><div class="cvt-plot bl-p2"></div><div class="cvt-plot bl-p3"></div>' +
       '<p class="cvt-hint">Weights fitted on the whole series (an in-sample diagnostic, as the default of the reference code); to evaluate, fit on a training period and test on the rest.</p>' + TESTS;
+    function errs(x, T, h) {                // RMSE of persistence, cyclic persistence and BLEND on the same targets
+      var b = CVT.blendLS(x, T, h), sp = 0, sc = 0, k = 0;
+      for (var t = T + 1; t <= x.length - h; t++, k++) { sp += Math.pow(x[t + h - 1] - x[t - 1], 2); sc += Math.pow(x[t + h - 1] - x[t + h - T - 1], 2); }
+      return { b: b, p: Math.sqrt(sp / k), c: Math.sqrt(sc / k) };
+    }
     function upd() {
       var x = parseCols(box.querySelector("#bl-d").value).map(function (r) { return r[0]; }), T = Math.round(+box.querySelector("#bl-T").value), h = +box.querySelector("#bl-h").value;
       box.querySelector("#bl-h-o").textContent = h;
       if (!(T >= 2) || x.length < 3 * T || h > T) { box.querySelector(".cvt-out").innerHTML = "<p>Need at least three periods of data and h ≤ T.</p>"; return; }
-      var b = CVT.blendLS(x, T, h), sp = 0, sc = 0, k = 0;
-      for (var t = T + 1; t <= x.length - h; t++, k++) { sp += Math.pow(x[t + h - 1] - x[t - 1], 2); sc += Math.pow(x[t + h - 1] - x[t + h - T - 1], 2); }
-      box.querySelector(".cvt-out").innerHTML = "<p>RMSE on the same targets: BLEND <strong>" + fmt(b.rmse, 1) + "</strong> · persistence " + fmt(Math.sqrt(sp / k), 1) +
-        " · cyclic persistence " + fmt(Math.sqrt(sc / k), 1) + ".</p>";
-      box.querySelector(".cvt-plot").innerHTML = lineChart([{ pts: b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: "λ by phase of the origin (weight of the latest value)" }],
+      var nper = Math.max(1, Math.floor((x.length - T - h) / T) - 2), wEl = box.querySelector("#bl-w");
+      wEl.max = nper; if (+wEl.value > nper) wEl.value = nper;
+      var w = +wEl.value; box.querySelector("#bl-w-o").textContent = w;
+      var e = errs(x, T, h), best = Math.min(e.p, e.c), gain = 100 * (1 - e.b.rmse / best);
+      box.querySelector(".cvt-out").innerHTML = "<p>RMSE on the same targets: BLEND <strong>" + fmt(e.b.rmse, 1) + "</strong> · persistence " + fmt(e.p, 1) +
+        " · cyclic persistence " + fmt(e.c, 1) + ".</p><p>At this horizon, BLEND is <strong>" + fmt(gain, 1) + " %</strong> below the better of the two persistences, " +
+        (e.p < e.c ? "persistence." : "cyclic persistence.") + "</p>";
+      // 1. the forecast itself over three periods
+      var i0 = (w - 1) * T, P = [], C = [], B = [], O = [];
+      for (var k = i0; k < Math.min(e.b.pred.length, i0 + 3 * T); k++) {
+        var t = T + 1 + k, s = k - i0;
+        O.push([s, x[t + h - 1]]); P.push([s, x[t - 1]]); C.push([s, x[t + h - T - 1]]); B.push([s, e.b.pred[k]]);
+      }
+      box.querySelector(".bl-p1").innerHTML = lineChart([
+        { pts: O, color: "#172536", label: "observation" }, { pts: P, color: "#ad5200", label: "persistence (last value)", dash: true },
+        { pts: C, color: "#8a96a3", label: "cyclic persistence (one period earlier)", dash: true }, { pts: B, color: "#3c8d5a", label: "BLEND" }],
+        { xlabel: "time step in the window", ylabel: "signal", aria: "Forecasts and observation over three periods" });
+      // 2. error against horizon: where each reference wins, and BLEND
+      var Hm = Math.min(T, 24), RP = [], RC = [], RB = [];
+      for (var hh = 1; hh <= Hm; hh++) { var r = errs(x, T, hh); RP.push([hh, r.p]); RC.push([hh, r.c]); RB.push([hh, r.b.rmse]); }
+      box.querySelector(".bl-p2").innerHTML = lineChart([
+        { pts: RP, color: "#ad5200", label: "persistence", dash: true }, { pts: RC, color: "#8a96a3", label: "cyclic persistence", dash: true },
+        { pts: RB, color: "#3c8d5a", label: "BLEND" }, { pts: [[h, e.b.rmse]], color: "#3c8d5a", marker: true }],
+        { xlabel: "horizon h (steps)", ylabel: "RMSE", xmin: 1, xmax: Hm, aria: "RMSE against horizon for the three forecasts" });
+      // 3. what BLEND trusts at each phase of the day
+      box.querySelector(".bl-p3").innerHTML = lineChart([{ pts: e.b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: "λ by phase of the origin: 1 = trust the latest value, 0 = trust one period earlier" }],
         { xlabel: "phase of the origin", ylabel: "λ", xmin: 1, xmax: T, ymin: 0, ymax: 1, aria: "BLEND weight by phase" });
     }
     box.addEventListener("input", upd); upd();
@@ -374,7 +400,7 @@
         "</p><p>Pointwise view: RMSE = <strong>" + fmt(g.rmse, 0) + " W/m²</strong>, and " + fmt(100 * bad / (N * N), 1) + " % of the pixels differ by more than IDT. " +
         (o.shiftY !== 0 && o.bias === 0 && o.lag === 0 ? "A displaced cloud is counted twice by a pointwise score, where it was forecast and where it is: the double penalty that γ avoids within DTA." :
          o.lag !== 0 && o.shiftY === 0 ? "A late or early cloud is a displacement in time: TTA decides whether it is accepted." :
-         o.bias !== 0 && o.shiftY === 0 && o.lag === 0 ? "A uniform bias is judged by IDT alone: no displacement can compensate it." : "Errors combine in a single normalized distance: each tolerance absorbs its own part.") + "</p>";
+         o.bias !== 0 && o.shiftY === 0 && o.lag === 0 ? "Intensity bias contributes through IDT. A spatial or temporal search can also find a closer intensity; inspect the map and retain pointwise errors." : "Errors combine in a single normalized distance: each tolerance absorbs its own part.") + "</p>";
     }
     box.querySelector("#gm-art").addEventListener("click", function () { box.querySelector("#gm-dta").value = 2; box.querySelector("#gm-tta").value = 30; box.querySelector("#gm-idt").value = 50; upd(); });
     box.querySelector("#gm-play").addEventListener("click", function () {
