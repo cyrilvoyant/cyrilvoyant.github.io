@@ -248,7 +248,7 @@
         "<tr><th>simple persistence error</th><td>" + fmt(m.E1_ref, 2) + "</td><td>" + fmt(m.E2_ref, 2) + "</td><td>" + fmt(m.E3_ref, 2) + "</td></tr>" +
         "<tr><th>NICE<sup>k</sup></th><td>" + fmt(m.NICE1) + "</td><td>" + fmt(m.NICE2) + "</td><td>" + fmt(m.NICE3) + "</td></tr></table>" +
         "<p>NICE<sup>Σ</sup> = <strong>" + fmt(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
-        (m.NICE_Sigma <= 1 ? "Scale from 0 (perfect forecast) to 1 (simple persistence): the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
+        (m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
           : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>";
     }
     box.addEventListener("input", upd); upd();
