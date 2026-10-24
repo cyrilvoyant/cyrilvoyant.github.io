@@ -287,6 +287,106 @@
     box.addEventListener("input", upd); upd();
   }
 
+  // ---------------------------------------------------------------- γ-index (Voyant, International Journal of Forecasting 2026, Eqs 1-2)
+  // pred: forecast map at time index tp, array of ny rows of nx values; obs: array of nt observed maps (same grid), spacing dx (km), dt (min).
+  // γ(x,y,t) = min over |x-x'|,|y-y'| ≤ 1.5 DTA and |t-t'| ≤ 1.5 TTA of sqrt(d²/DTA² + Δt²/TTA² + ΔI²/IDT²); GPR = share of γ ≤ 1 (Eq. 2).
+  CVT.gamma = function (pred, obs, o) {
+    var ny = pred.length, nx = pred[0].length, nt = obs.length, rs = Math.floor(1.5 * o.DTA / o.dx + 1e-9), rt = Math.floor(1.5 * o.TTA / o.dt + 1e-9);
+    var map = [], sum = 0, pass = 0, max = -Infinity, n = 0, se = 0;
+    for (var i = 0; i < ny; i++) {
+      var row = [];
+      for (var j = 0; j < nx; j++) {
+        var p = pred[i][j], best = Infinity;
+        for (var k = Math.max(0, o.tp - rt); k <= Math.min(nt - 1, o.tp + rt); k++) {
+          var tt = Math.pow((k - o.tp) * o.dt / o.TTA, 2), F = obs[k];
+          if (tt >= best * best) continue;
+          for (var a = Math.max(0, i - rs); a <= Math.min(ny - 1, i + rs); a++) {
+            var dyy = Math.pow((a - i) * o.dx / o.DTA, 2);
+            for (var b = Math.max(0, j - rs); b <= Math.min(nx - 1, j + rs); b++) {
+              var g2 = dyy + Math.pow((b - j) * o.dx / o.DTA, 2) + tt + Math.pow((p - F[a][b]) / o.IDT, 2);
+              if (g2 < best * best) best = Math.sqrt(g2);
+            }
+          }
+        }
+        row.push(best); sum += best; n++; if (best <= 1) pass++; if (best > max) max = best;
+        se += Math.pow(p - obs[o.tp][i][j], 2);
+      }
+      map.push(row);
+    }
+    return { map: map, mean: sum / n, max: max, gpr: 100 * pass / n, rmse: Math.sqrt(se / n) };
+  };
+  // the synthetic scene of the explorer and of the tests: clear sky I0 with one cloud (Gaussian dimming) moving east at speed v (km/min)
+  CVT.cloudScene = function (o) {
+    function frame(cx, cy, depth) {
+      var F = [];
+      for (var i = 0; i < o.n; i++) {
+        var r = [];
+        for (var j = 0; j < o.n; j++) {
+          var d2 = Math.pow(j * o.dx - cx, 2) + Math.pow(i * o.dx - cy, 2);
+          r.push(o.I0 - depth * Math.exp(-d2 / (2 * o.sigma * o.sigma)));
+        }
+        F.push(r);
+      }
+      return F;
+    }
+    var obs = [];
+    for (var k = 0; k < o.nt; k++) obs.push(frame(o.cx + o.v * (k - o.tp) * o.dt, o.cy, o.depth));
+    var pred = frame(o.cx + o.shift + o.v * (-o.lag), o.cy + (o.shiftY || 0), o.depth * o.scale);   // forecast: displaced (x along the motion, y across), late or early, deeper
+    if (o.bias) pred = pred.map(function (r) { return r.map(function (v) { return v + o.bias; }); });
+    return { obs: obs, pred: pred };
+  };
+
+  // ---------------------------------------------------------------- widget: γ-index explorer (one cloud, forecast displaced, late or biased)
+  function mountGamma(box) {
+    box.innerHTML = '<p class="cvt-hint"><strong>The forecast error</strong></p><div class="cvt-grid">' +
+      slider("Cloud displaced north by (across its motion)", "gm-s", 0, 6, 0.25, 2, "km") + slider("Forecast late (+) or early (−) by", "gm-l", -30, 30, 5, 0, "min") +
+      slider("Intensity bias", "gm-b", -80, 80, 5, 0, "W/m²") + '</div><p class="cvt-hint"><strong>The tolerances (Eq. 1)</strong></p><div class="cvt-grid">' +
+      slider("DTA, spatial", "gm-dta", 0.5, 3, 0.5, 2, "km") + slider("TTA, temporal", "gm-tta", 5, 30, 5, 30, "min") + slider("IDT, intensity", "gm-idt", 10, 100, 5, 50, "W/m²") +
+      '</div><div class="btns"><button type="button" class="cvt-btn" id="gm-art">Tolerances of the article (2 km, 30 min, 50 W/m²)</button>' +
+      '<button type="button" class="cvt-btn" id="gm-play" aria-pressed="false">▶ Move the forecast cloud away</button></div>' +
+      '<div class="cvt-maps"><figure><canvas width="40" height="40" id="gm-obs"></canvas><figcaption>Observed at time t</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-pred"></canvas><figcaption>Forecast for time t</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-err"></canvas><figcaption>Pointwise error |forecast − observed|</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-g"></canvas><figcaption>γ map: green γ ≤ 1 (accepted), red γ &gt; 1</figcaption></figure></div>' +
+      '<div class="cvt-out" aria-live="polite"></div>' +
+      '<p class="cvt-hint">Synthetic scene: clear sky 800 W/m², one cloud dimming by 500 W/m² and moving east at 12 km/h, grid of 0.5 km over 20 km, '
+      + 'observed images every 5 min. γ follows Eq. (1) of the article: for each forecast pixel, the closest observation in space, time and intensity '
+      + 'within 1.5 DTA and 1.5 TTA; GPR is the share of γ ≤ 1 (Eq. 2). An illustration of the definition, not a result of the article. The temporal term follows the article; the archived MATLAB function treats it differently (see the note on units).</p>' + TESTS;
+    var timer = null, N = 40, DX = 0.5, DT = 5, NT = 19, TP = 9;
+    function val(id) { return +box.querySelector("#" + id).value; }
+    function paint(id, M, f) {
+      var c = box.querySelector("#" + id), ctx = c.getContext("2d"), img = ctx.createImageData(N, N);
+      for (var i = 0; i < N; i++) for (var j = 0; j < N; j++) { var k = (i * N + j) * 4, col = f(M[i][j]); img.data[k] = col[0]; img.data[k + 1] = col[1]; img.data[k + 2] = col[2]; img.data[k + 3] = 255; }
+      ctx.putImageData(img, 0, 0);
+    }
+    function sky(v) { var t = Math.max(0, Math.min(1, (v - 250) / 600)); return [60 + 190 * t, 90 + 160 * t, 140 + 105 * t]; }
+    function err(v) { var t = Math.min(1, v / 300); return [255 - 75 * t, 255 - 200 * t, 255 - 220 * t]; }
+    function gcol(g) { if (g <= 1) { var t = g; return [220 - 160 * (1 - t), 240 - 60 * (1 - t), 220 - 140 * (1 - t)]; } var u = Math.min(1, (g - 1) / 2); return [235 - 40 * u, 150 - 110 * u, 130 - 100 * u]; }
+    function upd() {
+      var o = { n: N, nt: NT, tp: TP, dx: DX, dt: DT, I0: 800, depth: 500, sigma: 3, v: 0.2, cx: 7, cy: 10, shift: 0, shiftY: -val("gm-s"), lag: val("gm-l"), scale: 1, bias: val("gm-b"),
+                DTA: val("gm-dta"), TTA: val("gm-tta"), IDT: val("gm-idt") };
+      [["gm-s", 2], ["gm-l", 0], ["gm-b", 0], ["gm-dta", 1], ["gm-tta", 0], ["gm-idt", 0]].forEach(function (x) { box.querySelector("#" + x[0] + "-o").textContent = val(x[0]).toFixed(x[1]); });
+      var s = CVT.cloudScene(o), g = CVT.gamma(s.pred, s.obs, o), obs = s.obs[TP];
+      var E = s.pred.map(function (r, i) { return r.map(function (v, j) { return Math.abs(v - obs[i][j]); }); }), bad = 0;
+      E.forEach(function (r) { r.forEach(function (v) { if (v > o.IDT) bad++; }); });
+      paint("gm-obs", obs, sky); paint("gm-pred", s.pred, sky); paint("gm-err", E, err); paint("gm-g", g.map, gcol);
+      box.querySelector(".cvt-out").innerHTML = "<p>GPR = <strong>" + fmt(g.gpr, 1) + " %</strong> of the pixels accepted (γ ≤ 1) · γ̄ = " + fmt(g.mean, 2) + " · γ<sub>max</sub> = " + fmt(g.max, 2) +
+        "</p><p>Pointwise view: RMSE = <strong>" + fmt(g.rmse, 0) + " W/m²</strong>, and " + fmt(100 * bad / (N * N), 1) + " % of the pixels differ by more than IDT. " +
+        (o.shiftY !== 0 && o.bias === 0 && o.lag === 0 ? "A displaced cloud is counted twice by a pointwise score, where it was forecast and where it is: the double penalty that γ avoids within DTA." :
+         o.lag !== 0 && o.shiftY === 0 ? "A late or early cloud is a displacement in time: TTA decides whether it is accepted." :
+         o.bias !== 0 && o.shiftY === 0 && o.lag === 0 ? "A uniform bias is judged by IDT alone: no displacement can compensate it." : "Errors combine in a single normalized distance: each tolerance absorbs its own part.") + "</p>";
+    }
+    box.querySelector("#gm-art").addEventListener("click", function () { box.querySelector("#gm-dta").value = 2; box.querySelector("#gm-tta").value = 30; box.querySelector("#gm-idt").value = 50; upd(); });
+    box.querySelector("#gm-play").addEventListener("click", function () {
+      var b = this;
+      if (timer) { clearInterval(timer); timer = null; b.textContent = "▶ Move the forecast cloud away"; b.setAttribute("aria-pressed", "false"); return; }
+      b.textContent = "❚❚ Stop"; b.setAttribute("aria-pressed", "true");
+      var s = box.querySelector("#gm-s"); s.value = 0; box.querySelector("#gm-l").value = 0; box.querySelector("#gm-b").value = 0;
+      timer = setInterval(function () { var v = +s.value + 0.25; if (v > 6) { clearInterval(timer); timer = null; b.textContent = "▶ Move the forecast cloud away"; b.setAttribute("aria-pressed", "false"); return; } s.value = v; upd(); }, 220);
+    });
+    box.addEventListener("input", upd); upd();
+  }
+
   // ---------------------------------------------------------------- widget: ARTU coefficients (Voyant et al., Renewable Energy 2022)
   // The tables M(R) of the ARTU repository (K_alpha.zip), interpolated like MATLAB interp2 'linear': K[i][j], i = rho(h), j = rho(2h).
   CVT.artuLookup = function (tables, rh, r2h, R) {
@@ -394,7 +494,7 @@
     box.addEventListener("input", upd); box.addEventListener("change", upd); upd();
   }
 
-  var MOUNT = { lql: mountLQL, thyroid: mountThyroid, nice: mountNICE, blend: mountBLEND, scv: mountSCV, artu: mountARTU };
+  var MOUNT = { lql: mountLQL, thyroid: mountThyroid, nice: mountNICE, blend: mountBLEND, scv: mountSCV, artu: mountARTU, gamma: mountGamma };
   function init() {
     [].forEach.call(document.querySelectorAll(".cvt[data-tool]"), function (box) {
       var f = MOUNT[box.getAttribute("data-tool")];
