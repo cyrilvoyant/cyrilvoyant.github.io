@@ -1,0 +1,276 @@
+model,label,h,subset,nrmse,n
+P,"Simple persistence",1,all,0.661571114844561,22515
+P,"Simple persistence",1,day,0.479386805863765,11853
+P,"Simple persistence",1,stable,0.405148402383243,4068
+P,"Simple persistence",1,intermediate,0.440180890583396,5089
+P,"Simple persistence",1,variable,0.634282095233552,2700
+P_cyc,"Cyclic persistence",1,all,0.951309145186727,22515
+P_cyc,"Cyclic persistence",1,day,0.690336370271222,11853
+P_cyc,"Cyclic persistence",1,stable,0.731436836679242,4068
+P_cyc,"Cyclic persistence",1,intermediate,0.611709926306987,5089
+P_cyc,"Cyclic persistence",1,variable,0.804123829308252,2700
+P_smart_mult,"Smart persistence, multiplicative",1,all,0.536223360937736,22515
+P_smart_mult,"Smart persistence, multiplicative",1,day,0.389120122359146,11853
+P_smart_mult,"Smart persistence, multiplicative",1,stable,0.304082844734902,4068
+P_smart_mult,"Smart persistence, multiplicative",1,intermediate,0.352122303764969,5089
+P_smart_mult,"Smart persistence, multiplicative",1,variable,0.544071011054969,2700
+P_stoch,"Stochastic persistence",1,all,0.705911861063899,22515
+P_stoch,"Stochastic persistence",1,day,0.512250714847823,11853
+P_stoch,"Stochastic persistence",1,stable,0.493580613419193,4068
+P_stoch,"Stochastic persistence",1,intermediate,0.464917883006787,5089
+P_stoch,"Stochastic persistence",1,variable,0.630384485860713,2700
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",1,all,0.456267778366425,22515
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",1,day,0.331098466013217,11853
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",1,stable,0.233930933669297,4068
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",1,intermediate,0.298385047152394,5089
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",1,variable,0.482436467181476,2700
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",1,all,0.461880441346911,22515
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",1,day,0.335171430176433,11853
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",1,stable,0.225487548242823,4068
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",1,intermediate,0.302708591081798,5089
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",1,variable,0.49445524183864,2700
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",1,all,0.509566983322777,22515
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",1,day,0.367699898462031,11853
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",1,stable,0.300753421057023,4068
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",1,intermediate,0.324721913810787,5089
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",1,variable,0.517628437604396,2700
+CLIPER_phase,"CLIPER, weight per phase",1,all,0.574023322700492,22515
+CLIPER_phase,"CLIPER, weight per phase",1,day,0.414458319068975,11853
+CLIPER_phase,"CLIPER, weight per phase",1,stable,0.348624746357222,4068
+CLIPER_phase,"CLIPER, weight per phase",1,intermediate,0.372672467755068,5089
+CLIPER_phase,"CLIPER, weight per phase",1,variable,0.564119437008552,2700
+BLEND_statio,"BLEND, one weight, raw signal",1,all,0.588660154440337,22515
+BLEND_statio,"BLEND, one weight, raw signal",1,day,0.42678650711572,11853
+BLEND_statio,"BLEND, one weight, raw signal",1,stable,0.368506562241013,4068
+BLEND_statio,"BLEND, one weight, raw signal",1,intermediate,0.387802879551766,5089
+BLEND_statio,"BLEND, one weight, raw signal",1,variable,0.565460790210402,2700
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",1,all,0.544770326124223,22515
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",1,day,0.39530963156846,11853
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",1,stable,0.312692839266769,4068
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",1,intermediate,0.359747227391204,5089
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",1,variable,0.546301075924665,2700
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",1,all,0.638573174042299,22515
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",1,day,0.462779437612951,11853
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",1,stable,0.388155624491355,4068
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",1,intermediate,0.424546206429101,5089
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",1,variable,0.61554886689904,2700
+P,"Simple persistence",2,all,1.07700350360712,22515
+P,"Simple persistence",2,day,0.772975738838743,11853
+P,"Simple persistence",2,stable,0.73360345419721,4068
+P,"Simple persistence",2,intermediate,0.725097157720243,5089
+P,"Simple persistence",2,variable,0.91508920244479,2700
+P_cyc,"Cyclic persistence",2,all,0.951309145186727,22515
+P_cyc,"Cyclic persistence",2,day,0.690336370271222,11853
+P_cyc,"Cyclic persistence",2,stable,0.731436836679242,4068
+P_cyc,"Cyclic persistence",2,intermediate,0.611709926306987,5089
+P_cyc,"Cyclic persistence",2,variable,0.804123829308252,2700
+P_smart_mult,"Smart persistence, multiplicative",2,all,0.831114373330405,22515
+P_smart_mult,"Smart persistence, multiplicative",2,day,0.603114343494037,11853
+P_smart_mult,"Smart persistence, multiplicative",2,stable,0.583724779583539,4068
+P_smart_mult,"Smart persistence, multiplicative",2,intermediate,0.554824010936233,5089
+P_smart_mult,"Smart persistence, multiplicative",2,variable,0.724400641175323,2700
+P_stoch,"Stochastic persistence",2,all,1.11076890765014,22515
+P_stoch,"Stochastic persistence",2,day,0.80604636458699,11853
+P_stoch,"Stochastic persistence",2,stable,0.86590821575006,4068
+P_stoch,"Stochastic persistence",2,intermediate,0.740669365216821,5089
+P_stoch,"Stochastic persistence",2,variable,0.866417249792362,2700
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",2,all,0.584951393375929,22515
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",2,day,0.424480737005595,11853
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",2,stable,0.364157950416125,4068
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",2,intermediate,0.389756525699411,5089
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",2,variable,0.556916215123625,2700
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",2,all,0.596753102499005,22515
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",2,day,0.433044915141344,11853
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",2,stable,0.344502721629888,4068
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",2,intermediate,0.399677023881177,5089
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",2,variable,0.586855818802862,2700
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",2,all,0.691665524679298,22515
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",2,day,0.497767737723654,11853
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",2,stable,0.502607491439732,4068
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",2,intermediate,0.439914119329672,5089
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",2,variable,0.611138994347123,2700
+CLIPER_phase,"CLIPER, weight per phase",2,all,0.769547456957879,22515
+CLIPER_phase,"CLIPER, weight per phase",2,day,0.553502978033627,11853
+CLIPER_phase,"CLIPER, weight per phase",2,stable,0.551309803790439,4068
+CLIPER_phase,"CLIPER, weight per phase",2,intermediate,0.498902389366163,5089
+CLIPER_phase,"CLIPER, weight per phase",2,variable,0.668677976236221,2700
+BLEND_statio,"BLEND, one weight, raw signal",2,all,0.784315019976993,22515
+BLEND_statio,"BLEND, one weight, raw signal",2,day,0.567186288224615,11853
+BLEND_statio,"BLEND, one weight, raw signal",2,stable,0.542487300907288,4068
+BLEND_statio,"BLEND, one weight, raw signal",2,intermediate,0.515562000376308,5089
+BLEND_statio,"BLEND, one weight, raw signal",2,variable,0.700722160543444,2700
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",2,all,0.704245119374878,22515
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",2,day,0.51102973014596,11853
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",2,stable,0.444785003294668,4068
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",2,intermediate,0.468361510725861,5089
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",2,variable,0.666428633029165,2700
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",2,all,0.986650961363665,22515
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",2,day,0.70941905805812,11853
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",2,stable,0.660813791925002,4068
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",2,intermediate,0.66390388036609,5089
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",2,variable,0.856320123715534,2700
+P,"Simple persistence",3,all,1.44130123730878,22515
+P,"Simple persistence",3,day,1.011085331811,11853
+P,"Simple persistence",3,stable,1.01117301467812,4068
+P,"Simple persistence",3,intermediate,0.95825486984667,5089
+P,"Simple persistence",3,variable,1.11648705273239,2700
+P_cyc,"Cyclic persistence",3,all,0.951309145186727,22515
+P_cyc,"Cyclic persistence",3,day,0.690336370271222,11853
+P_cyc,"Cyclic persistence",3,stable,0.731436836679242,4068
+P_cyc,"Cyclic persistence",3,intermediate,0.611709926306987,5089
+P_cyc,"Cyclic persistence",3,variable,0.804123829308252,2700
+P_smart_mult,"Smart persistence, multiplicative",3,all,1.13536759463079,22515
+P_smart_mult,"Smart persistence, multiplicative",3,day,0.823902191481853,11853
+P_smart_mult,"Smart persistence, multiplicative",3,stable,0.88446605321559,4068
+P_smart_mult,"Smart persistence, multiplicative",3,intermediate,0.757213215350645,5089
+P_smart_mult,"Smart persistence, multiplicative",3,variable,0.886135841822195,2700
+P_stoch,"Stochastic persistence",3,all,1.4545278064016,22515
+P_stoch,"Stochastic persistence",3,day,1.05548097370802,11853
+P_stoch,"Stochastic persistence",3,stable,1.18985201798267,4068
+P_stoch,"Stochastic persistence",3,intermediate,0.969218342036898,5089
+P_stoch,"Stochastic persistence",3,variable,1.05619534378636,2700
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",3,all,0.6632556615175,22515
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",3,day,0.481303990020672,11853
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",3,stable,0.465237498187521,4068
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",3,intermediate,0.441319884722464,5089
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",3,variable,0.581700565532589,2700
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",3,all,0.678047999070696,22515
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",3,day,0.492038378505565,11853
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",3,stable,0.437281695729484,4068
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",3,intermediate,0.455724282060384,5089
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",3,variable,0.624174403036359,2700
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",3,all,0.808935445307916,22515
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",3,day,0.579182643915008,11853
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",3,stable,0.659390557603649,4068
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",3,intermediate,0.503701683397684,5089
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",3,variable,0.634947212941344,2700
+CLIPER_phase,"CLIPER, weight per phase",3,all,0.8595839001574,22515
+CLIPER_phase,"CLIPER, weight per phase",3,day,0.618224477126406,11853
+CLIPER_phase,"CLIPER, weight per phase",3,stable,0.682551113784673,4068
+CLIPER_phase,"CLIPER, weight per phase",3,intermediate,0.548201626910809,5089
+CLIPER_phase,"CLIPER, weight per phase",3,variable,0.68412265105313,2700
+BLEND_statio,"BLEND, one weight, raw signal",3,all,0.864672218462112,22515
+BLEND_statio,"BLEND, one weight, raw signal",3,day,0.62405694521484,11853
+BLEND_statio,"BLEND, one weight, raw signal",3,stable,0.621264779428594,4068
+BLEND_statio,"BLEND, one weight, raw signal",3,intermediate,0.563503497538737,5089
+BLEND_statio,"BLEND, one weight, raw signal",3,variable,0.752230434219456,2700
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",3,all,0.786134911581367,22515
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",3,day,0.570448907049934,11853
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",3,stable,0.526917800277235,4068
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",3,intermediate,0.521430860992467,5089
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",3,variable,0.717934459287812,2700
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",3,all,1.23794527800078,22515
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",3,day,0.87596839218352,11853
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",3,stable,0.853621481233621,4068
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",3,intermediate,0.826912587981971,5089
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",3,variable,1.00112487873013,2700
+P,"Simple persistence",6,all,2.23489384619687,22515
+P,"Simple persistence",6,day,1.40557155876265,11853
+P,"Simple persistence",6,stable,1.48995219411618,4068
+P,"Simple persistence",6,intermediate,1.35164181312732,5089
+P,"Simple persistence",6,variable,1.393408842847,2700
+P_cyc,"Cyclic persistence",6,all,0.951309145186727,22515
+P_cyc,"Cyclic persistence",6,day,0.690336370271222,11853
+P_cyc,"Cyclic persistence",6,stable,0.731436836679242,4068
+P_cyc,"Cyclic persistence",6,intermediate,0.611709926306987,5089
+P_cyc,"Cyclic persistence",6,variable,0.804123829308252,2700
+P_smart_mult,"Smart persistence, multiplicative",6,all,2.02459421756758,22515
+P_smart_mult,"Smart persistence, multiplicative",6,day,1.46918806805669,11853
+P_smart_mult,"Smart persistence, multiplicative",6,stable,1.70483566964118,4068
+P_smart_mult,"Smart persistence, multiplicative",6,intermediate,1.34983021770142,5089
+P_smart_mult,"Smart persistence, multiplicative",6,variable,1.39155545534402,2700
+P_stoch,"Stochastic persistence",6,all,1.73110853058837,22515
+P_stoch,"Stochastic persistence",6,day,1.25621406675411,11853
+P_stoch,"Stochastic persistence",6,stable,1.498814976102,4068
+P_stoch,"Stochastic persistence",6,intermediate,1.1392854646745,5089
+P_stoch,"Stochastic persistence",6,variable,1.15926266113372,2700
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",6,all,0.772080154252643,22515
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",6,day,0.560274879705509,11853
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",6,stable,0.642335741877702,4068
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",6,intermediate,0.500652378465132,5089
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",6,variable,0.577661787338104,2700
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",6,all,0.785391176984887,22515
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",6,day,0.569934313476579,11853
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",6,stable,0.605003554057252,4068
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",6,intermediate,0.518366576875836,5089
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",6,variable,0.634158875851302,2700
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",6,all,0.983709468518468,22515
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",6,day,0.705153811250983,11853
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",6,stable,0.908266321066738,4068
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",6,intermediate,0.590342024947404,5089
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",6,variable,0.654758017560573,2700
+CLIPER_phase,"CLIPER, weight per phase",6,all,0.973803352682592,22515
+CLIPER_phase,"CLIPER, weight per phase",6,day,0.701659722275258,11853
+CLIPER_phase,"CLIPER, weight per phase",6,stable,0.882595240721141,4068
+CLIPER_phase,"CLIPER, weight per phase",6,intermediate,0.599074932306491,5089
+CLIPER_phase,"CLIPER, weight per phase",6,variable,0.661884446213123,2700
+BLEND_statio,"BLEND, one weight, raw signal",6,all,0.92688190976333,22515
+BLEND_statio,"BLEND, one weight, raw signal",6,day,0.668517999262767,11853
+BLEND_statio,"BLEND, one weight, raw signal",6,stable,0.688016713067307,4068
+BLEND_statio,"BLEND, one weight, raw signal",6,intermediate,0.597836666090782,5089
+BLEND_statio,"BLEND, one weight, raw signal",6,variable,0.791894983649668,2700
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",6,all,0.893397228814495,22515
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",6,day,0.648300486305243,11853
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",6,stable,0.647279259081154,4068
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",6,intermediate,0.583521153576515,5089
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",6,variable,0.783054582299677,2700
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",6,all,1.53026781787662,22515
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",6,day,1.04070453357067,11853
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",6,stable,1.06186746244155,4068
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",6,intermediate,0.993059509596748,5089
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",6,variable,1.10720269702201,2700
+P,"Simple persistence",9,all,2.58230822318774,22515
+P,"Simple persistence",9,day,1.43486197302956,11853
+P,"Simple persistence",9,stable,1.55364200676517,4068
+P,"Simple persistence",9,intermediate,1.38209995426412,5089
+P,"Simple persistence",9,variable,1.36727098376064,2700
+P_cyc,"Cyclic persistence",9,all,0.951309145186727,22515
+P_cyc,"Cyclic persistence",9,day,0.690336370271222,11853
+P_cyc,"Cyclic persistence",9,stable,0.731436836679242,4068
+P_cyc,"Cyclic persistence",9,intermediate,0.611709926306987,5089
+P_cyc,"Cyclic persistence",9,variable,0.804123829308252,2700
+P_smart_mult,"Smart persistence, multiplicative",9,all,2.62529451882581,22515
+P_smart_mult,"Smart persistence, multiplicative",9,day,1.90509868101311,11853
+P_smart_mult,"Smart persistence, multiplicative",9,stable,2.20516198172477,4068
+P_smart_mult,"Smart persistence, multiplicative",9,intermediate,1.77224671426402,5089
+P_smart_mult,"Smart persistence, multiplicative",9,variable,1.75528846715935,2700
+P_stoch,"Stochastic persistence",9,all,1.67277690396914,22515
+P_stoch,"Stochastic persistence",9,day,1.21388443066936,11853
+P_stoch,"Stochastic persistence",9,stable,1.45413381676503,4068
+P_stoch,"Stochastic persistence",9,intermediate,1.09969706314923,5089
+P_stoch,"Stochastic persistence",9,variable,1.11319439249944,2700
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",9,all,0.793361265428117,22515
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",9,day,0.575717981607969,11853
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",9,stable,0.696053985965471,4068
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",9,intermediate,0.499659904669282,5089
+CLIPER_cs_mult,"CLIPER on clear-sky index x/CS",9,variable,0.571814254224379,2700
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",9,all,0.805087791371724,22515
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",9,day,0.584227590019812,11853
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",9,stable,0.652131699722742,4068
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",9,intermediate,0.511720170565318,5089
+BLEND_cs_mult,"BLEND on clear-sky index x/CS",9,variable,0.650372894727662,2700
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",9,all,1.02517585452431,22515
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",9,day,0.739500407129663,11853
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",9,stable,0.966246226456409,4068
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",9,intermediate,0.613893786101169,5089
+CLIPER_one_anomaly,"CLIPER on anomaly x - mu(phase), one weight",9,variable,0.67318600299185,2700
+CLIPER_phase,"CLIPER, weight per phase",9,all,1.01632585992812,22515
+CLIPER_phase,"CLIPER, weight per phase",9,day,0.734818287742706,11853
+CLIPER_phase,"CLIPER, weight per phase",9,stable,0.955898611620481,4068
+CLIPER_phase,"CLIPER, weight per phase",9,intermediate,0.613511034323108,5089
+CLIPER_phase,"CLIPER, weight per phase",9,variable,0.668466378251567,2700
+BLEND_statio,"BLEND, one weight, raw signal",9,all,0.934923625741839,22515
+BLEND_statio,"BLEND, one weight, raw signal",9,day,0.673765177264319,11853
+BLEND_statio,"BLEND, one weight, raw signal",9,stable,0.698697695430792,4068
+BLEND_statio,"BLEND, one weight, raw signal",9,intermediate,0.600579881886481,5089
+BLEND_statio,"BLEND, one weight, raw signal",9,variable,0.795843704159472,2700
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",9,all,0.916863740386037,22515
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",9,day,0.665337782095405,11853
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",9,stable,0.676224902170818,4068
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",9,intermediate,0.597262103285408,5089
+BLEND_phase_ls,"BLEND, weight per phase (least squares)",9,variable,0.793364366680878,2700
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",9,all,1.32001577088379,22515
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",9,day,0.898176329839701,11853
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",9,stable,0.955890537672188,4068
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",9,intermediate,0.842274147012194,5089
+BLEND_tilde,"BLEND, simplified weight per phase (1 + rho)/2",9,variable,0.938725231790805,2700
