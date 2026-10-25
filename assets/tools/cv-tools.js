@@ -257,7 +257,7 @@
     if (document.getElementById("cvt-layout")) return;
     var st = document.createElement("style"); st.id = "cvt-layout";
     st.textContent = ".cvt-sticky{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.95);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);border:1px solid #d8e0e8;border-radius:10px;padding:8px 12px;margin:8px 0;box-shadow:0 2px 8px rgba(23,37,54,.06)}" +
-      ".cvt-sticky{width:min(1280px,calc(100vw - 32px));margin-left:calc(50% - min(640px,calc(50vw - 16px)));box-sizing:border-box}.cvt-sticky .cvt-grid{margin:0;display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:4px 16px}.cvt-sticky .cvt-hint{margin:4px 0 0}.cvt-datadet{margin:6px 0}.cvt-datadet summary{cursor:pointer;font-weight:600}" +
+      ".cvt-sticky{width:min(1280px,calc(100vw - 32px));margin-left:calc(50% - min(640px,calc(50vw - 16px)));box-sizing:border-box}.cvt-sticky .cvt-grid{margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:4px 16px}.cvt-sticky .cvt-hint{margin:4px 0 0}.cvt-datadet{margin:6px 0}.cvt-datadet summary{cursor:pointer;font-weight:600}" +
       ".cvt-2x2{display:grid;grid-template-columns:1fr 1fr;gap:12px;width:min(1280px,calc(100vw - 32px));position:relative;left:50%;transform:translateX(-50%)}" +
       ".cvt-cell{border:1px solid #d8e0e8;border-radius:10px;padding:10px;background:#fff;min-width:0}.cvt-cell h3{margin:0 0 4px;font-size:1rem}" +
       "@media (max-width:900px){.cvt-2x2{grid-template-columns:1fr;width:auto;left:0;transform:none}.cvt-sticky{width:auto;margin-left:0}.cvt-sticky .cvt-grid{grid-template-columns:1fr 1fr}}";
@@ -581,11 +581,26 @@
     box.addEventListener("input", upd); box.addEventListener("change", upd); upd();
   }
 
+  function stickyControls(box) {      // the first block of controls of every tool stays in view while scrolling (Cyril, 25/10)
+    layoutStyle();
+    if (box.querySelector(".cvt-sticky")) return;
+    var g = box.querySelector(".cvt-grid");
+    if (!g) {                          // tools that build their controls later (ARTU loads its tables first)
+      if (window.MutationObserver && !box.dataset.waitSticky) {
+        box.dataset.waitSticky = "1";
+        var mo = new MutationObserver(function () { if (box.querySelector(".cvt-grid")) { mo.disconnect(); stickyControls(box); } });
+        mo.observe(box, { childList: true, subtree: true });
+      }
+      return;
+    }
+    var w = document.createElement("div"); w.className = "cvt-sticky";
+    g.parentNode.insertBefore(w, g); w.appendChild(g);
+  }
   var MOUNT = { lql: mountLQL, thyroid: mountThyroid, nice: mountNICE, blend: mountBLEND, scv: mountSCV, artu: mountARTU, gamma: mountGamma };
   function init() {
     [].forEach.call(document.querySelectorAll(".cvt[data-tool]"), function (box) {
       var f = MOUNT[box.getAttribute("data-tool")];
-      if (f && !box.dataset.ready) { box.dataset.ready = "1"; f(box); }
+      if (f && !box.dataset.ready) { box.dataset.ready = "1"; f(box); stickyControls(box); }
     });
   }
   window.CVT = CVT;
