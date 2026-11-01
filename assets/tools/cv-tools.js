@@ -227,10 +227,19 @@
     return '<label class="cvt-data" for="' + id + '"><span>' + hint + '</span><textarea id="' + id + '" rows="6" spellcheck="false">' + rows + "</textarea></label>";
   }
   function mountNICE(box) {
-    box.innerHTML = dataBox("ni-d", ["x", "f"], "Two columns: observation y(t), forecast of y(t) issued n steps earlier (one row per time step). Demo data loaded (n = 1); paste your own.") +
-      '<div class="cvt-grid">' + num("Forecast horizon n (steps)", "ni-n", 1, 1) + "</div>" +
-      '<p class="cvt-hint">The reference is always simple persistence: the observation n steps earlier, ŷ(t) = y(t − nΔt) (Eqs. 2 and 11 of the article).</p>' +
-      '<div class="cvt-out" aria-live="polite"></div>' + TESTS;
+    var fr = document.documentElement.lang === "fr";
+    var local = function (v, digits) { var s = fmt(v, digits); return fr ? s.replace(".", ",") : s; };
+    var tests = fr
+      ? '<p class="cvt-note">Comparé au code de référence : <a href="/tools/js-tests.html">cas de vérification</a>. Le calcul se fait dans votre navigateur ; aucune donnée n’est envoyée.</p>'
+      : TESTS;
+    box.innerHTML = dataBox("ni-d", ["x", "f"], fr
+      ? "Deux colonnes : observation y(t), prévision émise n pas plus tôt pour cette date cible. Démonstration chargée (n = 1) ; vous pouvez coller vos données."
+      : "Two columns: observation y(t), forecast of y(t) issued n steps earlier (one row per time step). Demo data loaded (n = 1); paste your own.") +
+      '<div class="cvt-grid">' + num(fr ? "Horizon de prévision n (pas)" : "Forecast horizon n (steps)", "ni-n", 1, 1) + "</div>" +
+      (fr
+        ? '<p class="cvt-hint">La référence est la persistance simple : l’observation n pas plus tôt, ŷ(t) = y(t − nΔt). Modèle et référence sont évalués aux mêmes dates cibles.</p>'
+        : '<p class="cvt-hint">The reference is always simple persistence: the observation n steps earlier, ŷ(t) = y(t − nΔt) (Eqs. 2 and 11 of the article).</p>') +
+      '<div class="cvt-out" aria-live="polite"></div>' + tests;
     var ta = box.querySelector("#ni-d"), demoText = ta.value, demoLag = 1;
     function demoFor(n) {          // demo forecast issued n steps ahead: it may only use observations up to t - n
       var d = demo();
@@ -241,15 +250,22 @@
       if (ta.value === demoText && lag !== demoLag) { demoText = ta.value = demoFor(lag); demoLag = lag; }
       var rows = parseCols(ta.value), y = rows.map(function (r) { return r[0]; }), f = rows.map(function (r) { return r[1]; });
       var ref = y.map(function (v, i) { return i >= lag ? y[i - lag] : NaN; });
-      if (y.length < lag + 3) { box.querySelector(".cvt-out").innerHTML = "<p>Paste at least n + 3 rows.</p>"; return; }
+      if (y.length < lag + 3) { box.querySelector(".cvt-out").innerHTML = fr ? "<p>Il faut au moins n + 3 lignes.</p>" : "<p>Paste at least n + 3 rows.</p>"; return; }
       var m = CVT.nice(y, f, ref);
       box.querySelector(".cvt-out").innerHTML = '<table class="cvt-table"><tr><th></th><th>k = 1 (MAE)</th><th>k = 2 (RMSE)</th><th>k = 3</th></tr>' +
-        "<tr><th>model error E<sub>k</sub></th><td>" + fmt(m.E1_model, 2) + "</td><td>" + fmt(m.E2_model, 2) + "</td><td>" + fmt(m.E3_model, 2) + "</td></tr>" +
-        "<tr><th>simple persistence error</th><td>" + fmt(m.E1_ref, 2) + "</td><td>" + fmt(m.E2_ref, 2) + "</td><td>" + fmt(m.E3_ref, 2) + "</td></tr>" +
-        "<tr><th>NICE<sup>k</sup></th><td>" + fmt(m.NICE1) + "</td><td>" + fmt(m.NICE2) + "</td><td>" + fmt(m.NICE3) + "</td></tr></table>" +
-        "<p>NICE<sup>Σ</sup> = <strong>" + fmt(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
-        (!isFinite(m.NICE_Sigma) ? "Undefined ratio: check that the reference error is nonzero and that valid data share the same target dates." : m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + fmt(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
-          : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>";
+        "<tr><th>" + (fr ? "Erreur du modèle" : "model error") + " E<sub>k</sub></th><td>" + local(m.E1_model, 2) + "</td><td>" + local(m.E2_model, 2) + "</td><td>" + local(m.E3_model, 2) + "</td></tr>" +
+        "<tr><th>" + (fr ? "Erreur de persistance simple" : "simple persistence error") + "</th><td>" + local(m.E1_ref, 2) + "</td><td>" + local(m.E2_ref, 2) + "</td><td>" + local(m.E3_ref, 2) + "</td></tr>" +
+        "<tr><th>NICE<sup>k</sup></th><td>" + local(m.NICE1) + "</td><td>" + local(m.NICE2) + "</td><td>" + local(m.NICE3) + "</td></tr></table>" +
+        (fr
+          ? "<p>NICE<sup>Σ</sup> = <strong>" + local(m.NICE_Sigma) + "</strong> sur " + m.n + " observations (poids égaux). " +
+            (!isFinite(m.NICE_Sigma)
+              ? "Rapport indéfini : vérifiez que l’erreur de persistance n’est pas nulle et que les séries ont les mêmes dates cibles."
+              : m.NICE_Sigma <= 1
+                ? "Échelle utile : 0 = prévision parfaite, 1 = persistance simple. Ici, le modèle conserve " + local(100 * m.NICE_Sigma, 0) + " % de l’erreur de persistance."
+                : "Hors de l’échelle utile 0–1 : ce modèle fait plus d’erreur que la persistance simple. Le quotient brut reste affiché pour signaler cet échec ; vérifiez aussi l’alignement avec l’horizon n.") + "</p>"
+          : "<p>NICE<sup>Σ</sup> = <strong>" + local(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
+            (!isFinite(m.NICE_Sigma) ? "Undefined ratio: check that the reference error is nonzero and that valid data share the same target dates." : m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + local(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
+              : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>");
     }
     box.addEventListener("input", upd); upd();
   }
@@ -265,19 +281,30 @@
   }
   function mountBLEND(box) {
     layoutStyle();
-    box.innerHTML = '<details class="cvt-datadet"><summary>Data: demo, real PV or your own</summary>' +
-      dataBox("bl-d", ["x"], "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own.") + "</details>" +
-      '<div class="cvt-sticky"><div class="cvt-grid">' + num("Period T (steps)", "bl-T", 24, 1) + slider("Horizon h", "bl-h", 1, 24, 1, 1, "steps") + slider("Window shown (period)", "bl-w", 1, 30, 1, 1, "") +
-      slider("Phase of the origin", "bl-ph", 1, 24, 1, 1, "") + slider("Your λ", "bl-l", 0, 1, 0.01, 0.5, "") + "</div>" +
-      '<p class="cvt-hint"><button type="button" class="cvt-btn bl-real">Load real PV data (Palaiseau, 40 days, 30-min steps)</button> <span class="bl-src"></span></p></div>' +
+    var fr = document.documentElement.lang === "fr";
+    function tr(f, e) { return fr ? f : e; }
+    function local(v, digits) { var s = fmt(v, digits); return fr ? s.replace(".", ",") : s; }
+    var tests = fr
+      ? '<p class="cvt-note">Comparé au code de référence : <a href="/tools/js-tests.html">cas de vérification</a>. Calcul local dans le navigateur.</p>'
+      : TESTS;
+    box.innerHTML = '<details class="cvt-datadet"><summary>' + tr("Données : démo, PV réel ou les vôtres", "Data: demo, real PV or your own") + '</summary>' +
+      dataBox("bl-d", ["x"], tr("Une colonne : signal régulièrement échantillonné (une ligne par pas de temps). Exemple horaire chargé ; vous pouvez coller vos données.", "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own.")) + "</details>" +
+      '<div class="cvt-sticky"><div class="cvt-grid">' + num(tr("Période T (pas)", "Period T (steps)"), "bl-T", 24, 1) +
+      slider("Horizon h", "bl-h", 1, 24, 1, 1, tr("pas", "steps")) +
+      slider(tr("Fenêtre affichée (période)", "Window shown (period)"), "bl-w", 1, 30, 1, 1, "") +
+      slider(tr("Phase de l’origine", "Phase of the origin"), "bl-ph", 1, 24, 1, 1, "") +
+      slider(tr("Votre λ", "Your λ"), "bl-l", 0, 1, 0.01, 0.5, "") + "</div>" +
+      '<p class="cvt-hint"><button type="button" class="cvt-btn bl-real">' + tr("Charger des données PV réelles (Palaiseau, 40 jours, pas de 30 min)", "Load real PV data (Palaiseau, 40 days, 30-min steps)") + '</button> <span class="bl-src"></span></p></div>' +
       '<div class="cvt-out" aria-live="polite"></div><div class="cvt-2x2">' +
-      "<div class=\"cvt-cell\"><h3>1. Three whole periods, night to night</h3><div class=\"cvt-plot bl-p1\"></div></div>" +
-      "<div class=\"cvt-cell\"><h3>2. Set λ yourself</h3><p class=\"cvt-hint\">At one phase of the period, the forecast is (1 − λ) × the value one period earlier + λ × the latest value. " +
-      "Its mean squared error is a parabola in λ; the RMSE shown is its square root and has the same minimum. λ = 0 is cyclic persistence, λ = 1 is persistence, and BLEND takes the least-squares minimum within [0, 1].</p>" +
+      '<div class="cvt-cell"><h3>' + tr("1. Trois périodes entières, de nuit à nuit", "1. Three whole periods, night to night") + '</h3><div class="cvt-plot bl-p1"></div></div>' +
+      '<div class="cvt-cell"><h3>' + tr("2. Réglez λ vous-même", "2. Set λ yourself") + '</h3><p class="cvt-hint">' +
+      tr("À une phase donnée, la prévision vaut (1 − λ) × la valeur une période plus tôt + λ × la dernière valeur. L’erreur quadratique moyenne est une parabole en λ ; la RMSE affichée a le même minimum. λ = 0 donne la persistance cyclique, λ = 1 la persistance, et BLEND prend le minimum des moindres carrés dans [0, 1].",
+         "At one phase of the period, the forecast is (1 − λ) × the value one period earlier + λ × the latest value. Its mean squared error is a parabola in λ; the RMSE shown is its square root and has the same minimum. λ = 0 is cyclic persistence, λ = 1 is persistence, and BLEND takes the least-squares minimum within [0, 1].") + '</p>' +
       '<div class="cvt-out bl-o2" aria-live="polite"></div><div class="cvt-plot bl-p2"></div></div>' +
-      "<div class=\"cvt-cell\"><h3>λ at every phase</h3><div class=\"cvt-plot bl-p3\"></div></div>" +
-      "<div class=\"cvt-cell\"><h3>3. What blending adds, horizon by horizon</h3><div class=\"cvt-plot bl-p4\"></div><div class=\"cvt-out bl-o4\"></div></div></div>" +
-      '<p class="cvt-hint">Weights fitted on the whole series (an in-sample diagnostic, as the default of the reference code); to evaluate, fit on a training period and test on the rest.</p>' + TESTS;
+      '<div class="cvt-cell"><h3>' + tr("λ à chaque phase", "λ at every phase") + '</h3><div class="cvt-plot bl-p3"></div></div>' +
+      '<div class="cvt-cell"><h3>' + tr("3. Ce que le mélange apporte, horizon par horizon", "3. What blending adds, horizon by horizon") + '</h3><div class="cvt-plot bl-p4"></div><div class="cvt-out bl-o4"></div></div></div>' +
+      '<p class="cvt-hint">' + tr("Poids ajustés sur toute la série : diagnostic sur les données d’ajustement, comme dans le code de référence par défaut. Pour évaluer une prévision, ajustez sur une période d’entraînement et testez sur une autre période.",
+        "Weights fitted on the whole series (an in-sample diagnostic, as the default of the reference code); to evaluate, fit on a training period and test on the rest.") + '</p>' + tests;
     var lastKey = "", real = null;
     function errs(x, T, h) {                // RMSE of persistence, cyclic persistence and BLEND on the same targets
       var b = CVT.blendLS(x, T, h), sp = 0, sc = 0, k = 0;
@@ -299,11 +326,11 @@
     function upd() {
       var x = parseCols(box.querySelector("#bl-d").value).map(function (r) { return r[0]; }), T = Math.round(+box.querySelector("#bl-T").value), hEl = box.querySelector("#bl-h");
       hEl.max = Math.max(1, T); var h = +hEl.value; box.querySelector("#bl-h-o").textContent = h;
-      if (!(T >= 2) || x.length < 3 * T || h > T) { box.querySelector(".cvt-out").innerHTML = "<p>Need at least three periods of data and h ≤ T.</p>"; return; }
+      if (!(T >= 2) || x.length < 3 * T || h > T) { box.querySelector(".cvt-out").innerHTML = "<p>" + tr("Il faut au moins trois périodes de données et h ≤ T.", "Need at least three periods of data and h ≤ T.") + "</p>"; return; }
       var e = errs(x, T, h), best = Math.min(e.p, e.c), gain = 100 * (1 - e.b.rmse / best);
-      box.querySelector(".cvt-out").innerHTML = "<p>RMSE on the same targets: BLEND <strong>" + fmt(e.b.rmse, 1) + "</strong> · persistence " + fmt(e.p, 1) +
-        " · cyclic persistence " + fmt(e.c, 1) + ".</p><p>At this horizon, BLEND is <strong>" + fmt(gain, 1) + " %</strong> below the better of the two persistences, " +
-        (e.p < e.c ? "persistence." : "cyclic persistence.") + "</p>";
+      box.querySelector(".cvt-out").innerHTML = "<p>" + tr("RMSE sur les mêmes cibles", "RMSE on the same targets") + " : BLEND <strong>" + local(e.b.rmse, 1) + "</strong> · " + tr("persistance", "persistence") + " " + local(e.p, 1) +
+        " · " + tr("persistance cyclique", "cyclic persistence") + " " + local(e.c, 1) + ".</p><p>" + tr("À cet horizon, BLEND est", "At this horizon, BLEND is") + " <strong>" + local(gain, 1) + " %</strong> " + tr("sous la meilleure des deux persistances", "below the better of the two persistences") + ", " +
+        (e.p < e.c ? tr("la persistance.", "persistence.") : tr("la persistance cyclique.", "cyclic persistence.")) + "</p>";
       // 1. the forecast itself over three whole periods, starting in the middle of the night
       var q0 = nightStart(x, T), k0 = ((q0 - T - h) % T + 2 * T) % T, nper = Math.max(1, Math.floor((e.b.pred.length - k0) / T) - 2), wEl = box.querySelector("#bl-w");
       wEl.max = nper; if (+wEl.value > nper) wEl.value = nper;
@@ -314,9 +341,9 @@
         O.push([s, x[t + h - 1]]); P.push([s, x[t - 1]]); C.push([s, x[t + h - T - 1]]); B.push([s, e.b.pred[k]]);
       }
       box.querySelector(".bl-p1").innerHTML = lineChart([
-        { pts: O, color: "#172536", label: "observation" }, { pts: P, color: "#ad5200", label: "persistence (last value)", dash: true },
-        { pts: C, color: "#8a96a3", label: "cyclic persistence (one period earlier)", dash: true }, { pts: B, color: "#3c8d5a", label: "BLEND" }],
-        { xlabel: "periods in the window (each tick: middle of the night)", ylabel: "signal", xmin: 0, xmax: 3, aria: "Forecasts and observation over three whole periods" });
+        { pts: O, color: "#172536", label: "observation" }, { pts: P, color: "#ad5200", label: tr("persistance (dernière valeur)", "persistence (last value)"), dash: true },
+        { pts: C, color: "#8a96a3", label: tr("persistance cyclique (une période plus tôt)", "cyclic persistence (one period earlier)"), dash: true }, { pts: B, color: "#3c8d5a", label: "BLEND" }],
+        { xlabel: tr("périodes dans la fenêtre (chaque graduation : milieu de la nuit)", "periods in the window (each tick: middle of the night)"), ylabel: "signal", xmin: 0, xmax: 3, aria: tr("Prévisions et observation sur trois périodes entières", "Forecasts and observation over three whole periods") });
       // 2. the parabola at one phase, with the reader's lambda and the least-squares one
       var phEl = box.querySelector("#bl-ph"), key = T + "|" + h + "|" + x.length + "|" + x[0];
       phEl.max = T;
@@ -325,51 +352,63 @@
         phEl.value = bp + 1; lastKey = key;
       }
       var p = +phEl.value - 1, lu = +box.querySelector("#bl-l").value, ls = e.b.lambda[p], ys = [], rs = [], cs = [];
-      box.querySelector("#bl-ph-o").textContent = p + 1; box.querySelector("#bl-l-o").textContent = lu.toFixed(2);
+      box.querySelector("#bl-ph-o").textContent = p + 1; box.querySelector("#bl-l-o").textContent = local(lu, 2);
       for (t = T + 1; t <= x.length - h; t++) if ((t - 1) % T === p) { ys.push(x[t + h - 1]); rs.push(x[t - 1]); cs.push(x[t + h - T - 1]); }
       function E(l) { var s2 = 0; for (var i = 0; i < ys.length; i++) s2 += Math.pow(ys[i] - (1 - l) * cs[i] - l * rs[i], 2); return Math.sqrt(s2 / ys.length); }
       var par = []; for (var j = 0; j <= 50; j++) par.push([j / 50, E(j / 50)]);
-      box.querySelector(".bl-o2").innerHTML = "<p>Phase " + (p + 1) + " (" + ys.length + " targets): cyclic persistence (λ = 0) " + fmt(E(0), 1) + " · persistence (λ = 1) " + fmt(E(1), 1) +
-        " · your λ = " + lu.toFixed(2) + ": <strong>" + fmt(E(lu), 1) + "</strong> · BLEND λ = " + ls.toFixed(2) + ": <strong>" + fmt(E(ls), 1) + "</strong>.</p>";
-      box.querySelector(".bl-p2").innerHTML = lineChart([{ pts: par, color: "#3c8d5a", label: "RMSE at this phase against λ" },
+      box.querySelector(".bl-o2").innerHTML = "<p>" + tr("Phase", "Phase") + " " + (p + 1) + " (" + ys.length + " " + tr("cibles", "targets") + ") : " + tr("persistance cyclique", "cyclic persistence") + " (λ = 0) " + local(E(0), 1) + " · " + tr("persistance", "persistence") + " (λ = 1) " + local(E(1), 1) +
+        " · " + tr("votre λ", "your λ") + " = " + local(lu, 2) + " : <strong>" + local(E(lu), 1) + "</strong> · BLEND λ = " + local(ls, 2) + " : <strong>" + local(E(ls), 1) + "</strong>.</p>";
+      box.querySelector(".bl-p2").innerHTML = lineChart([{ pts: par, color: "#3c8d5a", label: tr("RMSE de cette phase selon λ", "RMSE at this phase against λ") },
         { pts: [[lu, E(lu)]], color: "#ad5200", marker: true }, { pts: [[ls, E(ls)]], color: "#3c8d5a", marker: true }],
-        { xlabel: "λ (0 = one period earlier, 1 = latest value)", ylabel: "RMSE", xmin: 0, xmax: 1, ymin: 0.8 * E(ls), aria: "Error at one phase against the blending weight" });
-      box.querySelector(".bl-p3").innerHTML = lineChart([{ pts: e.b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: "BLEND λ at every phase (the dot: the phase above)" },
+        { xlabel: tr("λ (0 = période précédente, 1 = dernière valeur)", "λ (0 = one period earlier, 1 = latest value)"), ylabel: "RMSE", xmin: 0, xmax: 1, ymin: 0.8 * E(ls), aria: tr("Erreur à une phase selon le poids du mélange", "Error at one phase against the blending weight") });
+      box.querySelector(".bl-p3").innerHTML = lineChart([{ pts: e.b.lambda.map(function (l, i) { return [i + 1, l]; }), color: "#3c8d5a", label: tr("BLEND λ à chaque phase (point : phase ci-dessus)", "BLEND λ at every phase (the dot: the phase above)") },
         { pts: [[p + 1, ls]], color: "#3c8d5a", marker: true }],
-        { xlabel: "phase of the origin", ylabel: "λ", xmin: 1, xmax: T, ymin: 0, ymax: 1, aria: "BLEND weight by phase" });
+        { xlabel: tr("phase à l’origine", "phase of the origin"), ylabel: "λ", xmin: 1, xmax: T, ymin: 0, ymax: 1, aria: tr("Poids BLEND selon la phase", "BLEND weight by phase") });
       // 3. gain over the better persistence, for every horizon up to one period
       var G = [], cross = 0;
       for (var hh = 1; hh <= T; hh++) { var r = errs(x, T, hh), refError = Math.min(r.p, r.c); if (refError > 0) G.push([hh, 100 * (1 - r.b.rmse / refError)]); if (!cross && r.c <= r.p) cross = hh; }
-      var gainSeries = [{ pts: G, color: "#3c8d5a", label: "BLEND gain over the better persistence (%)" }];
+      var gainSeries = [{ pts: G, color: "#3c8d5a", label: tr("Gain de BLEND sur la meilleure persistance (%)", "BLEND gain over the better persistence (%)") }];
       if (isFinite(gain)) gainSeries.push({ pts: [[h, gain]], color: "#3c8d5a", marker: true });
       box.querySelector(".bl-p4").innerHTML = G.length ? lineChart(gainSeries,
-        { xlabel: "horizon h (steps)", ylabel: "gain (%)", xmin: 1, xmax: T, ymin: 0, aria: "Gain of BLEND against horizon" }) : "<p>Relative gain is undefined when the reference error is zero. Read the absolute errors above.</p>";
-      box.querySelector(".bl-o4").innerHTML = "<p>" + (cross ? "First horizon where cyclic persistence matches or beats persistence: h = " + cross + " steps. This need not hold at every later horizon."
-        : "Persistence has lower RMSE at every tested horizon.") + " Blending matters most where neither wins clearly. Never negative here, since the weights are fitted on these same data.</p>";
+        { xlabel: tr("horizon h (pas)", "horizon h (steps)"), ylabel: tr("gain (%)", "gain (%)"), xmin: 1, xmax: T, ymin: 0, aria: tr("Gain de BLEND selon l’horizon", "Gain of BLEND against horizon") }) : "<p>" + tr("Le gain relatif est indéfini si l’erreur de référence est nulle. Lire les erreurs absolues ci-dessus.", "Relative gain is undefined when the reference error is zero. Read the absolute errors above.") + "</p>";
+      box.querySelector(".bl-o4").innerHTML = "<p>" + (cross ? tr("Premier horizon où la persistance cyclique égale ou bat la persistance : h = ", "First horizon where cyclic persistence matches or beats persistence: h = ") + cross + tr(" pas. Ce résultat ne vaut pas nécessairement à tous les horizons suivants.", " steps. This need not hold at every later horizon.")
+        : tr("La persistance a la RMSE la plus faible à chaque horizon testé.", "Persistence has lower RMSE at every tested horizon.")) + " " + tr("Le mélange est utile lorsque les deux références sont proches. Le gain calculé ici ne peut être négatif car les poids sont ajustés et évalués sur ces mêmes données.", "Blending matters most where neither wins clearly. Never negative here, since the weights are fitted on these same data.") + "</p>";
     }
     box.querySelector(".bl-real").addEventListener("click", function () {
       function load(j) {
         real = j; box.querySelector("#bl-d").value = j.x.join("\n"); box.querySelector("#bl-T").value = j.T; box.querySelector("#bl-h").value = 2;
-        box.querySelector(".bl-src").innerHTML = "AC power (W), from " + j.start_utc.slice(0, 10) + ", UTC; phase 1 = 00:00, one step = 30 min. <a href=\"https://doi.org/" + j.doi + "\">PV_ELM_pred</a>, public example.";
+        box.querySelector(".bl-src").innerHTML = tr("Puissance CA (W), depuis le ", "AC power (W), from ") + j.start_utc.slice(0, 10) + tr(" (UTC) ; phase 1 = 00 h 00, un pas = 30 min. <a href=\"https://doi.org/", ", UTC; phase 1 = 00:00, one step = 30 min. <a href=\"https://doi.org/") + j.doi + "\">PV_ELM_pred</a>, " + tr("exemple public.", "public example.");
         upd();
       }
       if (real) { load(real); return; }
-      fetch("/assets/tools/blend-palaiseau.json").then(function (r) { return r.json(); }).then(load).catch(function () { box.querySelector(".bl-src").textContent = "The data could not be loaded."; });
+      fetch("/assets/tools/blend-palaiseau.json").then(function (r) { return r.json(); }).then(load).catch(function () { box.querySelector(".bl-src").textContent = tr("Impossible de charger les données.", "The data could not be loaded."); });
     });
     box.addEventListener("input", upd); upd();
   }
   function mountSCV(box) {
-    box.innerHTML = dataBox("sc-d", ["x", "cs"], "Two columns: measured irradiance, clear-sky irradiance (one row per time step). Demo data loaded (hourly); paste your own.") +
-      '<div class="cvt-grid">' + num("Steps per day T", "sc-T", 24, 1) + slider("Horizon n", "sc-n", 1, 12, 1, 1, "steps") + num("Diffuse floor d", "sc-dd", 0.2, 0.05) + "</div>" +
-      '<div class="cvt-out" aria-live="polite"></div>' + TESTS;
+    var fr = document.documentElement.lang === "fr";
+    var fmtLocale = function (v) { var s = fmt(v); return fr ? s.replace(".", ",") : s; };
+    var tests = fr
+      ? '<p class="cvt-note">Vérifié par comparaison avec le code de référence : <a href="/tools/js-tests.html">cas de test</a>. Tout s’exécute dans votre navigateur ; aucune donnée n’est envoyée.</p>'
+      : TESTS;
+    box.innerHTML = dataBox("sc-d", ["x", "cs"], fr
+      ? "Deux colonnes : irradiance mesurée puis irradiance de ciel clair (une ligne par pas de temps). Démonstration horaire chargée ; vous pouvez coller vos données."
+      : "Two columns: measured irradiance, clear-sky irradiance (one row per time step). Demo data loaded (hourly); paste your own.") +
+      '<div class="cvt-grid">' + num(fr ? "Pas de temps par jour T" : "Steps per day T", "sc-T", 24, 1) + slider(fr ? "Horizon n" : "Horizon n", "sc-n", 1, 12, 1, 1, fr ? "pas" : "steps") + num(fr ? "Plancher diffus d" : "Diffuse floor d", "sc-dd", 0.2, 0.05) + "</div>" +
+      '<div class="cvt-out" aria-live="polite"></div>' + tests;
     function upd() {
       var rows = parseCols(box.querySelector("#sc-d").value), I = rows.map(function (r) { return r[0]; }), C = rows.map(function (r) { return r[1]; });
       var T = Math.round(+box.querySelector("#sc-T").value), n = +box.querySelector("#sc-n").value, d = +box.querySelector("#sc-dd").value;
       box.querySelector("#sc-n-o").textContent = n;
-      if (I.length <= T / 2 + 2 || n > T / 2 || !(d >= 0 && d < 1)) { box.querySelector(".cvt-out").innerHTML = "<p>Need more rows than T/2 + 2, n ≤ T/2 and 0 ≤ d &lt; 1.</p>"; return; }
+      if (I.length <= T / 2 + 2 || n > T / 2 || !(d >= 0 && d < 1)) { box.querySelector(".cvt-out").innerHTML = fr
+        ? "<p>Il faut plus de lignes que T/2 + 2, un horizon n ≤ T/2 et une fraction diffuse 0 ≤ d &lt; 1.</p>"
+        : "<p>Need more rows than T/2 + 2, n ≤ T/2 and 0 ≤ d &lt; 1.</p>"; return; }
       var r = CVT.forecastability(I, C, T, n, d);
-      box.querySelector(".cvt-out").innerHTML = "<p>sCV = <strong>" + fmt(r.scv) + "</strong> (0: clear sky; 1: a sky switching at random between clear and overcast) · " +
-        "ρ<sub>max</sub> = " + fmt(r.rho_max) + " at lag " + r.lag + " · F = <strong>" + fmt(r.F) + "</strong> (higher: easier to forecast " + n + " step" + (n > 1 ? "s" : "") + " ahead).</p>";
+      box.querySelector(".cvt-out").innerHTML = fr
+        ? "<p>sCV = <strong>" + fmtLocale(r.scv) + "</strong> (0 : ciel clair ; 1 : alternance aléatoire entre ciel clair et couvert) · " +
+          "ρ<sub>max</sub> = " + fmtLocale(r.rho_max) + " au retard " + r.lag + " · F = <strong>" + fmtLocale(r.F) + "</strong> (plus F est élevé, plus cet horizon est prévisible selon l’indice).</p>"
+        : "<p>sCV = <strong>" + fmt(r.scv) + "</strong> (0: clear sky; 1: a sky switching at random between clear and overcast) · " +
+          "ρ<sub>max</sub> = " + fmt(r.rho_max) + " at lag " + r.lag + " · F = <strong>" + fmt(r.F) + "</strong> (higher: easier to forecast " + n + " step" + (n > 1 ? "s" : "") + " ahead).</p>";
     }
     box.addEventListener("input", upd); upd();
   }
@@ -425,20 +464,28 @@
 
   // ---------------------------------------------------------------- widget: γ-index explorer (one cloud, forecast displaced, late or biased)
   function mountGamma(box) {
-    box.innerHTML = '<p class="cvt-hint"><strong>The forecast error</strong></p><div class="cvt-grid">' +
-      slider("Cloud displaced north by (across its motion)", "gm-s", 0, 6, 0.25, 2, "km") + slider("Forecast late (+) or early (−) by", "gm-l", -30, 30, 5, 0, "min") +
-      slider("Intensity bias", "gm-b", -80, 80, 5, 0, "W/m²") + '</div><p class="cvt-hint"><strong>The tolerances (Eq. 1)</strong></p><div class="cvt-grid">' +
-      slider("DTA, spatial", "gm-dta", 0.5, 3, 0.5, 2, "km") + slider("TTA, temporal", "gm-tta", 5, 30, 5, 30, "min") + slider("IDT, intensity", "gm-idt", 10, 100, 5, 50, "W/m²") +
-      '</div><div class="btns"><button type="button" class="cvt-btn" id="gm-art">Tolerances of the article (2 km, 30 min, 50 W/m²)</button>' +
-      '<button type="button" class="cvt-btn" id="gm-play" aria-pressed="false">▶ Move the forecast cloud away</button></div>' +
-      '<div class="cvt-maps"><figure><canvas width="40" height="40" id="gm-obs"></canvas><figcaption>Observed at time t</figcaption></figure>' +
-      '<figure><canvas width="40" height="40" id="gm-pred"></canvas><figcaption>Forecast for time t</figcaption></figure>' +
-      '<figure><canvas width="40" height="40" id="gm-err"></canvas><figcaption>Pointwise error |forecast − observed|</figcaption></figure>' +
-      '<figure><canvas width="40" height="40" id="gm-g"></canvas><figcaption>γ map: green γ ≤ 1 (accepted), red γ &gt; 1</figcaption></figure></div>' +
+    var fr = document.documentElement.lang === "fr";
+    function tr(f, e) { return fr ? f : e; }
+    function local(v, digits) { var s = fmt(v, digits); return fr ? s.replace(".", ",") : s; }
+    box.innerHTML = '<p class="cvt-hint"><strong>' + tr("L’erreur de prévision", "The forecast error") + '</strong></p><div class="cvt-grid">' +
+      slider(tr("Décalage du nuage vers le nord", "Cloud displaced north by (across its motion)"), "gm-s", 0, 6, 0.25, 2, "km") +
+      slider(tr("Retard (+) ou avance (−)", "Forecast late (+) or early (−) by"), "gm-l", -30, 30, 5, 0, "min") +
+      slider(tr("Biais d’intensité", "Intensity bias"), "gm-b", -80, 80, 5, 0, "W/m²") +
+      '</div><p class="cvt-hint"><strong>' + tr("Les tolérances (équation 1)", "The tolerances (Eq. 1)") + '</strong></p><div class="cvt-grid">' +
+      slider(tr("DTA, espace", "DTA, spatial"), "gm-dta", 0.5, 3, 0.5, 2, "km") +
+      slider(tr("TTA, temps", "TTA, temporal"), "gm-tta", 5, 30, 5, 30, "min") +
+      slider(tr("IDT, intensité", "IDT, intensity"), "gm-idt", 10, 100, 5, 50, "W/m²") +
+      '</div><div class="btns"><button type="button" class="cvt-btn" id="gm-art">' + tr("Tolérances de l’article (2 km, 30 min, 50 W/m²)", "Tolerances of the article (2 km, 30 min, 50 W/m²)") + '</button>' +
+      '<button type="button" class="cvt-btn" id="gm-play" aria-pressed="false">▶ ' + tr("Éloigner le nuage prévu", "Move the forecast cloud away") + '</button></div>' +
+      '<div class="cvt-maps"><figure><canvas width="40" height="40" id="gm-obs"></canvas><figcaption>' + tr("Observation à l’instant t", "Observed at time t") + '</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-pred"></canvas><figcaption>' + tr("Prévision pour l’instant t", "Forecast for time t") + '</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-err"></canvas><figcaption>' + tr("Erreur ponctuelle |prévision − observation|", "Pointwise error |forecast − observed|") + '</figcaption></figure>' +
+      '<figure><canvas width="40" height="40" id="gm-g"></canvas><figcaption>' + tr("Carte γ : vert γ ≤ 1, rouge γ &gt; 1", "γ map: green γ ≤ 1 (accepted), red γ &gt; 1") + '</figcaption></figure></div>' +
       '<div class="cvt-out" aria-live="polite"></div>' +
-      '<p class="cvt-hint">Synthetic scene: clear sky 800 W/m², one cloud dimming by 500 W/m² and moving east at 12 km/h, grid of 0.5 km over 20 km, '
-      + 'observed images every 5 min. γ follows Eq. (1) of the article: for each forecast pixel, the closest observation in space, time and intensity '
-      + 'within 1.5 DTA and 1.5 TTA; GPR is the share of γ ≤ 1 (Eq. 2). An illustration of the definition, not a result of the article. The temporal term follows the article; the archived MATLAB function treats it differently (see the note on units).</p>' + TESTS;
+      '<p class="cvt-hint">' + tr(
+        "Scène synthétique : ciel clair à 800 W/m², nuage atténuant l’irradiance de 500 W/m² et se déplaçant vers l’est à 12 km/h ; maille de 0,5 km sur 20 km, observations toutes les 5 min. γ suit l’équation (1) de l’article. Le GPR affiché est la part des pixels acceptés de cette carte 2D. Illustration pédagogique, pas un résultat de l’article. Le terme temporel suit l’article ; la fonction MATLAB archivée le traite différemment (voir la note sur les unités).",
+        "Synthetic scene: clear sky 800 W/m², one cloud dimming by 500 W/m² and moving east at 12 km/h, grid of 0.5 km over 20 km, observed images every 5 min. γ follows Eq. (1) of the article; the displayed GPR is the share of accepted pixels on this 2D map. An illustration of the definition, not a result of the article. The temporal term follows the article; the archived MATLAB function treats it differently (see the note on units)."
+      ) + '</p>' + (fr ? '<p class="cvt-note">Comparé au code de référence : <a href="/tools/js-tests.html">cas de vérification</a>.</p>' : TESTS);
     var timer = null, N = 40, DX = 0.5, DT = 5, NT = 19, TP = 9;
     function val(id) { return +box.querySelector("#" + id).value; }
     function paint(id, M, f) {
@@ -452,24 +499,27 @@
     function upd() {
       var o = { n: N, nt: NT, tp: TP, dx: DX, dt: DT, I0: 800, depth: 500, sigma: 3, v: 0.2, cx: 7, cy: 10, shift: 0, shiftY: -val("gm-s"), lag: val("gm-l"), scale: 1, bias: val("gm-b"),
                 DTA: val("gm-dta"), TTA: val("gm-tta"), IDT: val("gm-idt") };
-      [["gm-s", 2], ["gm-l", 0], ["gm-b", 0], ["gm-dta", 1], ["gm-tta", 0], ["gm-idt", 0]].forEach(function (x) { box.querySelector("#" + x[0] + "-o").textContent = val(x[0]).toFixed(x[1]); });
+      [["gm-s", 2], ["gm-l", 0], ["gm-b", 0], ["gm-dta", 1], ["gm-tta", 0], ["gm-idt", 0]].forEach(function (x) { box.querySelector("#" + x[0] + "-o").textContent = local(val(x[0]), x[1]); });
       var s = CVT.cloudScene(o), g = CVT.gamma(s.pred, s.obs, o), obs = s.obs[TP];
       var E = s.pred.map(function (r, i) { return r.map(function (v, j) { return Math.abs(v - obs[i][j]); }); }), bad = 0;
       E.forEach(function (r) { r.forEach(function (v) { if (v > o.IDT) bad++; }); });
       paint("gm-obs", obs, sky); paint("gm-pred", s.pred, sky); paint("gm-err", E, err); paint("gm-g", g.map, gcol);
-      box.querySelector(".cvt-out").innerHTML = "<p>GPR = <strong>" + fmt(g.gpr, 1) + " %</strong> of the pixels accepted (γ ≤ 1) · γ̄ = " + fmt(g.mean, 2) + " · γ<sub>max</sub> = " + fmt(g.max, 2) +
-        "</p><p>Pointwise view: RMSE = <strong>" + fmt(g.rmse, 0) + " W/m²</strong>, and " + fmt(100 * bad / (N * N), 1) + " % of the pixels differ by more than IDT. " +
-        (o.shiftY !== 0 && o.bias === 0 && o.lag === 0 ? "A displaced cloud is counted twice by a pointwise score, where it was forecast and where it is: the double penalty that γ avoids within DTA." :
-         o.lag !== 0 && o.shiftY === 0 ? "A late or early cloud is a displacement in time: TTA decides whether it is accepted." :
-         o.bias !== 0 && o.shiftY === 0 && o.lag === 0 ? "Intensity bias contributes through IDT. A spatial or temporal search can also find a closer intensity; inspect the map and retain pointwise errors." : "Errors combine in a single normalized distance: each tolerance absorbs its own part.") + "</p>";
+      box.querySelector(".cvt-out").innerHTML = "<p>GPR = <strong>" + local(g.gpr, 1) + " %</strong>" +
+        tr(" des pixels acceptés", " of the pixels accepted") + " (γ ≤ 1) · γ̄ = " + local(g.mean, 2) + " · γ<sub>max</sub> = " + local(g.max, 2) +
+        "</p><p>" + tr("Vue ponctuelle", "Pointwise view") + " : RMSE = <strong>" + local(g.rmse, 0) + " W/m²</strong>, " +
+        local(100 * bad / (N * N), 1) + " %" + tr(" des pixels dépassent IDT. ", " of the pixels differ by more than IDT. ") +
+        (o.shiftY !== 0 && o.bias === 0 && o.lag === 0 ? tr("Un nuage décalé crée deux zones d’erreur ponctuelle. γ tient compte du déplacement dans les tolérances choisies.", "A displaced cloud creates two pointwise-error regions. γ accounts for that displacement within the chosen tolerances.") :
+         o.lag !== 0 && o.shiftY === 0 ? tr("Un nuage en avance ou en retard est un déplacement temporel : TTA intervient dans son acceptation.", "A late or early cloud is a displacement in time: TTA contributes to its acceptance.") :
+         o.bias !== 0 && o.shiftY === 0 && o.lag === 0 ? tr("Le biais d’intensité intervient dans IDT. La recherche de voisinage peut trouver une intensité plus proche : inspectez la carte.", "Intensity bias contributes through IDT. A spatial or temporal search can find a closer intensity; inspect the map.") :
+         tr("Les erreurs se combinent dans une distance normalisée selon les tolérances retenues.", "Errors combine in a normalized distance under the selected tolerances.")) + "</p>";
     }
     box.querySelector("#gm-art").addEventListener("click", function () { box.querySelector("#gm-dta").value = 2; box.querySelector("#gm-tta").value = 30; box.querySelector("#gm-idt").value = 50; upd(); });
     box.querySelector("#gm-play").addEventListener("click", function () {
       var b = this;
-      if (timer) { clearInterval(timer); timer = null; b.textContent = "▶ Move the forecast cloud away"; b.setAttribute("aria-pressed", "false"); return; }
-      b.textContent = "❚❚ Stop"; b.setAttribute("aria-pressed", "true");
+      if (timer) { clearInterval(timer); timer = null; b.textContent = "▶ " + tr("Éloigner le nuage prévu", "Move the forecast cloud away"); b.setAttribute("aria-pressed", "false"); return; }
+      b.textContent = "❚❚ " + tr("Arrêter", "Stop"); b.setAttribute("aria-pressed", "true");
       var s = box.querySelector("#gm-s"); s.value = 0; box.querySelector("#gm-l").value = 0; box.querySelector("#gm-b").value = 0;
-      timer = setInterval(function () { var v = +s.value + 0.25; if (v > 6) { clearInterval(timer); timer = null; b.textContent = "▶ Move the forecast cloud away"; b.setAttribute("aria-pressed", "false"); return; } s.value = v; upd(); }, 220);
+      timer = setInterval(function () { var v = +s.value + 0.25; if (v > 6) { clearInterval(timer); timer = null; b.textContent = "▶ " + tr("Éloigner le nuage prévu", "Move the forecast cloud away"); b.setAttribute("aria-pressed", "false"); return; } s.value = v; upd(); }, 220);
     });
     box.addEventListener("input", upd); upd();
   }
