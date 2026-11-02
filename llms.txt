@@ -165,7 +165,7 @@ Consult the citation and metadata files available in each repository for authors
 - Author order in each `CITATION.cff` and `codemeta.json` reflects the agreed contribution order. Do not reorder it.
 - Several softwares are co-authored with colleagues at the University of Corsica (SPE, UMR CNRS 6134), the University of Batna 2, the University of Kragujevac, the University of Catania, Kenyatta University and Elsevier. Attribute accordingly.
 - Contact: cyril.voyant@minesparis.psl.eu
-- Last updated: 2026-10-19
+- Last updated: 2026-11-02
 
 ## Accessible explainers: ongoing research and public code
 - [Prévoir la production photovoltaïque : pourquoi réduire la dimension ?](https://www.cyrilvoyant.com/prevision-pv-reduction-dimension): Pourquoi prévoir directement la production PV et compresser son historique ? Une explication accessible de la redondance, des filtres géométriques et de la validation prédictive. Manuscript unsubmitted; no unpublished numerical results.
