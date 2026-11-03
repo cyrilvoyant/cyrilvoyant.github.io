@@ -14,7 +14,7 @@
 $$\frac{dA}{dt}=-a\ln2\,A,$$
 $$\frac{dN}{dt}=N\left(\frac{\ln2}{T_d}-r_0\,A\right),$$
 $$\frac{dTg}{dt}=\lambda\,N-k_e\,Tg .$$
-<p>L’activité décroît au taux effectif \(a\ln2\) (élimination radioactive et biologique réunies) ; la tumeur croît au taux \(\ln2/T_d\) et est détruite proportionnellement aux cellules et à l’activité présentes ; la thyroglobuline est sécrétée par les cellules tumorales et éliminée au taux \(k_e\).</p>
+<p>Dans ces équations, t est le temps ; a règle la disparition de l’activité, r₀ l’effet de l’activité sur les cellules, λ la production de thyroglobuline par cellule et kₑ son élimination. Ces coefficients sont ceux du modèle publié, pas des réglages cliniques à choisir ici.</p><p>L’activité décroît au taux effectif \(a\ln2\) (élimination radioactive et biologique réunies) ; la tumeur croît au taux \(\ln2/T_d\) et est détruite proportionnellement aux cellules et à l’activité présentes ; la thyroglobuline est sécrétée par les cellules tumorales et éliminée au taux \(k_e\).</p>
 <h3>Séance par séance</h3>
 <p>À la séance \(i\), un bolus \(D\) (administration en une seule fois) s’ajoute à l’activité résiduelle, \(A_i=D+A_{i-1}e^{-a\ln2\,\Delta T}\). Entre les séances, avec \(t\) compté depuis la séance :</p>
 $$A(t)=A_i\,e^{-a\ln2\,t},$$
