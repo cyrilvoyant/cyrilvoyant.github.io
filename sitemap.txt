@@ -31,4 +31,3 @@ https://cyrilvoyant.github.io/tools/websemantic.html
 https://cyrilvoyant.github.io/methods/thyroid-radioiodine-fr.html
 https://cyrilvoyant.github.io/teaching/artu-worked-example-fr.html
 https://cyrilvoyant.github.io/tools/tunnel-load-simulator-fr.html
-https://cyrilvoyant.github.io/bib/
