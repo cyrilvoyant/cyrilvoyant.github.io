@@ -311,7 +311,7 @@
     "nice"
    ],
    "extraction": {
-    "source_hash": "5bc6e861a3d7d760",
+    "source_hash": "c5f73624397bb516",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"
@@ -816,7 +816,7 @@
     "forecastability-f"
    ],
    "extraction": {
-    "source_hash": "d71a03ba24789c7c",
+    "source_hash": "f3e6e347c2864185",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"
@@ -1233,7 +1233,7 @@
     "forecastability-f"
    ],
    "extraction": {
-    "source_hash": "99dbba5b5109ed96",
+    "source_hash": "d3396a4b69c9a2b8",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"
@@ -1830,7 +1830,7 @@
     "gamma-index"
    ],
    "extraction": {
-    "source_hash": "dfa3bede1f962608",
+    "source_hash": "e3717a8fce331d52",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"
@@ -2239,7 +2239,7 @@
     "thyroglobulin"
    ],
    "extraction": {
-    "source_hash": "88557d96b7d33886",
+    "source_hash": "01aacca4445958a0",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"
@@ -2702,7 +2702,7 @@
     "gray"
    ],
    "extraction": {
-    "source_hash": "4182adf691783653",
+    "source_hash": "33e1a63c4255bf5e",
     "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
     "roots": [
      "#try-it"

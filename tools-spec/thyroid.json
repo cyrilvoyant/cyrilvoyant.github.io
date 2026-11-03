@@ -398,7 +398,7 @@
   "thyroglobulin"
  ],
  "extraction": {
-  "source_hash": "88557d96b7d33886",
+  "source_hash": "01aacca4445958a0",
   "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
   "roots": [
    "#try-it"

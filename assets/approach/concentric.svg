@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400" role="img" aria-labelledby="t d" font-family="system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif">
-  <title id="t">Concentric modelling</title>
-  <desc id="d">Three concentric circles. At the centre: people and their question. Around it: the model, understood and validated. Outer ring: the tools, including statistics, machine learning, deep learning and language models. Complexity moves outward only when it brings a measurable gain.</desc>
+  <title id="t">Understand before you compute</title>
+  <desc id="d">Three nested circles. At the centre: people and their question. Around it: the model, understood and validated. Outer ring: the tools, including statistics, machine learning, deep learning and language models. Complexity moves outward only when it brings a measurable gain.</desc>
   <rect width="640" height="400" fill="#fbfcfe"/>
   <circle cx="200" cy="200" r="180" fill="#f3eef9" stroke="#7a5aa6" stroke-width="2"/>
   <circle cx="200" cy="200" r="118" fill="#e8f0f8" stroke="#07569a" stroke-width="2"/>

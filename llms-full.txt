@@ -13,8 +13,7 @@ Choose your entry point
 Methods with their theory, reproducible code and interactive tools, for solar and energy forecasting and medical physics.
 StudentsLearn the fundamentalsClear-sky index (measure relative to the cloud-free curve), persistence (repeat the last value), AR (autoregression) and ELM (extreme learning machine, a small neural network) on ten years of real data, and the course slide by slide.Start learning →ResearchersReproduce the resultsMethod guides with equations, open code, data and DOI-archived versions.Explore the guides →PractitionersTry the toolsDose equivalence, thyroid protocols, NICE (forecast error against persistence), BLEND (weighted persistence), sCV and F (variability and forecastability), in your browser, checked against the reference codes.Open the tools →AI systemsUse structured knowledgeMachine-readable summary of methods, publications, code and identifiers.Read llms.txt →
 Find the resource for your question
-This is the technical library: equations, worked examples and code. For the research questions and findings, start with Research. Catalogue des outils en français (interface languages are stated before you open a tool).
-StudentsLearn the fundamentalsClear-sky index (measure relative to the cloud-free curve), persistence (repeat the last value), AR (autoregression) and ELM (extreme learning machine, a small neural network) on ten years of real data, and the course slide by slide.Start learning →ResearchersReproduce the resultsMethod guides with equations, open code, data and DOI-archived versions.Explore the guides →PractitionersTry the toolsDose equivalence, thyroid protocols, NICE (forecast error against persistence), BLEND (weighted persistence), sCV and F (variability and forecastability), in your browser, checked against the reference codes.Open the tools →
+This is the technical library: equations, worked examples and code. For the research questions and findings, start with Research; for the courses, Teaching; for every interactive tool, the tool catalogue or the catalogue des outils en français (interface languages are stated before you open a tool).
 Try it now: live research tools
 LQL-Equiv: radiotherapy dose-equivalence calculator
 BED (biologically effective dose), EQD2 (equivalent dose in 2 Gy fractions), NTCP and TCP (normal-tissue complication and tumour control probabilities) and radiation-induced cancer risk under the linear-quadratic-linear model, for 34 organs at risk and 20 tumour sites. Runs entirely in your browser: nothing you enter leaves the page. Validated against the 2014 MATLAB LQ-Equiv on 4,438 treatment schedules: 2 differ, both exact ties. Research and education only.
@@ -256,18 +255,22 @@ Interactive persistence / AR / ELM comparison on public Palaiseau data
 
 ---
 URL: https://cyrilvoyant.github.io/approach.html
-Title: Concentric modeling: understand before you compute
+Title: Understand before you compute
 Language: en
 Other language: fr: https://cyrilvoyant.github.io/approche.html
-Description: Cyril Voyant's guiding thread: people at the center, a model we understand at the core, every tool (AI included) around it, and complexity only when it pays.
+Description: Cyril Voyant's approach: start from the problem, use known relationships directly, add data only where the model falls short, and keep a more complex method only when its gain is demonstrated.
 
 The guiding thread of all the work
-Concentric modeling: understand before you compute
-People and their question at the center; a model we understand at the core; every tool around it, AI included. Complexity is added only when it brings a measurable gain.
+Understand before you compute
+I start with the problem to solve. If known physical or mathematical relationships are sufficient, I use them directly. Otherwise, I use data to supplement the model or to build a forecast. I keep a more complex method only when its gain is demonstrated. AI (artificial intelligence) is one possible tool; verification and responsibility remain human.
+A simple picture sums this up: three nested circles. At the center, the people who ask the question and take the decision; around them, a model we understand; on the outside, the tools, AI included, called on only when they help.
+Radiobiology: compute dose equivalence under the assumptions of the chosen model, then state its limits.
+Solar forecasting: compare every model with persistence (repeating the last observed value), on the same data and at the same horizon (how far ahead the forecast looks).
+AI: help people use a scientific code without confusing a plain-language answer with a verified result.
 In brief
 Cyril Voyant is a physicist and Research Director at Mines Paris – PSL (O.I.E.); his path combines medical physics in radiotherapy (since 2003) and research in solar and energy forecasting (PhD in 2011), carried out in parallel.
 His work spans solar and energy forecasting, forecast evaluation, radiobiology and language-model interfaces to scientific codes.
-One method runs through all these fields, named here concentric modeling: compute directly when the link is known; when a model falls short, complete it with learning rather than replace it; climb the complexity ladder only when needed; keep people at the center and tools at the periphery.
+One method runs through all these fields: compute directly when the link is known; when a model falls short, complete it with learning rather than replace it; climb the complexity ladder only when needed; keep people at the center and tools at the periphery.
 Every page of these sites states which of the five principles below it illustrates.
 Each work sits in the step it needs: one column to the right only for a measured gain. U-Net and LSTM (deep neural networks for images and for sequences) were tested, not kept.
 One method, every field: the complexity ladder
@@ -364,18 +367,22 @@ Cyril Voyant is a physicist and Research Director at Mines Paris – PSL (O.I.E.
 
 ---
 URL: https://cyrilvoyant.github.io/approche.html
-Title: La modélisation concentrique : comprendre avant de calculer
+Title: Comprendre avant de calculer
 Language: fr
 Other language: en: https://cyrilvoyant.github.io/approach.html
-Description: Le fil conducteur des travaux de Cyril Voyant : l'humain au centre, un modèle compris au cœur, tous les outils (IA comprise) autour, et la complexité…
+Description: La démarche de Cyril Voyant : partir du problème, utiliser directement les relations connues, compléter par les données seulement si le modèle ne suffit pas, et ne garder une méthode plus complexe que si son gain est démontré.
 
 Le fil conducteur de tous les travaux
-La modélisation concentrique : comprendre avant de calculer
-Au centre, l'humain et sa question ; au cœur, un modèle que l'on comprend ; autour, tous les outils, l'IA comprise. On n'ajoute de la complexité que si elle apporte un gain mesurable.
+Comprendre avant de calculer
+Je pars du problème à résoudre. Si les relations physiques ou mathématiques connues suffisent, je les utilise directement. Sinon, j'exploite les données pour compléter le modèle ou construire une prévision. Je ne retiens une méthode plus complexe que si son apport est démontré. L'IA (intelligence artificielle) est un outil possible ; la vérification et la responsabilité restent humaines.
+Une image simple résume cette démarche : trois cercles emboîtés. Au centre, les personnes qui posent la question et prennent la décision ; autour, un modèle que l'on comprend ; à l'extérieur, les outils, l'IA comprise, appelés seulement quand ils aident.
+Radiobiologie : calculer l'équivalence de dose avec les hypothèses du modèle choisi, puis en exposer les limites.
+Prévision solaire : comparer chaque modèle à la persistance (répéter la dernière valeur observée), sur les mêmes données et au même horizon (l'échéance de la prévision).
+IA : aider à utiliser un code scientifique sans confondre une réponse en langage naturel et un résultat vérifié.
 En bref
 Cyril Voyant est physicien et directeur de recherche à Mines Paris – PSL (O.I.E.) ; son parcours associe la physique médicale en radiothérapie (depuis 2003) et la recherche en prévision solaire et énergétique (thèse en 2011), menées en parallèle.
 Ses travaux couvrent la prévision solaire et énergétique, l'évaluation des prévisions, la radiobiologie et les interfaces entre modèles de langage et codes scientifiques.
-Une même méthode relie tous ces domaines, appelée ici modélisation concentrique : calculer directement quand le lien est connu ; quand un modèle ne suffit pas, le compléter par l'apprentissage plutôt que le remplacer ; monter l'échelle de la complexité seulement si nécessaire ; garder l'humain au centre et les outils en périphérie.
+Une même méthode relie tous ces domaines : calculer directement quand le lien est connu ; quand un modèle ne suffit pas, le compléter par l'apprentissage plutôt que le remplacer ; monter l'échelle de la complexité seulement si nécessaire ; garder l'humain au centre et les outils en périphérie.
 Chaque page de ces sites indique lequel des cinq principes ci-dessous elle illustre.
 Chaque travail est placé à l'étape dont il a besoin : une colonne de plus vers la droite seulement pour un gain mesuré. U-Net et LSTM (réseaux de neurones profonds pour les images et pour les séquences) ont été testés, non retenus.
 Une méthode, tous les domaines : l'échelle de la complexité
@@ -1097,7 +1104,7 @@ Code | github.com/cyrilvoyant/PV_ELM_pred |
 Archive (all versions) | doi:10.5281/zenodo.21487267 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Prévision solaire : modèles frugaux (in French) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 How much model is enough? ELM benchmark · Direct PV forecasting: why reduce dimensionality · How much space is enough for satellite forecasting · Forecasting every source of an island grid at once
@@ -1127,14 +1134,14 @@ Le problème et la contribution
 Si une structure nuageuse est prévue un peu trop à l’est, la RMSE (racine de l’erreur quadratique moyenne) pixel à pixel pénalise à la fois l’endroit prévu et l’endroit où elle s’est produite : c’est la double pénalité. Le travail propose une règle d’acceptation qui associe les trois écarts dans des unités physiques, choisies avant de comparer les modèles. Le γ-index vient de la comparaison des distributions de dose en radiothérapie (Low et al., 1998) ; l’apport de cet article est sa transposition et son analyse pour des champs de prévision spatio-temporels.
 Figure 2 du manuscrit auteur public : comparaison synthétique des cartes γ et RMSE. Attention : cette figure emploie les tolérances imprimées sur l’image (1 km, 50 min, 10 W/m²), distinctes de celles de l’étude corse chiffrée plus bas (2 km, 30 min, 50 W/m²).
 Questions fréquentes
-Pourquoi la RMSE seul ne suffit-il pas toujours ?
+Pourquoi la RMSE seule ne suffit-elle pas toujours ?
 Un déplacement d’une structure cohérente crée simultanément une absence au lieu observé et une fausse présence au lieu prévu. La RMSE reste utile pour quantifier les erreurs ponctuelles ; le γ-index ajoute une lecture tenant compte de déplacements acceptables pour l’usage envisagé.
 Que signifie γ ≤ 1 ?
 Il existe au moins une observation voisine dont les écarts combinés en espace, en temps et en intensité se situent dans la région de tolérance normalisée. Ce seuil dépend directement des trois tolérances choisies ; il n’est pas une preuve générale de qualité opérationnelle.
 Définition et calcul
-Pour un point prévu \((x,y,t)\), on cherche dans un voisinage spatio-temporel l’observation qui minimise la distance normalisée. \(I_{\mathrm{pred}}\) et \(I_{\mathrm{obs}}\) sont exprimées dans la même unité, par exemple W/m² :
+Pour un point prévu \((x,y,t)\), x et y sont les coordonnées spatiales et t l’instant ; les primes désignent le point observé testé. Les distances et durées utilisent les mêmes unités que DTA et TTA. On cherche dans le voisinage l’observation qui minimise la distance normalisée. \(I_{\mathrm{pred}}\) et \(I_{\mathrm{obs}}\) sont exprimées dans la même unité, par exemple W/m² :
 $$\gamma(x,y,t)=\min_{\substack{(x',y')\in\Omega_{\mathrm{DTA}}\\ t'\in\Omega_{\mathrm{TTA}}}}\sqrt{\frac{(x-x')^2+(y-y')^2}{\mathrm{DTA}^2}+\frac{(t-t')^2}{\mathrm{TTA}^2}+\frac{\big(I_{\mathrm{pred}}(x,y,t)-I_{\mathrm{obs}}(x',y',t')\big)^2}{\mathrm{IDT}^2}}.$$
-Le voisinage de recherche de l’article s’étend à \(1{,}5\times\mathrm{DTA}\) dans chaque direction spatiale et à \(1{,}5\times\mathrm{TTA}\) en temps. Cette fenêtre sert à trouver le minimum ; le passage reste défini par γ ≤ 1. Pour \(N=N_xN_yN_t\) points évalués :
+Le voisinage de recherche de l’article s’étend à \(1{,}5\times\mathrm{DTA}\) dans chaque direction spatiale et à \(1{,}5\times\mathrm{TTA}\) en temps. Cette fenêtre sert à trouver le minimum ; le passage reste défini par γ ≤ 1. Pour \(N=N_xN_yN_t\) points évalués, Nₓ et Nᵧ sont les nombres de positions sur les deux axes, Nₜ le nombre d’instants et i l’indice du point. L’indicatrice vaut 1 si γᵢ ≤ 1, sinon 0 :
 $$\mathrm{GPR}=\frac{100}{N}\sum_{i=1}^{N}\mathbf{1}(\gamma_i\leq1),\qquad \bar\gamma=\frac{1}{N}\sum_{i=1}^{N}\gamma_i,\qquad \gamma_{\max}=\max_i\gamma_i.$$
 GPR donne une proportion ; \(\bar\gamma\) résume l’écart moyen ; \(\gamma_{\max}\) révèle des désaccords localisés que les moyennes peuvent masquer. Ils doivent être présentés avec le biais et les erreurs ponctuelles.
 Choisir les tolérances
@@ -1254,7 +1261,7 @@ Code | github.com/cyrilvoyant/temporal-gamma-index |
 Archive (all versions) | doi:10.5281/zenodo.21755936 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Beyond pointwise errors |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 NICE metrics: errors against persistence · Variability and forecastability: sCV and F · How much space is enough for satellite forecasting
@@ -1341,7 +1348,7 @@ Code | github.com/cyrilvoyant/Make_Stationary |
 Archive (all versions) | doi:10.5281/zenodo.21490743 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Prévision solaire : faire simple (in French) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Persistence references and BLEND · How much model is enough? ELM benchmark · Variability and forecastability: sCV and F
@@ -1424,7 +1431,7 @@ Archive (all versions) | doi:10.5281/zenodo.23562559 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 Data | EDF en Corse open data, Licence Ouverte |
 The story, for everyone | Seven signals, one ELM |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 How much model is enough? ELM benchmark · Why deploy frugal models · NICE metrics: errors against persistence
@@ -1446,7 +1453,7 @@ Les métriques NICEᵏ ont été introduites par Voyant et al. dans Sustainable 
 Principe 5 · Démontrer la confiance Voir l’approcheUne erreur n’a de sens qu’avec une référence, un horizon et les observations évaluées.
 En bref
 NICEᵏ compare une prévision déterministe à la persistance simple : répéter la dernière observation connue. Les deux erreurs sont calculées aux mêmes dates cibles.
-NICE¹ utilise la MAE (erreur absolue moyenne), NICE² la RMSE (racine de l’erreur quadratique moyenne) et NICE³ la racine de l’erreur cubique moyenne. NICEΣ combine ces trois rapports ; le cas équilibré emploie trois poids égaux.
+NICE¹ utilise la MAE (erreur absolue moyenne), NICE² la RMSE (racine de l’erreur quadratique moyenne) et NICE³ la racine cubique de la moyenne des erreurs absolues au cube. NICEΣ combine ces trois rapports ; le cas équilibré emploie trois poids égaux.
 L’échelle utile de NICE va de 0 à 1 : 0 pour une prévision parfaite, 1 pour la persistance simple. Un modèle retenu pour son gain sur cette référence doit rester sous 1 pour la norme considérée.
 Ce que NICE ajoute
 La RMSE dépend de l’échelle du signal ; la MAE donne moins de poids aux grands écarts. Une comparaison relative devient difficile si chaque étude choisit une référence différente. L’équipe de l’article fixe une référence explicite, la persistance simple, puis compare trois normes d’erreur. La référence et le modèle doivent toujours être évalués sur le même ensemble d’observations.
@@ -1509,7 +1516,7 @@ The NICEᵏ metrics (Normalized Informed Comparison of Errors: the error of a fo
 Principle 5 · Trust is demonstratedThe approachIn the story: measure what a model adds. NICE divides a model's error by that of persistence, so 1 means no gain at all.
 In brief
 NICEᵏ divides the Lᵏ error of a forecast (the typical size of its gaps to the observation, large gaps counting more as k grows) by that of simple persistence, the forecast that repeats the last observed value, on the same samples: a normalized ratio. A useful forecast lies between 0 (perfect) and 1 (simple persistence); > 1 means worse than simple persistence.
-Orders k = 1, 2 and 3 (mean absolute error MAE, root mean square error RMSE, root mean cubic error RMCE) weigh large errors more and more; NICE^Σ combines them with equal weights. Unlike skill scores, NICE does not depend on an arbitrary baseline, and it is linked to the autocorrelation of the series (how much each value resembles the previous one; 1 = identical, 0 = unrelated): the more persistent the series, the harder persistence is to beat.
+Orders k = 1, 2 and 3 (mean absolute error MAE, root mean square error RMSE, root mean cubic error RMCE (the cube root of the mean cubed absolute errors)) weigh large errors more and more; NICE^Σ combines them with equal weights. Unlike skill scores, NICE does not depend on an arbitrary baseline, and it is linked to the autocorrelation of the series (linear similarity with time-shifted values, from −1 to 1; 0 means no linear correlation, not necessarily independence): the more persistent the series, the harder persistence is to beat.
 Published in Sustainable Energy Technologies and Assessments (2025) by C. Voyant, M. Despotovic, L. Garcia-Gutierrez, R. Amaro e Silva, P. Lauret, T. Soubdhan and N. Bailek; MATLAB code with a worked example, doi:10.5281/zenodo.23562549.
 What does NICE add?
 The study compares the errors of a deterministic forecast with those of simple persistence on the same observations, for three error norms (NICE¹ with the MAE, NICE² with the RMSE, NICE³ with the RMCE) and their weighted combination NICE^Σ (equal weights in the balanced case).
@@ -1590,7 +1597,7 @@ Code | github.com/cyrilvoyant/nice-metrics |
 Archive (all versions) | doi:10.5281/zenodo.23562549 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | When RMSE hides a difference |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 The γ-index · Variability and forecastability: sCV and F · Persistence references and BLEND
@@ -1608,7 +1615,7 @@ BLEND a été introduit par Voyant et al. dans Applied Mathematical Modelling (2
 Avant de complexifier un modèle, comparer sa prévision à une référence adaptée au rythme de la série. BLEND est une combinaison convexe de la persistance (la dernière mesure) et de la persistance cyclique (la mesure de même phase au cycle précédent).
 Dans le fil : ne monter en complexité que si le gain est démontré. Une persistance tenant compte du cycle est un échelon de référence pour juger un modèle entraîné. Voir l’approche.
 En bref
-Pour une série de période T (durée du cycle, ici un jour), BLEND est une combinaison convexe (moyenne pondérée, poids entre 0 et 1 de somme 1) de la persistance simple I(t) (la dernière valeur) et de la persistance cyclique I(t−T+nΔt) (la valeur de même phase un cycle plus tôt ; n : horizon en pas, Δt : pas de temps). Dans sa forme simplifiée, le poids de la dernière mesure vaut \(\tilde\lambda=\tfrac12(1+\rho(t,n\Delta t))\).
+Pour une série de période T (durée du cycle, ici un jour), BLEND est une combinaison convexe (moyenne pondérée, poids entre 0 et 1 de somme 1) de la persistance simple I(t) (la dernière valeur) et de la persistance cyclique I(t−T+nΔt) (la valeur de même phase un cycle plus tôt ; n : horizon en pas, Δt : pas de temps). Dans sa forme simplifiée, le poids de la dernière mesure vaut \(\tilde\lambda=\tfrac12(1+\rho(t,n\Delta t))\). Ici, ρ est la corrélation locale au décalage nΔt et à la phase t du cycle : sans unité, entre −1 et 1.
 La référence exploite les moyennes, variances et covariances périodiques. Elle n’entraîne pas de réseau et peut se calculer sur le signal brut, sans modèle de ciel clair.
 L’article de Voyant, Banes, Garcia-Gutierrez, Notton, Despotovic et Yaseen, publié dans Applied Mathematical Modelling 157 (2026), 116988, étudie notamment 68 stations espagnoles SIAR. Le code MATLAB corrigé est disponible en version 1.1.1.
 Pourquoi BLEND ?
@@ -1787,7 +1794,7 @@ BLEND was introduced by Voyant et al. in Applied Mathematical Modelling (2026).
 Principle 3 · Complexity only if it paysThe approachIn the story: climb only if it pays. A persistence reference built on the cyclostationary structure of the signal is the first level any trained model must beat.
 In brief
 BLEND extends persistence (repeat the last measure) to cyclostationary series (series whose statistics repeat with a cycle T, here a day): the forecast is a convex combination (a weighted average, weights between 0 and 1 adding up to 1) of simple persistence I(t) (the latest value) and cyclic persistence I(t−T+nΔt) (the value at the same phase one cycle earlier; n = horizon in steps, Δt = time step), with the closed-form weight λ̃ = ½(1 + ρ(t, nΔt)) of the latest value, ρ being the local correlation at that phase (no unit, between −1 and 1; see NICE for how persistence is used as a yardstick).
-It preserves the periodic variance and covariance, needs no training and no clear-sky model, and on 68 SIAR stations (the Spanish agroclimatic network) gives accuracy gains over classical persistence, particularly at multi-hour horizons.
+It preserves the periodic variance and covariance, needs no neural-network training and no clear-sky model (past observations are still needed to estimate the cycle statistics), and on 68 SIAR stations (the Spanish agroclimatic network) gives accuracy gains over classical persistence, particularly at multi-hour horizons.
 Published in Applied Mathematical Modelling 157, 116988 (2026) by C. Voyant, C. Banes, L. Garcia-Gutierrez, G. Notton, M. Despotovic and Z. M. Yaseen; audited MATLAB code v1.1.1, doi:10.5281/zenodo.18812333.
 Why compare a solar forecast with persistence? BLEND and cyclostationary persistence
 What does BLEND add?
@@ -1975,7 +1982,7 @@ Code | github.com/cyrilvoyant/cyclostationary-forecasting-matlab |
 Archive (all versions) | doi:10.5281/zenodo.18812333 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Better persistence, without training a neural network |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 BLEND worked example · ARTU worked example · Stochastic persistence worked example · NICE metrics: errors against persistence
@@ -2038,7 +2045,7 @@ Code | github.com/cyrilvoyant/pv-dimensionality-reduction |
 Archive (all versions) | doi:10.5281/zenodo.21755938 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Prévision PV : réduire la dimension (in French) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Why deploy frugal models · How much model is enough? ELM benchmark · How much space is enough for satellite forecasting
@@ -2139,7 +2146,7 @@ Code | github.com/cyrilvoyant/PV_ELM_pred |
 Archive (all versions) | doi:10.5281/zenodo.21487267 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Prévision solaire : modèles frugaux (in French) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Why deploy frugal models · Direct PV forecasting: why reduce dimensionality · Forecasting every source of an island grid at once · NICE metrics: errors against persistence
@@ -2230,7 +2237,7 @@ Code | github.com/cyrilvoyant/cell-vs-field-irradiance |
 Archive (all versions) | doi:10.5281/zenodo.23562557 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 Data | HelioClim-3 (Heliosat-2), SoDa service, under its terms of use |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Read it in plain words
 Satellite forecasting: one cell or the whole field?: the story, with the figure and the numbers in W/m².
@@ -2259,10 +2266,10 @@ Prévoir par satellite : une maille ou tout le champ ? : le récit accessible de
 Tous les récits de recherche, classés selon le fil conducteur.
 Actualités : articles, logiciels et essais, filtrés par thème et par année.
 Une prévision solaire utile commence par une cible pertinente, une référence significative et une évaluation adaptée à l’application. Toute complexité supplémentaire doit justifier sa place.
-Ce guide relie mes travaux à ceux de mes collègues. Les études référencées donnent les listes complètes d’auteurs, les résultats, les limites et les codes.
+Ce guide rassemble nos travaux sur la prévision solaire. Les études référencées donnent les listes complètes d’auteurs, les résultats, les limites et les codes.
 Commencer par le signal et sa prévisibilité
 Le jour et la nuit suivent un cycle prévisible ; les nuages sont moins réguliers. Séparer ces composantes aide à déterminer quelle information subsiste au-delà du cycle récurrent.
-Contribution publiée de notre équipe : le coefficient de variation stochastique, sCV (échelle de variabilité sans unité : 0 pour un ciel clair, 1 pour un ciel qui alterne au hasard entre clair et couvert), et des indices associés de prévisibilité (F : part de cette variabilité qu’on peut anticiper à un horizon donné). Leur interprétation dépend de leurs définitions et des conditions d’évaluation.
+Contribution publiée de notre équipe : le coefficient de variation stochastique, sCV (échelle de variabilité sans unité : 0 pour un ciel clair, 1 pour un ciel qui alterne au hasard entre clair et couvert), et des indices associés de prévisibilité (F : diagnostic de prévisibilité à un horizon donné, pas une fraction de variance expliquée). Leur interprétation dépend de leurs définitions et des conditions d’évaluation.
 Récit de recherche et coauteurs · Définitions et calculateur · Article publié
 Exiger une référence avant d’ajouter de la complexité
 La persistance est une idée établie : prolonger l’information récente. Il faut la définir précisément et éviter de lui opposer une référence artificiellement faible.
@@ -2309,10 +2316,10 @@ Satellite forecasting: one cell or the whole field?: the story of how much space
 All research stories: the results behind the course, classified by step of the approach.
 News: papers, software and essays, filterable by theme and year.
 A useful solar forecast starts with the right target, a meaningful reference and an evaluation that reflects the application. Additional model complexity must earn its place.
-This guide connects my work and that of my colleagues. The linked studies provide the full author lists, evidence, limitations and code.
+This guide brings together our work on solar forecasting. The linked studies provide the full author lists, evidence, limitations and code.
 Start with the signal and its forecastability
 Day and night form a predictable cycle; clouds are less regular. Separating these components helps ask how much information remains beyond the recurring cycle.
-Our team's published contribution: the stochastic coefficient of variation, sCV (a variability scale without unit: 0 for a clear sky, 1 for a sky alternating at random between clear and overcast), and the associated forecastability indices (F: how much of that variability can be anticipated at a given horizon). Their interpretation depends on their definitions and evaluation conditions.
+Our team's published contribution: the stochastic coefficient of variation, sCV (a variability scale without unit: 0 for a clear sky, 1 for a sky alternating at random between clear and overcast), and the associated forecastability indices (F: a forecastability diagnostic at a given horizon, not an explained-variance fraction). Their interpretation depends on their definitions and evaluation conditions.
 Research story and coauthors · Definitions and calculator · Published paper
 Require a baseline before adding complexity
 Persistence is an established idea: carry recent information forward. Define it clearly and avoid an artificially weak reference.
@@ -2355,7 +2362,7 @@ Les indicateurs sCV et F ont été introduits par Voyant et al. dans Renewable E
 Principe 2 · Le modèle au cœur L’approcheAvant de choisir un modèle, caractériser ce que le site permet de prévoir : l’amplitude des fluctuations et la mémoire du signal.
 En bref
 Le coefficient de variation stochastique, sCV, mesure l’écart de l’éclairement mesuré à l’éclairement de ciel clair. Il décrit une variabilité normalisée (sans unité : 0 pour un ciel clair, 1 pour un ciel qui alterne au hasard entre ciel clair et couvert), sans confondre directement le cycle jour-nuit et l’effet des nuages.
-L’indice F combine sCV et l’autocorrélation (ressemblance d’une valeur avec celle d’il y a n pas, entre 0 et 1) des résidus (mesure moins éclairement de ciel clair) à l’horizon considéré ; F est sans unité. Il caractérise la prévisibilité du site à cet horizon ; ce n’est ni une prévision de puissance ni la performance d’un modèle.
+L’indice F combine sCV et la valeur absolue de l’autocorrélation (ressemblance linéaire entre valeurs décalées dans le temps : la corrélation va de −1 à 1, sa valeur absolue de 0 à 1) des résidus (mesure moins éclairement de ciel clair) à l’horizon considéré ; F est sans unité. Il caractérise la prévisibilité du site à cet horizon ; ce n’est ni une prévision de puissance ni la performance d’un modèle.
 Dans l’étude publiée, F est davantage associé à l’erreur de prévision que sCV seul. Ces résultats portent sur les séries synthétiques et les 68 stations espagnoles SIAR étudiées.
 Le coefficient de variation classique \(\mathrm{CV}=\sigma/\mu\) (écart type sur moyenne) peut surtout refléter la forme diurne de l’éclairement : même un ciel dégagé présente une forte variation entre le lever et le coucher du Soleil. L’étude définit donc une référence physique qui évolue avec l’heure : l’éclairement de ciel clair, notée \(I_{\mathrm{clr}}(t)\).
 Définitions
@@ -2422,10 +2429,10 @@ The sCV and F indicators were introduced by Voyant et al. in Renewable Energy (2
 Principle 2 · The model at the coreThe approachIn the story: understand before you compute. sCV and F say how variable and how forecastable a site is before any model is fitted.
 In brief
 sCV (stochastic coefficient of variation, no unit) measures how much clouds make irradiance deviate from clear sky (the irradiance of a cloudless sky at that place and time), scaled so that 0 is a clear sky and 1 a sky switching at random between clear sky and overcast.
-F (forecastability, no unit) = 1 + sCV(ρmax − 1), with ρmax the largest absolute autocorrelation (how much a value resembles the one n steps earlier, between 0 and 1) of the residual (measure minus clear-sky irradiance) from the horizon on, adds the memory of the clouds at the forecast horizon, and predicts forecast difficulty better than sCV alone, on synthetic series and 68 stations of the Spanish SIAR network.
+F (forecastability, no unit) = 1 + sCV(ρmax − 1), with ρmax the largest absolute autocorrelation (linear similarity between time-shifted values: correlation ranges from −1 to 1, its absolute value from 0 to 1) of the residual (measure minus clear-sky irradiance) from the horizon on, adds the memory of the clouds at the forecast horizon, and predicts forecast difficulty better than sCV alone, on synthetic series and 68 stations of the Spanish SIAR network.
 Published in Renewable Energy 256, 123913 (2026) by C. Voyant, A. Julien, M. Despotovic, G. Notton, L. A. Garcia-Gutierrez, C. F. Nicolosi, P. Blanc and J. Bright; MATLAB code, doi:10.5281/zenodo.23562553.
 How variable is the sun, and how forecastable? sCV and F explained
-Before choosing a forecasting model, it helps to know how difficult the site is. Two numbers answer that: sCV, the variability that clouds add to the course of the sun, and F, how much of that variability can be anticipated at a given horizon.
+Before choosing a forecasting model, it helps to know how difficult the site is. Two numbers answer that: sCV, the variability that clouds add to the course of the sun, and F, a diagnostic of forecast difficulty at a given horizon. F is not an explained-variance fraction or a guarantee of accuracy.
 The theory
 Why, in the words of the article: traditional metrics such as the standard deviation or the coefficient of variation fail to separate stochastic fluctuations from the deterministic trend of solar irradiance. Taking clear-sky irradiance as a dynamic upper bound of the measurement, the stochastic coefficient of variation (sCV) gives a dimensionless variability scale with clear sky as 0 and the reference alternating sky as 1, and the forecastability F adds the temporal dependencies. Equation numbers are those of the article (arXiv:2506.21807).
 Why the usual coefficient of variation misleads
@@ -2488,7 +2495,7 @@ Code | github.com/cyrilvoyant/solar-variability-scv |
 Archive (all versions) | doi:10.5281/zenodo.23562553 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | How forecastable is the sun? |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 NICE metrics: errors against persistence · The γ-index · Persistence references and BLEND
@@ -2516,7 +2523,6 @@ La question
 Le cancer différencié de la thyroïde qui s’est étendu est souvent traité par des séances répétées d’iode radioactif (IRA, RAI en anglais). Certaines tumeurs répondent ; d’autres deviennent réfractaires (elles ne répondent plus). Le taux sanguin de thyroglobuline (Tg), une protéine sécrétée par les cellules tumorales, suit la masse tumorale. Combien de séances, à quel intervalle et à quelle activité, pour quel profil de patient ? Un modèle que l’on peut lire terme à terme permet de comparer ces choix in silico (par simulation) avant le traitement.
 La théorie
 Le modèle d’abord. Selon l’article : la forte variabilité entre patients rend difficile le choix d’un protocole d’iode radioactif, entre efficacité et toxicité induite par l’iode radioactif. Un modèle compartimental mécaniste validé, à trois équations différentielles, relie le protocole (nombre de séances \(n\), intervalle entre séances, activité par séance \(D\)) à la thyroglobuline sérique, et le temps de doublement des cellules tumorales \(T_d\) sépare les répondeurs des non-répondeurs. Selon l’article, les développements futurs amélioreront l’estimation des paramètres propres à chaque patient, y compris par apprentissage supervisé pour mettre à jour les paramètres à chaque séance.
-Place de RAIR-Sim sur l’échelle de complexité : simulation à partir d’un modèle que l’on comprend. PDF
 Définitions
 \(A(t)\)
 activité de l’iode radioactif présent (GBq)
@@ -2532,6 +2538,7 @@ temps de doublement de la tumeur (mois) : ce qui sépare un profil réfractaire 
 $$\frac{dA}{dt}=-a\ln2\,A,$$
 $$\frac{dN}{dt}=N\left(\frac{\ln2}{T_d}-r_0\,A\right),$$
 $$\frac{dTg}{dt}=\lambda\,N-k_e\,Tg .$$
+Dans ces équations, t est le temps ; a règle la disparition de l’activité, r₀ l’effet de l’activité sur les cellules, λ la production de thyroglobuline par cellule et kₑ son élimination. Ces coefficients sont ceux du modèle publié, pas des réglages cliniques à choisir ici.
 L’activité décroît au taux effectif \(a\ln2\) (élimination radioactive et biologique réunies) ; la tumeur croît au taux \(\ln2/T_d\) et est détruite proportionnellement aux cellules et à l’activité présentes ; la thyroglobuline est sécrétée par les cellules tumorales et éliminée au taux \(k_e\).
 Séance par séance
 À la séance \(i\), un bolus \(D\) (administration en une seule fois) s’ajoute à l’activité résiduelle, \(A_i=D+A_{i-1}e^{-a\ln2\,\Delta T}\). Entre les séances, avec \(t\) compté depuis la séance :
@@ -2604,10 +2611,10 @@ Software Heritage | archive permanente du dépôt |
 Code d’origine | RAIR-Sim de Marie Fusella Giuntini : github.com/MarieFG49/CTD_SIMU_RAI (MIT) ; la ligne « Code » ci-dessus est le fork documenté |
 Pour tous | IA et cancer de la thyroïde : demain, la fin des traitements standardisés ?, The Conversation, mai 2026 |
 Le récit, pour tous | Cancer de la thyroïde et iode radioactif : le modèle d’abord, n’apprendre que ce qui manque · in English |
-L’approche | La modélisation concentrique : comprendre avant de calculer |
+L’approche | Comprendre avant de calculer |
 Auteur | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Guides liés
-LQL-Equiv : équivalence de dose radiobiologique · Un ELM pour sept signaux du réseau (anglais) · L’approche : comprendre avant de calculer
+LQL-Equiv : équivalence de dose radiobiologique · Un ELM pour sept signaux du réseau (anglais) · Comprendre avant de calculer
 Auteurs et source
 M. Fusella Giuntini, C. Voyant, D. Taieb, D. Barbolosi, A computational framework for optimizing radioiodine therapy protocols in metastatic thyroid cancer, Scientific Reports 16, 27179 (2026), doi:10.1038/s41598-026-56267-1 · BibTeX. Le simulateur RAIR-Sim a été écrit par Marie Fusella Giuntini (github.com/MarieFG49/CTD_SIMU_RAI, MIT). Cyril Voyant a rédigé cette page ; le travail appartient à l’ensemble de l’équipe d’auteurs.
 
@@ -2632,7 +2639,6 @@ The question
 Differentiated thyroid cancer that has spread is often treated with repeated sessions of radioactive iodine (RAI). Some tumours respond; others become refractory. The blood level of thyroglobulin (Tg) follows the tumour burden. How many sessions, how far apart, and at what activity, for which profile of patient? A model that can be read term by term lets these choices be compared in silico before treatment.
 The theory
 Model first. In the words of the article: marked inter-patient variability makes the choice of a radioiodine protocol difficult, between efficacy and radioiodine-induced toxicity. A validated mechanistic compartmental model of three differential equations links the protocol (number of sessions \(n\), interval between sessions, activity per session \(D\)) to the serum thyroglobulin, and the tumour-cell doubling time \(T_d\) separates responders from non-responders. Future developments, according to the article, will improve patient-specific parameter estimation, including supervised learning to update the parameters at each session.
-Where RAIR-Sim sits on the complexity ladder: simulation from a model we understand. PDF
 Definitions
 \(A(t)\)
 activity of the radioactive iodine present (GBq)
@@ -2648,6 +2654,7 @@ Equations
 $$\frac{dA}{dt}=-a\ln2\,A,$$
 $$\frac{dN}{dt}=N\left(\frac{\ln2}{T_d}-r_0\,A\right),$$
 $$\frac{dTg}{dt}=\lambda\,N-k_e\,Tg .$$
+In these equations, t is time; a sets activity clearance, r₀ the effect of activity on cells, λ thyroglobulin production per cell and kₑ its clearance. These are coefficients of the published model, not clinical settings to choose here.
 The activity decays at the effective rate \(a\ln2\) (radioactive and biological clearance together); the tumour grows at \(\ln2/T_d\) and is killed in proportion to cells and activity present; thyroglobulin is secreted by the tumour cells and cleared at rate \(k_e\).
 Session by session
 At session \(i\), a bolus \(D\) is added to the residual activity, \(A_i=D+A_{i-1}e^{-a\ln2\,\Delta T}\). Between sessions, with \(t\) counted from the session:
@@ -2720,7 +2727,7 @@ Software Heritage | permanent archive of the repository |
 Original code | RAIR-Sim by Marie Fusella Giuntini: github.com/MarieFG49/CTD_SIMU_RAI (MIT); the row above is the documented fork |
 For everyone (in French) | IA et cancer de la thyroïde : demain, la fin des traitements standardisés ? (in French), The Conversation, May 2026 |
 The story, for everyone | Thyroid cancer and radioiodine: model first · en français |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 LQL-Equiv: radiobiological dose equivalence · One ELM for seven grid signals · The approach: understand before you compute
@@ -2869,7 +2876,7 @@ Article | C. Voyant, G. Notton, J.-L. Duchaud, L. A. García Gutiérrez, J. M. B
 Code | github.com/cyrilvoyant/ARTU |
 Archive (toutes versions) | doi:10.5281/zenodo.21755930 (Zenodo) |
 Software Heritage | archive permanente du dépôt |
-L’approche | La modélisation concentrique : comprendre avant de calculer |
+L’approche | Comprendre avant de calculer |
 Auteur | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Guides liés
 Références de persistance et BLEND · Exemple guidé BLEND (anglais) · Exemple guidé de persistance stochastique (anglais)
@@ -2983,7 +2990,7 @@ Article | C. Voyant, G. Notton, J.-L. Duchaud, L. A. García Gutiérrez, J. M. B
 Code | github.com/cyrilvoyant/ARTU |
 Archive (all versions) | doi:10.5281/zenodo.21755930 (Zenodo) |
 Software Heritage | permanent archive of the repository |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Persistence references and BLEND · BLEND worked example · Stochastic persistence worked example
@@ -3067,7 +3074,7 @@ Code | github.com/cyrilvoyant/cyclostationary-forecasting-matlab |
 Archive (all versions) | doi:10.5281/zenodo.18812333 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Better persistence, without training a neural network |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Persistence references and BLEND · ARTU worked example · Stochastic persistence worked example
@@ -3129,7 +3136,7 @@ Code | github.com/cyrilvoyant/PV_ELM_pred |
 Archive (all versions) | doi:10.5281/zenodo.21487267 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 The story, for everyone | Prévision solaire : modèles frugaux (in French) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Persistence references and BLEND · NICE metrics: errors against persistence · How much model is enough? ELM benchmark
@@ -3345,7 +3352,7 @@ See also: difference to trend and ratio to trend in the course · which forecast
 Need this method on your own data? Collaborate: a joint answer to a call for projects, a research contract with Mines Paris – PSL, or academic work with a clear valorization objective.
 Links
 Article | C. Voyant, G. Notton, Solar irradiation nowcasting by stochastic persistence: A new parsimonious, simple and efficient forecasting tool, Renewable and Sustainable Energy Reviews 92, 2018, doi:10.1016/j.rser.2018.04.116 · BibTeX · author manuscript hal-01783937 |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 Related guides
 Persistence references and BLEND · BLEND worked example · ARTU worked example
@@ -3369,7 +3376,6 @@ Biologically equivalent doses in radiotherapy, under the linear-quadratic-linear
 For research and education only. Not a medical device. Outputs must not be used to choose or modify a prescription, to compensate a real interruption, to sum dose for a reirradiation decision, or to predict a probability for an individual patient. NTCP and TCP are model illustrations that have never been validated against clinical outcome.
 The theory
 Direct calculation. The link between a fractionation schedule and its biological effect is given by an explicit model, so it is computed, not learned. No data and no AI are needed: this work stops at the first rung of the complexity ladder.
-Where LQL-Equiv sits on the complexity ladder: direct calculation. PDF
 Definitions
 \(n,\ d\)
 number of fractions and dose per fraction (Gy)
@@ -3461,7 +3467,7 @@ Archive (all versions) | doi:10.5281/zenodo.21948623 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 Web app | LQL-Equiv calculator (runs in the browser) |
 2014 MATLAB version | LQ-Equiv, doi:10.5281/zenodo.16739882 |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 
 ---
@@ -3485,7 +3491,6 @@ Quelle quantité d’électricité un tunnel routier consomme-t-il, et avec quel
 Rapide : le moteur est entièrement vectorisé (il calcule sur des tableaux entiers plutôt que pas à pas). Une année au pas de 10 minutes se simule en environ 150 ms ; 20 réalisations Monte Carlo en environ 0,6 s.
 La théorie
 Simuler à partir de ce que l’on sait. Aucune mesure du tunnel n’existe : la consommation est donc construite à partir de ce que l’on sait de sa géométrie, de son trafic, de son éclairage et de sa ventilation, avec des perturbations aléatoires explicites. Aucune donnée n’est nécessaire, et aucune n’est inventée : le modèle est simple, ses paramètres sont visibles et ses limites sont énoncées.
-Place du Tunnel Load Simulator sur l’échelle de complexité : la simulation à partir de ce que l’on sait. PDF
 La consommation, terme par terme
 À chaque pas de 10 minutes \(t\), la puissance est la somme de quatre termes, affectée d’un bruit multiplicatif :
 $$P(t)=\max\!\Big(0,\ \big[P_0+P_{\mathrm{light}}(t)+P_{\mathrm{vent}}(t)+P_{\mathrm{aux}}(t)\big]\big(1+\varepsilon_t\big)\Big),$$
@@ -3547,7 +3552,7 @@ Software Heritage | archive pérenne du dépôt |
 Auteurs | Haytham El-Houari (Université Sidi Mohamed Ben Abdellah, Fès) et Cyril Voyant (Mines Paris – PSL, O.I.E.), projet SmartTunnel |
 Application web | Tunnel Load Simulator (hébergement gratuit : peut mettre une minute à se réveiller) |
 Le récit | Simuler ce que l’on ne peut pas encore mesurer : la consommation électrique des tunnels routiers |
-L’approche | La modélisation concentrique : comprendre avant de calculer |
+L’approche | Comprendre avant de calculer |
 Auteur | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |
 
 ---
@@ -3570,7 +3575,6 @@ How much electricity does a road tunnel use, and how uncertain is it? The Tunnel
 Fast: the engine is fully vectorized. One year at 10-minute resolution simulates in about 150 ms; 20 Monte Carlo runs in about 0.6 s.
 The theory
 Simulation from what is known. No measurements of the tunnel exist, so the load is built from what is known about its geometry, traffic, lighting and ventilation, with explicit random disturbances. No data are needed, and none are faked: the model is simple, its parameters are visible, and its limits are stated.
-Where the Tunnel Load Simulator sits on the complexity ladder: simulation from what is known. PDF
 The load, term by term
 At each 10-minute step \(t\), the power is the sum of four terms with a multiplicative noise:
 $$P(t)=\max\!\Big(0,\ \big[P_0+P_{\mathrm{light}}(t)+P_{\mathrm{vent}}(t)+P_{\mathrm{aux}}(t)\big]\big(1+\varepsilon_t\big)\Big),$$
@@ -3630,5 +3634,5 @@ Archive (all versions) | doi:10.5281/zenodo.20080042 (Zenodo) |
 Software Heritage | permanent archive of the repository |
 Authors | Haytham El-Houari (Université Sidi Mohamed Ben Abdellah, Fès) and Cyril Voyant (Mines Paris – PSL, O.I.E.), SmartTunnel project |
 Web app | Tunnel Load Simulator (free hosting: may take a minute to wake up) |
-The approach | Concentric modeling: understand before you compute |
+The approach | Understand before you compute |
 Author | Cyril Voyant (Mines Paris – PSL, O.I.E.) · ORCID · www.cyrilvoyant.com |

@@ -586,7 +586,7 @@
   "gamma-index"
  ],
  "extraction": {
-  "source_hash": "dfa3bede1f962608",
+  "source_hash": "e3717a8fce331d52",
   "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
   "roots": [
    "#try-it"
