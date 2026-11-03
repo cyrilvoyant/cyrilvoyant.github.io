@@ -28,8 +28,8 @@
 <h1>Variabilité et prévisibilité de l’éclairement solaire : sCV et F</h1><p class="method-author">Les indicateurs sCV et F ont été introduits par Voyant et al. dans <em>Renewable Energy</em> (2026).</p>
 <aside class="thread p2" aria-label="Une étape du fil"><span class="principle">Principe 2 · Le modèle au cœur</span> <a href="/approche.html#principle-2">L’approche</a><p>Avant de choisir un modèle, caractériser ce que le site permet de prévoir : l’amplitude des fluctuations et la mémoire du signal.</p></aside>
 <section class="brief" id="en-bref"><h2>En bref</h2><ul>
-<li>Le coefficient de variation stochastique, <strong>sCV</strong>, mesure l’écart de l’éclairement mesuré à l’éclairement de ciel clair. Il décrit une variabilité normalisée, sans confondre directement le cycle jour-nuit et l’effet des nuages.</li>
-<li>L’indice <strong>F</strong> combine sCV et l’autocorrélation des résidus à l’horizon considéré. Il caractérise la prévisibilité du site à cet horizon ; ce n’est ni une prévision de puissance ni la performance d’un modèle.</li>
+<li>Le coefficient de variation stochastique, <strong>sCV</strong>, mesure l’écart de l’éclairement mesuré à l’éclairement de ciel clair. Il décrit une variabilité normalisée (sans unité : 0 pour un ciel clair, 1 pour un ciel qui alterne au hasard entre ciel clair et couvert), sans confondre directement le cycle jour-nuit et l’effet des nuages.</li>
+<li>L’indice <strong>F</strong> combine sCV et l’autocorrélation (ressemblance d’une valeur avec celle d’il y a <em>n</em> pas, entre 0 et 1) des résidus (mesure moins éclairement de ciel clair) à l’horizon considéré ; F est sans unité. Il caractérise la prévisibilité du site à cet horizon ; ce n’est ni une prévision de puissance ni la performance d’un modèle.</li>
 <li>Dans l’étude publiée, F est davantage associé à l’erreur de prévision que sCV seul. Ces résultats portent sur les séries synthétiques et les 68 stations espagnoles SIAR étudiées.</li>
 </ul></section>
 <p>Le coefficient de variation classique \(\mathrm{CV}=\sigma/\mu\) (écart type sur moyenne) peut surtout refléter la forme diurne de l’éclairement : même un ciel dégagé présente une forte variation entre le lever et le coucher du Soleil. L’étude définit donc une référence physique qui évolue avec l’heure : l’éclairement de ciel clair, notée \(I_{\mathrm{clr}}(t)\).</p>
@@ -65,7 +65,7 @@
 <p>Voir aussi : <a href="https://www.cyrilvoyant.com/fr/recits/variabilite-memoire-previsibilite/">quelle prévision pour quel signal, avec des curseurs</a> · <a href="https://www.cyrilvoyant.com/fr/outils/variabilite-previsibilite/">le calculateur du catalogue</a> · <a href="https://www.cyrilvoyant.com/fr/enseignement/cours-prevision-solaire/">le cours, diapositive par diapositive</a>.</p></main><!-- technical-tree-close:start --></div></div><!-- technical-tree-close:end -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" defer></script>
-<script src="/assets/tools/cv-tools.js?v=41780379" defer></script>
+<script src="/assets/tools/cv-tools.js?v=72773894" defer></script>
 <script>document.addEventListener("DOMContentLoaded",function(){if(typeof renderMathInElement!=="function")return;renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:true},{left:"\\[",right:"\\]",display:true},{left:"\\(",right:"\\)",display:false}],ignoredTags:["script","noscript","style","textarea","pre","code"],throwOnError:false});});</script>
 
 <script src="/assets/site-tree.js?v=31a3ee51" defer></script></body>

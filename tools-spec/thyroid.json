@@ -1,0 +1,409 @@
+{
+ "id": "thyroid",
+ "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+ "kind": "calculator",
+ "domain": "medicine",
+ "interface_language": "both",
+ "name": {
+  "fr": "Explorer les profils du modèle thyroïde",
+  "en": "Explore thyroid model profiles"
+ },
+ "url": {
+  "fr": "https://cyrilvoyant.github.io/methods/thyroid-radioiodine-fr.html#try-it",
+  "en": "https://cyrilvoyant.github.io/methods/thyroid-radioiodine.html#try-it"
+ },
+ "page_title": {
+  "fr": "Iode radioactif et cancer de la thyroïde métastatique : le modèle RAIR-Sim",
+  "en": "Radioiodine therapy in metastatic thyroid cancer: the RAIR-Sim model"
+ },
+ "computes": {
+  "fr": "Choisir un profil et un protocole ; suivre la thyroglobuline simulée. Usage de recherche et d’enseignement.",
+  "en": "Choose a profile and protocol; follow simulated thyroglobulin. Research and education use."
+ },
+ "summary": {
+  "fr": "Trois équations décrivent comment un cancer de la thyroïde métastatique répond à des séances répétées d’iode radioactif. Calibrées sur 50 patients, elles explorent le nombre de séances, l’intervalle entre elles et l’activité avant qu’aucun patient ne soit traité ; l’apprentissage n’est prévu que là où le modèle est…",
+  "en": "Three equations describe how metastatic thyroid cancer responds to repeated sessions of radioactive iodine. Calibrated on 50 patients, they explore the number of sessions, the interval between them and the activity before any patient is treated; learning is planned only where the model falls short."
+ },
+ "parameters": [
+  {
+   "id": "th-p",
+   "type": "enum",
+   "control": "select",
+   "default": "9.8",
+   "options": [
+    {
+     "value": "9.8",
+     "label": "réfractaire (Td = 9,8 mois)"
+    },
+    {
+     "value": "66.6",
+     "label": "répondeur (Td = 66,6 mois)"
+    }
+   ],
+   "label": {
+    "fr": "Profil du patient",
+    "en": "Patient profile"
+   },
+   "meaning": {
+    "fr": null,
+    "en": null
+   },
+   "unit": null
+  },
+  {
+   "id": "th-n",
+   "type": "integer",
+   "control": "range",
+   "min": 1,
+   "max": 8,
+   "step": 1,
+   "default": 4,
+   "label": {
+    "fr": "Séances",
+    "en": "Sessions"
+   },
+   "meaning": {
+    "fr": null,
+    "en": null
+   },
+   "unit": {
+    "fr": "sans unité",
+    "en": "dimensionless"
+   },
+   "unit_source": "no unit shown by the page"
+  },
+  {
+   "id": "th-l",
+   "type": "integer",
+   "control": "range",
+   "min": 1,
+   "max": 8,
+   "step": 1,
+   "default": 3,
+   "label": {
+    "fr": "Mois entre les séances",
+    "en": "Months between sessions"
+   },
+   "meaning": {
+    "fr": null,
+    "en": null
+   },
+   "unit": {
+    "fr": "sans unité",
+    "en": "dimensionless"
+   },
+   "unit_source": "no unit shown by the page"
+  },
+  {
+   "id": "th-a",
+   "type": "number",
+   "control": "range",
+   "min": 1,
+   "max": 8,
+   "step": 0.1,
+   "default": 3.7,
+   "label": {
+    "fr": "Activité par séance GBq",
+    "en": "Activity per session GBq"
+   },
+   "meaning": {
+    "fr": null,
+    "en": null
+   },
+   "unit": {
+    "fr": "GBq",
+    "en": "GBq"
+   },
+   "unit_source": "label"
+  }
+ ],
+ "presets": [
+  {
+   "id": "refractaire-4-seances",
+   "name": {
+    "fr": "Réfractaire : 4 séances",
+    "en": null
+   },
+   "values": {
+    "th-p": "9.8",
+    "th-n": 4,
+    "th-l": 3,
+    "th-a": 3.7
+   },
+   "changes_vs_default": {},
+   "shows": {
+    "fr": "Le temps de doublement court l’emporte après la dernière séance : la thyroglobuline simulée baisse, puis remonte.",
+    "en": null
+   }
+  },
+  {
+   "id": "refractaire-8-seances",
+   "name": {
+    "fr": "Réfractaire : 8 séances",
+    "en": null
+   },
+   "values": {
+    "th-p": "9.8",
+    "th-n": 8,
+    "th-l": 3,
+    "th-a": 3.7
+   },
+   "changes_vs_default": {
+    "th-n": 8
+   },
+   "shows": {
+    "fr": "Davantage de séances contiennent la remontée plus longtemps : c’est l’intensification explorée par l’article pour ce profil.",
+    "en": null
+   }
+  },
+  {
+   "id": "repondeur-4-seances",
+   "name": {
+    "fr": "Répondeur : 4 séances",
+    "en": null
+   },
+   "values": {
+    "th-p": "66.6",
+    "th-n": 4,
+    "th-l": 3,
+    "th-a": 3.7
+   },
+   "changes_vs_default": {
+    "th-p": "66.6"
+   },
+   "shows": {
+    "fr": "Avec le même protocole, le temps de doublement long laisse la thyroglobuline simulée descendre durablement.",
+    "en": null
+   }
+  },
+  {
+   "id": "repondeur-activite-reduite",
+   "name": {
+    "fr": "Répondeur : activité réduite",
+    "en": null
+   },
+   "values": {
+    "th-p": "66.6",
+    "th-n": 3,
+    "th-l": 6,
+    "th-a": 1.1
+   },
+   "changes_vs_default": {
+    "th-p": "66.6",
+    "th-n": 3,
+    "th-l": 6,
+    "th-a": 1.1
+   },
+   "shows": {
+    "fr": "Moins d’activité et des séances plus espacées : pour ce profil, l’article cherche l’activité minimale efficace. Le modèle montre ce que ce choix change, il ne le recommande pas.",
+    "en": null
+   }
+  }
+ ],
+ "actions": [],
+ "variants": [],
+ "outputs": [
+  {
+   "name": {
+    "fr": "Tg à 80 mois",
+    "en": null
+   },
+   "unit": {
+    "fr": "ng/mL",
+    "en": "ng/mL"
+   },
+   "meaning": {
+    "fr": "Tg : la thyroglobuline, le marqueur sanguin suivi. Le modèle part de 100 ng/mL, comme dans les simulations de l’article.",
+    "en": null
+   },
+   "kind": "metric"
+  },
+  {
+   "name": {
+    "fr": "Minimum",
+    "en": null
+   },
+   "unit": {
+    "fr": "ng/mL",
+    "en": "ng/mL"
+   },
+   "meaning": {
+    "fr": "Atteint vers le mois 13.",
+    "en": null
+   },
+   "kind": "metric"
+  },
+  {
+   "name": {
+    "fr": "Sans aucune séance",
+    "en": null
+   },
+   "unit": {
+    "fr": "ng/mL",
+    "en": "ng/mL"
+   },
+   "meaning": {
+    "fr": "La même équation, activité nulle. Une partie de la baisse du début ne vient pas de l’iode : le modèle élimine la thyroglobuline avec une demi-vie d’environ 2,2 mois.",
+    "en": null
+   },
+   "kind": "metric"
+  }
+ ],
+ "outputs_en_page": null,
+ "formulas": [],
+ "definitions": [
+  {
+   "term": "\\(A(t)\\)",
+   "meaning": {
+    "fr": "activité de l’iode radioactif présent (GBq)",
+    "en": "activity of the radioactive iodine present (GBq)"
+   }
+  },
+  {
+   "term": "\\(N(t)\\)",
+   "meaning": {
+    "fr": "nombre de cellules tumorales",
+    "en": "number of tumour cells"
+   }
+  },
+  {
+   "term": "\\(Tg(t)\\)",
+   "meaning": {
+    "fr": "thyroglobuline dans le sang (ng/mL), le biomarqueur clinique",
+    "en": "thyroglobulin in the blood (ng/mL), the clinical biomarker"
+   }
+  },
+  {
+   "term": "\\(D,\\ n,\\ \\Delta T\\)",
+   "meaning": {
+    "fr": "activité par séance (GBq), nombre de séances, intervalle entre séances (mois)",
+    "en": "activity per session (GBq), number of sessions, interval between sessions (months)"
+   }
+  },
+  {
+   "term": "\\(T_d\\)",
+   "meaning": {
+    "fr": "temps de doublement de la tumeur (mois) : ce qui sépare un profil réfractaire d’un profil répondeur",
+    "en": "tumour doubling time (months): what separates a refractory from a responding profile"
+   }
+  }
+ ],
+ "assumptions": {
+  "fr": [
+   "Paramètres calibrés sur une cohorte de 50 patients (MCMC-SAEM, Monolix) et partagés par les deux archétypes, sauf \\(T_d\\) ; description volontairement simple de l’activité résiduelle et de la réponse tumorale. Un outil de recherche, pas un outil de décision clinique ; une validation prospective est nécessaire.",
+   "Deux archétypes et des paramètres calibrés sur la population ; l’activité résiduelle et la réponse tumorale sont décrites par un modèle volontairement simple. RAIR-Sim est un outil de recherche : ce n’est pas un outil de décision clinique et il n’a pas été validé de façon prospective.",
+   "Voir aussi : l’explorateur de protocoles du catalogue principal · le fil de la recherche .",
+   "Besoin de cette méthode sur vos propres données ? Collaborer : une réponse commune à un appel à projets, un contrat de recherche avec Mines Paris – PSL, ou un travail académique avec un objectif clair de valorisation."
+  ],
+  "en": [
+   "Parameters calibrated on a cohort of 50 patients (MCMC-SAEM, Monolix) and shared by the two archetypes except \\(T_d\\); a deliberately simple description of residual activity and tumour response. A research tool, not a clinical decision tool; prospective validation is needed.",
+   "Two archetypes and population-calibrated parameters; residual activity and tumour response are described by a deliberately simple model. RAIR-Sim is a research tool: it is not a clinical decision tool and has not been validated prospectively.",
+   "See also: the protocol explorer in the main catalogue (French) · the research thread .",
+   "Need this method on your own data? Collaborate : a joint answer to a call for projects, a research contract with Mines Paris – PSL, or academic work with a clear valorization objective."
+  ]
+ },
+ "source": {
+  "dois": [
+   "10.1038/s41598-026-56267-1",
+   "10.26717/BJSTR.2025.62.009789",
+   "10.5281/zenodo.21496197"
+  ],
+  "repositories": [
+   "https://github.com/cyrilvoyant/CTD_SIMU_RAI"
+  ],
+  "related_pages": [
+   {
+    "href": "/bib/FusellaGiuntini2026Computational.bib",
+    "text": "BibTeX"
+   }
+  ]
+ },
+ "presets_source": {
+  "url": "https://www.cyrilvoyant.com/fr/outils/modele-thyroide/#try-it",
+  "note": {
+   "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+   "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+  }
+ },
+ "outputs_source": "https://www.cyrilvoyant.com/fr/outils/modele-thyroide/#try-it",
+ "how_to_explore": {
+  "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+  "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+ },
+ "exploration": [
+  {
+   "preset": "refractaire-4-seances",
+   "title": {
+    "fr": "Réfractaire : 4 séances",
+    "en": null
+   },
+   "set": {
+    "th-p": "9.8",
+    "th-n": 4,
+    "th-l": 3,
+    "th-a": 3.7
+   },
+   "observe": {
+    "fr": "Le temps de doublement court l’emporte après la dernière séance : la thyroglobuline simulée baisse, puis remonte.",
+    "en": null
+   }
+  },
+  {
+   "preset": "refractaire-8-seances",
+   "title": {
+    "fr": "Réfractaire : 8 séances",
+    "en": null
+   },
+   "set": {
+    "th-n": 8
+   },
+   "observe": {
+    "fr": "Davantage de séances contiennent la remontée plus longtemps : c’est l’intensification explorée par l’article pour ce profil.",
+    "en": null
+   }
+  },
+  {
+   "preset": "repondeur-4-seances",
+   "title": {
+    "fr": "Répondeur : 4 séances",
+    "en": null
+   },
+   "set": {
+    "th-p": "66.6"
+   },
+   "observe": {
+    "fr": "Avec le même protocole, le temps de doublement long laisse la thyroglobuline simulée descendre durablement.",
+    "en": null
+   }
+  },
+  {
+   "preset": "repondeur-activite-reduite",
+   "title": {
+    "fr": "Répondeur : activité réduite",
+    "en": null
+   },
+   "set": {
+    "th-p": "66.6",
+    "th-n": 3,
+    "th-l": 6,
+    "th-a": 1.1
+   },
+   "observe": {
+    "fr": "Moins d’activité et des séances plus espacées : pour ce profil, l’article cherche l’activité minimale efficace. Le modèle montre ce que ce choix change, il ne le recommande pas.",
+    "en": null
+   }
+  }
+ ],
+ "concepts": [
+  "thyroglobulin"
+ ],
+ "extraction": {
+  "source_hash": "88557d96b7d33886",
+  "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+  "roots": [
+   "#try-it"
+  ],
+  "page_errors": [],
+  "fr_en_preset_consistency": null
+ }
+}

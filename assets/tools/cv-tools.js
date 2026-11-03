@@ -300,10 +300,10 @@
     box.innerHTML = '<details class="cvt-datadet"><summary>' + tr("Données : démo, PV réel ou les vôtres", "Data: demo, real PV or your own") + '</summary>' +
       dataBox("bl-d", ["x"], tr("Une colonne : signal régulièrement échantillonné (une ligne par pas de temps). Exemple horaire chargé ; vous pouvez coller vos données.", "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own.")) + "</details>" +
       '<div class="cvt-sticky"><div class="cvt-grid">' + num(tr("Période T (pas)", "Period T (steps)"), "bl-T", 24, 1) +
-      slider("Horizon h", "bl-h", 1, 24, 1, 1, tr("pas", "steps")) +
+      slider(tr("Horizon h (distance de prévision)", "Horizon h (how far ahead)"), "bl-h", 1, 24, 1, 1, tr("pas", "steps")) +
       slider(tr("Fenêtre affichée (période)", "Window shown (period)"), "bl-w", 1, 30, 1, 1, "") +
-      slider(tr("Phase de l’origine", "Phase of the origin"), "bl-ph", 1, 24, 1, 1, "") +
-      slider(tr("Votre λ", "Your λ"), "bl-l", 0, 1, 0.01, 0.5, "") + "</div>" +
+      slider(tr("Phase de l’origine (position dans le cycle)", "Phase of the origin (position in the cycle)"), "bl-ph", 1, 24, 1, 1, "") +
+      slider(tr("Votre λ (poids de la dernière valeur, de 0 à 1)", "Your λ (weight of the latest value, 0 to 1)"), "bl-l", 0, 1, 0.01, 0.5, "") + "</div>" +
       '<p class="cvt-hint"><button type="button" class="cvt-btn bl-real">' + tr("Charger des données PV réelles (Palaiseau, 40 jours, pas de 30 min)", "Load real PV data (Palaiseau, 40 days, 30-min steps)") + '</button> <span class="bl-src"></span></p></div>' +
       '<div class="cvt-out" aria-live="polite"></div><div class="cvt-2x2">' +
       '<div class="cvt-cell"><h3>' + tr("1. Trois périodes entières, de nuit à nuit", "1. Three whole periods, night to night") + '</h3><div class="cvt-plot bl-p1"></div></div>' +
@@ -404,7 +404,7 @@
     box.innerHTML = dataBox("sc-d", ["x", "cs"], fr
       ? "Deux colonnes : irradiance mesurée puis irradiance de ciel clair (une ligne par pas de temps). Démonstration horaire chargée ; vous pouvez coller vos données."
       : "Two columns: measured irradiance, clear-sky irradiance (one row per time step). Demo data loaded (hourly); paste your own.") +
-      '<div class="cvt-grid">' + num(fr ? "Pas de temps par jour T" : "Steps per day T", "sc-T", 24, 1) + slider(fr ? "Horizon n" : "Horizon n", "sc-n", 1, 12, 1, 1, fr ? "pas" : "steps") + num(fr ? "Plancher diffus d" : "Diffuse floor d", "sc-dd", 0.2, 0.05) + "</div>" +
+      '<div class="cvt-grid">' + num(fr ? "Pas de temps par jour T" : "Steps per day T", "sc-T", 24, 1) + slider(fr ? "Horizon n" : "Horizon n", "sc-n", 1, 12, 1, 1, fr ? "pas" : "steps") + num(fr ? "Plancher diffus d (fraction de lumière restant sous un nuage épais)" : "Diffuse floor d (fraction of light left under thick cloud)", "sc-dd", 0.2, 0.05) + "</div>" +
       '<div class="cvt-out" aria-live="polite"></div>' + tests;
     function upd() {
       var rows = parseCols(box.querySelector("#sc-d").value), I = rows.map(function (r) { return r[0]; }), C = rows.map(function (r) { return r[1]; });
@@ -482,9 +482,9 @@
       slider(tr("Retard (+) ou avance (−)", "Forecast late (+) or early (−) by"), "gm-l", -30, 30, 5, 0, "min") +
       slider(tr("Biais d’intensité", "Intensity bias"), "gm-b", -80, 80, 5, 0, "W/m²") +
       '</div><p class="cvt-hint"><strong>' + tr("Les tolérances (équation 1)", "The tolerances (Eq. 1)") + '</strong></p><div class="cvt-grid">' +
-      slider(tr("DTA, espace", "DTA, spatial"), "gm-dta", 0.5, 3, 0.5, 2, "km") +
-      slider(tr("TTA, temps", "TTA, temporal"), "gm-tta", 5, 30, 5, 30, "min") +
-      slider(tr("IDT, intensité", "IDT, intensity"), "gm-idt", 10, 100, 5, 50, "W/m²") +
+      slider(tr("DTA (distance to agreement), espace", "DTA (distance to agreement), spatial"), "gm-dta", 0.5, 3, 0.5, 2, "km") +
+      slider(tr("TTA (time to agreement), temps", "TTA (time to agreement), temporal"), "gm-tta", 5, 30, 5, 30, "min") +
+      slider(tr("IDT (intensity difference threshold), intensité", "IDT (intensity difference threshold), intensity"), "gm-idt", 10, 100, 5, 50, "W/m²") +
       '</div><div class="btns"><button type="button" class="cvt-btn" id="gm-art">' + tr("Tolérances de l’article (2 km, 30 min, 50 W/m²)", "Tolerances of the article (2 km, 30 min, 50 W/m²)") + '</button>' +
       '<button type="button" class="cvt-btn" id="gm-play" aria-pressed="false">▶ ' + tr("Éloigner le nuage prévu", "Move the forecast cloud away") + '</button></div>' +
       '<div class="cvt-maps"><figure><canvas width="40" height="40" id="gm-obs"></canvas><figcaption>' + tr("Observation à l’instant t", "Observed at time t") + '</figcaption></figure>' +

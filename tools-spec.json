@@ -1,0 +1,2715 @@
+{
+ "schema_version": "1.0",
+ "description": {
+  "en": "Every interactive tool of the site as data: parameters (min, max, step, default), presets, outputs, formulas, assumptions, exploration. Values are read from the rendered pages, not guessed.",
+  "fr": "Chaque outil interactif du site en données : paramètres (min, max, pas, défaut), préréglages, sorties, formules, hypothèses, exploration. Les valeurs sont lues sur les pages rendues, pas devinées."
+ },
+ "site": "https://cyrilvoyant.github.io",
+ "excluded": {
+  "artu": "Separate reviewed specification: /assets/artu/artu-intuition-spec.json",
+  "websemantic": "WebSemantic: out of scope",
+  "js-tests": "js-tests page: internal test page",
+  "lql-app": "LQL-Equiv-web: separate hosted application (stlite), not rendered here",
+  "tls": "tunnel-load-simulator: separate hosted application, not rendered here"
+ },
+ "tools": [
+  {
+   "id": "nice",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "energy",
+   "interface_language": "both",
+   "name": {
+    "fr": "Comparer une prévision à la persistance — NICE",
+    "en": "Compare a forecast with persistence — NICE"
+   },
+   "url": {
+    "fr": "https://cyrilvoyant.github.io/methods/nice-metrics-fr.html#try-it",
+    "en": "https://cyrilvoyant.github.io/methods/nice-metrics.html#try-it"
+   },
+   "page_title": {
+    "fr": "Métriques NICEᵏ : évaluer une prévision solaire face à la persistance",
+    "en": "NICEᵏ metrics: solar forecast errors compared with persistence"
+   },
+   "computes": {
+    "fr": "NICE divise l’erreur d’une prévision par celle de la persistance : 1 signifie « aussi bien que la persistance », 0 une prévision parfaite. Coller observations et prévisions, choisir l’horizon, lire le résultat.",
+    "en": "NICE divides a forecast’s error by that of persistence: 1 means “as good as persistence”, 0 a perfect forecast. Paste observations and forecasts, choose a horizon, read the result."
+   },
+   "summary": {
+    "fr": null,
+    "en": null
+   },
+   "parameters": [
+    {
+     "id": "ni-d",
+     "type": "text",
+     "control": "textarea",
+     "default": null,
+     "lines": 480,
+     "preview": "220 214.8 / 443.3 292 / 571.6 492.3",
+     "label": {
+      "fr": "Deux colonnes : observation y(t), prévision émise n pas plus tôt pour cette date cible. Démonstration chargée (n = 1) ; vous pouvez coller vos données.",
+      "en": "Two columns: observation y(t), forecast of y(t) issued n steps earlier (one row per time step). Demo data loaded (n = 1); paste your own."
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": null
+    },
+    {
+     "id": "ni-n",
+     "type": "integer",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": 1,
+     "default": 1,
+     "label": {
+      "fr": "Horizon de prévision n (pas)",
+      "en": "Forecast horizon n (steps)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "pas",
+      "en": "pas"
+     },
+     "unit_source": "label"
+    }
+   ],
+   "presets": [
+    {
+     "id": "prevision-de-demonstration",
+     "name": {
+      "fr": "Prévision de démonstration",
+      "en": null
+     },
+     "values": {
+      "ni-n": 1
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 214.8 / 443.3 292 / 571.6 492.3",
+     "shows": {
+      "fr": "Une prévision simple : 60 % de la valeur connue n pas plus tôt, plus une part du ciel clair. Augmentez l’horizon n : l’écart avec la persistance se creuse à mesure qu’elle se dégrade.",
+      "en": null
+     }
+    },
+    {
+     "id": "prevision-parfaite",
+     "name": {
+      "fr": "Prévision parfaite",
+      "en": null
+     },
+     "values": {
+      "ni-n": 1
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 220 / 443.3 443.3 / 571.6 571.6",
+     "shows": {
+      "fr": "La prévision vaut l’observation : toutes les erreurs sont nulles, NICE vaut 0. C’est le bas de l’échelle, inatteignable en pratique.",
+      "en": null
+     }
+    },
+    {
+     "id": "la-persistance-elle-meme",
+     "name": {
+      "fr": "La persistance elle-même",
+      "en": null
+     },
+     "values": {
+      "ni-n": 1
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 220 / 443.3 220 / 571.6 443.3",
+     "shows": {
+      "fr": "La prévision recopie la valeur connue n pas plus tôt : c’est la référence. NICE vaut exactement 1, à tout horizon. Bouger n change les erreurs, pas NICE : c’est mathématiquement juste.",
+      "en": null
+     }
+    },
+    {
+     "id": "la-moyenne",
+     "name": {
+      "fr": "La moyenne",
+      "en": null
+     },
+     "values": {
+      "ni-n": 1
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 224.2 / 443.3 224.2 / 571.6 224.2",
+     "shows": {
+      "fr": "Une prévision constante. À horizon 1, la persistance est bien meilleure : NICE > 1. Dès n = 4, la persistance s’est tant dégradée que la moyenne passe devant : NICE tombe sous 1.",
+      "en": null
+     }
+    },
+    {
+     "id": "quelques-grosses-erreurs",
+     "name": {
+      "fr": "Quelques grosses erreurs",
+      "en": null
+     },
+     "values": {
+      "ni-n": 1
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 214.8 / 443.3 292 / 571.6 492.3",
+     "shows": {
+      "fr": "La prévision de démonstration, avec 700 W/m² d’erreur sur de rares pas. NICE¹ bouge peu, NICE³ bondit : plus k est grand, plus les grands écarts pèsent.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "Erreur du modèle Ek",
+      "en": "model error Ek"
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "k = 1 (MAE) | k = 2 (RMSE) | k = 3",
+      "en": "k = 1 (MAE) | k = 2 (RMSE) | k = 3"
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Erreur de persistance simple",
+      "en": "simple persistence error"
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "k = 1 (MAE) | k = 2 (RMSE) | k = 3",
+      "en": "k = 1 (MAE) | k = 2 (RMSE) | k = 3"
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "NICEk",
+      "en": "NICEk"
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "k = 1 (MAE) | k = 2 (RMSE) | k = 3",
+      "en": "k = 1 (MAE) | k = 2 (RMSE) | k = 3"
+     },
+     "kind": "table-row"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [],
+   "assumptions": {
+    "fr": [],
+    "en": [
+     "The model and simple persistence are scored on the same samples, horizon and time step. The theoretical forms (8) to (14) assume weak stationarity, reasonable for irradiance at short lags (under one hour) or at daily scale, not for long horizons; the article finds the empirical form (5) the most insightful. The perfect forecast of the lower bound is unattainable in practice. The repository README adds a note on the constant of Eq. (B.5), checked on the arXiv version of the article."
+    ]
+   },
+   "source": {
+    "dois": [
+     "10.1016/j.seta.2025.104588",
+     "10.5281/zenodo.23562549"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/PV_ELM_pred",
+     "https://github.com/cyrilvoyant/nice-metrics"
+    ],
+    "related_pages": []
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/nice/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "prevision-de-demonstration",
+     "title": {
+      "fr": "Prévision de démonstration",
+      "en": null
+     },
+     "set": {
+      "ni-n": 1
+     },
+     "observe": {
+      "fr": "Une prévision simple : 60 % de la valeur connue n pas plus tôt, plus une part du ciel clair. Augmentez l’horizon n : l’écart avec la persistance se creuse à mesure qu’elle se dégrade.",
+      "en": null
+     }
+    },
+    {
+     "preset": "prevision-parfaite",
+     "title": {
+      "fr": "Prévision parfaite",
+      "en": null
+     },
+     "set": {
+      "ni-n": 1
+     },
+     "observe": {
+      "fr": "La prévision vaut l’observation : toutes les erreurs sont nulles, NICE vaut 0. C’est le bas de l’échelle, inatteignable en pratique.",
+      "en": null
+     }
+    },
+    {
+     "preset": "la-persistance-elle-meme",
+     "title": {
+      "fr": "La persistance elle-même",
+      "en": null
+     },
+     "set": {
+      "ni-n": 1
+     },
+     "observe": {
+      "fr": "La prévision recopie la valeur connue n pas plus tôt : c’est la référence. NICE vaut exactement 1, à tout horizon. Bouger n change les erreurs, pas NICE : c’est mathématiquement juste.",
+      "en": null
+     }
+    },
+    {
+     "preset": "la-moyenne",
+     "title": {
+      "fr": "La moyenne",
+      "en": null
+     },
+     "set": {
+      "ni-n": 1
+     },
+     "observe": {
+      "fr": "Une prévision constante. À horizon 1, la persistance est bien meilleure : NICE > 1. Dès n = 4, la persistance s’est tant dégradée que la moyenne passe devant : NICE tombe sous 1.",
+      "en": null
+     }
+    },
+    {
+     "preset": "quelques-grosses-erreurs",
+     "title": {
+      "fr": "Quelques grosses erreurs",
+      "en": null
+     },
+     "set": {
+      "ni-n": 1
+     },
+     "observe": {
+      "fr": "La prévision de démonstration, avec 700 W/m² d’erreur sur de rares pas. NICE¹ bouge peu, NICE³ bondit : plus k est grand, plus les grands écarts pèsent.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "persistence",
+    "horizon",
+    "nice"
+   ],
+   "extraction": {
+    "source_hash": "5bc6e861a3d7d760",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  },
+  {
+   "id": "blend",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "energy",
+   "interface_language": "both",
+   "name": {
+    "fr": "Calculer les poids de BLEND",
+    "en": "Compute BLEND weights"
+   },
+   "url": {
+    "fr": "https://cyrilvoyant.github.io/methods/persistence-blend-fr.html#try-it",
+    "en": "https://cyrilvoyant.github.io/methods/persistence-blend.html#try-it"
+   },
+   "page_title": {
+    "fr": "BLEND et CLIPER : des références de persistance cyclostationnaire",
+    "en": "BLEND and CLIPER: cyclostationary persistence references for solar forecasting"
+   },
+   "computes": {
+    "fr": "BLEND est une combinaison convexe de la persistance et de la persistance cyclique. Voir les poids calculés sur une série temporelle.",
+    "en": "BLEND is a convex combination of persistence and cyclic persistence. See the weights computed on a time series."
+   },
+   "summary": {
+    "fr": "Avec la référence de ciel clair, CLIPER sur le rapport à la tendance x/CS bat BLEND sur x/CS de 1 à 2 % à tous les horizons, sur l’ensemble des journées de test réunies. BLEND gagne seulement dans la classe des journées stables, connue après observation.",
+    "en": "With a clear-sky reference, CLIPER on x/CS beats BLEND on x/CS at all horizons across all test days combined, by 1 to 2 %, and it is simpler. BLEND wins only on stable days, a class known only after the fact."
+   },
+   "parameters": [
+    {
+     "id": "bl-d",
+     "type": "text",
+     "control": "textarea",
+     "default": null,
+     "lines": 480,
+     "preview": "220 / 443.3 / 571.6",
+     "label": {
+      "fr": "Une colonne : signal régulièrement échantillonné (une ligne par pas de temps). Exemple horaire chargé ; vous pouvez coller vos données.",
+      "en": "One column: the signal, regularly sampled (one row per time step). Demo data loaded (hourly); paste your own."
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": null
+    },
+    {
+     "id": "bl-T",
+     "type": "integer",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": 1,
+     "default": 24,
+     "label": {
+      "fr": "Période T (pas)",
+      "en": "Period T (steps)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "pas",
+      "en": "pas"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "bl-h",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 24,
+     "step": 1,
+     "default": 1,
+     "label": {
+      "fr": "Horizon h (distance de prévision) pas",
+      "en": "Horizon h (how far ahead) steps"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "how far ahead",
+      "en": "how far ahead"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "bl-w",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 16,
+     "step": 1,
+     "default": 1,
+     "label": {
+      "fr": "Fenêtre affichée (période)",
+      "en": "Window shown (period)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "période",
+      "en": "période"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "bl-ph",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 24,
+     "step": 1,
+     "default": 7,
+     "label": {
+      "fr": "Phase de l’origine (position dans le cycle)",
+      "en": "Phase of the origin (position in the cycle)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "bl-l",
+     "type": "number",
+     "control": "range",
+     "min": 0,
+     "max": 1,
+     "step": 0.01,
+     "default": 0.5,
+     "label": {
+      "fr": "Votre λ (poids de la dernière valeur, de 0 à 1)",
+      "en": "Your λ (weight of the latest value, 0 to 1)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    }
+   ],
+   "presets": [
+    {
+     "id": "demonstration-h-1",
+     "name": {
+      "fr": "Démonstration, h = 1",
+      "en": null
+     },
+     "values": {
+      "bl-h": 1,
+      "bl-ph": 7,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "220 / 443.3 / 571.6",
+     "shows": {
+      "fr": "À 1 pas, la persistance manque la montée et la descente du Soleil, la persistance cyclique manque les nuages. Les mélanger réduit nettement l’erreur, et λ varie fortement d’une phase à l’autre.",
+      "en": null
+     }
+    },
+    {
+     "id": "demonstration-h-12",
+     "name": {
+      "fr": "Démonstration, h = 12",
+      "en": null
+     },
+     "values": {
+      "bl-h": 12,
+      "bl-ph": 22,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 24
+     },
+     "changes_vs_default": {
+      "bl-h": 12,
+      "bl-ph": 22
+     },
+     "data_preview": "220 / 443.3 / 571.6",
+     "shows": {
+      "fr": "À une demi-période, la dernière valeur est à l’opposé du cycle : la persistance cyclique l’emporte et λ tombe près de 0.",
+      "en": null
+     }
+    },
+    {
+     "id": "demonstration-h-24",
+     "name": {
+      "fr": "Démonstration, h = 24",
+      "en": null
+     },
+     "values": {
+      "bl-h": 24,
+      "bl-ph": 1,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 24
+     },
+     "changes_vs_default": {
+      "bl-h": 24,
+      "bl-ph": 1
+     },
+     "data_preview": "220 / 443.3 / 571.6",
+     "shows": {
+      "fr": "À h = T, la valeur une période plus tôt et la dernière valeur sont la même donnée. Les deux persistances coïncident : rien à mélanger, gain nul. Ce n’est pas une panne.",
+      "en": null
+     }
+    },
+    {
+     "id": "pv-reel-1-heure",
+     "name": {
+      "fr": "PV réel, 1 heure",
+      "en": null
+     },
+     "values": {
+      "bl-h": 2,
+      "bl-ph": 14,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 48
+     },
+     "changes_vs_default": {
+      "bl-h": 2,
+      "bl-ph": 14,
+      "bl-T": 48
+     },
+     "data_preview": "0 / 0 / 0",
+     "shows": {
+      "fr": "Puissance PV mesurée à Palaiseau, h = 2 pas de 30 min. Les poids diffèrent d’une heure à l’autre : c’est l’intérêt d’un poids par phase.",
+      "en": null
+     }
+    },
+    {
+     "id": "pv-reel-12-heures",
+     "name": {
+      "fr": "PV réel, 12 heures",
+      "en": null
+     },
+     "values": {
+      "bl-h": 24,
+      "bl-ph": 12,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 48
+     },
+     "changes_vs_default": {
+      "bl-h": 24,
+      "bl-ph": 12,
+      "bl-T": 48
+     },
+     "data_preview": "0 / 0 / 0",
+     "shows": {
+      "fr": "Puissance PV mesurée à Palaiseau, h = 24 pas de 30 min. La persistance recopie la nuit pour le jour : la persistance cyclique domine.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [
+    {
+     "name": {
+      "fr": "Charger des données PV réelles (Palaiseau, 40 jours, pas de 30 min)",
+      "en": "Load real PV data (Palaiseau, 40 days, 30-min steps)"
+     }
+    }
+   ],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "RMSE de BLEND",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "Combinaison convexe de la persistance et de la persistance cyclique.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "RMSE de la persistance",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "Recopie la dernière valeur connue.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "RMSE de la persistance cyclique",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "Recopie la valeur une période plus tôt, au même moment du cycle.",
+      "en": null
+     },
+     "kind": "metric"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [
+    {
+     "term": "k, rapport à la tendance (indice de ciel clair)",
+     "meaning": {
+      "fr": "k = P / Pcs : puissance rapportée à la référence de ciel clair. Le rapport retire une grande partie du cycle solaire ; sa valeur dépend aussi de la qualité de cette référence. Il est indéfini lorsque le dénominateur est nul.",
+      "en": "k = P / Pcs: the share of the clear-sky power actually produced. 1 under a clear sky, around 0.2 under a thick cloud. Removing the clear sky removes most of the daily and yearly cycle, so what remains is the weather."
+     }
+    },
+    {
+     "term": "ρ1 et ρ24, mémoire",
+     "meaning": {
+      "fr": "Corrélation de Pearson (de −1 à 1) de k avec sa valeur une heure ou 24 heures auparavant, sur les paires diurnes. Une corrélation de 1 correspond à une relation linéaire positive parfaite, pas forcément à des valeurs identiques ; 0 signifie absence de corrélation linéaire, sans exclure une dépendance non linéaire. ρ24 renseigne sur la ressemblance entre journées.",
+      "en": "Correlation (Pearson, from −1 to 1) between k and its own value 1 hour earlier (ρ1) or 24 hours earlier, at the same time of day (ρ24), over daytime pairs. 1: a perfect positive linear relationship, not necessarily identical values; 0: no linear correlation at that lag; nonlinear dependence may still exist. ρ1 is the memory used by persistence; ρ24 asks “does today look like yesterday at the same hour?”, the memory used by the cyclic term of BLEND."
+     }
+    },
+    {
+     "term": "sCV, variabilité",
+     "meaning": {
+      "fr": "sCV = √2 / |d − 1| × RMSE(P − Pcs) / RMS(Pcs), avec d = 0,2 : différence à la tendance de ciel clair, normalisée. La référence d’alternance aléatoire entre ciel clair et couvert vaut 1 ; ce n’est pas un maximum universel. Un couvert stable et des passages nuageux peuvent avoir le même sCV.",
+      "en": "sCV = √2 / |d − 1| · RMSE(P − Pcs) / RMS(Pcs), with d = 0.2: how far the series stays from clear sky, whatever the cause. 0 when the sky is always clear; 1 for a sky switching at random between clear and thick cloud (the reference of strong variability, not a maximum). A steady overcast day and a broken-cloud day can have the same sCV."
+     }
+    },
+    {
+     "term": "F, prévisibilité",
+     "meaning": {
+      "fr": "F = 1 + sCV × (ρmax − 1), où ρmax est le maximum de l’autocorrélation absolue du résidu P − Pcs entre les retards h et 12 h. F est compris entre 1 − sCV et 1. Il renseigne sur la prévisibilité, sans garantir la performance d’un modèle. Pour h ≥ 3 dans ces données, le maximum est atteint au retard 12 h dans chaque classe : F est donc identique à 3, 6 et 9 h.",
+      "en": "F = 1 + sCV · (ρmax − 1), where ρmax is the largest |autocorrelation| of the residual P − Pcs between lag h and 12 h. F lies between 1 − sCV (variable and without memory: hard) and 1 (no variability or perfect memory: easy). Higher F indicates greater forecastability under this diagnostic; it does not guarantee the performance of a particular model. For h ≥ 3, ρmax is reached at the 12-hour lag in every class, so F is the same for h = 3, 6 and 9."
+     }
+    },
+    {
+     "term": "nRMSE",
+     "meaning": {
+      "fr": "Racine de l’erreur quadratique moyenne divisée par la puissance moyenne observée sur les mêmes heures. Une nRMSE de 0,30 signifie que la RMSE représente 30 % de cette moyenne.",
+      "en": "Root mean square error divided by the mean observed power on the same hours: 0.30 means a typical error of 30 % of the mean production."
+     }
+    }
+   ],
+   "assumptions": {
+    "fr": [
+     "Les moyennes, variances et corrélations cycliques exigent suffisamment de cycles passés pour être estimées. Un modèle autorégressif ou à apprentissage peut faire mieux dans d’autres conditions. Sur vos données, fixer les mêmes horizons, fenêtres, masques de valeurs manquantes et références avant de conclure. BLEND fournit une référence analytique reproductible, pas une promesse de supériorité universelle."
+    ],
+    "en": [
+     "“Training-free” does not mean “observation-free”: cyclic means, deviations and correlations must still be estimated on past data, and they need enough cycles to be stable. BLEND does not outperform every optimized method; autoregressive or learned predictors can do better under some conditions. The evidence concerns the datasets of the paper, not a universal ranking of forecasting methods. Test the transfer to your own series rather than assuming it."
+    ]
+   },
+   "source": {
+    "dois": [
+     "10.1016/j.apm.2026.116988",
+     "10.1016/j.renene.2022.04.065",
+     "10.1016/j.renene.2025.123913",
+     "10.5281/zenodo.18812333",
+     "10.5281/zenodo.23534072"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/ARTU",
+     "https://github.com/cyrilvoyant/PV_ELM_pred",
+     "https://github.com/cyrilvoyant/cyclostationary-forecasting-matlab",
+     "https://github.com/cyrilvoyant/solar-variability-scv"
+    ],
+    "related_pages": []
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/blend/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "outputs_source": "https://www.cyrilvoyant.com/fr/outils/blend/#try-it",
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "demonstration-h-1",
+     "title": {
+      "fr": "Démonstration, h = 1",
+      "en": null
+     },
+     "set": {
+      "bl-h": 1,
+      "bl-ph": 7,
+      "bl-l": 0.5,
+      "bl-w": 1,
+      "bl-T": 24
+     },
+     "observe": {
+      "fr": "À 1 pas, la persistance manque la montée et la descente du Soleil, la persistance cyclique manque les nuages. Les mélanger réduit nettement l’erreur, et λ varie fortement d’une phase à l’autre.",
+      "en": null
+     }
+    },
+    {
+     "preset": "demonstration-h-12",
+     "title": {
+      "fr": "Démonstration, h = 12",
+      "en": null
+     },
+     "set": {
+      "bl-h": 12,
+      "bl-ph": 22
+     },
+     "observe": {
+      "fr": "À une demi-période, la dernière valeur est à l’opposé du cycle : la persistance cyclique l’emporte et λ tombe près de 0.",
+      "en": null
+     }
+    },
+    {
+     "preset": "demonstration-h-24",
+     "title": {
+      "fr": "Démonstration, h = 24",
+      "en": null
+     },
+     "set": {
+      "bl-h": 24,
+      "bl-ph": 1
+     },
+     "observe": {
+      "fr": "À h = T, la valeur une période plus tôt et la dernière valeur sont la même donnée. Les deux persistances coïncident : rien à mélanger, gain nul. Ce n’est pas une panne.",
+      "en": null
+     }
+    },
+    {
+     "preset": "pv-reel-1-heure",
+     "title": {
+      "fr": "PV réel, 1 heure",
+      "en": null
+     },
+     "set": {
+      "bl-h": 2,
+      "bl-ph": 14,
+      "bl-T": 48
+     },
+     "observe": {
+      "fr": "Puissance PV mesurée à Palaiseau, h = 2 pas de 30 min. Les poids diffèrent d’une heure à l’autre : c’est l’intérêt d’un poids par phase.",
+      "en": null
+     }
+    },
+    {
+     "preset": "pv-reel-12-heures",
+     "title": {
+      "fr": "PV réel, 12 heures",
+      "en": null
+     },
+     "set": {
+      "bl-h": 24,
+      "bl-ph": 12,
+      "bl-T": 48
+     },
+     "observe": {
+      "fr": "Puissance PV mesurée à Palaiseau, h = 24 pas de 30 min. La persistance recopie la nuit pour le jour : la persistance cyclique domine.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "persistence",
+    "cyclic-persistence",
+    "convex-combination",
+    "blend",
+    "clear-sky-index",
+    "ratio-to-trend",
+    "nrmse",
+    "scv",
+    "forecastability-f"
+   ],
+   "extraction": {
+    "source_hash": "d71a03ba24789c7c",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  },
+  {
+   "id": "scv",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "energy",
+   "interface_language": "both",
+   "name": {
+    "fr": "Mesurer variabilité et prévisibilité — sCV et F",
+    "en": "Measure variability and forecastability — sCV and F"
+   },
+   "url": {
+    "fr": "https://cyrilvoyant.github.io/methods/solar-variability-scv-fr.html#try-it",
+    "en": "https://cyrilvoyant.github.io/methods/solar-variability-scv.html#try-it"
+   },
+   "page_title": {
+    "fr": "Variabilité et prévisibilité de l’éclairement solaire : sCV et F",
+    "en": "sCV and F: variability and forecastability of solar irradiance"
+   },
+   "computes": {
+    "fr": "sCV décrit la variabilité d’un signal, F sa prévisibilité, avant tout modèle. Fournir éclairement mesuré et ciel clair, puis les lire à l’horizon choisi.",
+    "en": "sCV describes the variability of a signal, F its forecastability, before any model. Supply measured and clear-sky irradiance, then read them at your chosen horizon."
+   },
+   "summary": {
+    "fr": null,
+    "en": "Before choosing a forecasting model, it helps to know how difficult the site is. Two numbers answer that: sCV, the variability that clouds add to the course of the sun, and F, how much of that variability can be anticipated at a given horizon."
+   },
+   "parameters": [
+    {
+     "id": "sc-d",
+     "type": "text",
+     "control": "textarea",
+     "default": null,
+     "lines": 480,
+     "preview": "220 258.8 / 443.3 500 / 571.6 707.1",
+     "label": {
+      "fr": "Deux colonnes : irradiance mesurée puis irradiance de ciel clair (une ligne par pas de temps). Démonstration horaire chargée ; vous pouvez coller vos données.",
+      "en": "Two columns: measured irradiance, clear-sky irradiance (one row per time step). Demo data loaded (hourly); paste your own."
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": null
+    },
+    {
+     "id": "sc-T",
+     "type": "integer",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": 1,
+     "default": 24,
+     "label": {
+      "fr": "Pas de temps par jour T",
+      "en": "Steps per day T"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "sc-n",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 12,
+     "step": 1,
+     "default": 1,
+     "label": {
+      "fr": "Horizon n pas",
+      "en": "Horizon n steps"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "sc-dd",
+     "type": "number",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": 0.05,
+     "default": 0.2,
+     "label": {
+      "fr": "Plancher diffus d (fraction de lumière restant sous un nuage épais)",
+      "en": "Diffuse floor d (fraction of light left under thick cloud)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    }
+   ],
+   "presets": [
+    {
+     "id": "ciel-clair",
+     "name": {
+      "fr": "Ciel clair",
+      "en": null
+     },
+     "values": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "0 0 / 0 0 / 0 0",
+     "shows": {
+      "fr": "L’éclairement suit le ciel clair : sCV = 0, F = 1. Rien à prévoir au-delà du cycle du Soleil. F ne bouge pas avec l’horizon : c’est juste, il n’y a aucun écart à prévoir.",
+      "en": null
+     }
+    },
+    {
+     "id": "voile-leger",
+     "name": {
+      "fr": "Voile léger",
+      "en": null
+     },
+     "values": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "0 0 / 0 0 / 0 0",
+     "shows": {
+      "fr": "De petits écarts au ciel clair : sCV faible, donc F reste près de 1 quel que soit l’horizon. Peu de variabilité, peu de difficulté.",
+      "en": null
+     }
+    },
+    {
+     "id": "ciel-fragmente",
+     "name": {
+      "fr": "Ciel fragmenté",
+      "en": null
+     },
+     "values": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "0 0 / 0 0 / 0 0",
+     "shows": {
+      "fr": "Des nuages fréquents : la variabilité monte. L’écart au ciel clair garde pourtant la forme de la journée, nul la nuit, fort à midi : ρmax reste élevé à 1 pas.",
+      "en": null
+     }
+    },
+    {
+     "id": "clair-ou-couvert-au-hasard",
+     "name": {
+      "fr": "Clair ou couvert au hasard",
+      "en": null
+     },
+     "values": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "0 0 / 0 0 / 0 0",
+     "shows": {
+      "fr": "Chaque heure tire à pile ou face : ciel clair, ou seulement la fraction d de ciel clair. C’est le cas de référence de l’article : sCV proche de 1, et F basse, car peu de mémoire.",
+      "en": null
+     }
+    },
+    {
+     "id": "journees-entieres-couvertes",
+     "name": {
+      "fr": "Journées entières couvertes",
+      "en": null
+     },
+     "values": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "changes_vs_default": {},
+     "data_preview": "0 0 / 0 0 / 0 0",
+     "shows": {
+      "fr": "Même amplitude que le cas précédent, mais le ciel reste le même toute la journée. La variabilité reste forte et la mémoire remonte F : un ciel très variable peut rester prévisible.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "sCV",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "L’écart quadratique au ciel clair, rapporté au ciel clair. 0 : ciel clair. 1 : la référence d’un ciel très variable, pas un maximum.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "ρmax",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "La mémoire : la plus forte corrélation, en valeur absolue, entre l’écart au ciel clair et lui-même, de n à T/2 pas plus tôt. Atteinte ici à 1 pas.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "F",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "Prévisibilité : F = 1 + sCV × (ρmax − 1). Plus elle est haute, plus cet horizon est facile.",
+      "en": null
+     },
+     "kind": "metric"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [
+    {
+     "term": "\\(I(t)\\)",
+     "meaning": {
+      "fr": "éclairement global mesuré ; \\(I_{\\mathrm{clr}}(t)\\), éclairement de ciel clair calculé.",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(\\epsilon(t)\\)",
+     "meaning": {
+      "fr": "résidu \\(I(t)-I_{\\mathrm{clr}}(t)\\), qui rassemble ce que la trajectoire de ciel clair n’explique pas.",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(\\mu_{\\mathrm{clr}},\\ \\sigma_{\\mathrm{clr}}\\)",
+     "meaning": {
+      "fr": "moyenne et écart type de \\(I_{\\mathrm{clr}}\\) ; \\(n\\) est le nombre de valeurs de la série.",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(d\\)",
+     "meaning": {
+      "fr": "fraction diffuse résiduelle sous couvert nuageux épais. L’article utilise \\(d=0{,}2\\) comme valeur de référence.",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(T\\)",
+     "meaning": {
+      "fr": "nombre de pas de temps dans une période ; par exemple 24 pour une série horaire journalière.",
+      "en": null
+     }
+    }
+   ],
+   "assumptions": {
+    "fr": [
+     "La méthode nécessite un modèle de ciel clair et au moins une année de mesures représentatives. Les auteurs recommandent un pas de temps de quelques minutes ou davantage : à une seconde ou moins, la réponse du capteur, les surirradiances au bord des nuages et l’aliasing peuvent déformer les fluctuations. Au-delà d’une heure, l’approximation de demi-échantillon utilisée pour la normalisation peut ne plus être adaptée. F décrit la mémoire des résidus selon la définition de l’article ; il ne remplace pas une validation chronologique des modèles."
+    ],
+    "en": [
+     "A clear-sky model is needed. Use at least a year of data. Keep a time step of a few minutes or more: at very short steps (a second or less) sensor response, over-irradiance at cloud edges and aliasing distort the fluctuations; beyond one hour the half-sample approximation of Eq. (6) may no longer hold."
+    ]
+   },
+   "source": {
+    "dois": [
+     "10.1016/j.renene.2025.123913",
+     "10.5281/zenodo.23562553"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/solar-variability-scv"
+    ],
+    "related_pages": []
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/variabilite-previsibilite/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "outputs_source": "https://www.cyrilvoyant.com/fr/outils/variabilite-previsibilite/#try-it",
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "ciel-clair",
+     "title": {
+      "fr": "Ciel clair",
+      "en": null
+     },
+     "set": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "observe": {
+      "fr": "L’éclairement suit le ciel clair : sCV = 0, F = 1. Rien à prévoir au-delà du cycle du Soleil. F ne bouge pas avec l’horizon : c’est juste, il n’y a aucun écart à prévoir.",
+      "en": null
+     }
+    },
+    {
+     "preset": "voile-leger",
+     "title": {
+      "fr": "Voile léger",
+      "en": null
+     },
+     "set": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "observe": {
+      "fr": "De petits écarts au ciel clair : sCV faible, donc F reste près de 1 quel que soit l’horizon. Peu de variabilité, peu de difficulté.",
+      "en": null
+     }
+    },
+    {
+     "preset": "ciel-fragmente",
+     "title": {
+      "fr": "Ciel fragmenté",
+      "en": null
+     },
+     "set": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "observe": {
+      "fr": "Des nuages fréquents : la variabilité monte. L’écart au ciel clair garde pourtant la forme de la journée, nul la nuit, fort à midi : ρmax reste élevé à 1 pas.",
+      "en": null
+     }
+    },
+    {
+     "preset": "clair-ou-couvert-au-hasard",
+     "title": {
+      "fr": "Clair ou couvert au hasard",
+      "en": null
+     },
+     "set": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "observe": {
+      "fr": "Chaque heure tire à pile ou face : ciel clair, ou seulement la fraction d de ciel clair. C’est le cas de référence de l’article : sCV proche de 1, et F basse, car peu de mémoire.",
+      "en": null
+     }
+    },
+    {
+     "preset": "journees-entieres-couvertes",
+     "title": {
+      "fr": "Journées entières couvertes",
+      "en": null
+     },
+     "set": {
+      "sc-n": 1,
+      "sc-dd": 0.2,
+      "sc-T": 24
+     },
+     "observe": {
+      "fr": "Même amplitude que le cas précédent, mais le ciel reste le même toute la journée. La variabilité reste forte et la mémoire remonte F : un ciel très variable peut rester prévisible.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "scv",
+    "forecastability-f"
+   ],
+   "extraction": {
+    "source_hash": "99dbba5b5109ed96",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  },
+  {
+   "id": "gamma",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "energy",
+   "interface_language": "both",
+   "name": {
+    "fr": "Déplacer une prévision et observer l’indice γ",
+    "en": "Displace a forecast and explore the γ-index"
+   },
+   "url": {
+    "fr": "https://cyrilvoyant.github.io/methods/gamma-index-fr.html#try-it",
+    "en": "https://cyrilvoyant.github.io/methods/gamma-index.html#try-it"
+   },
+   "page_title": {
+    "fr": "Indice γ : valider des prévisions solaires avec des tolérances",
+    "en": "The γ-index: tolerance-based validation of spatio-temporal forecast fields"
+   },
+   "computes": {
+    "fr": "L’indice γ juge une prévision avec des tolérances d’espace, de temps et d’intensité. Déplacer, retarder ou biaiser un nuage synthétique et régler ces tolérances.",
+    "en": "The γ-index judges a forecast with tolerances in space, time and intensity. Displace, delay or bias a synthetic cloud and adjust these tolerances."
+   },
+   "summary": {
+    "fr": null,
+    "en": null
+   },
+   "parameters": [
+    {
+     "id": "gm-s",
+     "type": "number",
+     "control": "range",
+     "min": 0,
+     "max": 6,
+     "step": 0.25,
+     "default": 2,
+     "label": {
+      "fr": "Décalage du nuage vers le nord km",
+      "en": "Cloud displaced north by (across its motion) km"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "km",
+      "en": "km"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "gm-l",
+     "type": "integer",
+     "control": "range",
+     "min": -30,
+     "max": 30,
+     "step": 5,
+     "default": 0,
+     "label": {
+      "fr": "Retard (+) ou avance (−) min",
+      "en": "Forecast late (+) or early (−) by min"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "min",
+      "en": "min"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "gm-b",
+     "type": "integer",
+     "control": "range",
+     "min": -80,
+     "max": 80,
+     "step": 5,
+     "default": 0,
+     "label": {
+      "fr": "Biais d’intensité W/m²",
+      "en": "Intensity bias W/m²"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "W/m²",
+      "en": "W/m²"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "gm-dta",
+     "type": "number",
+     "control": "range",
+     "min": 0.5,
+     "max": 3,
+     "step": 0.5,
+     "default": 2,
+     "label": {
+      "fr": "DTA (distance to agreement), espace km",
+      "en": "DTA (distance to agreement), spatial km"
+     },
+     "meaning": {
+      "fr": null,
+      "en": "distance to agreement: spatial tolerance"
+     },
+     "unit": {
+      "fr": "km",
+      "en": "km"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "gm-tta",
+     "type": "integer",
+     "control": "range",
+     "min": 5,
+     "max": 30,
+     "step": 5,
+     "default": 30,
+     "label": {
+      "fr": "TTA (time to agreement), temps min",
+      "en": "TTA (time to agreement), temporal min"
+     },
+     "meaning": {
+      "fr": null,
+      "en": "time to agreement: temporal tolerance"
+     },
+     "unit": {
+      "fr": "min",
+      "en": "min"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "gm-idt",
+     "type": "integer",
+     "control": "range",
+     "min": 10,
+     "max": 100,
+     "step": 5,
+     "default": 50,
+     "label": {
+      "fr": "IDT (intensity difference threshold), intensité W/m²",
+      "en": "IDT (intensity difference threshold), intensity W/m²"
+     },
+     "meaning": {
+      "fr": null,
+      "en": "intensity deviation tolerance, for example 50 W/m², calibrated from sensor uncertainty or grid operational limits"
+     },
+     "unit": {
+      "fr": "W/m²",
+      "en": "W/m²"
+     },
+     "unit_source": "label"
+    }
+   ],
+   "presets": [
+    {
+     "id": "nuage-decale-de-2-km",
+     "name": {
+      "fr": "Nuage décalé de 2 km",
+      "en": null
+     },
+     "values": {
+      "gm-s": 2,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "changes_vs_default": {},
+     "shows": {
+      "fr": "Le nuage est bien prévu, mais 2 km trop au nord. La RMSE le compte deux fois : là où il était prévu, là où il se trouve. γ l’accepte : le décalage reste dans la tolérance de distance.",
+      "en": null
+     }
+    },
+    {
+     "id": "retard-de-30-min",
+     "name": {
+      "fr": "Retard de 30 min",
+      "en": null
+     },
+     "values": {
+      "gm-s": 0,
+      "gm-l": 30,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "changes_vs_default": {
+      "gm-s": 0,
+      "gm-l": 30
+     },
+     "shows": {
+      "fr": "Le bon nuage, en retard. La RMSE monte fortement, mais chaque pixel trouve la bonne valeur dans la tolérance de temps. Réduisez TTA pour voir γ devenir sévère.",
+      "en": null
+     }
+    },
+    {
+     "id": "biais-de-80-w-m2",
+     "name": {
+      "fr": "Biais de 80 W/m²",
+      "en": null
+     },
+     "values": {
+      "gm-s": 0,
+      "gm-l": 0,
+      "gm-b": 80,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "changes_vs_default": {
+      "gm-s": 0,
+      "gm-b": 80
+     },
+     "shows": {
+      "fr": "Le nuage est au bon endroit, mais toute la carte est 80 W/m² trop claire. La RMSE reste modérée ; γ rejette la plupart des pixels : dans le ciel clair, 80 dépasse IDT = 50 W/m² et aucune observation n’est aussi claire.",
+      "en": null
+     }
+    },
+    {
+     "id": "nuage-decale-de-6-km",
+     "name": {
+      "fr": "Nuage décalé de 6 km",
+      "en": null
+     },
+     "values": {
+      "gm-s": 6,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "changes_vs_default": {
+      "gm-s": 6
+     },
+     "shows": {
+      "fr": "Un décalage trois fois plus grand que DTA. Attention : le GPR reste élevé, car la plus grande partie de la carte est du ciel clair sans erreur. Regardez γmax et la carte, pas seulement le GPR.",
+      "en": null
+     }
+    },
+    {
+     "id": "tolerances-strictes",
+     "name": {
+      "fr": "Tolérances strictes",
+      "en": null
+     },
+     "values": {
+      "gm-s": 3,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 0.5,
+      "gm-tta": 5,
+      "gm-idt": 10
+     },
+     "changes_vs_default": {
+      "gm-s": 3,
+      "gm-dta": 0.5,
+      "gm-tta": 5,
+      "gm-idt": 10
+     },
+     "shows": {
+      "fr": "Un décalage de 3 km jugé avec 0,5 km, 5 min et 10 W/m². Le GPR chute : les tolérances font partie du résultat, elles se choisissent selon l’usage, avant de comparer des prévisions.",
+      "en": null
+     }
+    },
+    {
+     "id": "tolerances-de-larticle",
+     "name": {
+      "fr": "Tolérances de l’article",
+      "en": null
+     },
+     "values": {
+      "gm-s": 2,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "changes_vs_default": {},
+     "shows": {
+      "fr": "Les tolérances de l’article sur la Corse : 2 km, 30 min, 50 W/m². Elles se choisissent selon l’usage : gardez l’erreur, changez les tolérances : γ change.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [
+    {
+     "name": {
+      "fr": "Tolérances de l’article (2 km, 30 min, 50 W/m²)",
+      "en": "Tolerances of the article (2 km, 30 min, 50 W/m²)"
+     }
+    },
+    {
+     "name": {
+      "fr": "▶ Éloigner le nuage prévu",
+      "en": "▶ Move the forecast cloud away"
+     }
+    }
+   ],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "GPR",
+      "en": null
+     },
+     "unit": {
+      "fr": "%",
+      "en": "%"
+     },
+     "meaning": {
+      "fr": "La part des pixels acceptés (γ ≤ 1).",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "γ moyen",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "La distance moyenne à la meilleure observation, en unités de tolérance.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "γmax",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "Le pixel le moins acceptable de la carte.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "RMSE",
+      "en": null
+     },
+     "unit": {
+      "fr": "W/m²",
+      "en": "W/m²"
+     },
+     "meaning": {
+      "fr": "L’erreur point par point, sans tolérance. 26 % des pixels dépassent IDT.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "Prévision exacte",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Décalé de 2 km",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Décalé de 6 km",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Retard de 15 min",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Retard de 30 min",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Biais de 40 W/m²",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    },
+    {
+     "name": {
+      "fr": "Biais de 80 W/m²",
+      "en": null
+     },
+     "unit": null,
+     "meaning": {
+      "fr": "Erreur | RMSE (W/m²) | GPR | γ moyen | Prévision exacte",
+      "en": null
+     },
+     "kind": "table-row"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [],
+   "assumptions": {
+    "fr": [
+     "La composante temporelle n’est pas pleinement exploitée dans cette première implémentation ; la validation publiée porte surtout sur l’espace. Une recherche temporelle complète coûte davantage et une TTA égale à toute la période d’échantillonnage pourrait avantager artificiellement la persistance. Une DTA d’un pixel convient à des grilles modérées de 1 à 5 km ; sur une grille plus grossière, elle peut dépasser l’échelle physique des nuages. L’IDT doit venir des besoins de l’application, pas d’une valeur fixée partout.",
+     "L’article évoque une future perte d’apprentissage pénalisant \\(\\max(0,\\gamma-1)\\). Cette idée est une perspective , pas un résultat d’entraînement validé dans l’étude. Le γ-index complète les méthodes de vérification spatiale et les erreurs classiques ; son résultat dépend des tolérances et du rééchantillonnage."
+    ],
+    "en": [
+     "The temporal component is not fully exploited in this first implementation (the validation focuses on the spatial dimension); a finer TTA or a full temporal search is needed for transient phenomena, and a TTA equal to the whole sampling interval can favor persistence. DTA = 1 pixel suits moderate resolutions (1 to 5 km), not grids coarser than 5 to 10 km. The 10 % IDT is a baseline; the operational rules of each variable should set it. Because γ is continuous and differentiable almost everywhere, the article suggests, beyond its scope, a tolerance-aware training loss \\(\\mathcal L_{\\mathrm{total}}=\\mathcal L_{\\mathrm{data}}+\\lambda\\,\\mathbb E[\\max(0,\\gamma-1)]\\) (Eq. 3), with \\(\\lambda\\) a weight: a perspective, not a validated training result."
+    ]
+   },
+   "source": {
+    "dois": [
+     "10.1016/j.ijforecast.2026.03.002",
+     "10.1118/1.598248",
+     "10.5281/zenodo.21755936",
+     "10.5281/zenodo.21755937"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/temporal-gamma-index"
+    ],
+    "related_pages": [
+     {
+      "href": "/bib/Voyant2026Tolerance.bib",
+      "text": "BibTeX"
+     }
+    ]
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/indice-gamma/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "outputs_source": "https://www.cyrilvoyant.com/fr/outils/indice-gamma/#try-it",
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "nuage-decale-de-2-km",
+     "title": {
+      "fr": "Nuage décalé de 2 km",
+      "en": null
+     },
+     "set": {
+      "gm-s": 2,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "observe": {
+      "fr": "Le nuage est bien prévu, mais 2 km trop au nord. La RMSE le compte deux fois : là où il était prévu, là où il se trouve. γ l’accepte : le décalage reste dans la tolérance de distance.",
+      "en": null
+     }
+    },
+    {
+     "preset": "retard-de-30-min",
+     "title": {
+      "fr": "Retard de 30 min",
+      "en": null
+     },
+     "set": {
+      "gm-s": 0,
+      "gm-l": 30
+     },
+     "observe": {
+      "fr": "Le bon nuage, en retard. La RMSE monte fortement, mais chaque pixel trouve la bonne valeur dans la tolérance de temps. Réduisez TTA pour voir γ devenir sévère.",
+      "en": null
+     }
+    },
+    {
+     "preset": "biais-de-80-w-m2",
+     "title": {
+      "fr": "Biais de 80 W/m²",
+      "en": null
+     },
+     "set": {
+      "gm-s": 0,
+      "gm-b": 80
+     },
+     "observe": {
+      "fr": "Le nuage est au bon endroit, mais toute la carte est 80 W/m² trop claire. La RMSE reste modérée ; γ rejette la plupart des pixels : dans le ciel clair, 80 dépasse IDT = 50 W/m² et aucune observation n’est aussi claire.",
+      "en": null
+     }
+    },
+    {
+     "preset": "tolerances-strictes",
+     "title": {
+      "fr": "Tolérances strictes",
+      "en": null
+     },
+     "set": {
+      "gm-s": 3,
+      "gm-dta": 0.5,
+      "gm-tta": 5,
+      "gm-idt": 10
+     },
+     "observe": {
+      "fr": "Un décalage de 3 km jugé avec 0,5 km, 5 min et 10 W/m². Le GPR chute : les tolérances font partie du résultat, elles se choisissent selon l’usage, avant de comparer des prévisions.",
+      "en": null
+     }
+    },
+    {
+     "preset": "tolerances-de-larticle",
+     "title": {
+      "fr": "Tolérances de l’article",
+      "en": null
+     },
+     "set": {
+      "gm-s": 2,
+      "gm-l": 0,
+      "gm-b": 0,
+      "gm-dta": 2,
+      "gm-tta": 30,
+      "gm-idt": 50
+     },
+     "observe": {
+      "fr": "Les tolérances de l’article sur la Corse : 2 km, 30 min, 50 W/m². Elles se choisissent selon l’usage : gardez l’erreur, changez les tolérances : γ change.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "gamma-index"
+   ],
+   "extraction": {
+    "source_hash": "dfa3bede1f962608",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  },
+  {
+   "id": "thyroid",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "medicine",
+   "interface_language": "both",
+   "name": {
+    "fr": "Explorer les profils du modèle thyroïde",
+    "en": "Explore thyroid model profiles"
+   },
+   "url": {
+    "fr": "https://cyrilvoyant.github.io/methods/thyroid-radioiodine-fr.html#try-it",
+    "en": "https://cyrilvoyant.github.io/methods/thyroid-radioiodine.html#try-it"
+   },
+   "page_title": {
+    "fr": "Iode radioactif et cancer de la thyroïde métastatique : le modèle RAIR-Sim",
+    "en": "Radioiodine therapy in metastatic thyroid cancer: the RAIR-Sim model"
+   },
+   "computes": {
+    "fr": "Choisir un profil et un protocole ; suivre la thyroglobuline simulée. Usage de recherche et d’enseignement.",
+    "en": "Choose a profile and protocol; follow simulated thyroglobulin. Research and education use."
+   },
+   "summary": {
+    "fr": "Trois équations décrivent comment un cancer de la thyroïde métastatique répond à des séances répétées d’iode radioactif. Calibrées sur 50 patients, elles explorent le nombre de séances, l’intervalle entre elles et l’activité avant qu’aucun patient ne soit traité ; l’apprentissage n’est prévu que là où le modèle est…",
+    "en": "Three equations describe how metastatic thyroid cancer responds to repeated sessions of radioactive iodine. Calibrated on 50 patients, they explore the number of sessions, the interval between them and the activity before any patient is treated; learning is planned only where the model falls short."
+   },
+   "parameters": [
+    {
+     "id": "th-p",
+     "type": "enum",
+     "control": "select",
+     "default": "9.8",
+     "options": [
+      {
+       "value": "9.8",
+       "label": "réfractaire (Td = 9,8 mois)"
+      },
+      {
+       "value": "66.6",
+       "label": "répondeur (Td = 66,6 mois)"
+      }
+     ],
+     "label": {
+      "fr": "Profil du patient",
+      "en": "Patient profile"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": null
+    },
+    {
+     "id": "th-n",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 8,
+     "step": 1,
+     "default": 4,
+     "label": {
+      "fr": "Séances",
+      "en": "Sessions"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "th-l",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 8,
+     "step": 1,
+     "default": 3,
+     "label": {
+      "fr": "Mois entre les séances",
+      "en": "Months between sessions"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "th-a",
+     "type": "number",
+     "control": "range",
+     "min": 1,
+     "max": 8,
+     "step": 0.1,
+     "default": 3.7,
+     "label": {
+      "fr": "Activité par séance GBq",
+      "en": "Activity per session GBq"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "GBq",
+      "en": "GBq"
+     },
+     "unit_source": "label"
+    }
+   ],
+   "presets": [
+    {
+     "id": "refractaire-4-seances",
+     "name": {
+      "fr": "Réfractaire : 4 séances",
+      "en": null
+     },
+     "values": {
+      "th-p": "9.8",
+      "th-n": 4,
+      "th-l": 3,
+      "th-a": 3.7
+     },
+     "changes_vs_default": {},
+     "shows": {
+      "fr": "Le temps de doublement court l’emporte après la dernière séance : la thyroglobuline simulée baisse, puis remonte.",
+      "en": null
+     }
+    },
+    {
+     "id": "refractaire-8-seances",
+     "name": {
+      "fr": "Réfractaire : 8 séances",
+      "en": null
+     },
+     "values": {
+      "th-p": "9.8",
+      "th-n": 8,
+      "th-l": 3,
+      "th-a": 3.7
+     },
+     "changes_vs_default": {
+      "th-n": 8
+     },
+     "shows": {
+      "fr": "Davantage de séances contiennent la remontée plus longtemps : c’est l’intensification explorée par l’article pour ce profil.",
+      "en": null
+     }
+    },
+    {
+     "id": "repondeur-4-seances",
+     "name": {
+      "fr": "Répondeur : 4 séances",
+      "en": null
+     },
+     "values": {
+      "th-p": "66.6",
+      "th-n": 4,
+      "th-l": 3,
+      "th-a": 3.7
+     },
+     "changes_vs_default": {
+      "th-p": "66.6"
+     },
+     "shows": {
+      "fr": "Avec le même protocole, le temps de doublement long laisse la thyroglobuline simulée descendre durablement.",
+      "en": null
+     }
+    },
+    {
+     "id": "repondeur-activite-reduite",
+     "name": {
+      "fr": "Répondeur : activité réduite",
+      "en": null
+     },
+     "values": {
+      "th-p": "66.6",
+      "th-n": 3,
+      "th-l": 6,
+      "th-a": 1.1
+     },
+     "changes_vs_default": {
+      "th-p": "66.6",
+      "th-n": 3,
+      "th-l": 6,
+      "th-a": 1.1
+     },
+     "shows": {
+      "fr": "Moins d’activité et des séances plus espacées : pour ce profil, l’article cherche l’activité minimale efficace. Le modèle montre ce que ce choix change, il ne le recommande pas.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "Tg à 80 mois",
+      "en": null
+     },
+     "unit": {
+      "fr": "ng/mL",
+      "en": "ng/mL"
+     },
+     "meaning": {
+      "fr": "Tg : la thyroglobuline, le marqueur sanguin suivi. Le modèle part de 100 ng/mL, comme dans les simulations de l’article.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "Minimum",
+      "en": null
+     },
+     "unit": {
+      "fr": "ng/mL",
+      "en": "ng/mL"
+     },
+     "meaning": {
+      "fr": "Atteint vers le mois 13.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "Sans aucune séance",
+      "en": null
+     },
+     "unit": {
+      "fr": "ng/mL",
+      "en": "ng/mL"
+     },
+     "meaning": {
+      "fr": "La même équation, activité nulle. Une partie de la baisse du début ne vient pas de l’iode : le modèle élimine la thyroglobuline avec une demi-vie d’environ 2,2 mois.",
+      "en": null
+     },
+     "kind": "metric"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [
+    {
+     "term": "\\(A(t)\\)",
+     "meaning": {
+      "fr": "activité de l’iode radioactif présent (GBq)",
+      "en": "activity of the radioactive iodine present (GBq)"
+     }
+    },
+    {
+     "term": "\\(N(t)\\)",
+     "meaning": {
+      "fr": "nombre de cellules tumorales",
+      "en": "number of tumour cells"
+     }
+    },
+    {
+     "term": "\\(Tg(t)\\)",
+     "meaning": {
+      "fr": "thyroglobuline dans le sang (ng/mL), le biomarqueur clinique",
+      "en": "thyroglobulin in the blood (ng/mL), the clinical biomarker"
+     }
+    },
+    {
+     "term": "\\(D,\\ n,\\ \\Delta T\\)",
+     "meaning": {
+      "fr": "activité par séance (GBq), nombre de séances, intervalle entre séances (mois)",
+      "en": "activity per session (GBq), number of sessions, interval between sessions (months)"
+     }
+    },
+    {
+     "term": "\\(T_d\\)",
+     "meaning": {
+      "fr": "temps de doublement de la tumeur (mois) : ce qui sépare un profil réfractaire d’un profil répondeur",
+      "en": "tumour doubling time (months): what separates a refractory from a responding profile"
+     }
+    }
+   ],
+   "assumptions": {
+    "fr": [
+     "Paramètres calibrés sur une cohorte de 50 patients (MCMC-SAEM, Monolix) et partagés par les deux archétypes, sauf \\(T_d\\) ; description volontairement simple de l’activité résiduelle et de la réponse tumorale. Un outil de recherche, pas un outil de décision clinique ; une validation prospective est nécessaire.",
+     "Deux archétypes et des paramètres calibrés sur la population ; l’activité résiduelle et la réponse tumorale sont décrites par un modèle volontairement simple. RAIR-Sim est un outil de recherche : ce n’est pas un outil de décision clinique et il n’a pas été validé de façon prospective.",
+     "Voir aussi : l’explorateur de protocoles du catalogue principal · le fil de la recherche .",
+     "Besoin de cette méthode sur vos propres données ? Collaborer : une réponse commune à un appel à projets, un contrat de recherche avec Mines Paris – PSL, ou un travail académique avec un objectif clair de valorisation."
+    ],
+    "en": [
+     "Parameters calibrated on a cohort of 50 patients (MCMC-SAEM, Monolix) and shared by the two archetypes except \\(T_d\\); a deliberately simple description of residual activity and tumour response. A research tool, not a clinical decision tool; prospective validation is needed.",
+     "Two archetypes and population-calibrated parameters; residual activity and tumour response are described by a deliberately simple model. RAIR-Sim is a research tool: it is not a clinical decision tool and has not been validated prospectively.",
+     "See also: the protocol explorer in the main catalogue (French) · the research thread .",
+     "Need this method on your own data? Collaborate : a joint answer to a call for projects, a research contract with Mines Paris – PSL, or academic work with a clear valorization objective."
+    ]
+   },
+   "source": {
+    "dois": [
+     "10.1038/s41598-026-56267-1",
+     "10.26717/BJSTR.2025.62.009789",
+     "10.5281/zenodo.21496197"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/CTD_SIMU_RAI"
+    ],
+    "related_pages": [
+     {
+      "href": "/bib/FusellaGiuntini2026Computational.bib",
+      "text": "BibTeX"
+     }
+    ]
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/modele-thyroide/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "outputs_source": "https://www.cyrilvoyant.com/fr/outils/modele-thyroide/#try-it",
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "refractaire-4-seances",
+     "title": {
+      "fr": "Réfractaire : 4 séances",
+      "en": null
+     },
+     "set": {
+      "th-p": "9.8",
+      "th-n": 4,
+      "th-l": 3,
+      "th-a": 3.7
+     },
+     "observe": {
+      "fr": "Le temps de doublement court l’emporte après la dernière séance : la thyroglobuline simulée baisse, puis remonte.",
+      "en": null
+     }
+    },
+    {
+     "preset": "refractaire-8-seances",
+     "title": {
+      "fr": "Réfractaire : 8 séances",
+      "en": null
+     },
+     "set": {
+      "th-n": 8
+     },
+     "observe": {
+      "fr": "Davantage de séances contiennent la remontée plus longtemps : c’est l’intensification explorée par l’article pour ce profil.",
+      "en": null
+     }
+    },
+    {
+     "preset": "repondeur-4-seances",
+     "title": {
+      "fr": "Répondeur : 4 séances",
+      "en": null
+     },
+     "set": {
+      "th-p": "66.6"
+     },
+     "observe": {
+      "fr": "Avec le même protocole, le temps de doublement long laisse la thyroglobuline simulée descendre durablement.",
+      "en": null
+     }
+    },
+    {
+     "preset": "repondeur-activite-reduite",
+     "title": {
+      "fr": "Répondeur : activité réduite",
+      "en": null
+     },
+     "set": {
+      "th-p": "66.6",
+      "th-n": 3,
+      "th-l": 6,
+      "th-a": 1.1
+     },
+     "observe": {
+      "fr": "Moins d’activité et des séances plus espacées : pour ce profil, l’article cherche l’activité minimale efficace. Le modèle montre ce que ce choix change, il ne le recommande pas.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "thyroglobulin"
+   ],
+   "extraction": {
+    "source_hash": "88557d96b7d33886",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  },
+  {
+   "id": "lql",
+   "schema": "https://www.cyrilvoyant.com/tools-spec.json#1.0",
+   "kind": "calculator",
+   "domain": "medicine",
+   "interface_language": "both",
+   "name": {
+    "fr": "Comparer les doses biologiques LQ et LQL",
+    "en": "Compare LQ and LQL biological doses"
+   },
+   "url": {
+    "fr": null,
+    "en": "https://cyrilvoyant.github.io/tools/lql-equiv.html#try-it"
+   },
+   "page_title": {
+    "fr": null,
+    "en": "LQL-Equiv: free online EQD2, BED, NTCP and TCP calculator for radiotherapy"
+   },
+   "computes": {
+    "fr": "LQ (linéaire-quadratique) et LQL (linéaire-quadratique-linéaire) sont deux modèles de l’effet d’une dose. Choisir les paramètres et faire varier la dose par fraction. Usage de recherche et d’enseignement.",
+    "en": "LQ (linear-quadratic) and LQL (linear-quadratic-linear) are two models of the effect of a dose. Choose parameters and vary dose per fraction. Research and education use."
+   },
+   "summary": {
+    "fr": null,
+    "en": null
+   },
+   "parameters": [
+    {
+     "id": "lq-d",
+     "type": "number",
+     "control": "range",
+     "min": 0.5,
+     "max": 25,
+     "step": 0.1,
+     "default": 15,
+     "label": {
+      "fr": null,
+      "en": "Dose per fraction d Gy"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "Gy",
+      "en": "Gy"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "lq-n",
+     "type": "integer",
+     "control": "range",
+     "min": 1,
+     "max": 40,
+     "step": 1,
+     "default": 1,
+     "label": {
+      "fr": null,
+      "en": "Number of fractions n"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    },
+    {
+     "id": "lq-ab",
+     "type": "number",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": "any",
+     "default": 3.9,
+     "label": {
+      "fr": null,
+      "en": "α/β (Gy)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "Gy",
+      "en": "Gy"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "lq-dt",
+     "type": "number",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": "any",
+     "default": 7.8,
+     "label": {
+      "fr": null,
+      "en": "Transition dose dT (Gy)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "Gy",
+      "en": "Gy"
+     },
+     "unit_source": "label"
+    },
+    {
+     "id": "lq-g",
+     "type": "number",
+     "control": "number",
+     "min": null,
+     "max": null,
+     "step": "any",
+     "default": 5,
+     "label": {
+      "fr": null,
+      "en": "γ/α (dimensionless tail slope)"
+     },
+     "meaning": {
+      "fr": null,
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "unit_source": "no unit shown by the page"
+    }
+   ],
+   "presets": [
+    {
+     "id": "petites-fractions-30-2-gy",
+     "name": {
+      "fr": "Petites fractions : 30 × 2 Gy",
+      "en": null
+     },
+     "values": {
+      "lq-d": 2,
+      "lq-n": 30,
+      "lq-ab": 3.9,
+      "lq-dt": 7.8,
+      "lq-g": 5
+     },
+     "changes_vs_default": {
+      "lq-d": 2,
+      "lq-n": 30
+     },
+     "shows": {
+      "fr": "La dose par fraction reste sous la dose de transition : LQ et LQL sont le même calcul. Bougez α/β : le résultat change ; l’écart entre les modèles reste nul, et c’est mathématiquement juste.",
+      "en": null
+     }
+    },
+    {
+     "id": "autour-du-seuil-5-8-gy",
+     "name": {
+      "fr": "Autour du seuil : 5 × 8 Gy",
+      "en": null
+     },
+     "values": {
+      "lq-d": 8,
+      "lq-n": 5,
+      "lq-ab": 3.9,
+      "lq-dt": 7.8,
+      "lq-g": 5
+     },
+     "changes_vs_default": {
+      "lq-d": 8,
+      "lq-n": 5
+     },
+     "shows": {
+      "fr": "Pour le rectum, la dose de transition est 7,8 Gy : on la franchit à peine et les deux modèles restent presque confondus.",
+      "en": null
+     }
+    },
+    {
+     "id": "dose-unique-1-15-gy",
+     "name": {
+      "fr": "Dose unique : 1 × 15 Gy",
+      "en": null
+     },
+     "values": {
+      "lq-d": 15,
+      "lq-n": 1,
+      "lq-ab": 3.9,
+      "lq-dt": 7.8,
+      "lq-g": 5
+     },
+     "changes_vs_default": {},
+     "shows": {
+      "fr": "Bien au-dessus de la dose de transition du rectum, LQ continue de monter en courbe alors que LQL monte en ligne droite : LQ donne une valeur nettement plus élevée.",
+      "en": null
+     }
+    },
+    {
+     "id": "tres-forte-dose-1-25-gy",
+     "name": {
+      "fr": "Très forte dose : 1 × 25 Gy",
+      "en": null
+     },
+     "values": {
+      "lq-d": 25,
+      "lq-n": 1,
+      "lq-ab": 3.9,
+      "lq-dt": 7.8,
+      "lq-g": 5
+     },
+     "changes_vs_default": {
+      "lq-d": 25
+     },
+     "shows": {
+      "fr": "L’écart se creuse encore : c’est dans ce domaine que le choix du modèle pèse le plus.",
+      "en": null
+     }
+    }
+   ],
+   "actions": [],
+   "variants": [],
+   "outputs": [
+    {
+     "name": {
+      "fr": "BED LQ",
+      "en": null
+     },
+     "unit": {
+      "fr": "Gy",
+      "en": "Gy"
+     },
+     "meaning": {
+      "fr": "BED = n d (1 + d / (α/β)). La BED, dose biologiquement efficace, permet de comparer des fractionnements différents.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "BED LQL",
+      "en": null
+     },
+     "unit": {
+      "fr": "Gy",
+      "en": "Gy"
+     },
+     "meaning": {
+      "fr": "La même formule sous dT ; au-dessus, une droite de pente γ/α.",
+      "en": null
+     },
+     "kind": "metric"
+    },
+    {
+     "name": {
+      "fr": "Raccord à dT",
+      "en": null
+     },
+     "unit": {
+      "fr": "sans unité",
+      "en": "dimensionless"
+     },
+     "meaning": {
+      "fr": "La courbe LQ a pour pente 5,0 à dT : 1 + 2 dT / (α/β). Si γ/α vaut cette pente, la droite prolonge la courbe.",
+      "en": null
+     },
+     "kind": "metric"
+    }
+   ],
+   "outputs_en_page": null,
+   "formulas": [],
+   "definitions": [
+    {
+     "term": "\\(n,\\ d\\)",
+     "meaning": {
+      "fr": "number of fractions and dose per fraction (Gy)",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(\\alpha/\\beta\\)",
+     "meaning": {
+      "fr": "tissue parameter of the linear-quadratic model (Gy)",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(d_T\\)",
+     "meaning": {
+      "fr": "transition dose above which the response becomes linear (Gy)",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(\\gamma/\\alpha\\)",
+     "meaning": {
+      "fr": "slope of the linear tail (library value 5)",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(T,\\ T_k,\\ T_p\\)",
+     "meaning": {
+      "fr": "overall time, kick-off time and potential doubling time of the tumour (days)",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(T_{1/2}\\)",
+     "meaning": {
+      "fr": "repair half-time of the tissue; \\(\\phi\\) follows from it",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(TD_{50},\\ m\\)",
+     "meaning": {
+      "fr": "dose giving 50 % complications and slope parameter of the Lyman model",
+      "en": null
+     }
+    },
+    {
+     "term": "\\(TCD_{50},\\ \\gamma_{50}\\)",
+     "meaning": {
+      "fr": "dose giving 50 % tumour control and normalized slope of the curve at that dose",
+      "en": null
+     }
+    }
+   ],
+   "assumptions": {
+    "fr": [],
+    "en": []
+   },
+   "source": {
+    "dois": [
+     "10.1016/j.clon.2025.103893",
+     "10.1016/j.meddos.2026.08.002",
+     "10.1016/j.rpor.2013.08.004",
+     "10.1016/j.softx.2026.103085",
+     "10.1101/2025.03.05.25323402",
+     "10.5281/zenodo.16739882",
+     "10.5281/zenodo.21948623"
+    ],
+    "repositories": [
+     "https://github.com/cyrilvoyant/LQ-Equiv",
+     "https://github.com/cyrilvoyant/LQL-Equiv-web"
+    ],
+    "related_pages": [
+     {
+      "href": "/bib/Voyant2026Lql.bib",
+      "text": "BibTeX"
+     },
+     {
+      "href": "/bib/Voyant2026Dose.bib",
+      "text": "BibTeX"
+     },
+     {
+      "href": "/bib/Voyant2025Improving.bib",
+      "text": "BibTeX"
+     },
+     {
+      "href": "/bib/Voyant2014Biological.bib",
+      "text": "BibTeX"
+     }
+    ]
+   },
+   "presets_source": {
+    "url": "https://www.cyrilvoyant.com/fr/outils/doses-lq-lql/#try-it",
+    "note": {
+     "fr": "Préréglages de l'interface française du site principal (même moteur de calcul, mêmes identifiants de paramètres) ; la page github.io n'a pas de boutons de préréglage.",
+     "en": "Presets of the French interface on the main site (same computation engine, same parameter ids); the github.io page has no preset buttons."
+    }
+   },
+   "outputs_source": "https://www.cyrilvoyant.com/fr/outils/doses-lq-lql/#try-it",
+   "how_to_explore": {
+    "fr": "Régler les paramètres sur un préréglage (valeurs ci-dessus), lire la phrase affichée par la page puis les sorties ; modifier ensuite un seul paramètre à la fois entre son minimum et son maximum.",
+    "en": "Set the parameters to a preset (values above), read the sentence the page shows then the outputs; then change one parameter at a time between its minimum and maximum."
+   },
+   "exploration": [
+    {
+     "preset": "petites-fractions-30-2-gy",
+     "title": {
+      "fr": "Petites fractions : 30 × 2 Gy",
+      "en": null
+     },
+     "set": {
+      "lq-d": 2,
+      "lq-n": 30
+     },
+     "observe": {
+      "fr": "La dose par fraction reste sous la dose de transition : LQ et LQL sont le même calcul. Bougez α/β : le résultat change ; l’écart entre les modèles reste nul, et c’est mathématiquement juste.",
+      "en": null
+     }
+    },
+    {
+     "preset": "autour-du-seuil-5-8-gy",
+     "title": {
+      "fr": "Autour du seuil : 5 × 8 Gy",
+      "en": null
+     },
+     "set": {
+      "lq-d": 8,
+      "lq-n": 5
+     },
+     "observe": {
+      "fr": "Pour le rectum, la dose de transition est 7,8 Gy : on la franchit à peine et les deux modèles restent presque confondus.",
+      "en": null
+     }
+    },
+    {
+     "preset": "dose-unique-1-15-gy",
+     "title": {
+      "fr": "Dose unique : 1 × 15 Gy",
+      "en": null
+     },
+     "set": {
+      "lq-d": 15,
+      "lq-n": 1,
+      "lq-ab": 3.9,
+      "lq-dt": 7.8,
+      "lq-g": 5
+     },
+     "observe": {
+      "fr": "Bien au-dessus de la dose de transition du rectum, LQ continue de monter en courbe alors que LQL monte en ligne droite : LQ donne une valeur nettement plus élevée.",
+      "en": null
+     }
+    },
+    {
+     "preset": "tres-forte-dose-1-25-gy",
+     "title": {
+      "fr": "Très forte dose : 1 × 25 Gy",
+      "en": null
+     },
+     "set": {
+      "lq-d": 25
+     },
+     "observe": {
+      "fr": "L’écart se creuse encore : c’est dans ce domaine que le choix du modèle pèse le plus.",
+      "en": null
+     }
+    }
+   ],
+   "concepts": [
+    "lq-model",
+    "lql-model",
+    "alpha-beta",
+    "transition-dose",
+    "gray"
+   ],
+   "extraction": {
+    "source_hash": "4182adf691783653",
+    "method": "rendered page (Playwright, msedge, local static server), presets replayed on a fresh page each",
+    "roots": [
+     "#try-it"
+    ],
+    "page_errors": [],
+    "fr_en_preset_consistency": null
+   }
+  }
+ ]
+}
