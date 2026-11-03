@@ -12,6 +12,24 @@ This domain is the technical library. Human entry points live on www.cyrilvoyant
 - [Interactive inventory JSON](https://www.cyrilvoyant.com/interactive-resources.json) and [reading map](https://www.cyrilvoyant.com/llm.md).
 - [Technical method guides](https://cyrilvoyant.github.io/#methods): mainly English. A French overview does not imply a translated calculator.
 
+## Files for language models, ontology and French guides
+
+- [Reading sheet for language models](https://cyrilvoyant.github.io/llm.md): who, positioning, methods and tools with URL, how to cite, identifiers.
+- [Full text of the indexable pages](https://cyrilvoyant.github.io/llms-full.txt): one plain-text file, canonical URL before each page.
+- [Ontology of site concepts](https://www.cyrilvoyant.com/ontology/): definitions, units and relations; Turtle [concepts.ttl](https://www.cyrilvoyant.com/ontology/concepts.ttl), JSON-LD [concepts.jsonld](https://www.cyrilvoyant.com/ontology/concepts.jsonld).
+- Glossary: [Lexique (français)](https://www.cyrilvoyant.com/fr/lexique/), [Glossary (English)](https://www.cyrilvoyant.com/glossary/).
+
+French guides (the English page is the reference; calculators keep the interface language stated on the page):
+
+- [Tunnel Load Simulator : consommation électrique des tunnels routiers, application web Monte Carlo](https://cyrilvoyant.github.io/tools/tunnel-load-simulator-fr.html): Simulateur Monte Carlo de la consommation électrique des tunnels routiers : trafic, ventilation, éclairage, aléas, enveloppes P10–P90, export CSV.
+- [ARTU : une référence solaire d’ordre 2, exemple guidé](https://cyrilvoyant.github.io/teaching/artu-worked-example-fr.html): Suivre les coefficients de la table ARTU dans une prévision numérique de l’indice de ciel clair, avec l’algorithme source et les auteurs.
+- [Iode radioactif et cancer de la thyroïde métastatique : le modèle RAIR-Sim](https://cyrilvoyant.github.io/methods/thyroid-radioiodine-fr.html): Modèle de l’iode radioactif, des cellules tumorales et de la thyroglobuline, calibré sur 50 patients : équations, paramètres, code et protocoles explorés.
+- [La modélisation concentrique : comprendre avant de calculer](https://cyrilvoyant.github.io/approche.html): Le fil conducteur des travaux de Cyril Voyant : l'humain au centre, un modèle compris au cœur, tous les outils (IA comprise) autour, et la complexité…
+- [Indice γ : valider des prévisions solaires avec des tolérances](https://cyrilvoyant.github.io/methods/gamma-index-fr.html): Indice γ pour valider des prévisions de champs solaires : tolérances spatiale, temporelle et d’intensité, résultats publiés, limites et outil interactif.
+- [Métriques NICEᵏ : évaluer une prévision solaire face à la persistance](https://cyrilvoyant.github.io/methods/nice-metrics-fr.html): Guide français des métriques NICEᵏ : persistance, normes d’erreur, équations, interprétation, limites, exemple MATLAB et calculateur interactif.
+- [BLEND et CLIPER : des références de persistance cyclostationnaire](https://cyrilvoyant.github.io/methods/persistence-blend-fr.html): Comprendre BLEND et CLIPER : équations de persistance cyclostationnaire, résultats publiés, code MATLAB corrigé, tableaux et limites.
+- [Prévision solaire, simplement : idées et méthodes](https://cyrilvoyant.github.io/methods/solar-forecasting-made-simple-fr.html): Guide en français des méthodes de prévision solaire : prévisibilité, références BLEND, NICE, indice γ, modèles frugaux, résultats, limites et codes.
+- [Variabilité et prévisibilité de l’éclairement solaire : sCV et F](https://cyrilvoyant.github.io/methods/solar-variability-scv-fr.html): Coefficient de variation stochastique sCV et indice de prévisibilité F : définitions, résultats publiés, hypothèses, limites et calculateur interactif.
 
 ## Guiding thread: concentric modelling
 

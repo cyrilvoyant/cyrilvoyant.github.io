@@ -28,3 +28,7 @@ https://cyrilvoyant.github.io/teaching/stochastic-persistence-worked-example.htm
 https://cyrilvoyant.github.io/tools/lql-equiv.html
 https://cyrilvoyant.github.io/tools/tunnel-load-simulator.html
 https://cyrilvoyant.github.io/tools/websemantic.html
+https://cyrilvoyant.github.io/methods/thyroid-radioiodine-fr.html
+https://cyrilvoyant.github.io/teaching/artu-worked-example-fr.html
+https://cyrilvoyant.github.io/tools/tunnel-load-simulator-fr.html
+https://cyrilvoyant.github.io/bib/
