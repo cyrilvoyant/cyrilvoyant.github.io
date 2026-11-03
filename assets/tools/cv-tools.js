@@ -229,6 +229,7 @@
   function mountNICE(box) {
     var fr = document.documentElement.lang === "fr";
     var local = function (v, digits) { var s = fmt(v, digits); return fr ? s.replace(".", ",") : s; };
+    var nv = function (v) { return isFinite(v) && v > 1.0005 ? "&gt; 1" : local(v); };
     var tests = fr
       ? '<p class="cvt-note">Comparé au code de référence : <a href="/tools/js-tests.html">cas de vérification</a>. Le calcul se fait dans votre navigateur ; aucune donnée n’est envoyée.</p>'
       : TESTS;
@@ -255,15 +256,15 @@
       box.querySelector(".cvt-out").innerHTML = '<table class="cvt-table"><tr><th></th><th>k = 1 (MAE)</th><th>k = 2 (RMSE)</th><th>k = 3</th></tr>' +
         "<tr><th>" + (fr ? "Erreur du modèle" : "model error") + " E<sub>k</sub></th><td>" + local(m.E1_model, 2) + "</td><td>" + local(m.E2_model, 2) + "</td><td>" + local(m.E3_model, 2) + "</td></tr>" +
         "<tr><th>" + (fr ? "Erreur de persistance simple" : "simple persistence error") + "</th><td>" + local(m.E1_ref, 2) + "</td><td>" + local(m.E2_ref, 2) + "</td><td>" + local(m.E3_ref, 2) + "</td></tr>" +
-        "<tr><th>NICE<sup>k</sup></th><td>" + local(m.NICE1) + "</td><td>" + local(m.NICE2) + "</td><td>" + local(m.NICE3) + "</td></tr></table>" +
+        "<tr><th>NICE<sup>k</sup></th><td>" + nv(m.NICE1) + "</td><td>" + nv(m.NICE2) + "</td><td>" + nv(m.NICE3) + "</td></tr></table>" +
         (fr
-          ? "<p>NICE<sup>Σ</sup> = <strong>" + local(m.NICE_Sigma) + "</strong> sur " + m.n + " observations (poids égaux). " +
+          ? "<p>NICE<sup>Σ</sup> = <strong>" + nv(m.NICE_Sigma) + "</strong> sur " + m.n + " observations (poids égaux). " +
             (!isFinite(m.NICE_Sigma)
               ? "Rapport indéfini : vérifiez que l’erreur de persistance n’est pas nulle et que les séries ont les mêmes dates cibles."
               : m.NICE_Sigma <= 1
                 ? "Échelle utile : 0 = prévision parfaite, 1 = persistance simple. Ici, le modèle conserve " + local(100 * m.NICE_Sigma, 0) + " % de l’erreur de persistance."
-                : "Hors de l’échelle utile 0–1 : ce modèle fait plus d’erreur que la persistance simple. Le quotient brut reste affiché pour signaler cet échec ; vérifiez aussi l’alignement avec l’horizon n.") + "</p>"
-          : "<p>NICE<sup>Σ</sup> = <strong>" + local(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
+                : "Hors de l’échelle utile 0–1 : ce modèle fait plus d’erreur que la persistance simple.") + "</p>"
+          : "<p>NICE<sup>Σ</sup> = <strong>" + nv(m.NICE_Sigma) + "</strong> on " + m.n + " samples (equal weights). " +
             (!isFinite(m.NICE_Sigma) ? "Undefined ratio: check that the reference error is nonzero and that valid data share the same target dates." : m.NICE_Sigma <= 1 ? "Reference points: 0 = perfect forecast, 1 = simple persistence; ratios can exceed 1. Here the model keeps " + local(100 * m.NICE_Sigma, 0) + " % of the error of persistence."
               : "Above 1, the forecast is worse than simple persistence: as the article notes, such a model is of questionable use. Check that the forecast column is aligned with the horizon n.") + "</p>");
     }

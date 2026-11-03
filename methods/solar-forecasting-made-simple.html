@@ -6,14 +6,14 @@
 <h2>Start with the signal and its forecastability</h2>
 <p>Day and night form a predictable cycle; clouds are less regular. Separating these components helps ask how much information remains beyond the recurring cycle.</p>
 <p><strong>Our team's published contribution:</strong> the stochastic coefficient of variation, sCV, and associated forecastability indices. Their interpretation depends on their definitions and evaluation conditions.</p>
-<p><a href="https://www.cyrilvoyant.com/latest-publications-and-news/why-forecast-solar-power/">Research story and coauthors</a> · <a href="https://doi.org/10.1016/j.renene.2025.123913">Published paper</a></p>
+<p><a href="https://www.cyrilvoyant.com/latest-publications-and-news/why-forecast-solar-power/">Research story and coauthors</a> · <a href="/methods/solar-variability-scv.html">Definitions and calculator</a> · <a href="https://doi.org/10.1016/j.renene.2025.123913">Published paper</a></p>
 <h2>Require a baseline before adding complexity</h2>
 <p>Persistence is an established idea: carry recent information forward. Define it clearly and avoid an artificially weak reference.</p>
-<p><strong>Our team's published contribution:</strong> BLEND uses the cyclic statistical structure of energy series to build an analytical reference forecast. This does not establish universal superiority over all models or sites.</p>
+<p><strong>Our team's published contribution:</strong> BLEND, a convex combination of persistence and cyclic persistence, uses the cyclic statistical structure of energy series to build an analytical reference forecast. CLIPER is the convex combination of persistence and the mean. This does not establish universal superiority over all models or sites.</p>
 <p><a href="https://www.cyrilvoyant.com/latest-publications-and-news/forecasting-with-less/">BLEND study and authors</a> · <a href="https://cyrilvoyant.github.io/methods/persistence-blend.html">Methods and code</a> · <a href="https://doi.org/10.1016/j.apm.2026.116988">Published paper</a></p>
 <h2>Measure what the forecast improves</h2>
 <p>An isolated error score does not always show whether a model improves on a useful reference.</p>
-<p><strong>Our team's published contribution:</strong> NICEᵏ compares error components with explicit baselines. Interpret each quantity using its formula, identical observations and a common horizon. It does not measure economic value by itself.</p>
+<p><strong>Our team's published contribution:</strong> NICEᵏ divides the error of a forecast by that of simple persistence, on three error norms. A useful forecast lies between 0 and 1; &gt; 1 means worse than persistence. Use identical observations and a common horizon. It does not measure economic value by itself.</p>
 <p><a href="https://www.cyrilvoyant.com/latest-publications-and-news/nice-forecast-evaluation/">NICE study and coauthors</a> · <a href="https://cyrilvoyant.github.io/methods/nice-metrics.html">Definitions and implementation</a></p>
 <h2>Distinguish value errors from displacement</h2>
 <p>A slightly displaced cloud structure can receive a large pointwise penalty. Whether displacement is acceptable depends on the application.</p>
@@ -21,7 +21,7 @@
 <p><a href="https://www.cyrilvoyant.com/latest-publications-and-news/gamma-index-forecast-validation/">Study and limitations</a> · <a href="https://cyrilvoyant.github.io/methods/gamma-index.html">Guide and code</a> · <a href="https://doi.org/10.1016/j.ijforecast.2026.03.002">Published paper</a></p>
 <h2>Keep useful information, then size the model</h2>
 <p>Input reduction and model-capacity reduction are different levers. Count the cost of the whole pipeline, including the transformation.</p>
-<p><strong>Ongoing research, manuscripts in preparation:</strong> the dimensionality-reduction study has Hassen Bouzgou as first author; the frugal-forecasting study has Cyril Voyant as first author. Both explainers credit the complete teams. They describe methods and public software rather than presenting the manuscripts as peer-reviewed publications.</p>
+<p><strong>Ongoing research, manuscripts in preparation:</strong> dimensionality reduction (Hassen Bouzgou and colleagues) and frugal forecasting (Cyril Voyant and colleagues). Both explainers credit the complete teams. They describe methods and public software rather than presenting the manuscripts as peer-reviewed publications.</p>
 <p><a href="https://cyrilvoyant.github.io/methods/pv-dimensionality-reduction-en.html">Direct PV forecasting and dimensionality reduction</a> · <a href="https://cyrilvoyant.github.io/methods/frugal-solar-forecasting-en.html">Deploying frugal models</a></p>
 <h2>Learn through a reproducible course calculation</h2>
 <p>The UE14 course uses Ajaccio observations to explain clear sky, persistence, autoregression and ELMs. Its numbers are reproducible teaching calculations, distinct from journal results and from the fictitious examples in the explainers above.</p>
