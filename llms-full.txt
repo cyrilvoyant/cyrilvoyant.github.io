@@ -8,28 +8,32 @@ Title: Cyril Voyant: methods and code for energy forecasting and medical modelin
 Language: en
 Description: Scientific code and practical guides by Cyril Voyant: solar and PV forecasting, ELM benchmarks, deseasonalization, NICE metrics and gamma-index evaluation.
 
-Full CV · Research projects · Live tools · Research assessment · Method guides · Solar forecasting course · Talk: research excellence
-Choose your entry point
-Methods with their theory, reproducible code and interactive tools, for solar and energy forecasting and medical physics.
+Full CV · Research projects · Live tools · What this site is for · Research assessment · Method guides · Publications · Solar forecasting course · Talk: research excellence
+What this site is for
+In brief. Two sites, two jobs. Here, reproduce: method guides with their equations, worked examples with real numbers, open code with DOI-archived versions, data sources, in English. On www.cyrilvoyant.com, understand: the research questions and findings in plain words, the courses and the interactive tools, in French and English.
+To reproduce (this site) | To understand (www) |
+Method guides and worked examples | Research stories and the thread |
+Open code and publications | Courses · cours |
+Live tools, checked against the reference codes | Tool catalogue · outils |
+Machine-readable summaries | CV and author profile |
+Choose your entry point:
 StudentsLearn the fundamentalsClear-sky index (measure relative to the cloud-free curve), persistence (repeat the last value), AR (autoregression) and ELM (extreme learning machine, a small neural network) on ten years of real data, and the course slide by slide.Start learning →ResearchersReproduce the resultsMethod guides with equations, open code, data and DOI-archived versions.Explore the guides →PractitionersTry the toolsDose equivalence, thyroid protocols, NICE (forecast error against persistence), BLEND (weighted persistence), sCV and F (variability and forecastability), in your browser, checked against the reference codes.Open the tools →AI systemsUse structured knowledgeMachine-readable summary of methods, publications, code and identifiers.Read llms.txt →
-Find the resource for your question
-This is the technical library: equations, worked examples and code. For the research questions and findings, start with Research; for the courses, Teaching; for every interactive tool, the tool catalogue or the catalogue des outils en français (interface languages are stated before you open a tool).
 Try it now: live research tools
 LQL-Equiv: radiotherapy dose-equivalence calculator
-BED (biologically effective dose), EQD2 (equivalent dose in 2 Gy fractions), NTCP and TCP (normal-tissue complication and tumour control probabilities) and radiation-induced cancer risk under the linear-quadratic-linear model, for 34 organs at risk and 20 tumour sites. Runs entirely in your browser: nothing you enter leaves the page. Validated against the 2014 MATLAB LQ-Equiv on 4,438 treatment schedules: 2 differ, both exact ties. Research and education only.
+BED (biologically effective dose), EQD2 (equivalent dose in 2 Gy fractions), NTCP and TCP (normal-tissue complication and tumor control probabilities) and radiation-induced cancer risk under the linear-quadratic-linear (LQL) model, which extends the linear-quadratic (LQ) model to high doses per fraction, for 34 organs at risk and 20 tumor sites. Runs entirely in your browser: nothing you enter leaves the page. Validated against the 2014 MATLAB LQ-Equiv on 4,438 treatment schedules: 2 differ, both exact ties. Research and education only.
 Open the app · Code · DOI · Details
 WebSemantic: scientific codes that ask before they compute
 When a language model fills missing inputs by itself, plausible guesses changed computed results by up to a factor of 2.6 and moved a complication probability from 3% to 47%. WebSemantic checks every input against the code's contract and asks the user for what is missing; the scientific code itself stays unchanged.
 Open the app · Code · DOI · PyPI · Details
 Tunnel Load Simulator: electrical demand of road tunnels
-Monte Carlo generator of tunnel electricity demand from geometry, traffic-driven ventilation, lighting regimes and random events, with P10–P90 envelopes and CSV export. One year at 10-minute resolution simulates in about 150 ms. SmartTunnel project with H. El-Houari (USMBA). First-order synthetic generator: calibrate on measured data before engineering use.
+Monte Carlo generator of tunnel electricity demand from geometry, traffic-driven ventilation, lighting regimes and random events, with P10–P90 envelopes (the band between the 10th and 90th percentiles of the simulated runs) and CSV export. One year at 10-minute resolution simulates in about 150 ms. SmartTunnel project with Haytham El-Houari (USMBA: Sidi Mohamed Ben Abdellah University, Fez). First-order synthetic generator: calibrate on measured data before engineering use.
 Open the app (free hosting: allow a minute to wake up) · Code · DOI · Details
 Calculators in your browser
 Small interactive versions of the methods: nothing is sent, and each one reproduces a published code, checked case by case on the Checks against the reference codes.
 LQ and LQL dose
 Biologically effective dose under both models, with organ parameters.
 Thyroid protocol explorer
-Thyroglobulin (a blood marker of thyroid tumour burden) over 80 months for a radioiodine protocol (RAIR-Sim).
+Thyroglobulin (a blood marker of thyroid tumor burden) over 80 months for a radioiodine protocol (RAIR-Sim).
 NICE calculator
 Forecast errors against persistence (the forecast that repeats the last value), from your own data.
 BLEND weights
@@ -45,15 +49,15 @@ Mapping institutions by their authors' impact and research-integrity proxies
 With John P. A. Ioannidis (Stanford), Jeroen Baas and Roy Boverhof (Elsevier). Scopus-based, size- and subfield-adjusted institution-level data combining top-cited authors with three integrity proxies: retractions, extreme self-citation and publications in discontinued titles. Once results are expressed as proportions of top-cited authors rather than volume, the leading institutions change: mostly research institutes and tech organizations, only a minority of universities. Public datasets for exploration, not a single league table.
 Royal Society Open Science 13(10), 260870, 2026 · Open access article
 Beyond publish and pray: engineering research excellence
-A perspective proposing RTVACOS: rigour, transparency, visibility and adoption as multiplicative foundations of research impact, with collaboration, outreach and societal relevance as amplifiers. A framework for reflection, not a scoring instrument. With R. Amaro e Silva, N. Fichaux, L. Menard, S. Cros and R.-E. Mamouri.
-Preprint, SSRN, 2026 · Read the preprint · Watch the talk (45 min)
+A perspective proposing RTVACOS, the initials of seven criteria: rigor, transparency, visibility and adoption as multiplicative foundations of research impact, with collaboration, outreach and societal relevance as amplifiers, summarized as E ∝ (R × T × V × A) × (1 + C + O + S). A framework for reflection, not a scoring instrument. With Rodrigo Amaro e Silva, Nicolas Fichaux, Lionel Ménard, Sylvain Cros and Rodanthi-Elisavet Mamouri.
+Preprint, SSRN, 2026 · Read the preprint · Watch the talk (45 min) · The equation explained
 Practical method guides
 Start here: solar forecasting, made simple, a guided route through the research, evidence and code.
 Full English explainers: PV dimensionality reduction · Frugal solar forecasting.
 Forecasting every source of an island grid at once: MIMO-ELM
 Why forecast thermal, imports, hydropower, solar, wind and the total together; SISO (one model per source), MIMO (one model for all sources) and MIMO-MH (multi-horizon: one model for all sources and all horizons); a worked reconciliation example; EDF open data and open MATLAB/Python code. Based on the published Applied Energy article.
 Radioiodine therapy in metastatic thyroid cancer: the RAIR-Sim model
-Three equations for radioactive iodine activity, tumour cells and thyroglobulin, calibrated on 50 patients; an activity threshold that explains responding and refractory profiles; runnable Python and the original MATLAB. Work of Marie Fusella Giuntini and Dominique Barbolosi, with Cyril Voyant and David Taieb (Scientific Reports 2026).
+Three equations for radioactive iodine activity, tumor cells and thyroglobulin, calibrated on 50 patients; an activity threshold that explains responding and refractory profiles; runnable Python and the original MATLAB. Work of Marie Fusella Giuntini and Dominique Barbolosi, with Cyril Voyant and David Taieb (Scientific Reports 2026).
 How variable is the sun, and how forecastable? sCV and F explained
 Separate variability from forecastability with sCV and F: definitions, a worked example, scientific figures and open MATLAB code. Based on the published Renewable Energy study; synthetic demonstrations are identified.
 How much space is enough for satellite irradiance forecasting?
@@ -90,15 +94,13 @@ Endogenous PV power forecasting via dimensionality-reduction diagnostics (model-
 influence-index-bibliometrics
 Influence Index for institutional research evaluation based on the Stanford–Elsevier Top 2% dataset; scale-independent metrics of research concentration.
 CTD_SIMU_RAI (RAIR-Sim)
-Compartmental simulator of radioactive iodine (RAI) therapy response in metastatic thyroid cancer, activity decay, tumour growth and thyroglobulin kinetics.
+Compartmental simulator of radioactive iodine (RAI) therapy response in metastatic thyroid cancer, activity decay, tumor growth and thyroglobulin kinetics.
 TLS, Tunnel Load Simulator
 Web-based scientific simulation tool for tunnel load analysis.
-Research background
-Research background
+About the author: background, profiles, roles, citation indicators
+About the author
 Cyril Voyant is a French physicist and Research Director at Mines Paris–PSL University, within the Centre Observation, Impacts, Énergie (O.I.E.). His main research area is solar irradiance forecasting, including global horizontal irradiance forecasting, photovoltaic power forecasting, time-series modeling, machine learning for energy systems, and operational forecast evaluation. He also has established work in medical physics, especially radiotherapy dosimetry and radiobiological dose-equivalence modeling.
-Explore the methods, reproducibility notes and open-source repositories below. Full academic identity · Research news.
-Canonical identity and verified profiles
-Canonical identity and verified profiles
+Research topics: solar irradiance and PV power forecasting; time-series modeling (autoregressive models, Extreme Learning Machines, MIMO forecasting, cyclostationarity); forecast evaluation against explicit references (NICEk, γ-index); medical physics (radiotherapy dosimetry, LQ/LQL dose-equivalence models).
 Academic identity
 HAL scientific CV
 ORCID 0000-0003-0242-7377
@@ -111,31 +113,21 @@ Semantic Scholar
 DBLP
 Current roles
 Research Director (DR2), Mines Paris–PSL / O.I.E.
-Visiting ProfessorFaculty of Engineering, University of Kragujevac (Serbia)
-Working Group ExpertETIP PV, Digital PV, Grid and Storage
-Scientific Coordinator, Carnot Mines ELECTRE programme (AI for energy & forecasting), since 2025
+Visiting Professor: Faculty of Engineering, University of Kragujevac (Serbia)
+Working Group Expert: ETIP PV, Digital PV, Grid and Storage
+Scientific Coordinator, Carnot Mines ELECTRE program (AI for energy & forecasting), since 2025
 Member, Internal Steering Committee, The Transition Institute 1.5, Mines Paris–PSL, since 2026
 Expert reviewer, Swiss National Science Foundation (SNSF)
 Expert reviewer, Swiss Cancer Research
 Expert reviewer, Kuwait Foundation for the Advancement of Sciences (KFAS)
-Editorial Board MemberScientific Reports (Nature Portfolio)
-Editorial Board MemberSustainability (MDPI), Energy Sustainability section
-Bibliometric recognition
-Bibliometric recognition
-Stanford/Elsevier science-wide citation database / World’s Top 2% Scientists profile: Cyril Voyant is listed for 2021, 2022, 2023, 2024 and 2025 in the Energy subfield, according to the public TopResearchersList profile derived from the Stanford/Elsevier standardized citation indicator datasets.
-This is a bibliometric listing based on Scopus-derived citation indicators and composite score methodology. It is not presented here as an academic prize.
-TopResearchersList profile · Elsevier Data Repository dataset
-Research focus
-Research focus
-Solar irradiance and PV forecasting
-Forecasting of solar radiation, global horizontal irradiance, photovoltaic production and renewable energy time series, with emphasis on short-term and multi-horizon operational use.
-Time-series modeling and AI
-Machine learning and statistical modeling for energy systems, including Extreme Learning Machines, autoregressive models, MIMO forecasting, cyclostationarity and benchmark design.
-Forecast evaluation metrics
-Development and use of rigorous deterministic forecast metrics, including NICEk, with attention to benchmark choice, statistical discrimination and operational interpretability.
-Medical physics
-Prior and continuing work on radiotherapy dosimetry, radiobiology, LQ/LQL dose-equivalence models and software tools for treatment interpretation and comparison.
-Selected publications
+Editorial Board Member: Scientific Reports (Nature Portfolio)
+Editorial Board Member: Sustainability (MDPI), Energy Sustainability section
+Citation indicators
+The name appears in the Energy subfield of the Stanford/Elsevier science-wide author databases of standardized citation indicators (editions 2021 to 2025). These datasets rank authors by a composite citation indicator computed from Scopus; they measure citations, not the quality or the usefulness of a piece of work. The same datasets underlie the institutional study listed under Research assessment, of which the author is a co-author.
+Sources: Elsevier Data Repository dataset · TopResearchersList profile (a third-party view of the same data) · full CV.
+Full academic identity · Research news.
+Publications: selected, then by year
+Publications
 Selected publications
 Voyant C., Julien A., Despotovic M., Notton G., Garcia-Gutierrez L.A., Nicolosi C.F., Blanc P., Bright J. Stochastic Coefficient of Variation: Assessing the Variability and Forecastability of Solar Irradiance. Renewable Energy, 256:123913, 2026. DOI: 10.1016/j.renene.2025.123913 · BibTeX.
 Voyant C. A Tolerance-Based Framework for Spatio-Temporal Forecast Validation Using the gamma-Index. International Journal of Forecasting, 42(4):1207–1214, 2026. DOI: 10.1016/j.ijforecast.2026.03.002 · BibTeX. Method guide.
@@ -146,8 +138,7 @@ Voyant C. et al. Benchmarks for solar radiation time series forecasting. Renewab
 Voyant C. et al. Machine learning methods for solar radiation forecasting: A review. Renewable Energy, 105:569–582, 2017. DOI: 10.1016/j.renene.2016.12.095 · BibTeX.
 Voyant C. et al. Hybrid VMAT-3DCRT as breast cancer treatment improvement tool. Scientific Reports, 13, 2023. DOI: 10.1038/s41598-023-50538-x · BibTeX.
 Voyant C., Julian D. et al. Biological effects and equivalent doses in radiotherapy: a software solution. Reports of Practical Oncology and Radiotherapy, 2013. DOI: 10.1016/j.rpor.2013.08.004 · BibTeX.
-Publications by year
-Publications by year
+By year
 Journal articles and book chapters, grouped by year for browsing. Conference proceedings and the fully exhaustive record are maintained on HAL, ORCID and Google Scholar.
 2026
 Chatel A., Notton G., Faggianelli G.A., Voyant C. Designing energy sharing in energy communities: Review of coordination mechanisms and internal tariff structures. Renewable and Sustainable Energy Reviews, 239:117139, 2026.
@@ -245,8 +236,6 @@ Sitemap
 https://cyrilvoyant.github.io/sitemap.xml
 Canonical person page
 https://person.cyrilvoyant.com/
-Machine-readable resources
-AI systemsUse structured knowledgeMachine-readable summary of methods, publications, code and identifiers.Read llms.txt →
 Follow a calculation, then test a model
 BLEND, step by step
 ARTU and its lookup table
@@ -268,25 +257,36 @@ Radiobiology: compute dose equivalence under the assumptions of the chosen model
 Solar forecasting: compare every model with persistence (repeating the last observed value), on the same data and at the same horizon (how far ahead the forecast looks).
 AI: help people use a scientific code without confusing a plain-language answer with a verified result.
 In brief
-Cyril Voyant is a physicist and Research Director at Mines Paris – PSL (O.I.E.); his path combines medical physics in radiotherapy (since 2003) and research in solar and energy forecasting (PhD in 2011), carried out in parallel.
-His work spans solar and energy forecasting, forecast evaluation, radiobiology and language-model interfaces to scientific codes.
-One method runs through all these fields: compute directly when the link is known; when a model falls short, complete it with learning rather than replace it; climb the complexity ladder only when needed; keep people at the center and tools at the periphery.
-Every page of these sites states which of the five principles below it illustrates.
+Start from the problem and the person who decides: the question and the responsibility stay human.
+Compute directly when the link is known; when the model falls short, complete it with learning rather than replace it.
+Otherwise, learn with restraint: each level of complexity must beat the previous one under the same protocol, starting with persistence.
+AI, deep learning and language models included, is a tool at the periphery: a language model may prepare a calculation, never guess it.
+The ladder below gives, for each step, when to use it, a published example and the reference to beat. A shorter version, for all readers: the approach on www.cyrilvoyant.com.
 Each work sits in the step it needs: one column to the right only for a measured gain. U-Net and LSTM (deep neural networks for images and for sequences) were tested, not kept.
-One method, every field: the complexity ladder
+The story, step by step
+Read
 One method, every field
-Cyril Voyant works on very different questions: the dose of a radiotherapy treatment, the response of thyroid cancer to radioiodine, the production of a solar plant, the electricity mix of an island, the load of a road tunnel, a request written in plain language. Medicine, energy and language are treated the same way. The domain changes; the method does not.
-Start with the direct approach
-When the link between inputs and outputs is known, compute it. Radiobiological dose equivalence follows an explicit model (LQL-Equiv); a compartmental model describes radioiodine kinetics in thyroid cancer; when no measurements exist, a tunnel's load is simulated from what is known (Tunnel Load Simulator). Before forecasting a signal, describe what in it can be predicted (sCV and F: how variable the sun is, and how much of that variability can be anticipated).
-Hybrid: keep the model, learn only what is missing
-Between the model alone and learning alone lies the route Cyril Voyant prefers: hybridization. When an explicit model meets the need well enough, no learning is added without reason. When it falls short, it is completed, not replaced: learning, informed by physics, medicine or mathematics, estimates only what the model does not capture. This is what the thyroid work of Marie Fusella Giuntini and Dominique Barbolosi prepares, as a hybrid digital twin built on their compartmental model; what the cyclostationary references do, with symmetry constraints written into the forecast; and what the hybrid forecasts of 2012 already did, combining a numerical weather model with ARMA and neural networks.
-Climb the complexity ladder only when needed
-When the useful relations are not known well enough, compare methods one step at a time: a simple reference (persistence: repeat the last value), a structured reference (BLEND, CLIPER: weighted averages of persistence with cyclic persistence or with the mean, and ARTU), a statistical model, a frugal learning machine (ELM: a small neural network with fixed random hidden weights), and only then deep networks or foundation models. Each step is kept only if it beats the previous one under the same protocol, which is what NICE (a forecast error divided by that of persistence) and the out-of-sample benchmarks measure. In thyroid modeling, the next step adds learning, such as an ELM, only where the compartmental model is not enough; in satellite forecasting, a per-cell ELM beats the same ELM reading the whole field with a thousand times fewer parameters, and the deep networks tested; for the Corsican electricity mix, an ELM learns the links between sources that no equation gives.
-Language models: a tool on the ladder, not its top
+Cyril Voyant works on very different questions: the dose of a radiotherapy treatment, the response of thyroid cancer to radioiodine, the production of a solar plant, the electricity mix of an island, the load of a road tunnel, a request written in plain language. The domain changes; the method does not.
+1. Start with the direct approach
+When the link between inputs and outputs is known, compute it. Radiobiological dose equivalence follows an explicit model (LQL-Equiv). A compartmental model describes radioiodine kinetics in thyroid cancer. When no measurements exist, a tunnel's load is simulated from what is known (Tunnel Load Simulator).
+Before forecasting a signal, describe what in it can be predicted (sCV and F: how variable the sun is, and how much of that variability can be anticipated).
+2. Hybrid: keep the model, learn only what is missing
+Between the model alone and learning alone lies the route Cyril Voyant prefers: hybridization. When an explicit model meets the need, no learning is added without reason. When it falls short, it is completed, not replaced: learning, informed by physics, medicine or mathematics, estimates only what the model does not capture.
+Thyroid: Marie Fusella Giuntini and Dominique Barbolosi are preparing a hybrid digital twin built on their compartmental model (the method).
+Solar forecasting: cyclostationary references write symmetry constraints into the forecast (BLEND and CLIPER).
+As early as 2012: a numerical weather model combined with ARMA (autoregressive moving average, a classic time-series model) and neural networks (Energy, 2012).
+3. Climb the complexity ladder only when needed
+When the useful relations are not known well enough, compare methods one step at a time. First a simple reference, persistence: repeat the last value. Then a structured reference: BLEND and CLIPER, weighted averages of persistence with cyclic persistence or with the mean, and ARTU, which weighs the last two values and the mean.
+Next come a statistical model, a frugal learning machine (ELM, extreme learning machine: a small neural network with fixed random hidden weights), and only then deep networks or foundation models. Each step is kept only if it beats the previous one under the same protocol, which is what NICE (a forecast error divided by that of persistence) and the out-of-sample benchmarks measure.
+Thyroid: the next step adds an ELM only where the compartmental model is not enough.
+Satellite forecasting: a per-cell ELM beats the same ELM reading the whole field, with a thousand times fewer parameters, and the deep networks tested.
+Corsican electricity mix: an ELM learns the links between sources that no equation gives.
+4. Language models: a tool on the ladder, not its top
 Language models are used and useful: they read a request written in plain language. They do not replace a validated model. In WebSemantic, a language model maps the request to the inputs of a validated code, and the code computes every number.
-Trust is demonstrated
-Whatever the field, the result is evaluated with metrics that match the question (NICE, the γ-index), published with its code, data and limits, and archived with a DOI. This is the point of the RTVACOS framework: research must be found, trusted and reused. The same questioning applies to research itself: with J. P. A. Ioannidis (Stanford University), J. Baas and R. Boverhof (Elsevier), institutions are mapped by impact next to research-integrity proxies, and influence is read against an explicit 2 % baseline rather than by volume.
-The thread. In medicine, energy and language alike: compute directly when the link is known; when the model falls short, hybridize, keeping the model and learning only what is missing; otherwise climb the complexity ladder one step at a time, and only as far as it pays; keep people at the center.
+5. Trust is demonstrated
+Whatever the field, the result is evaluated with metrics that match the question (NICE, the γ-index), published with its code, data and limits, and archived with a DOI (a permanent identifier). This is the point of the RTVACOS framework (rigor, transparency, visibility, adoption, collaboration, outreach, societal relevance): research must be found, trusted and reused.
+The same questioning applies to research itself. With J. P. A. Ioannidis (Stanford University), J. Baas and R. Boverhof (Elsevier), institutions are mapped by impact next to research-integrity proxies (Royal Society Open Science, 2026). Influence is read against an explicit 2% baseline rather than by volume.
+The thread. In medicine, energy and language alike: compute directly when the link is known; when the model falls short, hybridize; otherwise climb the ladder one step at a time, and only as far as it pays; keep people at the center.
 The five principles
 Principle 1People at the center
 A forecast or a calculation serves a human decision: a physician, a grid operator, an engineer. The question and the responsibility stay human.
@@ -302,18 +302,19 @@ AI belongs in every toolbox, not in every solution. Machine learning, deep learn
 In the work: Hybrid forecasting since 2012: a numerical weather model combined with ARMA and neural networks (Energy, 2012); multi-output machine learning where the links are unknown (MIMO-ELM), compared with LSTM, U-Net and foundation models; language models that map text to the inputs of validated codes (WebSemantic).
 Principle 5Trust is demonstrated
 Evaluate with metrics that match the question; publish code, data and limits; make reuse possible.
-In the work: The γ-index, carried over from radiotherapy dose verification; the public audit and correction of BLEND; open code with DOIs and Software Heritage archives; the RTVACOS framework on rigour, transparency, visibility and adoption.
+In the work: The γ-index, carried over from radiotherapy dose verification; the public audit and correction of BLEND; open code with DOIs and Software Heritage archives; the RTVACOS framework on rigor, transparency, visibility and adoption.
 The evidence, argument by argument
+Read
 Every page of these sites is an argument in this story. Here is what each one shows.
 Principle 2 · The model at the coreWhen the link is known, compute it directly
 The direct approach is the first choice in every field, because it is exact, explainable and needs no training data.
-LQL-Equiv: radiobiological dose equivalence (BED, EQD2, NTCP, TCP) computed from the linear-quadratic-linear model, checked against the 2014 MATLAB version on 4,438 schedules.
-Radioiodine therapy in metastatic thyroid cancer: a compartmental model of activity decay, tumour growth and thyroglobulin kinetics (Scientific Reports, 2026).
-Tunnel Load Simulator: no measurements exist, so the load is simulated from geometry, traffic, ventilation and lighting: one year at 10-minute resolution in about 150 ms, with P10–P90 envelopes.
+LQL-Equiv: radiobiological dose equivalence (BED and EQD2, doses made comparable across fractionation schedules; NTCP and TCP, the probabilities of normal-tissue complication and of tumor control) computed from the linear-quadratic-linear model, checked against the 2014 MATLAB version on 4,438 schedules.
+Radioiodine therapy in metastatic thyroid cancer: a compartmental model of activity decay, tumor growth and thyroglobulin kinetics (Scientific Reports, 2026).
+Tunnel Load Simulator: no measurements exist, so the load is simulated from geometry, traffic, ventilation and lighting: one year at 10-minute resolution in about 150 ms, with P10–P90 envelopes (the band holding 80% of the simulated draws).
 sCV and F: how variable and how forecastable a site is, described before any model is fitted.
 Principle 4 · Every tool, at the peripheryWhen it is not, let the machine learn it, frugally
 Machine learning is used where no equation links the inputs and the outputs, starting with the lightest learner that does the job.
-MIMO-ELM: a simple, parsimonious and frugal learner: one extreme learning machine forecasts seven grid signals of Corsica at once; one hour ahead, nRMSE 0.179 for solar and 0.051 for thermal, trained in closed form in seconds, ahead of an LSTM tuned with a realistic budget.
+MIMO-ELM (MIMO: multiple inputs, multiple outputs): a simple, parsimonious and frugal learner: one extreme learning machine forecasts seven grid signals of Corsica at once; one hour ahead, nRMSE 0.179 for solar and 0.051 for thermal, trained in closed form in seconds, ahead of an LSTM tuned with a realistic budget.
 PV_ELM_pred: persistence, BLEND, autoregression and 14 ELM variants on the same splits, parameters counted next to the error.
 Thyroid, next step: an ELM is added where the compartmental model is not enough (work in progress).
 Dimensionality reduction: the input is compressed only when the compression serves the forecast.
@@ -321,13 +322,13 @@ Principle 2 · The model at the coreWhen the model falls short, hybridize
 Keep what is understood, learn only what is missing: learning informed by physics, medicine or mathematics, rather than a black box in place of the model.
 Thyroid cancer and radioiodine: a compartmental model by Marie Fusella Giuntini and Dominique Barbolosi, with C. Voyant and D. Taieb, calibrated on 50 patients (Scientific Reports, 2026); the hybrid digital twin that adds learning where the model falls short is in progress.
 Symmetry-constrained forecasting: cyclostationary references whose weights follow the periodic statistics of the signal: mathematics written into the forecast (Applied Mathematical Modelling, 2026).
-NWP and hybrid ARMA/ANN: a numerical weather prediction model combined with time-series and neural-network models to forecast global radiation (C. Voyant, M. Muselli, C. Paoli, M.-L. Nivet, Energy 39, 2012), followed by a hybrid methodology for hourly forecasting (Renewable Energy 53, 2013).
+NWP and hybrid ARMA/ANN: a numerical weather prediction model combined with time-series models (ARMA) and artificial neural networks (ANN) to forecast global radiation (C. Voyant, M. Muselli et al., Energy 39, 2012), followed by a hybrid methodology for hourly forecasting (Renewable Energy 53, 2013).
 Principle 3 · Complexity only if it paysClimb only if it pays
 No a priori on the method: start simple, and climb if, and only if, it is needed. Each step must beat the previous one under the same protocol; most of the time the climb stops early, and the simpler model is not only no worse, but sometimes better.
 Clearsky-free forecasting: removing the clear-sky model makes the forecasting chain simpler, and the ELM matches or outperforms ARMA with McClear clear sky and quantile regression, deterministic and probabilistic (Solar Energy 294, 2025): simpler is not worse, and sometimes better.
 How much space is enough: an ELM reading its own cell (nRMSE 0.308) beats the same ELM reading the whole field (0.355) with a thousand times fewer parameters, and also beats U-Net (0.343) and LSTM (0.326).
 BLEND and CLIPER: persistence references built on the cyclostationary structure of the signal, hard to beat before any trained model.
-ARTU and stochastic persistence: second-order and clear-sky references, computed by hand.
+ARTU and stochastic persistence: second-order and clear-sky references (ARTU weighs the last two values and the mean), computed by hand.
 Deseasonalization: the seasonal structure is removed only if doing so improves the forecast.
 Principle 5 · Trust is demonstratedMeasure what a model adds
 A model is judged against a reference and with tolerances that match the use, never on a raw error alone.
@@ -339,10 +340,11 @@ AI belongs in every toolbox, not in every solution.
 WebSemantic: left alone, a language model fills gaps by guessing, which changed results by up to a factor of 2.6 in plausible interpretations; here it only maps words to the inputs of a validated code, which computes every number.
 Principle 1 · People at the centerTrust is demonstrated, and reuse made possible
 Code, data and limits are published, archived and citable, so that the work can be found, trusted and reused.
-Research excellence: the RTVACOS framework (rigour, transparency, visibility, adoption) and the op-ed on research in an age of saturation.
-Questioning research itself: with J. P. A. Ioannidis, J. Baas and R. Boverhof, a science-wide map of institutions that sets impact next to research-integrity proxies (Royal Society Open Science, 2026); an Influence Index that reads influence against a 2 % baseline on a doubling scale (open code and data; application to French universities in submission).
+Research excellence: the RTVACOS framework (rigor, transparency, visibility, adoption) and the op-ed on research in an age of saturation.
+Questioning research itself: with J. P. A. Ioannidis, J. Baas and R. Boverhof, a science-wide map of institutions that sets impact next to research-integrity proxies (Royal Society Open Science, 2026); an Influence Index that reads influence against a 2% baseline on a doubling scale (open code and data; application to French universities in submission).
 Methods and code: open repositories with Zenodo DOIs and Software Heritage archives, one guide per method.
 All the work at a glance
+Read
 Work | Principle illustrated | Status |
 LQ-Equiv, LQL-Equiv: radiobiological dose equivalence | 2 · The model at the core | published (SoftwareX 2026, Clinical Oncology 2025, Medical Dosimetry 2026) |
 Radioiodine therapy in metastatic thyroid cancer (M. Fusella Giuntini, D. Barbolosi et al.; compartmental model, hybrid twin in progress) | 2 · The model at the core | published (Scientific Reports 2026) |
@@ -380,25 +382,36 @@ Radiobiologie : calculer l'équivalence de dose avec les hypothèses du modèle 
 Prévision solaire : comparer chaque modèle à la persistance (répéter la dernière valeur observée), sur les mêmes données et au même horizon (l'échéance de la prévision).
 IA : aider à utiliser un code scientifique sans confondre une réponse en langage naturel et un résultat vérifié.
 En bref
-Cyril Voyant est physicien et directeur de recherche à Mines Paris – PSL (O.I.E.) ; son parcours associe la physique médicale en radiothérapie (depuis 2003) et la recherche en prévision solaire et énergétique (thèse en 2011), menées en parallèle.
-Ses travaux couvrent la prévision solaire et énergétique, l'évaluation des prévisions, la radiobiologie et les interfaces entre modèles de langage et codes scientifiques.
-Une même méthode relie tous ces domaines : calculer directement quand le lien est connu ; quand un modèle ne suffit pas, le compléter par l'apprentissage plutôt que le remplacer ; monter l'échelle de la complexité seulement si nécessaire ; garder l'humain au centre et les outils en périphérie.
-Chaque page de ces sites indique lequel des cinq principes ci-dessous elle illustre.
+Partir du problème et de la personne qui décide : la question et la responsabilité restent humaines.
+Calculer directement quand le lien est connu ; quand le modèle ne suffit pas, le compléter par l'apprentissage plutôt que le remplacer.
+Sinon, apprendre avec mesure : chaque niveau de complexité doit battre le précédent sur le même protocole, à commencer par la persistance.
+L'IA, apprentissage profond et modèles de langage compris, est un outil en périphérie : un modèle de langage peut préparer un calcul, jamais le deviner.
+L'échelle ci-dessous donne, pour chaque marche, quand l'utiliser, un exemple publié et la référence à battre. Une version plus courte, pour tous les publics : la démarche sur www.cyrilvoyant.com.
 Chaque travail est placé à l'étape dont il a besoin : une colonne de plus vers la droite seulement pour un gain mesuré. U-Net et LSTM (réseaux de neurones profonds pour les images et pour les séquences) ont été testés, non retenus.
-Une méthode, tous les domaines : l'échelle de la complexité
+Le récit, étape par étape
+Lire
 Une méthode, tous les domaines
-Cyril Voyant travaille sur des questions très différentes : la dose d'un traitement de radiothérapie, la réponse d'un cancer de la thyroïde à l'iode radioactif, la production d'une centrale solaire, le mix électrique d'une île, la consommation d'un tunnel routier, une demande écrite en langage courant. La médecine, l'énergie et le langage sont traités de la même façon. Le domaine change ; la méthode, non.
-Commencer par l'approche directe
-Quand le lien entre les entrées et les sorties est connu, on le calcule. L'équivalence de dose radiobiologique suit un modèle explicite (LQL-Equiv) ; un modèle compartimental décrit la cinétique de l'iode radioactif dans le cancer de la thyroïde ; quand aucune mesure n'existe, la consommation d'un tunnel est simulée à partir de ce que l'on sait (Tunnel Load Simulator). Avant de prévoir un signal, on décrit ce qui, en lui, est prévisible (sCV et F : à quel point le Soleil est variable, et quelle part de cette variabilité on peut anticiper).
-L'hybride : garder le modèle, n'apprendre que ce qui manque
-Entre le modèle seul et l'apprentissage seul se trouve la voie que Cyril Voyant préfère : l'hybridation. Quand un modèle explicite répond suffisamment au besoin, on n'ajoute pas d'apprentissage sans raison. Quand il ne suffit pas, on le complète, on ne le remplace pas : un apprentissage guidé par la physique, la médecine ou les mathématiques estime seulement ce que le modèle ne capture pas. C'est ce que prépare le travail de Marie Fusella Giuntini et Dominique Barbolosi sur la thyroïde, un jumeau numérique hybride bâti sur leur modèle compartimental ; ce que font les références cyclostationnaires, avec des contraintes de symétrie inscrites dans la prévision ; et ce que faisaient déjà les prévisions hybrides de 2012, qui combinaient un modèle météorologique numérique avec ARMA et des réseaux de neurones.
-Monter l'échelle de la complexité seulement si nécessaire
-Quand les relations utiles ne sont pas suffisamment connues, on compare les méthodes un niveau à la fois : une référence simple (la persistance : répéter la dernière valeur), une référence structurée (BLEND, CLIPER : moyennes pondérées de la persistance avec la persistance cyclique ou avec la moyenne, et ARTU), un modèle statistique, une machine à apprentissage frugale (ELM : un petit réseau de neurones aux poids cachés aléatoires et fixes), et seulement ensuite les réseaux profonds ou les modèles de fondation. Chaque niveau n'est gardé que s'il bat le précédent sur le même protocole, ce que mesurent NICE (une erreur de prévision divisée par celle de la persistance) et les bancs d'essai hors échantillon. Pour la thyroïde, l'étape suivante ajoute de l'apprentissage, par exemple un ELM, seulement là où le modèle compartimental ne suffit pas ; en prévision satellite, un ELM par maille bat le même ELM lisant tout le champ avec mille fois moins de paramètres, ainsi que les réseaux profonds testés ; pour le mix électrique corse, un ELM apprend les liens entre sources qu'aucune équation ne donne.
-Les modèles de langage : un outil sur l'échelle, pas son sommet
+Cyril Voyant travaille sur des questions très différentes : la dose d'un traitement de radiothérapie, la réponse d'un cancer de la thyroïde à l'iode radioactif, la production d'une centrale solaire, le mix électrique d'une île, la consommation d'un tunnel routier, une demande écrite en langage courant. Le domaine change ; la méthode, non.
+1. Commencer par l'approche directe
+Quand le lien entre les entrées et les sorties est connu, on le calcule. L'équivalence de dose radiobiologique suit un modèle explicite (LQL-Equiv). Un modèle compartimental décrit la cinétique de l'iode radioactif dans le cancer de la thyroïde. Quand aucune mesure n'existe, la consommation d'un tunnel est simulée à partir de ce que l'on sait (Tunnel Load Simulator).
+Avant de prévoir un signal, on décrit ce qui, en lui, est prévisible (sCV et F : à quel point le Soleil est variable, et quelle part de cette variabilité on peut anticiper).
+2. L'hybride : garder le modèle, n'apprendre que ce qui manque
+Entre le modèle seul et l'apprentissage seul se trouve la voie que Cyril Voyant préfère : l'hybridation. Quand un modèle explicite répond au besoin, on n'ajoute pas d'apprentissage sans raison. Quand il ne suffit pas, on le complète sans le remplacer : l'apprentissage, guidé par la physique, la médecine ou les mathématiques, estime seulement ce que le modèle ne capture pas.
+Thyroïde : Marie Fusella Giuntini et Dominique Barbolosi préparent un jumeau numérique hybride bâti sur leur modèle compartimental (la méthode).
+Prévision solaire : les références cyclostationnaires inscrivent des contraintes de symétrie dans la prévision (BLEND et CLIPER).
+Dès 2012 : un modèle météorologique numérique combiné à ARMA (modèle autorégressif à moyenne mobile, un classique des séries temporelles) et à des réseaux de neurones (Energy, 2012).
+3. Monter l'échelle de la complexité seulement si nécessaire
+Quand les relations utiles sont mal connues, on compare les méthodes un niveau à la fois. D'abord une référence simple, la persistance : répéter la dernière valeur. Puis une référence structurée : BLEND et CLIPER, moyennes pondérées de la persistance avec la persistance cyclique ou avec la moyenne, et ARTU, qui pèse les deux dernières valeurs et la moyenne.
+Viennent ensuite un modèle statistique, une machine à apprentissage frugale (ELM, machine à apprentissage extrême : un petit réseau de neurones aux poids cachés aléatoires et fixes), et seulement après les réseaux profonds ou les modèles de fondation. Chaque niveau n'est gardé que s'il bat le précédent sur le même protocole, ce que mesurent NICE (une erreur de prévision divisée par celle de la persistance) et les bancs d'essai hors échantillon.
+Thyroïde : l'étape suivante ajoute un ELM seulement là où le modèle compartimental ne suffit pas.
+Prévision satellite : un ELM par maille bat le même ELM lisant tout le champ, avec mille fois moins de paramètres, ainsi que les réseaux profonds testés.
+Mix électrique corse : un ELM apprend les liens entre sources qu'aucune équation ne donne.
+4. Les modèles de langage : un outil sur l'échelle, pas son sommet
 Les modèles de langage sont utilisés et utiles : ils lisent une demande écrite en langage courant. Ils ne remplacent pas un modèle validé. Dans WebSemantic, un modèle de langage relie la demande aux entrées d'un code validé, et le code calcule chaque nombre.
-La confiance se démontre
-Quel que soit le domaine, le résultat est évalué avec des métriques adaptées à la question (NICE, l'indice γ), publié avec son code, ses données et ses limites, et archivé avec un DOI. C'est le sens du cadre RTVACOS : la recherche doit être trouvée, jugée crédible et réutilisée. Le même questionnement s'applique à la recherche elle-même : avec J. P. A. Ioannidis (université Stanford), J. Baas et R. Boverhof (Elsevier), les institutions sont cartographiées par l'impact à côté d'indicateurs d'intégrité, et l'influence est lue par rapport à une référence explicite de 2 %, plutôt qu'au volume.
-Le fil. En médecine, en énergie comme pour le langage : calculer directement quand le lien est connu ; quand le modèle ne suffit pas, hybrider, en gardant le modèle et en n'apprenant que ce qui manque ; sinon monter l'échelle de la complexité un niveau à la fois, et seulement tant qu'elle paie ; garder l'humain au centre.
+5. La confiance se démontre
+Quel que soit le domaine, le résultat est évalué avec des métriques adaptées à la question (NICE, l'indice γ), publié avec son code, ses données et ses limites, et archivé avec un DOI (un identifiant permanent). C'est le sens du cadre RTVACOS (rigueur, transparence, visibilité, adoption, collaboration, diffusion, pertinence sociétale) : la recherche doit être trouvée, jugée crédible et réutilisée.
+Le même questionnement s'applique à la recherche elle-même. Avec J. P. A. Ioannidis (université Stanford), J. Baas et R. Boverhof (Elsevier), les institutions sont cartographiées par l'impact à côté d'indicateurs d'intégrité (Royal Society Open Science, 2026). L'influence est lue par rapport à une référence explicite de 2 %, plutôt qu'au volume.
+Le fil. En médecine, en énergie comme pour le langage : calculer directement quand le lien est connu ; quand le modèle ne suffit pas, hybrider ; sinon monter l'échelle un niveau à la fois, et seulement tant qu'elle paie ; garder l'humain au centre.
 Les cinq principes
 Principe 1L'humain au centre
 Une prévision ou un calcul servent une décision humaine : un médecin, un exploitant de réseau, un ingénieur. La question et la responsabilité restent humaines.
@@ -416,16 +429,17 @@ Principe 5La confiance se démontre
 Évaluer avec des métriques qui correspondent à la question ; publier le code, les données et les limites ; permettre la réutilisation.
 Dans les travaux : L'indice γ, venu du contrôle des doses en radiothérapie ; l'audit public et la correction de BLEND ; codes ouverts avec DOI et archives Software Heritage ; le cadre RTVACOS sur la rigueur, la transparence, la visibilité et l'adoption.
 Les preuves, argument par argument
+Lire
 Chaque page de ces sites est un argument de cette histoire. Voici ce que chacune montre.
 Principe 2 · Le modèle au cœurQuand le lien est connu, on le calcule directement
 L'approche directe est le premier choix dans tous les domaines : elle est exacte, explicable et ne demande pas de données d'apprentissage.
-LQL-Equiv : équivalence de dose radiobiologique (BED, EQD2, NTCP, TCP) calculée à partir du modèle linéaire-quadratique-linéaire, vérifiée contre la version MATLAB de 2014 sur 4 438 schémas.
+LQL-Equiv : équivalence de dose radiobiologique (BED et EQD2, doses rendues comparables d'un schéma de fractionnement à l'autre ; NTCP et TCP, probabilités de complication des tissus sains et de contrôle tumoral) calculée à partir du modèle linéaire-quadratique-linéaire, vérifiée contre la version MATLAB de 2014 sur 4 438 schémas.
 Iode radioactif et cancer thyroïdien métastatique : un modèle compartimental de la décroissance de l'activité, de la croissance tumorale et de la cinétique de la thyroglobuline (Scientific Reports, 2026).
-Tunnel Load Simulator : aucune mesure n'existe : la consommation est simulée à partir de la géométrie, du trafic, de la ventilation et de l'éclairageune année au pas de 10 minutes en environ 150 ms, avec enveloppes P10–P90.
+Tunnel Load Simulator : aucune mesure n'existe : la consommation est simulée à partir de la géométrie, du trafic, de la ventilation et de l'éclairage : une année au pas de 10 minutes en environ 150 ms, avec des enveloppes P10–P90 (la bande où tombent 80 % des tirages simulés).
 sCV et F : la variabilité et la prévisibilité d'un site, décrites avant d'ajuster le moindre modèle.
 Principe 4 · Tous les outils, en périphérieSinon, on laisse la machine apprendre, frugalement
 L'apprentissage automatique sert là où aucune équation ne relie les entrées et les sorties, en commençant par l'outil le plus léger qui suffit.
-MIMO-ELM : un apprentissage simple, parcimonieux et frugal : une machine à apprentissage extrême prévoit sept signaux du réseau corse à la fois ; à une heure, nRMSE 0,179 pour le solaire et 0,051 pour le thermique, entraînement en forme fermée en quelques secondes, devant un LSTM réglé avec un budget réaliste.
+MIMO-ELM (MIMO : plusieurs entrées, plusieurs sorties) : un apprentissage simple, parcimonieux et frugal : une machine à apprentissage extrême prévoit sept signaux du réseau corse à la fois ; à une heure, nRMSE 0,179 pour le solaire et 0,051 pour le thermique, entraînement en forme fermée en quelques secondes, devant un LSTM réglé avec un budget réaliste.
 PV_ELM_pred : persistance, BLEND, autorégression et 14 variantes d'ELM sur les mêmes découpages, paramètres comptés à côté de l'erreur.
 Thyroïde, étape suivante : un ELM est ajouté là où le modèle compartimental ne suffit pas (travail en cours).
 Réduction de dimension : l'entrée n'est compressée que si la compression sert la prévision.
@@ -433,13 +447,13 @@ Principe 2 · Le modèle au cœurQuand le modèle ne suffit pas, on hybride
 Garder ce que l'on comprend, n'apprendre que ce qui manque : un apprentissage guidé par la physique, la médecine ou les mathématiques, plutôt qu'une boîte noire à la place du modèle.
 Cancer de la thyroïde et iode radioactif : un modèle compartimental de Marie Fusella Giuntini et Dominique Barbolosi, avec C. Voyant et D. Taieb, calibré sur 50 patients (Scientific Reports, 2026) ; le jumeau numérique hybride, qui ajoute de l'apprentissage là où le modèle ne suffit pas, est en cours.
 Prévision sous contraintes de symétrie : des références cyclostationnaires dont les poids suivent les statistiques périodiques du signal : les mathématiques inscrites dans la prévision (Applied Mathematical Modelling, 2026).
-Modèle météorologique et ARMA/RNA hybride : un modèle de prévision météorologique numérique combiné à des modèles de séries temporelles et de réseaux de neurones pour prévoir le rayonnement global (C. Voyant, M. Muselli, C. Paoli, M.-L. Nivet, Energy 39, 2012), suivi d'une méthodologie hybride pour la prévision horaire (Renewable Energy 53, 2013).
+Modèle météorologique et ARMA/RNA hybride : un modèle de prévision météorologique numérique combiné à des modèles de séries temporelles (ARMA) et à des réseaux de neurones artificiels (RNA) pour prévoir le rayonnement global (C. Voyant, M. Muselli et al., Energy 39, 2012), suivi d'une méthodologie hybride pour la prévision horaire (Renewable Energy 53, 2013).
 Principe 3 · La complexité seulement si elle paieMonter seulement si cela paie
 Aucun a priori sur la méthode : on commence simple, et on monte si, et seulement si, c'est nécessaire. Chaque niveau doit battre le précédent sur le même protocole ; la plupart du temps on s'arrête tôt, et le modèle plus simple n'est pas seulement aussi bon : il est parfois meilleur.
 Prévoir sans modèle de ciel clair : retirer le modèle de ciel clair simplifie la chaîne de prévision, et l'ELM fait aussi bien ou mieux qu'un ARMA avec ciel clair McClear et que la régression quantile, en déterministe comme en probabiliste (Solar Energy 294, 2025) : plus simple n'est pas pire, et parfois mieux.
 Combien d'espace : un ELM qui lit sa propre maille (nRMSE 0,308) bat le même ELM lisant tout le champ (0,355) avec mille fois moins de paramètres, et bat aussi U-Net (0,343) et LSTM (0,326).
 BLEND et CLIPER : des références de persistance fondées sur la structure cyclostationnaire du signal, difficiles à battre avant tout modèle entraîné.
-ARTU et persistance stochastique : des références d'ordre deux et de ciel clair, calculées à la main.
+ARTU et persistance stochastique : des références d'ordre deux (ARTU pèse les deux dernières valeurs et la moyenne) et de ciel clair, calculées à la main.
 Désaisonnalisation : la structure saisonnière n'est retirée que si cela améliore la prévision.
 Principe 5 · La confiance se démontreMesurer ce qu'un modèle apporte
 Un modèle se juge contre une référence et avec des tolérances adaptées à l'usage, jamais sur une erreur brute seule.
@@ -455,6 +469,7 @@ Excellence scientifique : le cadre RTVACOS (rigueur, transparence, visibilité, 
 Se questionner sur la recherche elle-même : avec J. P. A. Ioannidis, J. Baas et R. Boverhof, une cartographie mondiale des institutions qui place l'impact à côté d'indicateurs d'intégrité (Royal Society Open Science, 2026) ; un indice d'influence lu par rapport à une référence de 2 % sur une échelle de doublement (code et données ouverts ; application aux universités françaises en cours de soumission).
 Méthodes et codes : dépôts ouverts avec DOI Zenodo et archives Software Heritage, un guide par méthode.
 Tous les travaux d'un coup d'œil
+Lire
 Travail | Principe illustré | Statut |
 LQ-Equiv, LQL-Equiv : équivalence de dose radiobiologique | 2 · Le modèle au cœur | publié (SoftwareX 2026, Clinical Oncology 2025, Medical Dosimetry 2026) |
 Iode radioactif et cancer thyroïdien métastatique (M. Fusella Giuntini, D. Barbolosi et al. ; modèle compartimental, jumeau hybride en cours) | 2 · Le modèle au cœur | publié (Scientific Reports 2026) |
@@ -1281,6 +1296,7 @@ In brief
 The benchmark tests whether removing the daily and annual cycle (deseasonalization; six methods, including two ELM operators, ELM = extreme learning machine, a neural network with fixed random hidden weights) improves the final forecast of nine Corsican energy and weather series, 1 to 6 hours ahead.
 A more stationary residual (what is left once the cycles are removed, its mean and variance no longer drifting with the hour or the season) is not a more predictable one: the gain depends on the signal (about 3 points of nRMSE, root mean square error made relative so without unit, for hourly wind speed), and raw forecasting stays strongest for the other variables.
 M. Agoundedemba, C. Voyant, M. Despotović, L. A. Garcia-Gutierrez and G. Notton, manuscript submitted; MATLAB code and data, doi:10.5281/zenodo.21490743.
+New to these ideas? Read deseasonalization, difference to trend and ratio to trend in the glossary, then which forecast for which signal and how to evaluate a forecast against persistence.
 Does deseasonalization help solar and wind forecasting? The Make_Stationary benchmark
 What does this benchmark examine?
 The benchmark separates deseasonalization quality from downstream forecasting utility. A more stationary residual does not by itself establish a better forecast. The associated paper is submitted, not presented here as accepted.
@@ -1294,20 +1310,31 @@ Use a chronological training/test split, prevent information from future observa
 These answers summarize the public benchmark protocol. The companion manuscript remains submitted; this guide does not turn its status into a published journal article.
 Key finding
 A cleaner residual is not a more predictable one. On nine energy and weather series from Corsica, forecast 1 to 6 hours ahead, removing the daily and annual cycle gives the most stationary residuals with the rolling median and the two ELM operators, but this ranking does not carry over to forecast accuracy.
-Forecasting gains depend on the signal and the horizon: about 3 percentage points of nRMSE for hourly wind speed, neutral or mildly detrimental for PV power, total electrical load and wind power.
-PHASE, the lighter of the two frugal ELM operators, gives the best overall compromise and ranks ahead of PROJECTION on average. Raw forecasting remains the strongest strategy for the non-wind variables.
+Forecasting gains depend on the signal and the horizon. They appear mainly for strongly cyclic variables at longer horizons (up to 4 percentage points of nRMSE for 30-min GHI and 3 points for hourly wind speed), are neutral for already regular signals at short horizons, and are mildly detrimental for PV power, total electrical load and wind power.
+PHASE, the lighter of the two frugal ELM operators, has the best average forecasting rank (2.55, against 2.68 for RAW, the raw signal forecast directly) and is the only preprocessing whose mean gain over RAW stays non-negative at every horizon, for both solar and wind variables. For the solar variables alone, RAW keeps the best average rank (2.31).
 Deseasonalization is therefore a selective preprocessing option, not a universal step.
-The wind-speed improvement above is reported in the public repository README. The manuscript is submitted to Energy Reports. Numerical experiments were not re-run for this page.
+All the figures above come from the README of the public repository (the documentation shown on its front page), which reproduces Tables II and III of the manuscript. The manuscript is submitted to a journal. Numerical experiments were not re-run for this page.
 Stationarity and forecast quality
-A residual diagnostic and a forecast evaluation answer different questions. Compare reconstructed forecasts against RAW on the same samples and horizons; do not select preprocessing from stationarity diagnostics alone. Detailed numerical ranks from the submitted manuscript are not reproduced here.
+A residual diagnostic and a forecast evaluation answer different questions. Compare reconstructed forecasts against RAW on the same samples and horizons; do not select preprocessing from stationarity diagnostics alone. The two rankings below, published with the code, show the gap.
+Two rankings of the same six methods
+Average rank over the nine variables, 1 = best, so a shorter bar is better. Switch from the quality of the residual to the accuracy of the rebuilt forecast and watch the order change.
+Average ranks published in the Make_Stationary README (Tables II and III of the submitted manuscript).Method | Stationarity | Forecast, solar | Forecast, wind | Forecast, all |
+MEDIAN | 2.33 | 3.89 | 3.76 | 3.85 |
+LOESS | 2.81 | 5.39 | 5.94 | 5.57 |
+PHASE | 3.07 | 2.75 | 2.12 | 2.55 |
+PROJECTION | 3.89 | 3.64 | 3.82 | 3.70 |
+FOURIER | 4.33 | 3.03 | 1.88 | 2.66 |
+RAW | 4.56 | 2.31 | 3.47 | 2.68 |
 The theory
 Deseasonalization removes the recurring daily and annual cycle, forecasts what is left, and adds the cycle back. The question is whether the final forecast improves, not whether the residual looks more stationary.
 Decomposition
 $$Y_t=S_t+R_t,$$
 $$\hat Y_{t+h}=\hat S_{t+h}+\hat R_{t+h}.$$
-Here \(Y_t\) is the series, \(S_t\) its recurring cycle, \(R_t\) the residual and \(h\) the horizon. The split is additive: a ratio to trend such as the clear-sky index would be singular at night for GHI and PV. The daily and annual phases are encoded by sine–cosine pairs,
-$$\mathbf p_t=\left[\sin\tfrac{2\pi\,\tau_d(t)}{24},\ \cos\tfrac{2\pi\,\tau_d(t)}{24},\ \sin\tfrac{2\pi\,\tau_y(t)}{365},\ \cos\tfrac{2\pi\,\tau_y(t)}{365}\right],$$
-with \(\tau_d\) the hour of the day and \(\tau_y\) the day of the year.
+Here \(Y_t\) is the series, \(S_t\) its recurring cycle, \(R_t\) the residual and \(h\) the horizon. The split is additive: a ratio to trend such as the clear-sky index would be singular at night for GHI and PV. Two normalized phases locate each sample in the day and in the year, with \(T_d\) and \(T_y\) the daily and annual periods in samples (\(T_d=24\) and \(T_y=365\times24\) for hourly data):
+$$\varphi_t=\frac{t \bmod T_d}{T_d},\qquad \psi_t=\frac{t \bmod T_y}{T_y}.$$
+Each phase enters as a cosine–sine pair, so that 23 h and 0 h, or 31 December and 1 January, stay close:
+$$\mathbf p_t=\big[\cos(2\pi\varphi_t),\ \sin(2\pi\varphi_t),\ \cos(2\pi\psi_t),\ \sin(2\pi\psi_t)\big].$$
+In plain text: phi_t = (t mod T_d)/T_d, psi_t = (t mod T_y)/T_y, p_t = [cos 2πphi_t, sin 2πphi_t, cos 2πpsi_t, sin 2πpsi_t] (repository README, section 2).
 The two ELM operators
 PROJECTION: an ELM (fixed random tanh hidden layer, ridge output weights) reads lagged values and \(\mathbf p_t\); at inference the lags are set to their training mean, so the output depends only on the phase: \(\hat S_t=f(\bar{\mathbf y},\mathbf p_t)\).
 PHASE: the same ELM with \(\mathbf p_t\) as its only input: \(\hat S_t=f(\mathbf p_t)\).
@@ -1316,12 +1343,55 @@ $$\lambda=10^{-4}\ \text{in the code}.$$
 Benchmarks of \(\hat S\): crossed diurnal × annual Fourier regression, LOESS and a ±10-day rolling-median template. Each residual, and the raw signal, is forecast by an ELM and by a linear AR model; all scores (normalized RMSE nRMSE, mean absolute error nMAE and bias nMBE, coefficient of determination R², NICE) are computed on \(\hat Y\) in physical units.
 Assumptions and validity
 \(S\) is fitted on training data only. One region, three years, horizons up to 6 hours. The repository documents three differences with the manuscript (fixed ridge, selection among 300 hidden layers with an affine recalibration of \(S\), mixed sigmoid and Gaussian forecasting neurons); see below.
+Terms used on this page
+Stationary series
+a series whose mean, variance and memory do not drift with the hour or the season.
+Deseasonalization
+removing the recurring daily and annual cycle \(S_t\) to keep the residual \(R_t\); here additively, \(Y_t=S_t+R_t\).
+RAW
+the reference case with no deseasonalization: the raw signal is forecast directly.
+PROJECTION, PHASE
+the two ELM operators proposed by the study, which estimate the cycle from the phase of the day and of the year.
+FOURIER
+a crossed regression on daily and annual sine–cosine harmonics.
+LOESS
+locally estimated scatterplot smoothing: a smooth curve made of small weighted regressions fitted around each point.
+MEDIAN
+a rolling-median template: for each hour, the median of the same hour over a ±10-day window.
+ELM
+extreme learning machine: one hidden layer of fixed random weights; only the output weights are fitted, in closed form.
+AR
+linear autoregression: the next value as a weighted sum of past values, fitted by ordinary least squares.
+Ridge
+least squares with a penalty \(\lambda\lVert\beta\rVert^2\) that keeps weights small; \(\lambda=10^{-4}\) in the code.
+nRMSE, nMAE, nMBE
+root mean square error, mean absolute error and mean bias error, each divided by the mean observation \(\bar Y\); no unit, lower is better (0 for the bias).
+R²
+coefficient of determination; 1 is a perfect fit.
+NICE
+error relative to simple persistence: 0 is perfect, 1 equals persistence (guide).
+pp
+percentage point: 0.20 to 0.16 in nRMSE is a gain of 4 pp.
+PACF
+partial autocorrelation function; the study sums its absolute value over 48 lags: lower means less structure left in the residual.
+Spectral entropy
+how flat the spectrum of the residual is, from 0 to 1; higher means weaker periodic forcing.
+Largest Lyapunov exponent
+rate at which nearby trajectories diverge (Rosenstein method); lower after preprocessing means deterministic forcing was removed.
+GHI, PV, EDF
+global horizontal irradiance; photovoltaic; Électricité de France, which publishes the Corsican grid data.
+README
+the documentation file shown on the front page of a code repository.
 Data
 Nine variables over 2021–2023, all included in the repository (about 5 MB):
 Global horizontal irradiance (GHI) and 2 m temperature at Ajaccio, at 30 min and 1 h;
 10 m wind speed at Bastia, at 30 min and 1 h (Météo-France);
 island-wide PV power, wind power and total load, hourly (EDF Corsica open data).
 Reproduce
+Get the code: git clone https://github.com/cyrilvoyant/Make_Stationary.git, or the archived release, doi:10.5281/zenodo.21490744 (10.5281/zenodo.21490743 always points to the latest version).
+Data: nothing to download; the nine series are in Data/ (about 5 MB).
+Run the four stages below in MATLAB, each from its own folder.
+Compare your ranks with Tables II and III of the README (shown above), after reading the documented differences between paper and code.
 MATLAB with the Econometrics and Signal Processing toolboxes. The Parallel Computing Toolbox is optional and only speeds up runs.
 Optimization/optimization_all_variables.m % 1. grid search of lags L and neurons m
 Deseasonalization/main_deseasonalization.m % 2. 6 methods x 9 variables -> *_FULL.csv, Metrics.csv
@@ -1366,18 +1436,19 @@ In brief
 One extreme learning machine (ELM: a neural network with one hidden layer whose random weights stay fixed, only the output weights being fitted; it is a MIMO model, multiple inputs and multiple outputs) forecasts the seven signals of the Corsican electricity grid at once (total, thermal, imports, hydropower, solar, wind, bioenergy) from the last 48 hours.
 One hour ahead, the published study reports a normalized RMSE (nRMSE: root mean square error made relative, no unit) of 0.179 for solar and 0.051 for thermal, with a coefficient of determination R² (no unit, 1 = perfect fit) above 0.98, ahead of persistence (repeat the last value) and of an LSTM (long short-term memory network) tuned with a realistic budget.
 Published in Applied Energy 410, 127599 (2026) by C. Voyant, M. Despotovic, L. Garcia-Gutierrez, M. Asloune, Y.-M. Saint-Drenan, J.-L. Duchaud, G. A. Faggianelli and E. Magliaro; MATLAB and Python code with EDF open data, doi:10.5281/zenodo.23562559.
+Understand first: seven Corsican energy signals, one model (the story of the article), MIMO, ELM and nRMSE in the glossary.
 On an island grid, production must match consumption at every moment. The operator needs forecasts of every source and of the total, and they must add up. One model that predicts all of them together can be more coherent, and with an extreme learning machine it trains in seconds.
 The question
 Corsica's electricity comes from thermal plants, imports through the interconnections, hydropower, solar, wind and bioenergy. The sources are not independent: when solar rises at noon, thermal and imports adjust. Forecasting each source separately ignores these links and gives forecasts whose sum need not equal the forecast total.
-A week of July 2022 (EDF Corse open data). Solar covers the middle of the day; thermal and imports follow the evening demand. PDF
+A week of July 2022 (open data of EDF Corse, Électricité de France's operator of the island grid). Solar covers the middle of the day; thermal and imports follow the evening demand. PDF
 Three ways to organize the models
 SISO (single input, single output): one model per source and per horizon, each reading only the history of its own source.
 MIMO (multiple inputs, multiple outputs; the published article): one model per horizon reads the last 48 hours of all sources, plus the hour of the day, and predicts all of them at once.
-MIMO-MH (the manuscript in submission): a single model predicts all sources for all horizons from 1 to 24 hours, followed by a reconciliation step that makes the forecasts add up.
+MIMO-MH (MH = multi-horizon; the manuscript in submission): a single model predicts all sources for all horizons from 1 to 24 hours, followed by a reconciliation step that makes the forecasts add up.
 What one trained model predicts in each organization. PDF
 The theory
 Why, in the words of the article: on an island grid the energy sources balance one another (when one varies, the others adjust), so predicting each source and their sum with the same algorithm lets these balancing effects enter the learning, potentially giving a better forecast of the residual demand than one model per source. Six years of hourly data from Corsica (solar, wind, hydropower, thermal, bioenergy and imports, plus the total) are forecast with an extreme learning machine in a multi-input multi-output (MIMO) architecture. Equation numbers are those of the article (arXiv:2508.12764).
-Why several outputs: the mutual information (Eqs. 1 and 2)
+Why several outputs: the mutual information MI (Eqs. 1 and 2)
 $$\mathrm{MI}(X;Y)=\iint p(x,y)\log\frac{p(x,y)}{p(x)\,p(y)}\,dx\,dy\ \ (1),$$
 $$\mathrm{MI}_{\mathrm{norm}}(X;Y)=\frac{\mathrm{MI}(X;Y)}{\sqrt{H(X)\,H(Y)}}\in[0,1]\ \ (2).$$
 Here \(p\) denotes probability densities and \(H\) entropy. Unlike the Pearson correlation, the normalized mutual information captures non-linear dependencies. Thermal and bioenergy (0.535), solar and bioenergy (0.468), hydropower and thermal (0.373) are strongly linked; the total depends mainly on thermal (0.256), imports (0.231), hydropower (0.129) and solar (0.124). These links support a MIMO approach.
@@ -1391,7 +1462,7 @@ Inputs, outputs
 Reference
 persistence, \(\hat y_{t+h}=y_t\)
 The extreme learning machine of the article
-For an input vector \(\mathbf x\), hidden neuron \(j\) computes a ReLU of a random projection, and the output is linear in the hidden layer:
+For an input vector \(\mathbf x\), hidden neuron \(j\) computes a ReLU (rectified linear unit, \(\max(0,\cdot)\)) of a random projection, and the output is linear in the hidden layer:
 $$h_j(\mathbf x)=\max\!\big(0,\ \mathbf w_j^{\top}\mathbf x+b_j\big),$$
 $$\mathbf y=H^{\top}W,$$
 $$W=H^{+}Y,$$
@@ -1403,7 +1474,7 @@ The article mentions reconciliation as another strategy for linked quantities. T
 $$\tilde{\mathbf y}=S\left(S^{\top}W^{-1}S\right)^{-1}S^{\top}W^{-1}\hat{\mathbf y}.$$
 No result of that manuscript is reported here.
 Worked example: making forecasts add up
-For one hour, suppose the forecasts are 330 MW for the total, 150 for thermal, 90 for imports and 80 for solar, with error variances 36, 25, 49 and 100 MW². The components sum to 320, not 330. Weighted least-squares reconciliation finds the coherent forecasts closest to the original ones, trusting the more reliable forecasts more: thermal 151.2, imports 92.3, solar 84.8 and total 328.3 MW. The gap is closed; solar, the least reliable, moves most. Illustrative values; the formula and its use are in the repository.
+For one hour, suppose the forecasts are 330 MW (megawatts) for the total, 150 for thermal, 90 for imports and 80 for solar, with error variances 36, 25, 49 and 100 MW². The components sum to 320, not 330. Weighted least-squares reconciliation finds the coherent forecasts closest to the original ones, trusting the more reliable forecasts more: thermal 151.2, imports 92.3, solar 84.8 and total 328.3 MW. The gap is closed; solar, the least reliable, moves most. Illustrative values; the formula and its use are in the repository.
 Run it
 The worked example above, computed with the formula of the theory section (Python 3, NumPy; executed on 22 October 2026). The full pipeline: main in MATLAB for MIMO-ELM, cd mimo_mh && python main.py for SISO, MIMO, MIMO-MH and reconciliation (mimo_mh/reconciliation.py).
 import numpy as np
@@ -1417,11 +1488,53 @@ Output:
 [328.3 151.2 92.3 84.8]
 Results of the published article
 From its abstract: one hour ahead, solar and thermal production are forecast with nRMSE 0.179 and 0.051 and R² above 0.98; total demand stays reliable up to five hours ahead; wind and bioenergy remain hard; MIMO-ELM improves on persistence and on an LSTM tuned with a realistic budget, with small but stable gains over SISO. The MIMO-MH results will be reported with its article.
+How the error grows with the horizon, source by source
+nRMSE of the MIMO-ELM, the RMSE divided by the mean of each series (Eq. 3 of the article), over one year of out-of-sample predictions. Move the horizon from 1 to 10 hours.
+Horizon (hours ahead)1 h
+All values (Table 4 of the article)
+Horizon | Total | Thermal | Hydropower | Solar | Wind | Bioenergy | Imports |
+1 h | 0.0219 | 0.0510 | 0.2230 | 0.1791 | 0.4216 | 0.1218 | 0.1368 |
+2 h | 0.0324 | 0.0787 | 0.3292 | 0.3026 | 0.6313 | 0.1981 | 0.2037 |
+3 h | 0.0389 | 0.0952 | 0.3797 | 0.3734 | 0.7658 | 0.2541 | 0.2380 |
+4 h | 0.0430 | 0.1062 | 0.4072 | 0.4178 | 0.8635 | 0.2994 | 0.2581 |
+5 h | 0.0456 | 0.1146 | 0.4233 | 0.4436 | 0.9393 | 0.3377 | 0.2693 |
+6 h | 0.0476 | 0.1208 | 0.4344 | 0.4589 | 0.9981 | 0.3705 | 0.2760 |
+7 h | 0.0488 | 0.1254 | 0.4425 | 0.4666 | 1.0513 | 0.3991 | 0.2801 |
+8 h | 0.0498 | 0.1289 | 0.4488 | 0.4700 | 1.0947 | 0.4244 | 0.2828 |
+9 h | 0.0505 | 0.1317 | 0.4536 | 0.4716 | 1.1322 | 0.4468 | 0.2845 |
+10 h | 0.0511 | 0.1342 | 0.4578 | 0.4722 | 1.1623 | 0.4667 | 0.2861 |
+Source: C. Voyant et al., Applied Energy 410, 127599 (2026), Table 4, as in the author version arXiv:2508.12764. Bars are drawn on a 0 to 1.2 scale.
+Terms used on this page
+SISO, MIMO, MIMO-MH
+single input single output (one model per source); multiple inputs multiple outputs (one model for all sources); MIMO multi-horizon (all sources and all horizons at once).
+ELM
+extreme learning machine: one hidden layer of fixed random weights; only the output weights are fitted, in closed form.
+ReLU
+rectified linear unit, \(\max(0,x)\): the activation of the hidden neurons.
+Moore–Penrose pseudo-inverse
+the matrix \(H^{+}\) that gives the least-squares solution \(W=H^{+}Y\) in one step.
+MI
+mutual information: how much knowing one series tells about another, linear or not; normalized to 0–1 here.
+nRMSE, R²
+root mean square error divided by the mean of the series (no unit, lower is better); coefficient of determination (1 is a perfect fit).
+Persistence
+repeat the last observed value as the forecast.
+LSTM
+long short-term memory network, a recurrent neural network trained by gradient descent.
+Reconciliation (MinT/WLS)
+a correction that makes the forecast total equal the sum of the forecast sources, moving the least reliable forecasts most.
+MW, EDF, Licence Ouverte
+megawatt; Électricité de France, publisher of the data; the French government open licence (Etalab) under which the data are reused.
 Code and data
 One repository gathers the MATLAB code of the article (MIMO-ELM, SISO and LSTM comparisons), the Python pipeline of MIMO-MH with reconciliation (written by Yoan Jheelan), and the hourly EDF Corse data 2016–2022, released under the Licence Ouverte.
-main % MATLAB: MIMO-ELM with the settings of the article
+main % MATLAB: MIMO-ELM script of the article (see the reproduction note below)
 cd mimo_mh && python main.py % Python: SISO, MIMO, MIMO-MH, reconciliation
 MATLAB and Python code, dataArchived code: doi:10.5281/zenodo.23562559Related: ELM benchmark for PV
+Reproduce, step by step
+Get the code and the data: git clone https://github.com/cyrilvoyant/Data_Viz_2024.git, or the archive doi:10.5281/zenodo.23562559. The hourly EDF Corse series 2016–2022 are included (Data.xlsx for MATLAB, mimo_mh/Data.csv for Python).
+MATLAB: set prediction_horizon at the top of main.m and run main; main_SISO and main_LSTM (Deep Learning Toolbox) give the comparisons.
+Compare with the slider above (Table 4).
+Reproduction note (repository README, 23 October 2026). The preserved main.m differs from the author manuscript: 432 input features instead of 338, 2 random initializations instead of 50, and the initialization chosen on the test RMSE rather than in-sample. Its test set is therefore not untouched by model selection; read the repository note before treating a rerun as a replication of the article.
 See also: ELM in a worked course example · the solar forecasting course · persistence references, BLEND and CLIPER.
 Need this method on your own data? Collaborate: a joint answer to a call for projects, a research contract with Mines Paris – PSL, or academic work with a clear valorization objective.
 Links
@@ -2067,10 +2180,11 @@ In brief
 PV_ELM_pred puts persistence (repeat the last measure), BLEND (a weighted average of persistence and cyclic persistence), a linear autoregression (each value predicted from the previous ones) and 14 variants of the ELM (extreme learning machine: a neural network with one hidden layer whose random weights stay fixed, only the output weights being fitted) through the same chronological splits, inputs and metrics.
 A capacity sweep from 5 to 1,000 hidden neurons plots the error relative to simple persistence (NICE^Σ: a ratio without unit, 0 for a perfect forecast and 1 for persistence) against the number of stored parameters, to measure how much model a forecast really needs.
 M. Leiva, X. Silvani, G. Notton, C. Voyant and A. Julien, software v1.0.0, doi:10.5281/zenodo.21487267; the associated manuscript is in preparation and no result of it is reported here.
+Understand first: ELM in the glossary, which baseline a solar model must beat, how to evaluate a forecast against persistence and why extreme learning machines.
 How much model is enough for solar forecasting? The PV_ELM_pred benchmark
 What does the software contribute?
 PV_ELM_pred provides a common protocol to compare persistence, BLEND, autoregression and ELM variants. It is software; the associated frugality manuscript is in preparation. A larger parameter count alone is not an energy measurement.
-Figure of the PV_ELM_pred repository (figures/Palaiseau, labels in French): measured AC power on a variable day at Palaiseau and the ELM forecast one hour ahead. The forecast follows the ramps one step late; it does not anticipate them.
+Figure of the PV_ELM_pred repository (figures/Palaiseau, labels in French): measured AC power (alternating-current power delivered by the inverter) on a variable day at Palaiseau and the ELM forecast one hour ahead. The forecast follows the ramps one step late; it does not anticipate them.
 Cyril Voyant · Updated 2026-10-20
 PV_ELM_pred (M. Leiva, X. Silvani, G. Notton, C. Voyant, A. Julien, 2026, doi:10.5281/zenodo.21487267) benchmarks persistence, BLEND, linear autoregression and 14 Extreme Learning Machine variants on the same splits and metrics, so that every gain in skill can be weighed against the extra model it costs.
 Questions and answers
@@ -2080,7 +2194,7 @@ How can forecasting skill be compared with model complexity in energy forecastin
 Plot a persistence-normalized skill score (for example NICE^Σ from the NICEᵏ family) against the logarithm of the stored parameter count, across a sweep of model sizes and seeds, with persistence and linear AR as fixed references. PV_ELM_pred runs such a sweep from 5 to 1000 hidden neurons. A parameter count is not an energy measurement: report latency and memory separately.
 What this benchmark answers
 How much model is enough to forecast a measured solar or weather channel from its own past, from 30 minutes to several hours ahead? PV_ELM_pred puts persistence, a linear autoregression and 14 Extreme Learning Machine (ELM) variants through the same pipeline, the same splits and the same metrics, so that every gain in skill can be weighed against the extra model it costs.
-It is a frugal-AI testbed for edge forecasting: the models run on a CPU, use only the target's own history and cyclic time features, and need no numerical weather prediction.
+It is a frugal-AI testbed for edge forecasting: the models run on an ordinary CPU (central processing unit, no graphics card), use only the target's own history and cyclic time features, and need no numerical weather prediction (NWP, a physics-based weather model).
 The theory
 Reference forecasts
 At origin \(t\) and horizon \(h\), with cycle length \(T\) (24 hourly steps for a day):
@@ -2097,9 +2211,9 @@ $$\hat{\mathbf y}=\mathbf h(\mathbf x)^{\top}\beta .$$
 Only the output weights \(\beta\) are fitted, in closed form, on the \(N\) training rows stacked in \(H\in\mathbb R^{N\times L}\) and the targets \(Y\):
 $$\beta=\left(H^{\top}H+\lambda I\right)^{-1}H^{\top}Y\quad(\text{ridge}),$$
 $$\beta=H^{+}Y\quad(\lambda\to0,\ \text{Moore–Penrose pseudo-inverse}).$$
-Here \(g\) is the activation function, \(\lambda\ge0\) the ridge penalty and \(I\) the identity matrix. Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters for one output: \(dL+L+(L+1)\) (input weights, biases, output weights with intercept). ELM: Huang, Zhu and Siew (2006).
+Here \(g\) is the activation function, \(\lambda\ge0\) the ridge penalty and \(I\) the identity matrix. Training is one linear solve, so it takes seconds; several outputs share the same \(H\). Stored parameters, as the code counts them (N_params in scripts/elm_common.py): \(N_\theta=dL+L+L\) (input weights, hidden biases, output weights). With the default input, 48 lags of a 30-min series plus 4 cyclic time features (\(d=52\)), this is \(N_\theta=54L\). In plain text: N_theta = d*L + 2*L. ELM: Huang, Zhu and Siew (2006).
 The fourteen ELM variants
-They share \(H\) and differ only in the cost minimised to obtain \(\beta\): \(\min_\beta \sum_t \ell\!\left(y_t-\mathbf h_t^{\top}\beta\right)+R(\beta)\), with \(\ell\) the squared error (OLS, ridge), the absolute error (MAE), Huber, Welsch, \(|e|^3\), general \(|e|^p\), log-MSE, a Box-Cox target, a Gamma GLM or temporally correlated errors (Corr-ELM), and \(R\) a ridge, anisotropic Tikhonov or elastic-net penalty, or a robust risk.
+They share \(H\) and differ only in the cost minimised to obtain \(\beta\): \(\min_\beta \sum_t \ell\!\left(y_t-\mathbf h_t^{\top}\beta\right)+R(\beta)\), with \(\ell\) the squared error (OLS, ridge), the absolute error (MAE), Huber, Welsch, \(|e|^3\), general \(|e|^p\), log-MSE (the mean squared error, MSE, computed on \(\log(y+c)\)), a Box-Cox target (a power transform of the target), a Gamma GLM (generalized linear model with a Gamma distribution and a log link) or temporally correlated errors (Corr-ELM), and \(R\) a ridge, anisotropic Tikhonov or elastic-net penalty, or a robust risk.
 Score against simple persistence
 Errors are compared on the same samples with \(\mathrm{NICE}^{k}=L^k\text{-Error}_X/L^k\text{-Error}_P\), where \(L^k\text{-Error}=\big(\tfrac1n\sum|y-\hat y|^{k}\big)^{1/k}\) and P is simple persistence: 0 for a perfect forecast, 1 for persistence, > 1 worse than persistence (NICE guide).
 How much model is enough
@@ -2113,6 +2227,13 @@ Ablations (a part removed to test its value): ELM without the cyclic time featur
 TimeGPT, used without training on the site (zero-shot), as an optional foundation-model reference (needs an API key).
 Capacity sweep
 A dedicated run varies the hidden-layer size from 5 to 1000 neurons over several random seeds. It plots the error relative to simple persistence, NICE^Σ, against the logarithm of the stored parameter count, with AR-OLS and persistence as references. This is how the benchmark makes "how much model is enough" measurable rather than assumed.
+Where each model of the sweep sits on the parameter axis
+Move the slider through the eight hidden-layer sizes of the sweep. The count is \(N_\theta=54L\) for a 30-min series (48 lags and 4 time features); AR-OLS stores 53 coefficients (intercept, 48 lags, 4 time features). This is the horizontal axis of the capacity figure; its vertical axis, the error, is produced by the run and is not reported here while the manuscript is in preparation.
+Hidden neurons \(L\)500
+AR-OLS
+ELM
+101001k10k100k
+Sources: sweep sizes from the PV_ELM_pred README; counts from scripts/elm_common.py and scripts/dr_ar_ols.py. Default full run: \(L=500\). A parameter count is not an energy measurement.
 Data
 Palaiseau PV power at 30 min, from August 2020: shipped as a public example (data.zip), so the full benchmark runs end to end.
 Other supported series, used in the research but not redistributed: PV plants (Oxelar, Signes, SOLETE, Alice Springs), GHI (Palaiseau, Alice Springs) and Barani MeteoHelix weather stations (temperature, pressure, humidity). Access goes through the data management plan on webservice-energy.org or the authors.
@@ -2126,10 +2247,37 @@ unzip data.zip
 python scripts/run_full.py # all models, Palaiseau
 DATASET=mysite python scripts/run_full.py # your own registered site
 Running a single model script directly starts a fast 1000-point smoke test.
+Get the code: the clone above, or the archived release, doi:10.5281/zenodo.21487267 (v1.0.0).
+Data: unzip data.zip gives the public Palaiseau series; the other sites are on request (see Data above).
+Check the install in a minute: python scripts/dr_elm_ridge.py (smoke test).
+Run everything with python scripts/run_full.py, or one model, e.g. python scripts/run_full.py ar or python scripts/run_full.py ridge; scores land in results/, figures in figures/.
 Good practice built into the pipeline
 Input and target scaling are fitted on the training fold only. Since July 2026 the ELM target is centred as well, which removes a ridge bias on variables far from zero, such as pressure near 1013 hPa, without adding any fitted parameter.
 Chronological splits, multiple random seeds, and separate daytime-only and all-hours scores.
 Parameter counts are not energy measurements: report latency and memory separately, and never infer a carbon saving from a parameter count.
+Terms used on this page
+Persistence, cyclic persistence
+repeat the last value; repeat the value of the same time on the previous day.
+BLEND
+a weighted average of persistence and cyclic persistence.
+AR-OLS
+linear autoregression fitted by ordinary least squares (OLS).
+ELM
+extreme learning machine: one hidden layer of fixed random weights; only the output weights are fitted, in closed form.
+Ridge, Tikhonov, elastic net
+penalties that keep the output weights small: squared norm (ridge), squared norm weighted per neuron (anisotropic Tikhonov), squared plus absolute norm (elastic net).
+MAE, MSE, Huber, Welsch, L³, Lᵖ
+costs on the errors: absolute, squared, squared then absolute beyond a threshold (Huber), bounded so that outliers stop counting (Welsch), cubed, power p.
+GLM
+generalized linear model; here a Gamma distribution with a log link, suited to positive, skewed targets.
+NICE^Σ
+mean of NICE¹, NICE² and NICE³: errors relative to simple persistence, 0 perfect, 1 equal to persistence (guide).
+AC power, CPU, NWP
+alternating-current power at the inverter output; central processing unit; numerical weather prediction.
+Zero-shot
+used as delivered, without training on the site.
+Smoke test
+a short run on 1,000 points that checks the install, not the results.
 Status and scope
 The associated manuscript on frugal, edge-oriented forecasting is in preparation. This page describes the public software only and reports no results from it. Rankings depend on the site, the horizon and the protocol. An endogenous short-term benchmark says nothing about weather-driven day-ahead forecasting without a separate test.
 Cite and reuse
@@ -2164,6 +2312,7 @@ In brief
 Every model forecasts the next 24 hourly values of a satellite cell over Corsica from 24 past values; only what it reads changes: its own cell, a patch, the whole field or a compressed field.
 In the public repository, an ELM (extreme learning machine: a one-hidden-layer neural network with fixed random hidden weights, only the output weights being fitted) reading its own cell has the lowest pooled error (nRMSE 0.308: root mean square error over all scored cells divided by the mean observation, no unit, lower is better), ahead of the same ELM reading the whole field (0.355) with a thousand times fewer parameters, and of U-Net (0.343; a convolutional network that reads images) and LSTM (0.326; a recurrent network with memory).
 C. Voyant, A. Kazantzidis and J. Kleissl, manuscript in preparation; MATLAB and Python code with the HelioClim-3 extract, doi:10.5281/zenodo.23562557.
+Understand first: the story of this benchmark, how to evaluate a forecast against persistence, nRMSE and γ-index in the glossary.
 How much space is enough for satellite irradiance forecasting?
 A satellite gives the irradiance of a whole region every hour. Should a forecaster read the whole map, a small neighborhood, a compressed version of the map, or only the cell it forecasts? This benchmark holds the forecaster fixed and changes only what it reads.
 The question
@@ -2182,7 +2331,7 @@ Definitions
 \(I_{c,t}\)
 irradiance of cell \(c\) at hour \(t\) (722 scored cells)
 \(\mathbf z_{c,t}\)
-input: \(I_{c,t-23:t}\) (one cell), or the same hours on a patch, the whole field, or a compressed field (Radon, DCT, wavelet, PCA, random projection, subsampling, autoencoder)
+input: \(I_{c,t-23:t}\) (one cell), or the same hours on a patch, the whole field, or a compressed field (Radon transform, DCT, wavelet, PCA, random projection, subsampling, autoencoder; terms)
 \(\hat{\mathbf I}_{c,t+1:t+24}\)
 the 24 forecasts, all at once
 Extreme learning machine (ELM)
@@ -2223,11 +2372,42 @@ The nRMSE is divided by the mean scored observation of the test year, 407.9 W/m�
 Repeating the last hour pools badly over 24 horizons (0.998): it is good one hour ahead but wrong for most of the next day. The 24-hour persistence (same hour yesterday) is the honest daily reference, and BLEND is a convex combination of the two.
 How to read it
 On this region and this record, the hourly history of the cell itself carries most of the information an hour-by-hour forecast of the next day can use; the rest of the map adds parameters faster than it removes error. This is one region, one satellite product and one two-year split: a benchmark result, not a general law. Intra-hour nowcasting driven by cloud motion can behave differently.
+Terms used on this page
+Cell, patch, field
+one grid cell of the 32 × 32 map; a k × k square of cells around it; the whole map.
+Convex hull
+the smallest convex outline containing all 1148 measurement points; only cells inside it are scored.
+Radon transform
+sums of the map along straight lines at many angles (as in a CT scan).
+DCT
+discrete cosine transform: the map written as a sum of cosine patterns; keeping the first coefficients keeps the large-scale shape.
+Wavelet transform
+the map split into localized patterns at several scales.
+PCA
+principal component analysis: the main modes of variation learned from the training maps; each map is described by its weights on them.
+Random projection, subsampling
+the map multiplied by a fixed random matrix; or only one cell out of several kept.
+Autoencoder
+a neural network trained to squeeze the map into a few numbers and rebuild it.
+p
+the number of values a compressed field keeps (e.g. p = 392).
+Ridge
+linear least squares with a penalty that keeps the weights small.
+ELM, U-Net, LSTM
+extreme learning machine (fixed random hidden layer, fitted output weights); a convolutional network that reads images; a recurrent network with memory.
+nRMSE, NICE, GPR
+RMSE divided by the mean scored observation; error relative to persistence; gamma pass rate, the share of points within tolerance.
+HelioClim-3, Heliosat-2, SoDa
+a satellite irradiance database; the method that turns Meteosat images into irradiance; the service that distributes it.
 Reproduce it
+Get the code and data: the clone below, or the archive doi:10.5281/zenodo.23562557; the HelioClim-3 extract is included.
+Software: MATLAB (tested with R2025b) with the Image Processing, Wavelet and Deep Learning toolboxes; Python with numpy, scipy, h5py and torch only for the U-Net and the LSTM (python -m pip install -r python/requirements.txt); Windows PowerShell 5.1 for run_all.ps1.
+Choose a mode: tables (default) rebuilds the result tables from the archives; light fits every model once on a laptop; full is the campaign as run for the paper (the archives record about 58 hours of fitting).
 The repository contains the paper's own MATLAB and Python files and the two-year HelioClim-3 extract. run_all.ps1 rebuilds the result tables from the archives in about 12 seconds; -Mode light fits every model once on a laptop and reproduces the paper's values to within 0.004; the full protocol (median of 50 random hidden layers) matched the paper in every column on the steps tested.
 git clone https://github.com/cyrilvoyant/cell-vs-field-irradiance.git
 powershell -ExecutionPolicy Bypass -File .\run_all.ps1
 powershell -ExecutionPolicy Bypass -File .\run_all.ps1 -Mode light
+Version note (repository README, 23 October 2026): the working manuscript has since revised some labels and the storage counts of the LSTM-PCA route; the tables above are those of the archived release.
 The code is under the MIT license. HelioClim-3 data are distributed by the SoDa service under its own terms of use; the extract is included so that the benchmark runs as published.
 MATLAB and Python codeArchived code: doi:10.5281/zenodo.23562557Related: how much model is enough?
 Need this method on your own data? Collaborate: a joint answer to a call for projects, a research contract with Mines Paris – PSL, or academic work with a clear valorization objective.
@@ -2744,14 +2924,33 @@ Research excellence in 2026: beyond publish and pray
 Talk (YouTube, 45 min, February 2026) and preprint (SSRN, 2026)
 Publishing is no longer enough. Global scientific output has grown fourfold since 2004 and AI writing tools accelerate it further. In this context, research impact depends not only on quality but on whether the work can be found, trusted and adopted.
 Watch the talk (45 min)
+In brief
+A 45-minute talk (YouTube, February 2026) and its preprint (SSRN, 2026) on what makes research usable by others.
+RTVACOS is the acronym of seven criteria: four foundations, Rigor, Transparency, Visibility and Adoption, multiplied together, then three amplifiers, Collaboration, Outreach and Societal relevance.
+The framework equation, in plain text: E ∝ (R × T × V × A) × (1 + C + O + S). A reflection tool, not a score.
+The interactive version, with the RTVACOS tree and the equation to try, is on www.cyrilvoyant.com: in English · en français.
 The RTVACOS framework
-The companion preprint, Beyond publish and pray: engineering research excellence (C. Voyant, R. Amaro e Silva, N. Fichaux, L. Menard, S. Cros, R.-E. Mamouri), proposes a heuristic framework that treats research excellence as a multiplicative system:
-Foundations: Rigour, Transparency, Visibility, Adoption. A weakness in any one collapses overall impact, whatever the performance elsewhere.
+The companion preprint, Beyond publish and pray: engineering research excellence (Cyril Voyant, Rodrigo Amaro e Silva, Nicolas Fichaux, Lionel Ménard, Sylvain Cros and Rodanthi-Elisavet Mamouri), proposes a heuristic framework that treats research excellence as a multiplicative system:
+Foundations: Rigor, Transparency, Visibility, Adoption. A weakness in any one collapses overall impact, whatever the performance elsewhere.
 Amplifiers: Collaboration, Outreach, Societal relevance. They scale a solid foundation but cannot replace one.
 It is a mirror for reflection, not a scoring instrument; the authors claim no empirical validation and discuss limits such as gamification risk and unequal skill distribution.
+The framework equation
+The preprint sums up the framework in a single relation (Equation 1, Section 3.3):
+E ∝ (R × T × V × A) × (1 + C + O + S)
+Plain text: E ∝ (R × T × V × A) × (1 + C + O + S)
+E
+research excellence, understood as impact capacity: the capacity of a piece of work to be found, trusted, reproduced and used by others.
+∝
+“is proportional to”. The authors chose it over “=” on purpose: the relation does not produce a score to compare researchers or institutions; it is a heuristic (a rule of reasoning) that encodes a dependency.
+R, T, V, A
+the four foundations: Rigor, Transparency, Visibility, Adoption potential. Their product falls to zero as soon as any one of them is zero.
+C, O, S
+the three amplifiers: Collaboration, Outreach, Societal relevance. Thanks to the “1 +”, amplifiers at zero leave the second factor at 1: only the foundations count.
+Why a product? A sum would let a strength hide a weakness; a product does not. Worked example (the preprint’s Case C, scores from 0 to 3): E ∝ (2 × 2 × 2 × 2) × (1 + 2 + 1 + 1) = 16 × 5 = 80; with T = 0, the same calculation gives 0.
+Try it: the equation with sliders and the RTVACOS tree on www.cyrilvoyant.com (en français).
 Questions about research excellence
 What is the RTVACOS framework for research excellence?
-A heuristic framework proposed by Voyant, Amaro e Silva, Fichaux, Menard, Cros and Mamouri (SSRN preprint, 2026, doi:10.2139/ssrn.6877118 · BibTeX). It treats excellence as a multiplicative system: four foundations (Rigour, Transparency, Visibility, Adoption), where a weakness in one collapses overall impact, and three amplifiers (Collaboration, Outreach, Societal relevance). It is a reflection tool, not a scoring instrument, and claims no empirical validation.
+A heuristic framework proposed by Voyant, Amaro e Silva, Fichaux, Menard, Cros and Mamouri (SSRN preprint, 2026, doi:10.2139/ssrn.6877118 · BibTeX). It treats excellence as a multiplicative system: four foundations (Rigor, Transparency, Visibility, Adoption), where a weakness in one collapses overall impact, and three amplifiers (Collaboration, Outreach, Societal relevance). It is summarized as E ∝ (R × T × V × A) × (1 + C + O + S). It is a reflection tool, not a scoring instrument, and claims no empirical validation.
 How can researchers make their work more visible?
 The talk argues that impact depends on whether work can be found, trusted and adopted, not only on its quality, and that low-effort discoverability practices compound over time: persistent identifiers, open code with a DOI, clear pages that state the result and how to cite it. Collaboration helps only when it strengthens these foundations.
 Key ideas
@@ -2759,7 +2958,7 @@ Low-effort discoverability practices compound into substantial long-term impact.
 Collaboration amplifies only when it strengthens foundations, not merely visibility.
 AI governance infrastructure is moving from best practice to legal requirement.
 Related work on research assessment
-J. P. A. Ioannidis, J. Baas, R. Boverhof, C. Voyant, Science-wide mapping of institutions based on affiliated authors' impact and research integrity proxies, Royal Society Open Science, 2026 · doi:10.1098/rsos.260870 · BibTeX (open access)
+John P. A. Ioannidis, Jeroen Baas, Roy Boverhof, Cyril Voyant, Science-wide mapping of institutions based on affiliated authors' impact and research integrity proxies, Royal Society Open Science, 2026 · doi:10.1098/rsos.260870 · BibTeX (open access)
 In the press: op-ed in News Tank (French)
 The same argument, written for French higher-education and research leaders: Repenser l’excellence scientifique à l’ère de la saturation : vers une ingénierie de l’impact ? [Rethinking research excellence in an age of saturation: towards impact engineering?], op-ed by Cyril Voyant, News Tank Éducation & Recherche, 3 March 2026 (subscriber access). It defines excellence as the probability that a work is found, judged credible and reused, and lists what institutions can do: minimum reproducibility requirements, professional management of metadata and researcher identifiers, recognition of non-text outputs such as code and data, training doctoral students in making work reusable, and avoiding simplistic indicators.
 How to cite
@@ -3247,31 +3446,24 @@ Description: Course by Cyril Voyant (Mines Paris – PSL): solar radiation, clea
 
 Forecasting the intermittent solar resource: a course
 Principle 2 · The model at the coreThe approachIn the story: understand the solar signal first, then climb the ladder of models one level at a time, and only as far as it pays.
-On www.cyrilvoyant.com
-The course, slide by slide: all 59 slides of the UE14 course with their text, outline and keyboard navigation; PowerPoint and PDF downloads.
-Le cours en français: the same course in French, slide by slide.
-Satellite forecasting: one cell or the whole field?: the story of how much space a satellite forecast needs, in plain words.
-All research stories: the results behind the course, classified by step of the approach.
-News: papers, software and essays, filterable by theme and year.
-Course UE14, Mines Paris – PSL, 2026 · taught in French · slides and Python/Matlab practicals
+In brief
+This page is the reproducible companion of the course: the questions it answers with their sources, the published research behind each chapter, the open code and how to cite. The course itself, all 59 slides with their text, the outline and the PowerPoint and PDF downloads, is on www.cyrilvoyant.com: in English · en français.
+Taught in UE14 (teaching unit 14: the applied research project of the Mines Paris – PSL engineering curriculum), on ten years of hourly measurements from Ajaccio (Corsica).
+One hour ahead, on the 2007 test year, daytime only, the nRMSE (root mean squared error as a percentage of mean irradiance) is 22.0% for smart persistence, 21.3% for an AR(2) model and 20.5% for an ELM: each step up the ladder of models must be measured against the step below.
+In plain words: satellite forecasting, one cell or the whole field? · all research stories.
+Course UE14, Mines Paris – PSL, 2026 · taught in French, slides in French and English · slides and Python/Matlab practicals
 How do you forecast solar irradiance one hour ahead, and how do you know whether your forecast is any good? This course answers both questions from scratch, on ten years of real hourly measurements from Ajaccio (Corsica, 1998–2007), and ends with the methods used in current research: difference to trend and ratio to trend (the clear-sky curve removed by subtraction or by division), forecastability (how much of the variability can be anticipated), NICE metrics (a forecast error divided by that of persistence), Extreme Learning Machines (neural networks with fixed random hidden weights), online learning and frugal AI.
 In English: Solar forecasting basics: a worked example on ten years of Ajaccio data, the whole course step by step with the real numbers.
 Questions answered in the course
 How do you forecast solar irradiance one hour ahead?
-Start by removing the deterministic solar cycle with a clear-sky model: the course uses the difference to trend (GHI: global horizontal irradiance; cs: clear sky), CSI = GHI − GHIcs (a ratio to trend GHI / GHIcs is the other common choice), then centres it. Fit an autoregressive model AR(p) on it by ordinary least squares, choosing the order p on data not used for testing (autocorrelation ACF, partial autocorrelation PACF, information criteria AIC/BIC). Compare it with persistence and smart persistence, and add a nonlinear model such as an Extreme Learning Machine only if it beats them. The methods are reviewed in Voyant et al., Renewable Energy 2017 (doi:10.1016/j.renene.2016.12.095 · BibTeX) and benchmarked in Voyant et al., Renewable Energy 2022 (doi:10.1016/j.renene.2022.04.065 · BibTeX).
+Start by removing the deterministic solar cycle with a clear-sky model: the course uses the difference to trend (GHI: global horizontal irradiance; cs: clear sky), CSI = GHI − GHIcs (a ratio to trend GHI / GHIcs is the other common choice), then centers it. Fit an autoregressive model AR(p) on it by ordinary least squares, choosing the order p on data not used for testing (the autocorrelation function ACF and the partial autocorrelation function PACF, which show how strongly a value depends on earlier ones; or the Akaike and Bayesian information criteria AIC and BIC, which penalize every extra parameter). Compare it with persistence and smart persistence, and add a nonlinear model such as an Extreme Learning Machine only if it beats them. The methods are reviewed in Voyant et al., Renewable Energy 2017 (doi:10.1016/j.renene.2016.12.095 · BibTeX) and benchmarked in Voyant et al., Renewable Energy 2022 (doi:10.1016/j.renene.2022.04.065 · BibTeX).
 What are difference to trend and ratio to trend in solar forecasting?
 Compare measured global horizontal irradiance with the clear-sky reference at the same place and time: use a difference to trend (CSI = GHI − GHIcs, used in the course: about 0 under clear sky, negative under clouds) or a ratio to trend (GHI / GHIcs). It removes most of the daily and annual cycle, so that statistical models work on the cloud-driven part. The choice of clear-sky model matters for short-term forecasts (Voyant et al., Solar Energy 2025, doi:10.1016/j.solener.2025.113490 · BibTeX).
 How do you know whether a solar forecast is good?
 Compare it with reference forecasts on the same samples: persistence and smart (clear-sky) persistence at least. Report normalized bias (nMBE) and error (nRMSE), a skill score against the reference, or the persistence-normalized NICEᵏ metrics, and say whether night hours are included.
 How variable and forecastable is solar irradiance at a site?
 The course measures site variability with the stochastic coefficient of variation (sCV) and a forecastability index F, introduced in Voyant et al., Renewable Energy 2026 (doi:10.1016/j.renene.2025.123913 · BibTeX). They help compare sites before comparing forecasting models.
-Course outline
-Why forecast solar power? Grid integration, irradiance vs irradiation vs PV output, the Ajaccio dataset.
-Solar radiation: direct and diffuse components, attenuation in the atmosphere, sun position, the double (daily and annual) seasonality of GHI.
-Time series and forecasting: components and decomposition, horizons and time steps, predictable part vs error, a worked AR(1) example.
-Clear sky: difference to trend and ratio to trend: the Solis clear-sky model, two ways to stationarize (difference or ratio), is the CSI stationary?, site variability with the stochastic coefficient of variation (sCV) and forecastability F, step-by-step preprocessing.
-Autoregressive models and least squares: from AR(p) to linear regression, building X and y by hand, ordinary least squares and its geometric meaning, train/validation/test split, choosing p with ACF, PACF, filter or wrapper approaches, AIC/BIC.
-Evaluation, ELM and online learning: reference models (persistence, smart persistence), nMBE, nRMSE, skill score and NICEΣ, day-only vs day-and-night scores, Extreme Learning Machines (principle, neurons, random draws, sin/cos time encoding), AR vs ELM, sliding-window online learning, frugality.
+The course outline, part by part and slide by slide, is on the course page (en français).
 What students take away
 A forecast is only useful if it beats a reference: always report persistence and smart persistence.
 Remove or encode the deterministic solar cycle before learning, and state how (difference, ratio, or time encoding).
@@ -3279,12 +3471,12 @@ Choose model complexity from data you have not tested on; report the protocol (d
 A smaller model that is refreshed often can rival a larger one: frugality is a design choice.
 Research behind the course
 Each chapter rests on published work by the author and colleagues:
-- C. Voyant et al., Machine learning methods for solar radiation forecasting: a review, Renewable Energy, 2017 · doi:10.1016/j.renene.2016.12.095 · BibTeX
-- C. Voyant et al., Benchmarks for solar radiation time series forecasting, Renewable Energy, 2022 · doi:10.1016/j.renene.2022.04.065 · BibTeX
-- C. Voyant et al., NICEk metrics, Sustainable Energy Technologies and Assessments, 2025 · doi:10.1016/j.seta.2025.104588 · BibTeX · guide
-- C. Voyant et al., Stochastic coefficient of variation: variability and forecastability of solar irradiance, Renewable Energy, 2026 · doi:10.1016/j.renene.2025.123913 · BibTeX
-- C. Voyant et al., On the importance of clearsky model in short-term solar radiation forecasting, Solar Energy, 2025 · doi:10.1016/j.solener.2025.113490 · BibTeX
-- C. Voyant et al., Symmetry-constrained forecasting of periodically correlated energy processes, Applied Mathematical Modelling, 2026 · doi:10.1016/j.apm.2026.116988 · BibTeX
+C. Voyant et al., Machine learning methods for solar radiation forecasting: a review, Renewable Energy, 2017 · doi:10.1016/j.renene.2016.12.095 · BibTeX
+C. Voyant et al., Benchmarks for solar radiation time series forecasting, Renewable Energy, 2022 · doi:10.1016/j.renene.2022.04.065 · BibTeX
+C. Voyant et al., NICEk metrics, Sustainable Energy Technologies and Assessments, 2025 · doi:10.1016/j.seta.2025.104588 · BibTeX · guide
+C. Voyant et al., Stochastic coefficient of variation: variability and forecastability of solar irradiance, Renewable Energy, 2026 · doi:10.1016/j.renene.2025.123913 · BibTeX
+C. Voyant et al., On the importance of clearsky model in short-term solar radiation forecasting, Solar Energy, 2025 · doi:10.1016/j.solener.2025.113490 · BibTeX
+C. Voyant et al., Symmetry-constrained forecasting of periodically correlated energy processes, Applied Mathematical Modelling, 2026 · doi:10.1016/j.apm.2026.116988 · BibTeX
 Guides: sCV and F · BLEND and CLIPER · γ-index · interactive comparison. Open code to go further: PV_ELM_pred (ELM benchmark), cyclostationary persistence, Make_Stationary.
 How to cite this course
 Voyant, C. (2026). Prévision de la ressource solaire intermittente [Forecasting the intermittent solar resource]. Course UE14, Mines Paris – PSL. https://cyrilvoyant.github.io/teaching/solar-forecasting-course.html
