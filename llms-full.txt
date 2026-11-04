@@ -51,7 +51,7 @@ Practical method guides
 Start here: solar forecasting, made simple, a guided route through the research, evidence and code.
 Full English explainers: PV dimensionality reduction · Frugal solar forecasting.
 Forecasting every source of an island grid at once: MIMO-ELM
-Why forecast thermal, imports, hydropower, solar, wind and the total together; SISO (one model per source), MIMO (one model for all sources) and MIMO-MH (one model for all sources and all horizons); a worked reconciliation example; EDF open data and open MATLAB/Python code. Based on the published Applied Energy article.
+Why forecast thermal, imports, hydropower, solar, wind and the total together; SISO (one model per source), MIMO (one model for all sources) and MIMO-MH (multi-horizon: one model for all sources and all horizons); a worked reconciliation example; EDF open data and open MATLAB/Python code. Based on the published Applied Energy article.
 Radioiodine therapy in metastatic thyroid cancer: the RAIR-Sim model
 Three equations for radioactive iodine activity, tumour cells and thyroglobulin, calibrated on 50 patients; an activity threshold that explains responding and refractory profiles; runnable Python and the original MATLAB. Work of Marie Fusella Giuntini and Dominique Barbolosi, with Cyril Voyant and David Taieb (Scientific Reports 2026).
 How variable is the sun, and how forecastable? sCV and F explained
@@ -353,7 +353,7 @@ sCV and forecastability F | 2 · The model at the core | published (Renewable En
 BLEND and CLIPER persistence references | 3 · Complexity only if it pays | published (AMM 2026) |
 ARTU and stochastic persistence | 3 · Complexity only if it pays | published (2018, 2022) |
 Clearsky-free forecasting with ELM | 3 · Complexity only if it pays | published (Solar Energy 2025) |
-MIMO-ELM and MIMO-MH | 4 · Every tool, at the periphery | published (Applied Energy 2026) / submission in progress |
+MIMO-ELM and MIMO-MH (multi-horizon) | 4 · Every tool, at the periphery | published (Applied Energy 2026) / submission in progress |
 Frugal forecasting benchmarks | 3 · Complexity only if it pays | open code, manuscript in preparation |
 How much space is enough (satellite) | 3 · Complexity only if it pays | open code, manuscript in preparation |
 Dimensionality reduction for PV | 3 · Complexity only if it pays | open code, manuscript in preparation |
@@ -465,7 +465,7 @@ sCV et prévisibilité F | 2 · Le modèle au cœur | publié (Renewable Energy 
 Références de persistance BLEND et CLIPER | 3 · La complexité seulement si elle paie | publié (AMM 2026) |
 ARTU et persistance stochastique | 3 · La complexité seulement si elle paie | publiés (2018, 2022) |
 Prévision sans modèle de ciel clair (ELM) | 3 · La complexité seulement si elle paie | publié (Solar Energy 2025) |
-MIMO-ELM et MIMO-MH | 4 · Tous les outils, en périphérie | publié (Applied Energy 2026) / en cours de soumission |
+MIMO-ELM et MIMO-MH (multi-horizon) | 4 · Tous les outils, en périphérie | publié (Applied Energy 2026) / en cours de soumission |
 Bancs d'essai frugaux | 3 · La complexité seulement si elle paie | code ouvert, manuscrit en préparation |
 Combien d'espace (satellite) | 3 · La complexité seulement si elle paie | code ouvert, manuscrit en préparation |
 Réduction de dimension pour le PV | 3 · La complexité seulement si elle paie | code ouvert, manuscrit en préparation |
@@ -1359,7 +1359,7 @@ Title: MIMO-ELM: forecasting every source of an island electricity grid at once
 Language: en
 Description: Multi-input multi-output extreme learning machines for the Corsican electricity mix: why forecast all sources together, SISO vs MIMO vs MIMO-MH…
 
-Solar forecasting explained · 22 October 2026 · Published article (MIMO) and manuscript, submission in progress (MIMO-MH) · open code and data
+Solar forecasting explained · 22 October 2026 · Published article (MIMO) and manuscript, submission in progress (MIMO-MH, multi-horizon) · open code and data
 MIMO-ELM: forecasting every source of an island electricity grid at once
 Principle 4 · Every tool, at the peripheryThe approachIn the story: when no equation links the sources, let the machine learn, simply, parsimoniously, frugally: one ELM forecasts seven grid signals at once (nRMSE 0.179 for solar, 0.051 for thermal, one hour ahead).
 In brief
